@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<data>
+  <teams>
+    <team id="0">
+      <name>Batmen</name>
+      <wins>0</wins>
+      <loses>0</loses>
+      <ties>0</ties>
+    </team>
+  </teams>
+  <players>
+    <player>
+      <name>Tirumari Jothi</name>
+      <stats>
+        <hits>0</hits>
+        <atbats>0</atbats>
+      </stats>
+    </player>
+  </players>
+</data>
