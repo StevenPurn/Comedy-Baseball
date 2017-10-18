@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPlayer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <player>
+    <battingAvg>0</battingAvg>
+    <name>Tirumari Jothi</name>
+    <atbats>0</atbats>
+    <hits>10</hits>
+  </player>
+  <player>
+    <battingAvg>0</battingAvg>
+    <name>Davey Jones</name>
+    <atbats>5</atbats>
+    <hits>3</hits>
+  </player>
+</ArrayOfPlayer>

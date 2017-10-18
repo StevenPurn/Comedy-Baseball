@@ -1,12 +1,24 @@
-﻿using System.Collections;
+﻿using System.Xml.Serialization;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Team : MonoBehaviour {
+[XmlType("team")]
+public class Team
+{
+    public static string xmlRoot = "teams";
+
+    [XmlElement("id")]
+    public int id { get; set; }
+
+    [XmlElement("name")]
+    public string name { get; set; }
+
+    [XmlElement("wins")]
+    public int wins { get; set; }
+    [XmlElement("loses")]
+    public int loses { get; set; }
+    [XmlElement("ties")]
+    public int ties { get; set; }
 
     public List<Player> players = new List<Player>();
-    new public string name;
-    public int score;
-    public Inning[] innings = new Inning[GameControl.numberOfInnings];
-    
+    public int score = 0;
 }
