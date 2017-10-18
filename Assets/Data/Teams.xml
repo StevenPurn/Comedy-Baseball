@@ -22,4 +22,48 @@
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
   </team>
+  <team>
+    <id>3</id>
+    <name>Funny Gals</name>
+    <wins>0</wins>
+    <loses>0</loses>
+    <ties>0</ties>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
+  </team>
+  <team>
+    <id>4</id>
+    <name>Komedians</name>
+    <wins>0</wins>
+    <loses>0</loses>
+    <ties>0</ties>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
+  </team>
+  <team>
+    <id>5</id>
+    <name>Lame Peeps</name>
+    <wins>0</wins>
+    <loses>0</loses>
+    <ties>0</ties>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
+  </team>
+  <team>
+    <id>6</id>
+    <name>Rangers</name>
+    <wins>0</wins>
+    <loses>0</loses>
+    <ties>0</ties>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
+  </team>
 </ArrayOfTeam>

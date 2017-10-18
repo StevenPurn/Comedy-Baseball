@@ -49,4 +49,9 @@ public class GameControl : MonoBehaviour {
     {
         DataHandler.SaveData(filePath, obj);
     }
+
+    void AddActiveTeams(ActiveTeam team)
+    {
+        activeTeams.Add(team);
+    }
 }
