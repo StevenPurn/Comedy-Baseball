@@ -21,11 +21,11 @@ public class MenuControl : MonoBehaviour {
 
     public void AdvanceToNextScene(string nextScene)
     {
-        SetupTeams();
         if (CheckForIssues())
         {
             return;
         }
+        SetupTeams();
         SceneManager.LoadScene(nextScene);
     }
     //Prevent players from being listed on a team multiple times
@@ -77,7 +77,7 @@ public class MenuControl : MonoBehaviour {
                 aTeam.name = team.name;
                 AddPlayers(aTeam, 1);
                 GameControl.instance.activeTeams.Add(aTeam);
-                return;
+                break;
             }
         }
 
@@ -89,7 +89,7 @@ public class MenuControl : MonoBehaviour {
                 aTeam.name = team.name;
                 AddPlayers(aTeam, 2);
                 GameControl.instance.activeTeams.Add(aTeam);
-                return;
+                break;
             }
         }
     }
