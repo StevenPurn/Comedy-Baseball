@@ -5,11 +5,15 @@
     <name>Tirumari Jothi</name>
     <atbats>0</atbats>
     <hits>10</hits>
+    <pitches>0</pitches>
+    <strikeouts>0</strikeouts>
   </player>
   <player>
     <battingAvg>0</battingAvg>
     <name>Davey Jones</name>
     <atbats>5</atbats>
     <hits>3</hits>
+    <pitches>0</pitches>
+    <strikeouts>0</strikeouts>
   </player>
 </ArrayOfPlayer>

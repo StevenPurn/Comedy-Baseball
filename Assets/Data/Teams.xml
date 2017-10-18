@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfTeam xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <team>
-    <players />
-    <score>0</score>
     <id>1</id>
     <name>Batmen</name>
     <wins>0</wins>
     <loses>100</loses>
     <ties>0</ties>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
   </team>
   <team>
-    <players />
-    <score>0</score>
     <id>2</id>
     <name>Funny Guys</name>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
   </team>
 </ArrayOfTeam>

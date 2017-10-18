@@ -1,21 +1,21 @@
-﻿using System.Xml.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using System.Xml.Serialization;
 
 public class GameControl : MonoBehaviour {
 
-    public static int numberOfInnings;
+    public static int numberOfInnings = 3;
     public static GameControl instance;
-    public string teamFilePath, playerFilePath;
+    public string teamFilePath = "/Data/Teams.xml";
+    public string playerFilePath = "/Data/Players.xml";
     public List<Team> teams = new List<Team>();
     public List<Player> players = new List<Player>();
+    public List<ActiveTeam> activeTeams = new List<ActiveTeam>();
+    public List<ActivePlayer> activePlayers = new List<ActivePlayer>();
 
-	// Use this for initialization
-	void Start () {
+	void Awake () {
         if (instance != null)
         {
-            Debug.LogWarning("Multiple Game Controls");
+            Destroy(gameObject);
         }
         else
         {
@@ -26,6 +26,7 @@ public class GameControl : MonoBehaviour {
 
         PopulateTeamList();
         PopulatePlayerList();
+        Save();
     }
 	
     void Save()
