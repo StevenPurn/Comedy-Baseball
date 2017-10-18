@@ -5,8 +5,10 @@ public class ActiveTeam
 {
     public string name;
     public List<ActivePlayer> players = new List<ActivePlayer>();
+    //Might need to make this a list so we can dynamically change the number of innings
+    public Inning[] innings = new Inning[GameControl.numberOfInnings];
     public int score = 0;
-    public bool battingThisInning;
+    public bool currentlyAtBat;
 
     public void AddPlayer(ActivePlayer player)
     {

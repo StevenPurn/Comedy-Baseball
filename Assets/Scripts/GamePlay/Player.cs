@@ -17,4 +17,6 @@ public class Player {
     public int pitches { get; set; }
     [XmlElement("strikeouts")]
     public int strikeouts { get; set; }
+    [XmlElement("portraitPath")]
+    public string portraitPath;
 }

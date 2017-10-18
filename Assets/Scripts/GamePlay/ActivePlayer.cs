@@ -1,6 +1,7 @@
 ﻿public class ActivePlayer
 {
     public string name;
+    public string portraitPath;
     public bool isAtBat;
     public int atBats;
     public int strikeoutsAtBat;

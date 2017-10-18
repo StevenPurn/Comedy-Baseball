@@ -7,10 +7,12 @@ public class MenuControl : MonoBehaviour {
     [Header("Team 1")]
     public Dropdown team1;
     public Dropdown t1player1, t1player2, t1player3;
+    public Toggle t1Toggle;
 
     [Header("Team 2")]
     public Dropdown team2;
     public Dropdown t2player1, t2player2, t2player3;
+    public Toggle t2Toggle;
 
     [Header("Error Text")]
     public GameObject errorObj;
@@ -75,6 +77,7 @@ public class MenuControl : MonoBehaviour {
             {
                 ActiveTeam aTeam = new ActiveTeam();
                 aTeam.name = team.name;
+                aTeam.currentlyAtBat = t1Toggle.isOn;
                 AddPlayers(aTeam, 1);
                 GameControl.instance.activeTeams.Add(aTeam);
                 break;
@@ -87,6 +90,7 @@ public class MenuControl : MonoBehaviour {
             {
                 ActiveTeam aTeam = new ActiveTeam();
                 aTeam.name = team.name;
+                aTeam.currentlyAtBat = t2Toggle.isOn;
                 AddPlayers(aTeam, 2);
                 GameControl.instance.activeTeams.Add(aTeam);
                 break;

@@ -7,6 +7,7 @@ public class GameControl : MonoBehaviour {
     public static GameControl instance;
 
     public static int numberOfInnings = 3;
+    public static Inning curInning;
     public string teamFilePath = "/Data/Teams.xml";
     public string playerFilePath = "/Data/Players.xml";
     //Teams & players that exist in the xml files
@@ -74,6 +75,8 @@ public class GameControl : MonoBehaviour {
     }
 
     //Respond to hits based on input from Umpire
+    //Should add enum for on base/fly out/ground out
+    //Can also switch to next batter or next team if there are 3 outs
     public void HandleHit(int bases)
     {
         switch (bases)
@@ -85,7 +88,7 @@ public class GameControl : MonoBehaviour {
                 Debug.Log("Player hit a double");
                 break;
             case 3:
-                Debug.Log("Player hit a Triple");
+                Debug.Log("Player hit a triple");
                 break;
             case 4:
                 Debug.Log("Player hit a homerun");
@@ -93,6 +96,61 @@ public class GameControl : MonoBehaviour {
             default:
                 Debug.Log("Invalid hit");
                 break;
+        }
+    }
+
+    public void NextBatter()
+    {
+        int teamAtBat;
+
+        if (activeTeams[0].currentlyAtBat)
+        {
+            teamAtBat = 0;
+        }
+        else
+        {
+            teamAtBat = 1;
+        }
+
+        int curBatter = GetCurrentBatter();
+        if(curBatter + 2 > activeTeams[teamAtBat].players.Count)
+        {
+            curBatter = 0;
+        }
+
+        activeTeams[teamAtBat].players[curBatter].isAtBat = true;
+    }
+
+    int GetCurrentBatter()
+    {
+        int teamAtBat;
+        if (activeTeams[0].currentlyAtBat)
+        {
+            teamAtBat = 0;
+        }
+        else
+        {
+            teamAtBat = 1;
+        }
+
+        for (int i = 0; i < activeTeams[teamAtBat].players.Count; i++)
+        {
+            if (activeTeams[teamAtBat].players[i].isAtBat)
+            {
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    void SwitchTeamAtBat()
+    {
+        activeTeams[0].currentlyAtBat = !activeTeams[0].currentlyAtBat;
+        activeTeams[1].currentlyAtBat = !activeTeams[1].currentlyAtBat;
+
+        if(activeTeams[0].currentlyAtBat && activeTeams[1].currentlyAtBat)
+        {
+            Debug.LogWarning("Both teams are batting");
         }
     }
 }

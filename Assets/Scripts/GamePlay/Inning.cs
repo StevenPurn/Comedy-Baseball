@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Inning : MonoBehaviour {
 
-
     public bool isBottom = false;
     public int score;
     public int outs;
