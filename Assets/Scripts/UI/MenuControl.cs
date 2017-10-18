@@ -20,11 +20,11 @@ public class MenuControl : MonoBehaviour {
     //Go to the next scene unless there are invalid selections
     public void AdvanceToNextScene(string nextScene)
     {
-        SetupTeams();
         if (CheckForIssues())
         {
             return;
         }
+        SetupTeams();
         SceneManager.LoadScene(nextScene);
     }
 
