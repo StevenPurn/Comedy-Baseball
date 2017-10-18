@@ -61,9 +61,16 @@ public class GameControl : MonoBehaviour {
     }
 
     //Add team to list of participating teams
-    void AddActiveTeams(ActiveTeam team)
+    void AddActiveTeams(ActiveTeam team)    
     {
         activeTeams.Add(team);
+        foreach (var aTeam in activeTeams)
+        {
+            foreach (var player in aTeam.players)
+            {
+                Debug.Log(player.name);
+            }
+        }
     }
 
     //Respond to hits based on input from Umpire

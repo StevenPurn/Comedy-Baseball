@@ -1,8 +1,6 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
-using System.Linq;
 
 public class MenuControl : MonoBehaviour {
 
@@ -19,6 +17,7 @@ public class MenuControl : MonoBehaviour {
     public Text errorText;
     public string error;
 
+    //Go to the next scene unless there are invalid selections
     public void AdvanceToNextScene(string nextScene)
     {
         SetupTeams();
@@ -28,7 +27,8 @@ public class MenuControl : MonoBehaviour {
         }
         SceneManager.LoadScene(nextScene);
     }
-    //Prevent players from being listed on a team multiple times
+
+    //Prevent players from being chosen twice
     //or the same team being selected in both options
     bool CheckForIssues()
     {
@@ -77,7 +77,7 @@ public class MenuControl : MonoBehaviour {
                 aTeam.name = team.name;
                 AddPlayers(aTeam, 1);
                 GameControl.instance.activeTeams.Add(aTeam);
-                return;
+                break;
             }
         }
 
@@ -89,7 +89,7 @@ public class MenuControl : MonoBehaviour {
                 aTeam.name = team.name;
                 AddPlayers(aTeam, 2);
                 GameControl.instance.activeTeams.Add(aTeam);
-                return;
+                break;
             }
         }
     }
