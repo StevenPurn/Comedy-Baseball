@@ -1,7 +1,13 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
 
-public static class DataHandler {
+public static class DataHandler
+{
+
+    public static void SaveData(string filePath, object obj)
+    {
+        SaveToXML(filePath, obj);
+    }
 
     private static void SaveToXML(string filePath, object obj, bool appendFile = false)
     {
@@ -13,18 +19,13 @@ public static class DataHandler {
         }
     }
 
-    public static void SaveData(string filePath, object obj)
-    {
-        SaveToXML(filePath, obj);
-    }
-
     public static T LoadData<T>(string filePath, string xmlRoot)
     {
         T result = LoadFromXML<T>(filePath, xmlRoot);
         return result;
     }
 
-    public static T LoadFromXML<T>(string filePath, string xmlRoot)
+    private static T LoadFromXML<T>(string filePath, string xmlRoot)
     {
         T result;
         using (var reader = new StreamReader(filePath))

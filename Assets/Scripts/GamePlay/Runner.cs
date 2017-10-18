@@ -14,6 +14,7 @@ public class Runner : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
     }
 
+    //Set next base as a target
     public void AdvanceBase()
     {
         if(currentBase == null)
@@ -32,6 +33,7 @@ public class Runner : MonoBehaviour {
         }
     }
 
+    //Move player towards next base if they have one
     private void Update()
     {
         if (target != null)

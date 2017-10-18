@@ -6,10 +6,9 @@ using System.Collections.Generic;
 public class PopulateDropdown : MonoBehaviour {
 
     public string type;
-
     private Dropdown dropDown;
 
-	// Use this for initialization
+	//Add all items from xml files to the dropdown lists
 	void Start () {
         dropDown = GetComponent<Dropdown>();
         List<string> items = new List<string>();

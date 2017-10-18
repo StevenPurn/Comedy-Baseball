@@ -6,6 +6,7 @@ public class ActiveTeam
     public string name;
     public List<ActivePlayer> players = new List<ActivePlayer>();
     public int score = 0;
+    public bool battingThisInning;
 
     public void AddPlayer(ActivePlayer player)
     {
