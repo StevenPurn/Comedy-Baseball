@@ -1,4 +1,7 @@
-﻿public class ActivePlayer
+﻿/// <summary>
+///  The players currently participating in the game.
+/// </summary>
+public class ActivePlayer
 {
     public string name;
     public string portraitPath;

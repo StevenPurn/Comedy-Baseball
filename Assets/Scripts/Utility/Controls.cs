@@ -13,7 +13,8 @@ public static class Controls {
         { "Single", KeyCode.Alpha1 },
         { "Double", KeyCode.Alpha2 },
         { "Triple", KeyCode.Alpha3 },
-        { "Homerun", KeyCode.Alpha4 }
+        { "Homerun", KeyCode.Alpha4 },
+        { "Foul", KeyCode.F }
     };
 
     public static bool GetButtonDown(string button)

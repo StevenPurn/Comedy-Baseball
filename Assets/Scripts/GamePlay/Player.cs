@@ -1,5 +1,8 @@
 ﻿using System.Xml.Serialization;
 
+/// <summary>
+///  The players that exist in the XML file.
+/// </summary>
 [XmlType("player")]
 public class Player {
 

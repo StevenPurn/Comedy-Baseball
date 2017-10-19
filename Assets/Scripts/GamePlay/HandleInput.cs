@@ -20,5 +20,17 @@ public class HandleInput : MonoBehaviour
         {
             GameControl.instance.HandleHit(4);
         }
+        else if (Controls.GetButtonDown("Foul"))
+        {
+            GameControl.instance.HandleStrike(true);
+        }
+        else if (Controls.GetButtonDown("Strike"))
+        {
+            GameControl.instance.HandleStrike();
+        }
+        else if (Controls.GetButtonDown("Ball"))
+        {
+
+        }
 	}
 }

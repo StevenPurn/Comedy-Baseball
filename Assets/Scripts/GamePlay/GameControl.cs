@@ -8,6 +8,7 @@ public class GameControl : MonoBehaviour {
 
     public static int numberOfInnings = 3;
     public static Inning curInning;
+    public static int strikes, balls, outs;
     public string teamFilePath = "/Data/Teams.xml";
     public string playerFilePath = "/Data/Players.xml";
     //Teams & players that exist in the xml files
@@ -82,56 +83,58 @@ public class GameControl : MonoBehaviour {
         switch (bases)
         {
             case 1:
-                Debug.Log("Player hit a single");
+                //Play animation of player running to first
+                //Advance other runners if not forces?
+                //Debug.Log("Player hit a single");
                 break;
             case 2:
-                Debug.Log("Player hit a double");
+                //Debug.Log("Player hit a double");
+                ResetCount();
                 break;
             case 3:
-                Debug.Log("Player hit a triple");
+                //Debug.Log("Player hit a triple");
+                ResetCount();
                 break;
             case 4:
-                Debug.Log("Player hit a homerun");
+                //Debug.Log("Player hit a homerun");
+                ResetCount();
                 break;
             default:
-                Debug.Log("Invalid hit");
+                //Debug.Log("Invalid hit");
                 break;
         }
+
+        NextBatter();
+        ResetCount();
     }
 
     public void NextBatter()
     {
-        int teamAtBat;
-
-        if (activeTeams[0].currentlyAtBat)
-        {
-            teamAtBat = 0;
-        }
-        else
-        {
-            teamAtBat = 1;
-        }
+        int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
 
         int curBatter = GetCurrentBatter();
-        if(curBatter + 2 > activeTeams[teamAtBat].players.Count)
+        Debug.Log("index of current batter is: " + curBatter);
+        Debug.Log("count of batters on team is: " + activeTeams[teamAtBat].players.Count);
+        if(curBatter + 1 == activeTeams[teamAtBat].players.Count)
         {
             curBatter = 0;
         }
+        else
+        {
+            curBatter += 1;
+        }
 
+        foreach (var player in activeTeams[teamAtBat].players)
+        {
+            player.isAtBat = false;
+        }
         activeTeams[teamAtBat].players[curBatter].isAtBat = true;
+        Debug.Log("Currently batting: " + activeTeams[teamAtBat].players[curBatter].name + " for " + activeTeams[teamAtBat].name);
     }
 
     int GetCurrentBatter()
     {
-        int teamAtBat;
-        if (activeTeams[0].currentlyAtBat)
-        {
-            teamAtBat = 0;
-        }
-        else
-        {
-            teamAtBat = 1;
-        }
+        int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
 
         for (int i = 0; i < activeTeams[teamAtBat].players.Count; i++)
         {
@@ -151,6 +154,58 @@ public class GameControl : MonoBehaviour {
         if(activeTeams[0].currentlyAtBat && activeTeams[1].currentlyAtBat)
         {
             Debug.LogWarning("Both teams are batting");
+        }else if(activeTeams[0].currentlyAtBat && activeTeams[1].currentlyAtBat)
+        {
+            Debug.LogWarning("Neither team is batting");
         }
+    }
+
+    public void HandleStrike(bool wasFoul = false)
+    {
+        strikes += 1;
+        if(strikes >= 3)
+        {
+            if (wasFoul)
+            {
+                strikes = 2;
+            }
+            else
+            {
+                outs += 1;
+                Debug.Log("There are " + outs + " outs");
+                ResetCount();
+                NextBatter();
+                if(outs >= 3)
+                {
+                    Debug.Log("Resetting Inning");
+                    ResetInning();
+                }
+            }
+        }
+    }
+
+    public void HandleBall()
+    {
+        balls += 1;
+        if (balls >= 4)
+        {
+            balls = 4;
+        }
+
+        //Walk batter to 1st base & reset count
+    }
+
+    void ResetCount()
+    {
+        Debug.Log("Count reset");
+        balls = 0;
+        strikes = 0;
+    } 
+
+    void ResetInning()
+    {
+        SwitchTeamAtBat();
+        Debug.Log("Inning reset");
+        outs = 0;
     }
 }
