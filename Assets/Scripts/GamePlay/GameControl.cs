@@ -39,8 +39,41 @@ public class GameControl : MonoBehaviour {
     void Save()
     {
         //Need to update the list based on data from Active lists before saving
+
+        foreach (var aTeam in activeTeams)
+        {
+            foreach (var team in teams)
+            {
+                if(aTeam.name == team.name)
+                {
+                    UpdateTeamData(aTeam, team);
+                }
+            }
+        }
+
+        foreach (var aPlayer in activePlayers)
+        {
+            foreach (var player in players)
+            {
+                if (aPlayer.name == player.name)
+                {
+                    UpdatePlayerData(aPlayer, player);
+                }
+            }
+        }
+
         SaveData(teamFilePath, teams);
         SaveData(playerFilePath, players);
+    }
+
+    void UpdateTeamData(ActiveTeam aTeam, Team team)
+    {
+        //Set values of the team to account for updated values in active team
+    }
+
+    void UpdatePlayerData(ActivePlayer aPlayer, Player player)
+    {
+        //Set values of player to account for updated values in active player
     }
 
     //Load team data

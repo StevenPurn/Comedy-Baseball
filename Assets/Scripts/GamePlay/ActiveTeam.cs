@@ -8,6 +8,7 @@ public class ActiveTeam
     //Might need to make this a list so we can dynamically change the number of innings
     public Inning[] innings = new Inning[GameControl.numberOfInnings];
     public int score = 0;
+    public int hits;
     public bool currentlyAtBat;
 
     public void AddPlayer(ActivePlayer player)
@@ -41,8 +42,6 @@ public class ActiveTeam
 
     public int GetHits()
     {
-        int hits = 0;
-
         foreach (var player in players)
         {
             hits += player.hits;
