@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameControl : MonoBehaviour {
@@ -33,13 +34,12 @@ public class GameControl : MonoBehaviour {
 
         PopulateTeamList();
         PopulatePlayerList();
+        curInning.inningNumber = 1;
     }
 	
     //Save list of teams & players to respective xml files
     void Save()
     {
-        //Need to update the list based on data from Active lists before saving
-
         foreach (var aTeam in activeTeams)
         {
             foreach (var team in teams)
@@ -69,11 +69,13 @@ public class GameControl : MonoBehaviour {
     void UpdateTeamData(ActiveTeam aTeam, Team team)
     {
         //Set values of the team to account for updated values in active team
+        throw new NotImplementedException();
     }
 
     void UpdatePlayerData(ActivePlayer aPlayer, Player player)
     {
         //Set values of player to account for updated values in active player
+        throw new NotImplementedException();
     }
 
     //Load team data
@@ -122,21 +124,17 @@ public class GameControl : MonoBehaviour {
                 break;
             case 2:
                 //Debug.Log("Player hit a double");
-                ResetCount();
                 break;
             case 3:
                 //Debug.Log("Player hit a triple");
-                ResetCount();
                 break;
             case 4:
                 //Debug.Log("Player hit a homerun");
-                ResetCount();
                 break;
             default:
                 //Debug.Log("Invalid hit");
                 break;
         }
-
         NextBatter();
         ResetCount();
     }
@@ -237,8 +235,37 @@ public class GameControl : MonoBehaviour {
 
     void ResetInning()
     {
+        if (curInning.isBottom)
+        {
+            if(curInning.inningNumber >= numberOfInnings)
+            {
+                GameOver();
+            }
+            curInning.inningNumber += 1;
+            curInning.isBottom = false;
+        }
+        else
+        {
+            if (curInning.inningNumber >= numberOfInnings)
+            {
+                int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
+                int teamNotBatting = activeTeams[0].currentlyAtBat ? 1 : 0;
+                if (activeTeams[teamAtBat].score < activeTeams[teamNotBatting].score)
+                {
+                    GameOver();
+                }
+            }
+            curInning.isBottom = true;
+        }
+
         SwitchTeamAtBat();
         Debug.Log("Inning reset");
         outs = 0;
+    }
+
+    void GameOver()
+    {
+        ActiveTeam winner = activeTeams[0].score > activeTeams[1].score ? activeTeams[0] : activeTeams[1];
+        Debug.Log("Winner is: " + winner.name);
     }
 }
