@@ -53,3 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamFilePath: /Data/Teams.xml
   playerFilePath: /Data/Players.xml
+  runnerPrefab: {fileID: 1498871029291636, guid: 65799857900d41f49b828115812af325,
+    type: 2}
+  battersBox: {fileID: 0}
+  runners: []

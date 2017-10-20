@@ -6,21 +6,32 @@ public class GameControl : MonoBehaviour {
 
     //Fake singleton implementation
     public static GameControl instance;
-
+    //Static variables
     public static int numberOfInnings = 3;
     public static Inning curInning;
     public static int strikes, balls, outs;
+    //Save location for team & player files
     public string teamFilePath = "/Data/Teams.xml";
     public string playerFilePath = "/Data/Players.xml";
+    public GameObject runnerPrefab;
+    public Transform battersBox;
     //Teams & players that exist in the xml files
     public List<Team> teams = new List<Team>();
     public List<Player> players = new List<Player>();
     //Teams/players participating in this game
     public List<ActiveTeam> activeTeams = new List<ActiveTeam>();
     public List<ActivePlayer> activePlayers = new List<ActivePlayer>();
+    //List of runners in the game at the moment
+    public List<Runner> runners = new List<Runner>();
+
+    public Dictionary<TeamColor, Color> teamColors = new Dictionary<TeamColor, Color>()
+    {
+        {TeamColor.red, Color.red },
+        {TeamColor.blue, Color.blue }
+    };
 
     //Load player & team data from xml files
-	void Awake () {
+    void Awake () {
         if (instance != null)
         {
             Destroy(gameObject);
@@ -36,7 +47,8 @@ public class GameControl : MonoBehaviour {
         PopulatePlayerList();
         curInning.inningNumber = 1;
     }
-	
+
+#region SaveLoad
     //Save list of teams & players to respective xml files
     void Save()
     {
@@ -78,6 +90,13 @@ public class GameControl : MonoBehaviour {
         throw new NotImplementedException();
     }
 
+    //Save data to xml file
+    void SaveData(string filePath, System.Object obj)
+    {
+        //Add new data to active teams & players
+        DataHandler.SaveData(filePath, obj);
+    }
+
     //Load team data
     void PopulateTeamList()
     {
@@ -89,13 +108,7 @@ public class GameControl : MonoBehaviour {
     {
         players = DataHandler.LoadData<List<Player>>(playerFilePath, Player.xmlRoot);
     }
-
-    //Save data to xml file
-    void SaveData(string filePath, System.Object obj)
-    {
-        //Add new data to active teams & players
-        DataHandler.SaveData(filePath, obj);
-    }
+#endregion
 
     //Add team to list of participating teams
     void AddActiveTeams(ActiveTeam team)    
@@ -108,6 +121,124 @@ public class GameControl : MonoBehaviour {
                 Debug.Log(player.name);
             }
         }
+    }
+
+    void NextBatter()
+    {
+        int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
+        int curBatter = GetCurrentBatter();
+        if(curBatter + 1 == activeTeams[teamAtBat].players.Count)
+        {
+            curBatter = 0;
+        }
+        else
+        {
+            curBatter += 1;
+        }
+
+        foreach (var player in activeTeams[teamAtBat].players)
+        {
+            player.isAtBat = false;
+        }
+
+        foreach (var runner in runners)
+        {
+            runner.atBat = false;
+        }
+
+        activeTeams[teamAtBat].players[curBatter].isAtBat = true;
+        Debug.Log("Currently batting: " + activeTeams[teamAtBat].players[curBatter].name + " for " + activeTeams[teamAtBat].name);
+        GameObject go = Instantiate(runnerPrefab, battersBox.position, Quaternion.identity);
+    }
+
+    int GetCurrentBatter()
+    {
+        int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
+
+        for (int i = 0; i < activeTeams[teamAtBat].players.Count; i++)
+        {
+            if (activeTeams[teamAtBat].players[i].isAtBat)
+            {
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    ActivePlayer GetCurrentBattingPlayer()
+    {
+        int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
+
+        for (int i = 0; i < activeTeams[teamAtBat].players.Count; i++)
+        {
+            if (activeTeams[teamAtBat].players[i].isAtBat)
+            {
+                return activeTeams[teamAtBat].players[i];
+            }
+        }
+        return null;
+    }
+
+    void SwitchTeamAtBat()
+    {
+        activeTeams[0].currentlyAtBat = !activeTeams[0].currentlyAtBat;
+        activeTeams[1].currentlyAtBat = !activeTeams[1].currentlyAtBat;
+
+        if(activeTeams[0].currentlyAtBat && activeTeams[1].currentlyAtBat)
+        {
+            Debug.LogWarning("Both teams are batting");
+        }else if(activeTeams[0].currentlyAtBat && activeTeams[1].currentlyAtBat)
+        {
+            Debug.LogWarning("Neither team is batting");
+        }
+    }
+
+#region HandleInput
+
+    public void HandleStrike(bool wasFoul = false)
+    {
+        strikes += 1;
+        if (strikes >= 3)
+        {
+            if (wasFoul)
+            {
+                strikes = 2;
+            }
+            else
+            {
+                HandleOut();
+            }
+        }
+    }
+
+    //Need to add potential for advancing runners on base during an out
+    public void HandleOut()
+    {
+        outs += 1;
+        Debug.Log("There are " + outs + " outs");
+        ResetCount();
+        NextBatter();
+        if (outs >= 3)
+        {
+            Debug.Log("Resetting Inning");
+            ResetInning();
+        }
+    }
+
+    public void HandleBall()
+    {
+        balls += 1;
+        if (balls >= 4)
+        {
+            balls = 4;
+        }
+
+        //Walk batter to 1st base & reset count
+    }
+
+    public void FastForward()
+    {
+        Time.timeScale = 1.2f;
     }
 
     //Respond to hits based on input from Umpire
@@ -139,92 +270,7 @@ public class GameControl : MonoBehaviour {
         ResetCount();
     }
 
-    public void NextBatter()
-    {
-        int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
-
-        int curBatter = GetCurrentBatter();
-        Debug.Log("index of current batter is: " + curBatter);
-        Debug.Log("count of batters on team is: " + activeTeams[teamAtBat].players.Count);
-        if(curBatter + 1 == activeTeams[teamAtBat].players.Count)
-        {
-            curBatter = 0;
-        }
-        else
-        {
-            curBatter += 1;
-        }
-
-        foreach (var player in activeTeams[teamAtBat].players)
-        {
-            player.isAtBat = false;
-        }
-        activeTeams[teamAtBat].players[curBatter].isAtBat = true;
-        Debug.Log("Currently batting: " + activeTeams[teamAtBat].players[curBatter].name + " for " + activeTeams[teamAtBat].name);
-    }
-
-    int GetCurrentBatter()
-    {
-        int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
-
-        for (int i = 0; i < activeTeams[teamAtBat].players.Count; i++)
-        {
-            if (activeTeams[teamAtBat].players[i].isAtBat)
-            {
-                return i;
-            }
-        }
-        return 0;
-    }
-
-    void SwitchTeamAtBat()
-    {
-        activeTeams[0].currentlyAtBat = !activeTeams[0].currentlyAtBat;
-        activeTeams[1].currentlyAtBat = !activeTeams[1].currentlyAtBat;
-
-        if(activeTeams[0].currentlyAtBat && activeTeams[1].currentlyAtBat)
-        {
-            Debug.LogWarning("Both teams are batting");
-        }else if(activeTeams[0].currentlyAtBat && activeTeams[1].currentlyAtBat)
-        {
-            Debug.LogWarning("Neither team is batting");
-        }
-    }
-
-    public void HandleStrike(bool wasFoul = false)
-    {
-        strikes += 1;
-        if(strikes >= 3)
-        {
-            if (wasFoul)
-            {
-                strikes = 2;
-            }
-            else
-            {
-                outs += 1;
-                Debug.Log("There are " + outs + " outs");
-                ResetCount();
-                NextBatter();
-                if(outs >= 3)
-                {
-                    Debug.Log("Resetting Inning");
-                    ResetInning();
-                }
-            }
-        }
-    }
-
-    public void HandleBall()
-    {
-        balls += 1;
-        if (balls >= 4)
-        {
-            balls = 4;
-        }
-
-        //Walk batter to 1st base & reset count
-    }
+    #endregion
 
     void ResetCount()
     {

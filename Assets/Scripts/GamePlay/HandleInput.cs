@@ -30,7 +30,20 @@ public class HandleInput : MonoBehaviour
         }
         else if (Controls.GetButtonDown("Ball"))
         {
+            GameControl.instance.HandleBall();
+        }
+        else if (Controls.GetButtonDown("Out"))
+        {
+            GameControl.instance.HandleOut();
+        }
+        else if (Controls.GetButtonDown("Steal"))
+        {
 
+        }
+
+        if (Controls.GetButton("FastForward"))
+        {
+            GameControl.instance.FastForward();
         }
 	}
 }
