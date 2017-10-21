@@ -78,6 +78,7 @@ public class MenuControl : MonoBehaviour {
                 ActiveTeam aTeam = new ActiveTeam();
                 aTeam.name = team.name;
                 aTeam.currentlyAtBat = t1Toggle.isOn;
+                aTeam.score = 0;
                 AddPlayers(aTeam, 1);
                 GameControl.instance.activeTeams.Add(aTeam);
                 break;
@@ -90,6 +91,7 @@ public class MenuControl : MonoBehaviour {
             {
                 ActiveTeam aTeam = new ActiveTeam();
                 aTeam.name = team.name;
+                aTeam.score = 0;
                 aTeam.currentlyAtBat = t2Toggle.isOn;
                 AddPlayers(aTeam, 2);
                 GameControl.instance.activeTeams.Add(aTeam);

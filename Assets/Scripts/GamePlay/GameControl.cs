@@ -149,13 +149,16 @@ public class GameControl : MonoBehaviour {
             runner.atBat = false;
         }
 
+        AddBatterToField();
         activeTeams[teamAtBat].players[curBatter].isAtBat = true;
+    }
 
-        if(battersBox == null)
+    public void AddBatterToField()
+    {
+        if (battersBox == null)
         {
             battersBox = GameObject.Find("BattersBox").transform;
         }
-
         GameObject go = Instantiate(runnerPrefab, battersBox.position, Quaternion.identity);
         Field.runners.Add(go.GetComponent<Runner>());
     }
@@ -231,7 +234,6 @@ public class GameControl : MonoBehaviour {
         changeCountEvent();
         if (outs >= 3)
         {
-            Debug.Log("Resetting Inning");
             ResetInning();
         }
     }
@@ -287,7 +289,8 @@ public class GameControl : MonoBehaviour {
     public void ChangeTeamScore(int change)
     {
         int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
-        activeTeams[teamAtBat].score = change;
+        activeTeams[teamAtBat].score += change;
+        changeCountEvent();
     }
 
     #endregion
@@ -325,7 +328,9 @@ public class GameControl : MonoBehaviour {
         }
 
         SwitchTeamAtBat();
+        Field.ResetInning();
         outs = 0;
+        AddBatterToField();
     }
 
     void GameOver()

@@ -10,5 +10,6 @@ public class SetUpField : MonoBehaviour {
 	void Start ()
     {
         Field.bases = bases;
+        GameControl.instance.AddBatterToField();
 	}
 }

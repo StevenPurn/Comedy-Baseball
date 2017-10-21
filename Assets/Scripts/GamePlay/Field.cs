@@ -19,11 +19,15 @@ public static class Field {
         {
             if (runner.currentBase > 0)
             {
-                if (bases[runner.currentBase - 1] != null && bases[runner.currentBase - 1].isOccupied)
+                if(runner.currentBase == 1)
+                {
+                    runnersToAdvance.Add(runner);
+                }else if (bases[runner.currentBase - 1] != null && bases[runner.currentBase - 1].isOccupied)
                 {
                     runnersToAdvance.Add(runner);
                 }
-            }else if(runner.currentBase == 0)
+            }
+            else
             {
                 runnersToAdvance.Add(runner);
             }
@@ -36,7 +40,12 @@ public static class Field {
     {
         foreach (var runner in CheckWhichRunnersAdvance())
         {
-            runner.SetBaseAsTarget(runner.currentBase + numberOfBases);
+            int targetBase = runner.currentBase + numberOfBases;
+            if(targetBase > 3)
+            {
+                targetBase = 0;
+            }
+            runner.SetBaseAsTarget(targetBase);
         }
     }
 
@@ -67,8 +76,11 @@ public static class Field {
 
     }
 
-    public static void Thing()
+    public static void ResetInning()
     {
-
+        for (int i = runners.Count - 1; i >= 0; i--)
+        {
+            runners[i].RemoveRunner();
+        }
     }
 }

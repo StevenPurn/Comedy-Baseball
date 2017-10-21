@@ -24,10 +24,20 @@ public class Runner : MonoBehaviour {
         {
             Vector3 direction = (target.transform.position - transform.position).normalized;
             rb.MovePosition(transform.position + direction * movementSpeed * Time.deltaTime);
-            if (rb.position == new Vector2(target.transform.position.x, target.transform.position.y))
+            if (CheckEqual(rb.position, new Vector2(target.transform.position.x, target.transform.position.y),0.1f))
             {
                 target = null;
-                currentBase += 1;
+                Field.bases[currentBase].isOccupied = false;
+                if(currentBase == 3)
+                {
+                    GameControl.instance.ChangeTeamScore(1);
+                    RemoveRunner();
+                }
+                else
+                { 
+                    currentBase += 1;
+                    Field.bases[currentBase].isOccupied = true;
+                }
             }
         }
 
@@ -35,6 +45,15 @@ public class Runner : MonoBehaviour {
         {
             GameControl.instance.ChangeTeamScore(1);
         }
+    }
+
+    bool CheckEqual(Vector2 v1, Vector2 v2, float tolerance)
+    {
+        if (Mathf.Abs(v1.x - v2.x) < tolerance && Mathf.Abs(v1.y - v2.y) < tolerance)
+        {
+            return true;
+        }
+        else return false;
     }
 
     public void SetBaseAsTarget(int baseToTarget)
@@ -45,6 +64,11 @@ public class Runner : MonoBehaviour {
     public void SetOut()
     {
         isOut = true;
+        RemoveRunner();
+    }
+
+    public void RemoveRunner()
+    {
         Field.runners.Remove(this);
         Destroy(gameObject);
     }
