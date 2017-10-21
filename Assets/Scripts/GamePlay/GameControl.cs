@@ -262,16 +262,19 @@ public class GameControl : MonoBehaviour {
             case 1:
                 //Play animation of player running to first
                 //Advance other runners if not forces?
-                //Debug.Log("Player hit a single");
+                Field.AdvanceRunners();
                 break;
             case 2:
                 //Debug.Log("Player hit a double");
+                Field.AdvanceRunners(2);
                 break;
             case 3:
                 //Debug.Log("Player hit a triple");
+                Field.AdvanceRunners(3);
                 break;
             case 4:
                 //Debug.Log("Player hit a homerun");
+                Field.AdvanceRunners(4);
                 break;
             default:
                 //Debug.Log("Invalid hit");
@@ -279,6 +282,12 @@ public class GameControl : MonoBehaviour {
         }
         NextBatter();
         ResetCount();
+    }
+
+    public void ChangeTeamScore(int change)
+    {
+        int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
+        activeTeams[teamAtBat].score = change;
     }
 
     #endregion

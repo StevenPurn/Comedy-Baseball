@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class Field {
 
-    public static Base[] bases = new Base[3];
+    public static Base[] bases = new Base[4];
     public static List<Runner> runners = new List<Runner>();
 
     public static void AssignBases(Base[] _bases)
@@ -17,7 +17,13 @@ public static class Field {
         List<Runner> runnersToAdvance = new List<Runner>();
         foreach (var runner in runners)
         {
-            if(bases[runner.currentBase - 1].isOccupied)
+            if (runner.currentBase > 0)
+            {
+                if (bases[runner.currentBase - 1] != null && bases[runner.currentBase - 1].isOccupied)
+                {
+                    runnersToAdvance.Add(runner);
+                }
+            }else if(runner.currentBase == 0)
             {
                 runnersToAdvance.Add(runner);
             }

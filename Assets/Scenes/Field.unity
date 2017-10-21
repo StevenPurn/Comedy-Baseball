@@ -121,6 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 43588599}
   - component: {fileID: 43588598}
+  - component: {fileID: 43588600}
   m_Layer: 0
   m_Name: UmpireControl
   m_TagString: Untagged
@@ -152,6 +153,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &43588600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 43588597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc7c2930fbc8214faaf0efc008853b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bases:
+  - {fileID: 1552439610}
+  - {fileID: 1000370721}
+  - {fileID: 1300694210}
+  - {fileID: 283475345}
 --- !u!1 &116481578
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOccupied: 0
+  baseObj: {fileID: 0}
 --- !u!1 &516793855
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,6 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOccupied: 0
+  baseObj: {fileID: 0}
 --- !u!1 &1035096337
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,6 +989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOccupied: 0
+  baseObj: {fileID: 0}
 --- !u!1 &1552439608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +1031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOccupied: 0
+  baseObj: {fileID: 0}
 --- !u!1 &1695489426
 GameObject:
   m_ObjectHideFlags: 0
