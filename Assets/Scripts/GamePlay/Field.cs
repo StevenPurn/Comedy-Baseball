@@ -19,7 +19,15 @@ public static class Field {
         {
             if (runner.currentBase > 1)
             {
-                if ((bases[runner.currentBase - numberOfBases] != null && bases[runner.currentBase - numberOfBases].isOccupied) || runner.currentBase - numberOfBases <= 0)
+                if ((bases[runner.currentBase - numberOfBases] != null))
+                {
+
+                    if (bases[runner.currentBase - numberOfBases].isOccupied)
+                    {
+                        runnersToAdvance.Add(runner);
+                    }
+                }
+                if(runner.currentBase - numberOfBases <= 0)
                 {
                     runnersToAdvance.Add(runner);
                 }
