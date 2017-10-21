@@ -6,7 +6,8 @@ using UnityEngine;
 public class Runner : MonoBehaviour {
 
     public bool atBat;
-    public Base[] bases;
+    public int currentBase = 0;
+    public bool isOut;
     private GameObject target;
     private Rigidbody2D rb;
 
@@ -15,20 +16,30 @@ public class Runner : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    //Set next base as a target
-    public void AdvanceBase()
-    {
-        
-    }
-
     //Move player towards next base if they have one
-    private void Update()
+    private void FixedUpdate()
     {
-        
+        if(target != null)
+        {
+            rb.MovePosition(target.transform.position);
+        }
+
+        if(rb.position == new Vector2(target.transform.position.x, target.transform.position.y))
+        {
+            target = null;
+            currentBase += 1;
+        }
     }
 
     public void SetBaseAsTarget(int baseToTarget)
     {
+        target = Field.bases[baseToTarget].baseObj;
+    }
 
+    public void SetOut()
+    {
+        isOut = true;
+        Field.runners.Remove(this);
+        Destroy(gameObject);
     }
 }

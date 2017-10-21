@@ -8,7 +8,7 @@ public class GameControl : MonoBehaviour {
     public static GameControl instance;
     //Static variables
     public static int numberOfInnings = 3;
-    public static Inning curInning;
+    public static Inning curInning = new Inning();
     public static int strikes, balls, outs;
     //Save location for team & player files
     public string teamFilePath = "/Data/Teams.xml";
@@ -29,6 +29,9 @@ public class GameControl : MonoBehaviour {
         {TeamColor.red, Color.red },
         {TeamColor.blue, Color.blue }
     };
+
+    public delegate void ChangeCount();
+    public ChangeCount changeCountEvent;
 
     //Load player & team data from xml files
     void Awake () {
@@ -147,8 +150,14 @@ public class GameControl : MonoBehaviour {
         }
 
         activeTeams[teamAtBat].players[curBatter].isAtBat = true;
-        Debug.Log("Currently batting: " + activeTeams[teamAtBat].players[curBatter].name + " for " + activeTeams[teamAtBat].name);
+
+        if(battersBox == null)
+        {
+            battersBox = GameObject.Find("BattersBox").transform;
+        }
+
         GameObject go = Instantiate(runnerPrefab, battersBox.position, Quaternion.identity);
+        Field.runners.Add(go.GetComponent<Runner>());
     }
 
     int GetCurrentBatter()
@@ -165,7 +174,7 @@ public class GameControl : MonoBehaviour {
         return 0;
     }
 
-    ActivePlayer GetCurrentBattingPlayer()
+    public ActivePlayer GetCurrentBattingPlayer()
     {
         int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
 
@@ -176,7 +185,7 @@ public class GameControl : MonoBehaviour {
                 return activeTeams[teamAtBat].players[i];
             }
         }
-        return null;
+        return activeTeams[teamAtBat].players[0];
     }
 
     void SwitchTeamAtBat()
@@ -191,6 +200,7 @@ public class GameControl : MonoBehaviour {
         {
             Debug.LogWarning("Neither team is batting");
         }
+        changeCountEvent();
     }
 
 #region HandleInput
@@ -209,15 +219,16 @@ public class GameControl : MonoBehaviour {
                 HandleOut();
             }
         }
+        changeCountEvent();
     }
 
     //Need to add potential for advancing runners on base during an out
     public void HandleOut()
     {
         outs += 1;
-        Debug.Log("There are " + outs + " outs");
         ResetCount();
         NextBatter();
+        changeCountEvent();
         if (outs >= 3)
         {
             Debug.Log("Resetting Inning");
@@ -232,7 +243,7 @@ public class GameControl : MonoBehaviour {
         {
             balls = 4;
         }
-
+        changeCountEvent();
         //Walk batter to 1st base & reset count
     }
 
@@ -274,9 +285,9 @@ public class GameControl : MonoBehaviour {
 
     void ResetCount()
     {
-        Debug.Log("Count reset");
         balls = 0;
         strikes = 0;
+        changeCountEvent();
     } 
 
     void ResetInning()
@@ -305,7 +316,6 @@ public class GameControl : MonoBehaviour {
         }
 
         SwitchTeamAtBat();
-        Debug.Log("Inning reset");
         outs = 0;
     }
 
