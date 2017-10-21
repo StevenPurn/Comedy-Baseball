@@ -8,7 +8,7 @@ public class Runner : MonoBehaviour {
     public bool atBat;
     public int currentBase = 0;
     public bool isOut;
-    private GameObject target;
+    private List<GameObject> target = new List<GameObject>();
     private Rigidbody2D rb;
     private float movementSpeed = 20f;
 
@@ -20,23 +20,36 @@ public class Runner : MonoBehaviour {
     //Move player towards next base if they have one
     private void FixedUpdate()
     {
-        if(target != null)
+        if(target.Count > 0)
         {
-            Vector3 direction = (target.transform.position - transform.position).normalized;
+            Vector3 direction = (target[0].transform.position - transform.position).normalized;
             rb.MovePosition(transform.position + direction * movementSpeed * Time.deltaTime);
-            if (CheckEqual(rb.position, new Vector2(target.transform.position.x, target.transform.position.y),0.1f))
+            if (Field.bases[currentBase].isOccupied)
             {
-                target = null;
                 Field.bases[currentBase].isOccupied = false;
+            }
+            if (CheckEqual(rb.position, new Vector2(target[0].transform.position.x, target[0].transform.position.y),0.1f))
+            {
                 if(currentBase == 3)
                 {
                     GameControl.instance.ChangeTeamScore(1);
                     RemoveRunner();
                 }
                 else
-                { 
-                    currentBase += 1;
+                {
+                    for (int i = Field.bases.Length - 1; i > 0; i--)
+                    {
+                        if(target[0] == Field.bases[i].baseObj)
+                        {
+                            currentBase = i;
+                        }
+                    }
                     Field.bases[currentBase].isOccupied = true;
+                }
+                target.Remove(target[0]);
+                if (target.Count == 0)
+                {
+                    target.Clear();
                 }
             }
         }
@@ -56,9 +69,13 @@ public class Runner : MonoBehaviour {
         else return false;
     }
 
-    public void SetBaseAsTarget(int baseToTarget)
+    public void SetBaseAsTarget(List<GameObject> baseToTarget)
     {
-        target = Field.bases[baseToTarget].baseObj;
+        foreach (var targetBase in baseToTarget)
+        {
+            target.Add(targetBase);
+        }
+        Debug.Log("Added " + target.Count + " bases to target for " + gameObject.name);
     }
 
     public void SetOut()

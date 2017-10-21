@@ -23,6 +23,7 @@ public class GameControl : MonoBehaviour {
     public List<ActivePlayer> activePlayers = new List<ActivePlayer>();
     //List of runners in the game at the moment
     public List<Runner> runners = new List<Runner>();
+    private int i;
 
     public Dictionary<TeamColor, Color> teamColors = new Dictionary<TeamColor, Color>()
     {
@@ -160,6 +161,8 @@ public class GameControl : MonoBehaviour {
             battersBox = GameObject.Find("BattersBox").transform;
         }
         GameObject go = Instantiate(runnerPrefab, battersBox.position, Quaternion.identity);
+        go.name = "Runner " + i;
+        i += 1;
         Field.runners.Add(go.GetComponent<Runner>());
     }
 

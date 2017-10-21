@@ -12,17 +12,14 @@ public static class Field {
         bases = _bases;
     }
 
-    public static List<Runner> CheckWhichRunnersAdvance()
+    public static List<Runner> CheckWhichRunnersAdvance(int numberOfBases)
     {
         List<Runner> runnersToAdvance = new List<Runner>();
         foreach (var runner in runners)
         {
-            if (runner.currentBase > 0)
+            if (runner.currentBase > 1)
             {
-                if(runner.currentBase == 1)
-                {
-                    runnersToAdvance.Add(runner);
-                }else if (bases[runner.currentBase - 1] != null && bases[runner.currentBase - 1].isOccupied)
+                if ((bases[runner.currentBase - numberOfBases] != null && bases[runner.currentBase - numberOfBases].isOccupied) || runner.currentBase - numberOfBases >= 0)
                 {
                     runnersToAdvance.Add(runner);
                 }
@@ -38,14 +35,27 @@ public static class Field {
 
     public static void AdvanceRunners(int numberOfBases = 1)
     {
-        foreach (var runner in CheckWhichRunnersAdvance())
+        foreach (var runner in CheckWhichRunnersAdvance(numberOfBases))
         {
-            int targetBase = runner.currentBase + numberOfBases;
-            if(targetBase > 3)
+            Debug.Log(runner.gameObject.name + " should be advancing");
+            List<GameObject> baseList = new List<GameObject>();
+            for (int i = 1; i <= numberOfBases; i++)
             {
-                targetBase = 0;
+                if(runner.currentBase + i >= 4)
+                {
+                    if (baseList.Contains(bases[0].baseObj))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        baseList.Add(bases[0].baseObj);
+                        continue;
+                    }
+                }
+                baseList.Add(bases[runner.currentBase + i].baseObj);
             }
-            runner.SetBaseAsTarget(targetBase);
+            runner.SetBaseAsTarget(baseList);
         }
     }
 
