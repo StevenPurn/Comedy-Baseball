@@ -7,6 +7,7 @@ public class Runner : MonoBehaviour {
     public bool atBat;
     public int currentBase = 0;
     public bool isOut;
+    public bool isAdvancing;
     private List<GameObject> target = new List<GameObject>();
     private Rigidbody2D rb;
     private float movementSpeed = 20f;
@@ -23,6 +24,7 @@ public class Runner : MonoBehaviour {
         //If we still have another base to move towards
         if(target.Count > 0)
         {
+            isAdvancing = true;
             //Move towards the next base
             Vector3 direction = (target[0].transform.position - transform.position).normalized;
             rb.MovePosition(transform.position + direction * movementSpeed * Time.deltaTime);
@@ -60,6 +62,7 @@ public class Runner : MonoBehaviour {
                 {
                     //Totally necessary
                     target.Clear();
+                    isAdvancing = false;
                 }
             }
         }

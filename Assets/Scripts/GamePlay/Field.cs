@@ -21,9 +21,9 @@ public static class Field {
             {
                 if ((bases[runner.currentBase - numberOfBases] != null))
                 {
-
                     if (bases[runner.currentBase - numberOfBases].isOccupied)
                     {
+                        //Need to check if the runner on that base is also advancing
                         runnersToAdvance.Add(runner);
                     }
                 }

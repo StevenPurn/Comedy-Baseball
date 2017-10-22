@@ -24,6 +24,7 @@ public class GameControl : MonoBehaviour {
     //List of runners in the game at the moment
     public List<Runner> runners = new List<Runner>();
     private int i;
+    private int teamAtBat;
 
     public Dictionary<TeamColor, Color> teamColors = new Dictionary<TeamColor, Color>()
     {
@@ -56,25 +57,23 @@ public class GameControl : MonoBehaviour {
     //Save list of teams & players to respective xml files
     void Save()
     {
+
+
         foreach (var aTeam in activeTeams)
         {
-            foreach (var team in teams)
+            Team _team = teams.Find(x => x.name == aTeam.name);
+            if(_team != null)
             {
-                if(aTeam.name == team.name)
-                {
-                    UpdateTeamData(aTeam, team);
-                }
+                UpdateTeamData(aTeam, _team);
             }
         }
 
         foreach (var aPlayer in activePlayers)
         {
-            foreach (var player in players)
+            Player _player = players.Find(x => x.name == aPlayer.name);
+            if (_player != null)
             {
-                if (aPlayer.name == player.name)
-                {
-                    UpdatePlayerData(aPlayer, player);
-                }
+                UpdatePlayerData(aPlayer, _player);
             }
         }
 
@@ -118,27 +117,12 @@ public class GameControl : MonoBehaviour {
     void AddActiveTeams(ActiveTeam team)    
     {
         activeTeams.Add(team);
-        foreach (var aTeam in activeTeams)
-        {
-            foreach (var player in aTeam.players)
-            {
-                Debug.Log(player.name);
-            }
-        }
     }
 
     void NextBatter()
     {
-        int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
         int curBatter = GetCurrentBatter();
-        if(curBatter + 1 == activeTeams[teamAtBat].players.Count)
-        {
-            curBatter = 0;
-        }
-        else
-        {
-            curBatter += 1;
-        }
+        curBatter = curBatter = 1 == activeTeams[teamAtBat].players.Count ? 0 : curBatter + 1;
 
         foreach (var player in activeTeams[teamAtBat].players)
         {
@@ -152,6 +136,12 @@ public class GameControl : MonoBehaviour {
 
         AddBatterToField();
         activeTeams[teamAtBat].players[curBatter].isAtBat = true;
+    }
+
+    public static void InitializeField()
+    {
+        instance.teamAtBat = instance.activeTeams[0].currentlyAtBat ? 0 : 1;
+        instance.AddBatterToField();
     }
 
     public void AddBatterToField()
@@ -168,30 +158,17 @@ public class GameControl : MonoBehaviour {
 
     int GetCurrentBatter()
     {
-        int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
-
-        for (int i = 0; i < activeTeams[teamAtBat].players.Count; i++)
+        if(activeTeams[teamAtBat].players.Find(x => x.isAtBat == true) != null)
         {
-            if (activeTeams[teamAtBat].players[i].isAtBat)
-            {
-                return i;
-            }
+            return activeTeams[teamAtBat].players.FindIndex(x => x.isAtBat == true);
         }
+        //By default return 0, should only occur with first batter of the game
         return 0;
     }
 
     public ActivePlayer GetCurrentBattingPlayer()
     {
-        int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
-
-        for (int i = 0; i < activeTeams[teamAtBat].players.Count; i++)
-        {
-            if (activeTeams[teamAtBat].players[i].isAtBat)
-            {
-                return activeTeams[teamAtBat].players[i];
-            }
-        }
-        return activeTeams[teamAtBat].players[0];
+        return activeTeams[teamAtBat].players.Find(x => x.isAtBat == true);
     }
 
     void SwitchTeamAtBat()
@@ -199,10 +176,12 @@ public class GameControl : MonoBehaviour {
         activeTeams[0].currentlyAtBat = !activeTeams[0].currentlyAtBat;
         activeTeams[1].currentlyAtBat = !activeTeams[1].currentlyAtBat;
 
-        if(activeTeams[0].currentlyAtBat && activeTeams[1].currentlyAtBat)
+        teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
+
+        if (activeTeams[0].currentlyAtBat && activeTeams[1].currentlyAtBat)
         {
             Debug.LogWarning("Both teams are batting");
-        }else if(activeTeams[0].currentlyAtBat && activeTeams[1].currentlyAtBat)
+        }else if(!activeTeams[0].currentlyAtBat && !activeTeams[1].currentlyAtBat)
         {
             Debug.LogWarning("Neither team is batting");
         }
@@ -262,36 +241,13 @@ public class GameControl : MonoBehaviour {
     //Can also switch to next batter or next team if there are 3 outs
     public void HandleHit(int bases)
     {
-        switch (bases)
-        {
-            case 1:
-                //Play animation of player running to first
-                //Advance other runners if not forces?
-                Field.AdvanceRunners();
-                break;
-            case 2:
-                //Debug.Log("Player hit a double");
-                Field.AdvanceRunners(2);
-                break;
-            case 3:
-                //Debug.Log("Player hit a triple");
-                Field.AdvanceRunners(3);
-                break;
-            case 4:
-                //Debug.Log("Player hit a homerun");
-                Field.AdvanceRunners(4);
-                break;
-            default:
-                //Debug.Log("Invalid hit");
-                break;
-        }
+        Field.AdvanceRunners(bases);
         NextBatter();
         ResetCount();
     }
 
     public void ChangeTeamScore(int change)
     {
-        int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
         activeTeams[teamAtBat].score += change;
         changeCountEvent();
     }
@@ -320,8 +276,7 @@ public class GameControl : MonoBehaviour {
         {
             if (curInning.inningNumber >= numberOfInnings)
             {
-                int teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
-                int teamNotBatting = activeTeams[0].currentlyAtBat ? 1 : 0;
+                int teamNotBatting = teamAtBat == 0 ? 1 : 0;
                 if (activeTeams[teamAtBat].score < activeTeams[teamNotBatting].score)
                 {
                     GameOver();

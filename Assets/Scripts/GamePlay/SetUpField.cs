@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SetUpField : MonoBehaviour {
 
@@ -10,6 +8,6 @@ public class SetUpField : MonoBehaviour {
 	void Start ()
     {
         Field.bases = bases;
-        GameControl.instance.AddBatterToField();
+        GameControl.InitializeField();
 	}
 }
