@@ -37,7 +37,6 @@ public static class Field {
                 runnersToAdvance.Add(runner);
             }
         }
-
         return runnersToAdvance;
     }
 
@@ -45,7 +44,6 @@ public static class Field {
     {
         foreach (var runner in CheckWhichRunnersAdvance(numberOfBases))
         {
-            Debug.Log(runner.gameObject.name + " should be advancing");
             List<GameObject> baseList = new List<GameObject>();
             for (int i = 1; i <= numberOfBases; i++)
             {
@@ -91,7 +89,6 @@ public static class Field {
         {
             runner.SetOut();
         }
-
     }
 
     public static void ResetInning()

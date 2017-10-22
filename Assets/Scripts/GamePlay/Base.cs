@@ -11,5 +11,4 @@ public class Base : MonoBehaviour {
     {
         baseObj = this.gameObject;
     }
-
 }
