@@ -4,22 +4,22 @@
     <id>1</id>
     <name>Batmen</name>
     <wins>0</wins>
-    <loses>100</loses>
+    <loses>3</loses>
     <ties>0</ties>
-    <runs>0</runs>
-    <hits>0</hits>
-    <atbatstrikeouts>0</atbatstrikeouts>
+    <runs>7</runs>
+    <hits>9</hits>
+    <atbatstrikeouts>24</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
   </team>
   <team>
     <id>2</id>
     <name>Funny Guys</name>
-    <wins>0</wins>
+    <wins>3</wins>
     <loses>0</loses>
     <ties>0</ties>
-    <runs>0</runs>
-    <hits>0</hits>
-    <atbatstrikeouts>0</atbatstrikeouts>
+    <runs>10</runs>
+    <hits>4</hits>
+    <atbatstrikeouts>18</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
   </team>
   <team>

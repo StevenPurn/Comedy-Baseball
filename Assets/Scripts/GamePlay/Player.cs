@@ -16,10 +16,12 @@ public class Player {
     public int hits { get; set; }
     [XmlElement("battingAvg")]
     public float battingAvg;
-    [XmlElement("pitches")]
-    public int pitches { get; set; }
-    [XmlElement("strikeouts")]
-    public int strikeouts { get; set; }
+    [XmlElement("rbi")]
+    public int rbis;
+    [XmlElement("strikeoutsAtBat")]
+    public int strikeoutsAtBat { get; set; }
+    [XmlElement("strikeoutsPitched")]
+    public int strikeoutsPitched { get; set; }
     [XmlElement("portraitPath")]
     public string portraitPath;
 }

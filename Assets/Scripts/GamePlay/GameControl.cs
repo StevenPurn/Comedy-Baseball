@@ -57,8 +57,6 @@ public class GameControl : MonoBehaviour {
     //Save list of teams & players to respective xml files
     void Save()
     {
-
-
         foreach (var aTeam in activeTeams)
         {
             Team _team = teams.Find(x => x.name == aTeam.name);
@@ -66,16 +64,18 @@ public class GameControl : MonoBehaviour {
             {
                 UpdateTeamData(aTeam, _team);
             }
-        }
 
-        foreach (var aPlayer in activePlayers)
-        {
-            Player _player = players.Find(x => x.name == aPlayer.name);
-            if (_player != null)
+            foreach (var aPlayer in aTeam.players)
             {
-                UpdatePlayerData(aPlayer, _player);
+                Player _player = players.Find(x => x.name == aPlayer.name);
+                if (_player != null)
+                {
+                    UpdatePlayerData(aPlayer, _player);
+                }
             }
         }
+
+
 
         SaveData(teamFilePath, teams);
         SaveData(playerFilePath, players);
@@ -84,13 +84,29 @@ public class GameControl : MonoBehaviour {
     void UpdateTeamData(ActiveTeam aTeam, Team team)
     {
         //Set values of the team to account for updated values in active team
-        throw new NotImplementedException();
+        team.hits += aTeam.hits;
+        team.runs += aTeam.score;
+        team.atbatstrikeouts += aTeam.GetStrikeoutsAtBat();
+        team.pitchedstrikeouts += aTeam.GetPitchedStrikeouts();
+
+        if (aTeam.wonGame)
+        {
+            team.wins += 1;
+        }
+        else
+        {
+            team.loses += 1;
+        }
     }
 
     void UpdatePlayerData(ActivePlayer aPlayer, Player player)
     {
-        //Set values of player to account for updated values in active player
-        throw new NotImplementedException();
+        player.hits += aPlayer.hits;
+        player.atBats += aPlayer.atBats;
+        player.rbis += aPlayer.rbis;
+        player.strikeoutsAtBat += aPlayer.strikeoutsAtBat;
+        player.strikeoutsPitched += aPlayer.strikeoutsPitched;
+        player.battingAvg = (float)Math.Round(((float)player.hits / (float)player.atBats),3);
     }
 
     //Save data to xml file
@@ -136,6 +152,7 @@ public class GameControl : MonoBehaviour {
 
         AddBatterToField();
         activeTeams[teamAtBat].players[curBatter].isAtBat = true;
+        activeTeams[teamAtBat].players[curBatter].atBats += 1;
     }
 
     public static void InitializeField()
@@ -209,6 +226,7 @@ public class GameControl : MonoBehaviour {
             else
             {
                 HandleOut();
+                GetCurrentBattingPlayer().ChangeStrikeOutsAtBat(1);
             }
         }
         changeCountEvent();
@@ -248,7 +266,8 @@ public class GameControl : MonoBehaviour {
     //Can also switch to next batter or next team if there are 3 outs
     public void HandleHit(int bases)
     {
-        GetCurrentBattingPlayer().hits += 1;
+        GetCurrentBattingPlayer().ChangeHits(1);
+        activeTeams[teamAtBat].hits += 1;
         Field.AdvanceRunners(bases);
         NextBatter();
         ResetCount();
@@ -256,6 +275,8 @@ public class GameControl : MonoBehaviour {
 
     public void ChangeTeamScore(int change)
     {
+        int curBatter = GetCurrentBatter() - 1 < 0 ? activeTeams[teamAtBat].players.Count - 1 : GetCurrentBatter() - 1;
+        activeTeams[teamAtBat].players[curBatter].ChangeRBIs(change);
         activeTeams[teamAtBat].score += change;
         changeCountEvent();
     }
@@ -302,6 +323,8 @@ public class GameControl : MonoBehaviour {
     void GameOver()
     {
         ActiveTeam winner = activeTeams[0].score > activeTeams[1].score ? activeTeams[0] : activeTeams[1];
+        winner.wonGame = true;
         Debug.Log("Winner is: " + winner.name);
+        Save();
     }
 }

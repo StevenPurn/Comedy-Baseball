@@ -12,6 +12,7 @@ public class ActiveTeam
     public int score = 0;
     public int hits;
     public bool currentlyAtBat;
+    public bool wonGame;
     public TeamColor color;
 
     public void AddPlayer(ActivePlayer player)
