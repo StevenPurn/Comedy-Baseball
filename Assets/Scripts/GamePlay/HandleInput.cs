@@ -4,46 +4,53 @@ public class HandleInput : MonoBehaviour
 {
 	void Update ()
     {
-        if (Controls.GetButtonDown("Single"))
+        if(!Field.runners.Find(x => x.isAdvancing))
         {
-            GameControl.instance.HandleHit(1);
-        }
-        else if (Controls.GetButtonDown("Double"))
-        {
-            GameControl.instance.HandleHit(2);
-        }
-        else if (Controls.GetButtonDown("Triple"))
-        {
-            GameControl.instance.HandleHit(3);
-        }
-        else if (Controls.GetButtonDown("Homerun"))
-        {
-            GameControl.instance.HandleHit(4);
-        }
-        else if (Controls.GetButtonDown("Foul"))
-        {
-            GameControl.instance.HandleStrike(true);
-        }
-        else if (Controls.GetButtonDown("Strike"))
-        {
-            GameControl.instance.HandleStrike();
-        }
-        else if (Controls.GetButtonDown("Ball"))
-        {
-            GameControl.instance.HandleBall();
-        }
-        else if (Controls.GetButtonDown("Out"))
-        {
-            GameControl.instance.HandleOut();
-        }
-        else if (Controls.GetButtonDown("Steal"))
-        {
+            if (Controls.GetButtonDown("Single"))
+            {
+                GameControl.instance.HandleHit(1);
+            }
+            else if (Controls.GetButtonDown("Double"))
+            {
+                GameControl.instance.HandleHit(2);
+            }
+            else if (Controls.GetButtonDown("Triple"))
+            {
+                GameControl.instance.HandleHit(3);
+            }
+            else if (Controls.GetButtonDown("Homerun"))
+            {
+                GameControl.instance.HandleHit(4);
+            }
+            else if (Controls.GetButtonDown("Foul"))
+            {
+                GameControl.instance.HandleStrike(true);
+            }
+            else if (Controls.GetButtonDown("Strike"))
+            {
+                GameControl.instance.HandleStrike();
+            }
+            else if (Controls.GetButtonDown("Ball"))
+            {
+                GameControl.instance.HandleBall();
+            }
+            else if (Controls.GetButtonDown("Out"))
+            {
+                GameControl.instance.HandleOut();
+            }
+            else if (Controls.GetButtonDown("Steal"))
+            {
 
+            }
         }
 
         if (Controls.GetButton("FastForward"))
         {
             GameControl.instance.FastForward();
         }
-	}
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
+    }
 }

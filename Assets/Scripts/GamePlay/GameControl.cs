@@ -122,7 +122,7 @@ public class GameControl : MonoBehaviour {
     void NextBatter()
     {
         int curBatter = GetCurrentBatter();
-        curBatter = curBatter = 1 == activeTeams[teamAtBat].players.Count ? 0 : curBatter + 1;
+        curBatter = curBatter + 1 == activeTeams[teamAtBat].players.Count ? 0 : curBatter + 1;
 
         foreach (var player in activeTeams[teamAtBat].players)
         {
@@ -168,7 +168,14 @@ public class GameControl : MonoBehaviour {
 
     public ActivePlayer GetCurrentBattingPlayer()
     {
-        return activeTeams[teamAtBat].players.Find(x => x.isAtBat == true);
+        if (activeTeams[teamAtBat].players.Find(x => x.isAtBat == true) == null)
+        {
+            return activeTeams[teamAtBat].players[0];
+        }
+        else
+        {
+            return activeTeams[teamAtBat].players.Find(x => x.isAtBat == true);
+        }
     }
 
     void SwitchTeamAtBat()
@@ -241,6 +248,7 @@ public class GameControl : MonoBehaviour {
     //Can also switch to next batter or next team if there are 3 outs
     public void HandleHit(int bases)
     {
+        GetCurrentBattingPlayer().hits += 1;
         Field.AdvanceRunners(bases);
         NextBatter();
         ResetCount();

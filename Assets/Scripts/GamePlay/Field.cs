@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public static class Field {
@@ -19,17 +18,34 @@ public static class Field {
         {
             if (runner.currentBase > 1)
             {
-                if ((bases[runner.currentBase - numberOfBases] != null))
+                switch (runner.currentBase)
                 {
-                    if (bases[runner.currentBase - numberOfBases].isOccupied)
-                    {
-                        //Need to check if the runner on that base is also advancing
-                        runnersToAdvance.Add(runner);
-                    }
-                }
-                if(runner.currentBase - numberOfBases <= 0)
-                {
-                    runnersToAdvance.Add(runner);
+                    case 2:
+                        //If single, check if runner on first
+                        if(numberOfBases == 1 && runners.Find(x => x.currentBase == 1) != null)
+                        {
+                            runnersToAdvance.Add(runner);
+                        }else if(numberOfBases >= 2)
+                        {
+                            runnersToAdvance.Add(runner);
+                        }
+                        break;
+                    case 3:
+                        //If single, check if runner is on second
+                        if (numberOfBases == 1 && (runners.Find(x => x.currentBase == 1) != null && runners.Find(x => x.currentBase == 2) != null))
+                        {
+                            runnersToAdvance.Add(runner);
+                        }
+                        //If double, check if runner on first or second
+                        else if(numberOfBases == 2 && (runners.Find(x => x.currentBase == 1) != null || runners.Find(x => x.currentBase == 2) != null))
+                        {
+                            runnersToAdvance.Add(runner);
+                        }
+                        else if(numberOfBases > 2)
+                        {
+                            runnersToAdvance.Add(runner);
+                        }
+                        break;
                 }
             }
             else

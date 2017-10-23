@@ -10,7 +10,7 @@ public class Runner : MonoBehaviour {
     public bool isAdvancing;
     private List<GameObject> target = new List<GameObject>();
     private Rigidbody2D rb;
-    private float movementSpeed = 20f;
+    private float movementSpeed = 10f;
 
     private void Start()
     {
@@ -29,10 +29,6 @@ public class Runner : MonoBehaviour {
             Vector3 direction = (target[0].transform.position - transform.position).normalized;
             rb.MovePosition(transform.position + direction * movementSpeed * Time.deltaTime);
             //Clean up the state of your previous base when you leave
-            if (Field.bases[currentBase].isOccupied)
-            {
-                Field.bases[currentBase].isOccupied = false;
-            }
             //If you've reached your next destination
             if (CheckEqual(rb.position, new Vector2(target[0].transform.position.x, target[0].transform.position.y),0.1f))
             {
@@ -57,6 +53,10 @@ public class Runner : MonoBehaviour {
                 }
                 //Remove the target as we've reached the base
                 target.Remove(target[0]);
+                if (Field.bases[currentBase - 1].isOccupied)
+                {
+                    Field.bases[currentBase - 1].isOccupied = false;
+                }
                 //If there are no more targets remaining ensure everything is cleared out
                 if (target.Count == 0)
                 {
@@ -69,7 +69,7 @@ public class Runner : MonoBehaviour {
 
         if(currentBase >= 4)
         {
-            Debug.LogWarning("Some went way too far. Like, good on them. But you should check it");
+            Debug.LogWarning("Someone went way too far. Like, good on them. But you should check it");
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public class CountText : MonoBehaviour {
 
@@ -20,11 +21,11 @@ public class CountText : MonoBehaviour {
         UpdateCountText();
 	}
 
-
-
     void UpdateBatterText()
     {
-        batter.text = String.Format("{0}\nHits: {1}", GameControl.instance.GetCurrentBattingPlayer().name, GameControl.instance.GetCurrentBattingPlayer().hits);
+        string batterText = String.Format("{0}\nHits:", GameControl.instance.GetCurrentBattingPlayer().name);
+        batterText += GameControl.instance.GetCurrentBattingPlayer().hits;
+        batter.text = batterText;
     }
 
     void UpdateCountText()
