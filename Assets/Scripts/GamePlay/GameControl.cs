@@ -23,7 +23,7 @@ public class GameControl : MonoBehaviour {
     public List<ActivePlayer> activePlayers = new List<ActivePlayer>();
     //List of runners in the game at the moment
     public List<Runner> runners = new List<Runner>();
-    private int i;
+    private int runnerNumber;
     private int teamAtBat;
 
     public Dictionary<TeamColor, Color> teamColors = new Dictionary<TeamColor, Color>()
@@ -48,84 +48,16 @@ public class GameControl : MonoBehaviour {
         teamFilePath = Application.dataPath + teamFilePath;
         playerFilePath = Application.dataPath + playerFilePath;
 
-        PopulateTeamList();
-        PopulatePlayerList();
+        SaveLoad.PopulateTeamList();
+        SaveLoad.PopulatePlayerList();
         curInning.inningNumber = 1;
     }
 
-#region SaveLoad
     //Save list of teams & players to respective xml files
     void Save()
     {
-        foreach (var aTeam in activeTeams)
-        {
-            Team _team = teams.Find(x => x.name == aTeam.name);
-            if(_team != null)
-            {
-                UpdateTeamData(aTeam, _team);
-            }
-
-            foreach (var aPlayer in aTeam.players)
-            {
-                Player _player = players.Find(x => x.name == aPlayer.name);
-                if (_player != null)
-                {
-                    UpdatePlayerData(aPlayer, _player);
-                }
-            }
-        }
-
-        SaveData(teamFilePath, teams);
-        SaveData(playerFilePath, players);
+        SaveLoad.Save(activeTeams, teams);
     }
-
-    void UpdateTeamData(ActiveTeam aTeam, Team team)
-    {
-        //Set values of the team to account for updated values in active team
-        team.hits += aTeam.hits;
-        team.runs += aTeam.score;
-        team.atbatstrikeouts += aTeam.GetStrikeoutsAtBat();
-        team.pitchedstrikeouts += aTeam.GetPitchedStrikeouts();
-
-        if (aTeam.wonGame)
-        {
-            team.wins += 1;
-        }
-        else
-        {
-            team.loses += 1;
-        }
-    }
-
-    void UpdatePlayerData(ActivePlayer aPlayer, Player player)
-    {
-        player.hits += aPlayer.hits;
-        player.atBats += aPlayer.atBats;
-        player.rbis += aPlayer.rbis;
-        player.strikeoutsAtBat += aPlayer.strikeoutsAtBat;
-        player.strikeoutsPitched += aPlayer.strikeoutsPitched;
-        player.battingAvg = (float)Math.Round(((float)player.hits / (float)player.atBats),3);
-    }
-
-    //Save data to xml file
-    void SaveData(string filePath, System.Object obj)
-    {
-        //Add new data to active teams & players
-        DataHandler.SaveData(filePath, obj);
-    }
-
-    //Load team data
-    void PopulateTeamList()
-    {
-        teams = DataHandler.LoadData<List<Team>>(teamFilePath, Team.xmlRoot);
-    }
-
-    //Load player data
-    void PopulatePlayerList()
-    {
-        players = DataHandler.LoadData<List<Player>>(playerFilePath, Player.xmlRoot);
-    }
-#endregion
 
     //Add team to list of participating teams
     void AddActiveTeam(ActiveTeam team)    
@@ -166,8 +98,8 @@ public class GameControl : MonoBehaviour {
             battersBox = GameObject.Find("BattersBox").transform;
         }
         GameObject go = Instantiate(runnerPrefab, battersBox.position, Quaternion.identity);
-        go.name = "Runner " + i;
-        i += 1;
+        go.name = "Runner " + runnerNumber;
+        runnerNumber += 1;
         Field.runners.Add(go.GetComponent<Runner>());
     }
 
@@ -232,6 +164,7 @@ public class GameControl : MonoBehaviour {
             Debug.LogWarning("Neither team is batting");
         }
         changeCountEvent();
+        runnerNumber = 0;
     }
 
 #region HandleInput
@@ -262,11 +195,11 @@ public class GameControl : MonoBehaviour {
         outs += 1;
         ResetCount();
         NextBatter();
-        changeCountEvent();
         if (outs >= 3)
         {
             ResetInning();
         }
+        changeCountEvent();
     }
 
     public void HandleBall()

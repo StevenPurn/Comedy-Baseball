@@ -3,24 +3,24 @@
   <team>
     <id>1</id>
     <name>Batmen</name>
-    <wins>0</wins>
-    <loses>3</loses>
+    <wins>1</wins>
+    <loses>4</loses>
     <ties>0</ties>
-    <runs>7</runs>
-    <hits>9</hits>
-    <atbatstrikeouts>24</atbatstrikeouts>
-    <pitchedstrikeouts>0</pitchedstrikeouts>
+    <runs>9</runs>
+    <hits>13</hits>
+    <atbatstrikeouts>32</atbatstrikeouts>
+    <pitchedstrikeouts>9</pitchedstrikeouts>
   </team>
   <team>
     <id>2</id>
     <name>Funny Guys</name>
-    <wins>3</wins>
-    <loses>0</loses>
+    <wins>4</wins>
+    <loses>1</loses>
     <ties>0</ties>
-    <runs>10</runs>
-    <hits>4</hits>
-    <atbatstrikeouts>18</atbatstrikeouts>
-    <pitchedstrikeouts>0</pitchedstrikeouts>
+    <runs>11</runs>
+    <hits>8</hits>
+    <atbatstrikeouts>27</atbatstrikeouts>
+    <pitchedstrikeouts>9</pitchedstrikeouts>
   </team>
   <team>
     <id>3</id>
