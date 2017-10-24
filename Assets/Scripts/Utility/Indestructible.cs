@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Indestructible : MonoBehaviour {
 
-	void Start () {
+	void Start ()
+    {
         DontDestroyOnLoad(gameObject);
 	}
 }

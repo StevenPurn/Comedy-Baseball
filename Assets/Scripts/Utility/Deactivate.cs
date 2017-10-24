@@ -12,9 +12,7 @@ public class Deactivate : MonoBehaviour {
 
     IEnumerator LateCall()
     {
-
         yield return new WaitForSeconds(lifeTime);
-
         gameObject.SetActive(false);
     }
 }

@@ -75,8 +75,6 @@ public class GameControl : MonoBehaviour {
             }
         }
 
-
-
         SaveData(teamFilePath, teams);
         SaveData(playerFilePath, players);
     }
@@ -130,7 +128,7 @@ public class GameControl : MonoBehaviour {
 #endregion
 
     //Add team to list of participating teams
-    void AddActiveTeams(ActiveTeam team)    
+    void AddActiveTeam(ActiveTeam team)    
     {
         activeTeams.Add(team);
     }
@@ -195,6 +193,30 @@ public class GameControl : MonoBehaviour {
         }
     }
 
+    int GetCurrentPitcher()
+    {
+        int teamPitching = teamAtBat == 0 ? 1 : 0;
+        if (activeTeams[teamPitching].players.Find(x => x.isPitching == true) != null)
+        {
+            return activeTeams[teamPitching].players.FindIndex(x => x.isPitching == true);
+        }
+        //By default return 0, should only occur with first batter of the game
+        return 0;
+    }
+
+    public ActivePlayer GetCurrentPitchingPlayer()
+    {
+        int teamPitching = teamAtBat == 0 ? 1 : 0;
+        if (activeTeams[teamPitching].players.Find(x => x.isPitching == true) == null)
+        {
+            return activeTeams[teamPitching].players[0];
+        }
+        else
+        {
+            return activeTeams[teamAtBat].players.Find(x => x.isPitching == true);
+        }
+    }
+
     void SwitchTeamAtBat()
     {
         activeTeams[0].currentlyAtBat = !activeTeams[0].currentlyAtBat;
@@ -216,6 +238,7 @@ public class GameControl : MonoBehaviour {
 
     public void HandleStrike(bool wasFoul = false)
     {
+        GetCurrentPitchingPlayer().ChangePitches(1);
         strikes += 1;
         if (strikes >= 3)
         {
@@ -225,6 +248,7 @@ public class GameControl : MonoBehaviour {
             }
             else
             {
+                GetCurrentPitchingPlayer().ChangeStrikeoutsPitched(1);
                 HandleOut();
                 GetCurrentBattingPlayer().ChangeStrikeOutsAtBat(1);
             }
@@ -247,6 +271,7 @@ public class GameControl : MonoBehaviour {
 
     public void HandleBall()
     {
+        GetCurrentPitchingPlayer().ChangePitches(1);
         balls += 1;
         if (balls >= 4)
         {
