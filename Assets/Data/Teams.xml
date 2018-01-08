@@ -3,11 +3,11 @@
   <team>
     <id>1</id>
     <name>Batmen</name>
-    <wins>1</wins>
+    <wins>2</wins>
     <loses>4</loses>
     <ties>0</ties>
-    <runs>9</runs>
-    <hits>13</hits>
+    <runs>10</runs>
+    <hits>14</hits>
     <atbatstrikeouts>32</atbatstrikeouts>
     <pitchedstrikeouts>9</pitchedstrikeouts>
   </team>
@@ -15,7 +15,7 @@
     <id>2</id>
     <name>Funny Guys</name>
     <wins>4</wins>
-    <loses>1</loses>
+    <loses>2</loses>
     <ties>0</ties>
     <runs>11</runs>
     <hits>8</hits>
