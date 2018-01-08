@@ -1,14 +1,16 @@
 fileFormatVersion: 2
-guid: a2b6e90d13349cf479e6e29481defd23
-timeCreated: 1515449278
+guid: ba3e1f7eaaf795f4eb1a5e6d6c570833
+timeCreated: 1515452284
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Out
-    21300002: Strike
-    21300004: foul
-    21300006: ball
-    21300008: homerun
+    21300000: scoreoverlay_0
+    21300002: scoreoverlay_1
+    21300004: scoreoverlay_2
+    21300006: scoreoverlay_3
+    21300008: scoreoverlay_4
+    21300010: scoreoverlay_5
+    21300012: scoreoverlay_6
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -32,7 +34,7 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapMode: 1
@@ -75,65 +77,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Out
+      name: scoreoverlay_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 300
-        width: 149
-        height: 51
+        x: 9
+        y: 107
+        width: 109
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Strike
+      name: scoreoverlay_1
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 94
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: scoreoverlay_2
       rect:
         serializedVersion: 2
         x: 22
-        y: 250
-        width: 177
-        height: 51
+        y: 95
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: foul
+      name: scoreoverlay_3
       rect:
         serializedVersion: 2
-        x: 14
-        y: 149
-        width: 129
-        height: 52
+        x: 9
+        y: 81
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ball
+      name: scoreoverlay_4
       rect:
         serializedVersion: 2
-        x: 17
-        y: 198
-        width: 131
-        height: 55
+        x: 22
+        y: 82
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: homerun
+      name: scoreoverlay_5
       rect:
         serializedVersion: 2
-        x: 8
-        y: 101
-        width: 192
-        height: 47
+        x: 10
+        y: 72
+        width: 19
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: scoreoverlay_6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 21
+        width: 188
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
