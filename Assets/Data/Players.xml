@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfPlayer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <player>
-    <battingAvg>0.235</battingAvg>
-    <rbi>1</rbi>
+    <battingAvg>0.25</battingAvg>
+    <rbi>2</rbi>
     <name>Tirumari Jothi</name>
-    <atbats>17</atbats>
-    <hits>4</hits>
+    <atbats>20</atbats>
+    <hits>5</hits>
     <strikeoutsAtBat>10</strikeoutsAtBat>
     <strikeoutsPitched>9</strikeoutsPitched>
   </player>
   <player>
-    <battingAvg>0.158</battingAvg>
+    <battingAvg>0.13</battingAvg>
     <rbi>1</rbi>
     <name>Davey Jones</name>
-    <atbats>19</atbats>
+    <atbats>23</atbats>
     <hits>3</hits>
     <strikeoutsAtBat>10</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
-    <battingAvg>0.059</battingAvg>
+    <battingAvg>0.05</battingAvg>
     <rbi>2</rbi>
     <name>Justin Gomes</name>
-    <atbats>17</atbats>
+    <atbats>20</atbats>
     <hits>1</hits>
     <strikeoutsAtBat>12</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
-    <battingAvg>0.077</battingAvg>
+    <battingAvg>0.062</battingAvg>
     <rbi>0</rbi>
     <name>Joe Smith</name>
-    <atbats>13</atbats>
+    <atbats>16</atbats>
     <hits>1</hits>
     <strikeoutsAtBat>9</strikeoutsAtBat>
     <strikeoutsPitched>9</strikeoutsPitched>
   </player>
   <player>
-    <battingAvg>0.118</battingAvg>
+    <battingAvg>0.1</battingAvg>
     <rbi>2</rbi>
     <name>Jack Sparrow</name>
-    <atbats>17</atbats>
+    <atbats>20</atbats>
     <hits>2</hits>
     <strikeoutsAtBat>10</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
-    <battingAvg>0.222</battingAvg>
+    <battingAvg>0.167</battingAvg>
     <rbi>1</rbi>
     <name>Will Turner</name>
-    <atbats>9</atbats>
+    <atbats>12</atbats>
     <hits>2</hits>
     <strikeoutsAtBat>4</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
