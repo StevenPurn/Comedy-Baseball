@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7f02b90e1fabcd3488ac97e2112eaeae
-timeCreated: 1515448448
+timeCreated: 1515448856
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -135,7 +135,11 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -5.5, y: 10}
+        - {x: -5.5, y: -10}
+        - {x: 5.5, y: -10}
+        - {x: 5.5, y: 10}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue O slide R
@@ -148,7 +152,14 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6.5, y: 8}
+        - {x: -8.5, y: 7}
+        - {x: -8.5, y: -8}
+        - {x: 4.5, y: -8}
+        - {x: 8.5, y: -6}
+        - {x: 8.5, y: 5}
+        - {x: 3.5, y: 8}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue O slide L
@@ -161,7 +172,14 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -3.5, y: 8}
+        - {x: -7.5, y: 7}
+        - {x: -8.5, y: 6}
+        - {x: -8.5, y: -8}
+        - {x: 8.5, y: -8}
+        - {x: 8.5, y: 6}
+        - {x: 6.5, y: 8}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue O DownRight 1
@@ -174,7 +192,11 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6, y: 10}
+        - {x: -6, y: -10}
+        - {x: 6, y: -10}
+        - {x: 6, y: 10}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue O DownRight 2
@@ -187,7 +209,15 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6, y: 10}
+        - {x: -7, y: 8}
+        - {x: -7, y: -6}
+        - {x: -1, y: -10}
+        - {x: 6, y: -10}
+        - {x: 7, y: -8}
+        - {x: 7, y: 9}
+        - {x: 5, y: 10}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue atbat 1
@@ -200,7 +230,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6.5, y: 11}
+        - {x: -6.5, y: -11}
+        - {x: 5.5, y: -11}
+        - {x: 6.5, y: -10}
+        - {x: 6.5, y: 8}
+        - {x: 3.5, y: 11}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue atbat 2
@@ -213,7 +249,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 5, y: 11}
+        - {x: -6, y: 11}
+        - {x: -6, y: -11}
+        - {x: 4, y: -11}
+        - {x: 6, y: -9}
+        - {x: 6, y: 10}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue atbat 3
@@ -226,7 +268,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -11, y: 11.5}
+        - {x: -11, y: -11.5}
+        - {x: 5, y: -11.5}
+        - {x: 11, y: -9.5}
+        - {x: 11, y: 4.5}
+        - {x: 0, y: 11.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue atbat 4
@@ -239,7 +287,16 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 7.5, y: 11}
+        - {x: -10.5, y: 11}
+        - {x: -10.5, y: 5}
+        - {x: -7.5, y: -3}
+        - {x: -1.5, y: -11}
+        - {x: 8.5, y: -11}
+        - {x: 9.5, y: -8}
+        - {x: 9.5, y: 8}
+        - {x: 8.5, y: 9}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue O DownRight 3
@@ -252,7 +309,14 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -4.5, y: 10}
+        - {x: -5.5, y: 9}
+        - {x: -6.5, y: 5}
+        - {x: -6.5, y: -8}
+        - {x: -4.5, y: -10}
+        - {x: 6.5, y: -10}
+        - {x: 6.5, y: 10}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue O DownLeft 1
@@ -265,7 +329,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6.5, y: 9.5}
+        - {x: -6.5, y: -5.5}
+        - {x: -4.5, y: -9.5}
+        - {x: 6.5, y: -9.5}
+        - {x: 6.5, y: 5.5}
+        - {x: 5.5, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue O DownLeft 2
@@ -278,7 +348,14 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 2.5, y: 9.5}
+        - {x: -4.5, y: 9.5}
+        - {x: -7.5, y: 7.5}
+        - {x: -7.5, y: -9.5}
+        - {x: 5.5, y: -9.5}
+        - {x: 7.5, y: -6.5}
+        - {x: 7.5, y: 4.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue O DownLeft 3
@@ -291,7 +368,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6.5, y: 9.5}
+        - {x: -6.5, y: -9.5}
+        - {x: 5.5, y: -9.5}
+        - {x: 6.5, y: -8.5}
+        - {x: 6.5, y: 4.5}
+        - {x: 4.5, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue O UpRight 1
@@ -304,7 +387,11 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6.5, y: 9.5}
+        - {x: -6.5, y: -9.5}
+        - {x: 6.5, y: -9.5}
+        - {x: 6.5, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue O UpRight 2
@@ -317,7 +404,15 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -3.5, y: 9.5}
+        - {x: -5.5, y: 7.5}
+        - {x: -6.5, y: 1.5}
+        - {x: -6.5, y: -6.5}
+        - {x: -5.5, y: -9.5}
+        - {x: 6.5, y: -9.5}
+        - {x: 6.5, y: 8.5}
+        - {x: 4.5, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue O UpRight 3
@@ -330,7 +425,15 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 4, y: 9.5}
+        - {x: -4, y: 9.5}
+        - {x: -6, y: 7.5}
+        - {x: -8, y: 3.5}
+        - {x: -8, y: -9.5}
+        - {x: 5, y: -9.5}
+        - {x: 8, y: -7.5}
+        - {x: 8, y: 7.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue O UpLeft 1
@@ -343,7 +446,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -5.5, y: 9.5}
+        - {x: -6.5, y: 8.5}
+        - {x: -6.5, y: -9.5}
+        - {x: 6.5, y: -9.5}
+        - {x: 6.5, y: 6.5}
+        - {x: 3.5, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue O UpLeft 2
@@ -356,7 +465,14 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 3.5, y: 9.5}
+        - {x: -5.5, y: 9.5}
+        - {x: -6.5, y: 7.5}
+        - {x: -6.5, y: -9.5}
+        - {x: 6.5, y: -9.5}
+        - {x: 6.5, y: 5.5}
+        - {x: 5.5, y: 7.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue O UpLeft 3
@@ -369,7 +485,17 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 4.5, y: 9.5}
+        - {x: -3.5, y: 9.5}
+        - {x: -6.5, y: 6.5}
+        - {x: -8.5, y: 3.5}
+        - {x: -8.5, y: -6.5}
+        - {x: -6.5, y: -9.5}
+        - {x: 6.5, y: -9.5}
+        - {x: 8.5, y: -7.5}
+        - {x: 8.5, y: 3.5}
+        - {x: 6.5, y: 8.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D CatchLow
@@ -382,7 +508,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -4.5, y: 7.5}
+        - {x: -5.5, y: 6.5}
+        - {x: -5.5, y: -9.5}
+        - {x: 5.5, y: -9.5}
+        - {x: 5.5, y: 6.5}
+        - {x: 2.5, y: 7.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D CatchHigh
@@ -395,7 +527,14 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6.5, y: 9.5}
+        - {x: -7.5, y: 7.5}
+        - {x: -7.5, y: -4.5}
+        - {x: -5.5, y: -9.5}
+        - {x: 3.5, y: -9.5}
+        - {x: 7.5, y: -0.5}
+        - {x: 7.5, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D CatchLeft
@@ -408,7 +547,14 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -5.5, y: 9.5}
+        - {x: -7.5, y: 8.5}
+        - {x: -7.5, y: -5.5}
+        - {x: -5.5, y: -9.5}
+        - {x: 7.5, y: -9.5}
+        - {x: 7.5, y: 8.5}
+        - {x: 6.5, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D CatchRight
@@ -421,7 +567,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -8, y: 9.5}
+        - {x: -8, y: -9.5}
+        - {x: 7, y: -9.5}
+        - {x: 8, y: -7.5}
+        - {x: 8, y: 5.5}
+        - {x: 6, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D ThrowUp
@@ -432,9 +584,15 @@ TextureImporter:
         width: 12
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6, y: 10.5}
+        - {x: -6, y: -10.5}
+        - {x: 4, y: -10.5}
+        - {x: 6, y: -6.5}
+        - {x: 6, y: 8.5}
+        - {x: 4, y: 10.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D ThrowDown
@@ -445,9 +603,14 @@ TextureImporter:
         width: 13
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6.5, y: 10.5}
+        - {x: -6.5, y: -8.5}
+        - {x: -5.5, y: -10.5}
+        - {x: 6.5, y: -10.5}
+        - {x: 6.5, y: 10.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D ThrowR 1
@@ -460,7 +623,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -5, y: 9.5}
+        - {x: -8, y: 8.5}
+        - {x: -8, y: -7.5}
+        - {x: -7, y: -9.5}
+        - {x: 8, y: -9.5}
+        - {x: 8, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D ThrowRight 2
@@ -473,7 +642,11 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6, y: 9.5}
+        - {x: -6, y: -9.5}
+        - {x: 6, y: -9.5}
+        - {x: 6, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D ThrowRight 3
@@ -486,7 +659,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -5, y: 9.5}
+        - {x: -8, y: 1.5}
+        - {x: -8, y: -9.5}
+        - {x: 7, y: -9.5}
+        - {x: 8, y: -6.5}
+        - {x: 8, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D throwLeft 1
@@ -499,7 +678,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -4, y: 9.5}
+        - {x: -7, y: 6.5}
+        - {x: -7, y: -9.5}
+        - {x: 7, y: -9.5}
+        - {x: 7, y: 6.5}
+        - {x: 5, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D throwleft 2
@@ -512,7 +697,11 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6, y: 9.5}
+        - {x: -6, y: -9.5}
+        - {x: 6, y: -9.5}
+        - {x: 6, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D throwleft 3
@@ -525,7 +714,15 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 7, y: 9.5}
+        - {x: -7, y: 9.5}
+        - {x: -8, y: 8.5}
+        - {x: -8, y: -7.5}
+        - {x: -7, y: -9.5}
+        - {x: 7, y: -9.5}
+        - {x: 8, y: -8.5}
+        - {x: 8, y: 3.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Run L1
@@ -538,7 +735,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6.5, y: 9.5}
+        - {x: -7.5, y: 8.5}
+        - {x: -7.5, y: -8.5}
+        - {x: -6.5, y: -9.5}
+        - {x: 7.5, y: -9.5}
+        - {x: 7.5, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Run L2
@@ -551,7 +754,12 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6, y: 9.5}
+        - {x: -6, y: -9.5}
+        - {x: 5, y: -9.5}
+        - {x: 6, y: -7.5}
+        - {x: 6, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Run L3
@@ -564,7 +772,12 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6.5, y: 9.5}
+        - {x: -7.5, y: 8.5}
+        - {x: -7.5, y: -9.5}
+        - {x: 7.5, y: -9.5}
+        - {x: 7.5, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Run R1
@@ -577,7 +790,14 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -7, y: 9.5}
+        - {x: -8, y: 4.5}
+        - {x: -8, y: -9.5}
+        - {x: 7, y: -9.5}
+        - {x: 8, y: -8.5}
+        - {x: 8, y: 7.5}
+        - {x: 6, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Run R2
@@ -590,7 +810,12 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6, y: 9.5}
+        - {x: -6, y: -9.5}
+        - {x: 5, y: -9.5}
+        - {x: 6, y: -7.5}
+        - {x: 6, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Run R3
@@ -603,7 +828,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 5, y: 9.5}
+        - {x: -8, y: 9.5}
+        - {x: -8, y: -9.5}
+        - {x: 6, y: -9.5}
+        - {x: 8, y: -8.5}
+        - {x: 8, y: 5.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Run U1
@@ -616,7 +847,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -5.5, y: 11}
+        - {x: -6.5, y: 4}
+        - {x: -6.5, y: -10}
+        - {x: -5.5, y: -11}
+        - {x: 6.5, y: -11}
+        - {x: 6.5, y: 11}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Run U2
@@ -629,7 +866,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6, y: 11}
+        - {x: -6, y: -11}
+        - {x: 5, y: -11}
+        - {x: 6, y: -9}
+        - {x: 6, y: 10}
+        - {x: 4, y: 11}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D runU 3
@@ -642,7 +885,14 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -5, y: 11}
+        - {x: -7, y: 1}
+        - {x: -7, y: -8}
+        - {x: -5, y: -9}
+        - {x: -2, y: -11}
+        - {x: 7, y: -11}
+        - {x: 7, y: 11}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Run UR 1
@@ -655,7 +905,16 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 4.5, y: 10}
+        - {x: -2.5, y: 10}
+        - {x: -4.5, y: 8}
+        - {x: -6.5, y: 1}
+        - {x: -6.5, y: -9}
+        - {x: -5.5, y: -10}
+        - {x: 5.5, y: -10}
+        - {x: 6.5, y: -9}
+        - {x: 6.5, y: 8}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Run UR 2
@@ -668,7 +927,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -7, y: 9.5}
+        - {x: -7, y: -6.5}
+        - {x: -5, y: -9.5}
+        - {x: 7, y: -9.5}
+        - {x: 7, y: 8.5}
+        - {x: 6, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Run UR 3
@@ -681,7 +946,15 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6.5, y: 9.5}
+        - {x: -8.5, y: 6.5}
+        - {x: -8.5, y: -8.5}
+        - {x: -7.5, y: -9.5}
+        - {x: 5.5, y: -9.5}
+        - {x: 8.5, y: -7.5}
+        - {x: 8.5, y: 8.5}
+        - {x: 5.5, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blueD Run UL 1
@@ -694,7 +967,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -5.5, y: 9.5}
+        - {x: -6.5, y: 8.5}
+        - {x: -6.5, y: -9.5}
+        - {x: 6.5, y: -9.5}
+        - {x: 6.5, y: 6.5}
+        - {x: 3.5, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Run UL 2
@@ -707,7 +986,12 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -7, y: 9.5}
+        - {x: -7, y: -9.5}
+        - {x: 7, y: -9.5}
+        - {x: 7, y: 6.5}
+        - {x: 5, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Run UL3
@@ -720,7 +1004,15 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -5, y: 9.5}
+        - {x: -9, y: 3.5}
+        - {x: -9, y: -6.5}
+        - {x: -6, y: -9.5}
+        - {x: 7, y: -9.5}
+        - {x: 9, y: -7.5}
+        - {x: 9, y: 6.5}
+        - {x: 8, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Neutral
@@ -733,7 +1025,11 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -7, y: 10.5}
+        - {x: -7, y: -10.5}
+        - {x: 7, y: -10.5}
+        - {x: 7, y: 10.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Run D2
@@ -746,7 +1042,14 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -5, y: 10}
+        - {x: -8, y: 4}
+        - {x: -8, y: -7}
+        - {x: -7, y: -10}
+        - {x: 4, y: -10}
+        - {x: 8, y: -5}
+        - {x: 8, y: 10}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D Run D 3
@@ -759,7 +1062,13 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6.5, y: 10}
+        - {x: -7.5, y: 7}
+        - {x: -7.5, y: -10}
+        - {x: 7.5, y: -10}
+        - {x: 7.5, y: 4}
+        - {x: 4.5, y: 10}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue Run DR 1
@@ -772,7 +1081,14 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -3, y: 9.5}
+        - {x: -5, y: 8.5}
+        - {x: -7, y: -6.5}
+        - {x: -7, y: -9.5}
+        - {x: 7, y: -9.5}
+        - {x: 7, y: 7.5}
+        - {x: 5, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue Run DR 2
@@ -785,7 +1101,14 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -5.5, y: 9.5}
+        - {x: -7.5, y: 5.5}
+        - {x: -7.5, y: -7.5}
+        - {x: -3.5, y: -9.5}
+        - {x: 7.5, y: -9.5}
+        - {x: 7.5, y: 7.5}
+        - {x: 6.5, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue Run DR 3
@@ -798,7 +1121,14 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -5, y: 9.5}
+        - {x: -7, y: 4.5}
+        - {x: -7, y: -8.5}
+        - {x: -5, y: -9.5}
+        - {x: 6, y: -9.5}
+        - {x: 7, y: -8.5}
+        - {x: 7, y: 9.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D run dl 1
@@ -811,7 +1141,15 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 4, y: 10}
+        - {x: -4, y: 10}
+        - {x: -7, y: 8}
+        - {x: -7, y: -5}
+        - {x: -4, y: -10}
+        - {x: 8, y: -10}
+        - {x: 8, y: 3}
+        - {x: 6, y: 8}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D run dl 2
@@ -824,7 +1162,15 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 2, y: 9.5}
+        - {x: -5, y: 9.5}
+        - {x: -8, y: 6.5}
+        - {x: -8, y: -7.5}
+        - {x: -7, y: -9.5}
+        - {x: 8, y: -9.5}
+        - {x: 8, y: 2.5}
+        - {x: 4, y: 7.5}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue D run dl3
@@ -837,7 +1183,14 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -6, y: 9.5}
+        - {x: -7, y: 8.5}
+        - {x: -7, y: -9.5}
+        - {x: 4, y: -9.5}
+        - {x: 7, y: -7.5}
+        - {x: 7, y: 6.5}
+        - {x: 6, y: 9.5}
       tessellationDetail: 0
     outline: []
   spritePackingTag: 
