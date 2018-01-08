@@ -4,11 +4,19 @@ using UnityEngine;
 public static class Field {
 
     public static Base[] bases = new Base[4];
+    public static GameObject[] dugouts = new GameObject[2];
     public static List<Runner> runners = new List<Runner>();
+    public static List<Fielder> fielders = new List<Fielder>();
 
     public static void AssignBases(Base[] _bases)
     {
         bases = _bases;
+    }
+
+    public static void AssignDugouts()
+    {
+        GameControl.instance.activeTeams[0].dugout = dugouts[0];
+        GameControl.instance.activeTeams[1].dugout = dugouts[1];
     }
 
     public static List<Runner> CheckWhichRunnersAdvance(int numberOfBases)

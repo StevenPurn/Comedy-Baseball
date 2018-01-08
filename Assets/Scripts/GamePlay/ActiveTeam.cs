@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public enum TeamColor { red, blue }
+public enum TeamColor { orange, blue }
 
 public class ActiveTeam
 {
     public string name;
     public List<ActivePlayer> players = new List<ActivePlayer>();
+    public GameObject dugout;
     //Might need to make this a list so we can dynamically change the number of innings
     public Inning[] innings = new Inning[GameControl.numberOfInnings];
     public int score = 0;

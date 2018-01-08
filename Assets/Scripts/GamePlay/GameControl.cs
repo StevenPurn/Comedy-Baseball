@@ -18,17 +18,18 @@ public class GameControl : MonoBehaviour {
     //Teams & players that exist in the xml files
     public List<Team> teams = new List<Team>();
     public List<Player> players = new List<Player>();
-    //Teams/players participating in this game
+    //Teams & players participating in this game
     public List<ActiveTeam> activeTeams = new List<ActiveTeam>();
     public List<ActivePlayer> activePlayers = new List<ActivePlayer>();
     //List of runners in the game at the moment
     public List<Runner> runners = new List<Runner>();
     private int runnerNumber;
     private int teamAtBat;
+    public static bool ballInPlay = false;
 
     public Dictionary<TeamColor, Color> teamColors = new Dictionary<TeamColor, Color>()
     {
-        {TeamColor.red, Color.red },
+        {TeamColor.orange, Color.green }, //This makes no sense and will need to be changed to orange at some point
         {TeamColor.blue, Color.blue }
     };
 
@@ -67,6 +68,7 @@ public class GameControl : MonoBehaviour {
 
     void NextBatter()
     {
+        ballInPlay = false;
         int curBatter = GetCurrentBatter();
         curBatter = curBatter + 1 == activeTeams[teamAtBat].players.Count ? 0 : curBatter + 1;
 
@@ -97,7 +99,9 @@ public class GameControl : MonoBehaviour {
         {
             battersBox = GameObject.Find("BattersBox").transform;
         }
-        GameObject go = Instantiate(runnerPrefab, battersBox.position, Quaternion.identity);
+        GameObject go = Instantiate(runnerPrefab, activeTeams[teamAtBat].dugout.transform.position, Quaternion.identity); //Need to set this up to have players walk out from dugouts (under the stands)
+        go.GetComponent<Runner>().SetBaseAsTarget(battersBox.gameObject);
+        go.GetComponent<Runner>().team = activeTeams[teamAtBat];
         go.name = "Runner " + runnerNumber;
         runnerNumber += 1;
         Field.runners.Add(go.GetComponent<Runner>());
@@ -214,9 +218,16 @@ public class GameControl : MonoBehaviour {
         //Walk batter to 1st base & reset count
     }
 
-    public void FastForward()
+    public void FastForward(bool isSpedUp = true)
     {
-        Time.timeScale = 1.2f;
+        if (isSpedUp)
+        {
+            Time.timeScale = 1.2f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
     }
 
     //Respond to hits based on input from Umpire
@@ -224,6 +235,7 @@ public class GameControl : MonoBehaviour {
     //Can also switch to next batter or next team if there are 3 outs
     public void HandleHit(int bases)
     {
+        ballInPlay = true;
         GetCurrentBattingPlayer().ChangeHits(1);
         activeTeams[teamAtBat].hits += 1;
         Field.AdvanceRunners(bases);

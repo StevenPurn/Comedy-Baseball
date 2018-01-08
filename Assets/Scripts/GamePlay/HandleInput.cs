@@ -38,19 +38,7 @@ public class HandleInput : MonoBehaviour
             {
                 GameControl.instance.HandleOut();
             }
-            else if (Controls.GetButtonDown("Steal"))
-            {
-
-            }
         }
-
-        if (Controls.GetButton("FastForward"))
-        {
-            GameControl.instance.FastForward();
-        }
-        else
-        {
-            Time.timeScale = 1.0f;
-        }
+        GameControl.instance.FastForward(Controls.GetButton("FastForward"));
     }
 }
