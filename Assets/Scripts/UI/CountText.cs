@@ -1,35 +1,58 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 using System;
-using System.Collections.Generic;
 
 public class CountText : MonoBehaviour {
 
-    public Text count;
+    public Text inning;
     public Text batter;
+    public Image[] outs;
+    public Image[] inningIndicators;
+    public Image[] bases;
+    public Sprite activeOut, inactiveOut, occupiedBase, unoccupiedBase, activeInning, inactiveInning;
 
-	// Use this for initialization
 	void Start () {
-        GameControl.instance.changeCountEvent += UpdateText;
-        UpdateText();
+        GameControl.instance.changeCountEvent += UpdateUI;
+        UpdateUI();
     }
 	
-	// Update is called once per frame
-	void UpdateText ()
+	void UpdateUI()
     {
-        UpdateBatterText();
-        UpdateCountText();
+        UpdateBatterUI();
+        UpdateCountUI();
 	}
 
-    void UpdateBatterText()
+    void UpdateBatterUI()
     {
         string batterText = String.Format("{0}\nHits:", GameControl.instance.GetCurrentBattingPlayer().name);
         batterText += GameControl.instance.GetCurrentBattingPlayer().hits;
-        batter.text = batterText;
+        //batter.text = batterText;
     }
 
-    void UpdateCountText()
+    void UpdateCountUI()
     {
-        count.text = String.Format("Outs: {0}\nStrikes:{1}\nBalls:{2}", GameControl.outs, GameControl.strikes, GameControl.balls);
+        inningIndicators[0].sprite = GameControl.curInning.isBottom ? inactiveInning : activeInning;
+        inningIndicators[1].sprite = GameControl.curInning.isBottom ? activeInning : inactiveInning;
+        inning.text = GameControl.curInning.inningNumber.ToString();
+        foreach (var item in outs)
+        {
+            item.sprite = inactiveOut;
+        }
+
+        foreach (var item in bases)
+        {
+            item.sprite = unoccupiedBase;
+        }
+
+        //This needs to be fixed
+        for (int i = 0; i < bases.Length; i++)
+        {
+            bases[i].sprite = Field.runners.Find(x => x.currentBase == i) != null ? occupiedBase : unoccupiedBase;
+        }
+
+        for (int i = 0; i < GameControl.outs; i++)
+        {
+            outs[i].sprite = activeOut;
+        }
     }
 }

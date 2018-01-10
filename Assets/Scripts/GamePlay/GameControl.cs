@@ -294,7 +294,6 @@ public class GameControl : MonoBehaviour {
     {
         ActiveTeam winner = activeTeams[0].score > activeTeams[1].score ? activeTeams[0] : activeTeams[1];
         winner.wonGame = true;
-        Debug.Log("Winner is: " + winner.name);
         Save();
     }
 }

@@ -111,7 +111,11 @@ public class MenuControl : MonoBehaviour {
                     if (player.name == t1player1.options[t1player1.value].text || player.name == t1player2.options[t1player2.value].text || player.name == t1player3.options[t1player3.value].text)
                     {
                         ActivePlayer aPlayer = new ActivePlayer();
+                        aPlayer.number = player.number;
                         aPlayer.name = player.name;
+                        aPlayer.totalAtBats = player.atBats;
+                        aPlayer.totalHits = player.hits;
+                        aPlayer.portraitPath = player.portraitPath;
                         team.players.Add(aPlayer);
                     }
                 }
@@ -122,7 +126,11 @@ public class MenuControl : MonoBehaviour {
                     if (player.name == t2player1.options[t2player1.value].text || player.name == t2player2.options[t2player2.value].text || player.name == t2player3.options[t2player3.value].text)
                     {
                         ActivePlayer aPlayer = new ActivePlayer();
+                        aPlayer.number = player.number;
                         aPlayer.name = player.name;
+                        aPlayer.totalAtBats = player.atBats;
+                        aPlayer.totalHits = player.hits;
+                        aPlayer.portraitPath = player.portraitPath;
                         team.players.Add(aPlayer);
                     }
                 }

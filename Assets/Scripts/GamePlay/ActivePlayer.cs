@@ -3,6 +3,7 @@
 /// </summary>
 public class ActivePlayer
 {
+    public int number;
     public string name;
     public string portraitPath;
     public bool isAtBat;

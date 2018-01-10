@@ -74,5 +74,4 @@ public static class SaveLoad
     {
         GameControl.instance.players = DataHandler.LoadData<List<Player>>(GameControl.instance.playerFilePath, Player.xmlRoot);
     }
-
 }

@@ -8,6 +8,8 @@ public class Player {
 
     public static string xmlRoot = "ArrayOfPlayer";
 
+    [XmlElement("number")]
+    public int number;
     [XmlElement("name")]
     public string name { get; set; }
     [XmlElement("atbats")]
