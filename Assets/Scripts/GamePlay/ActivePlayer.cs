@@ -18,31 +18,37 @@ public class ActivePlayer
 
     public void ChangeAtBats(int change)
     {
+        totalAtBats += change;
         atBats += change;
     }
 
     public void ChangeStrikeOutsAtBat(int change)
     {
+        totalStrikeoutsAtBat += change;
         strikeoutsAtBat += change;
     }
 
     public void ChangeHits(int change)
     {
+        totalHits += change;
         hits += change;
     }
 
     public void ChangeRBIs(int change)
     {
+        totalRbis += change;
         rbis += change;
     }
 
     public void ChangeRuns(int change)
     {
+        totalRuns += change;
         runs += change;
     }
 
     public void ChangeStrikeoutsPitched(int change)
     {
+        totalStrikesoutsPitched += change;
         strikeoutsPitched += change;
     }
     

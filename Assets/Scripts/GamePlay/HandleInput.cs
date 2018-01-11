@@ -39,6 +39,10 @@ public class HandleInput : MonoBehaviour
                 GameControl.instance.HandleOut();
             }
         }
+        else
+        {
+            Field.UpdateBases();
+        }
         GameControl.instance.FastForward(Controls.GetButton("FastForward"));
     }
 }

@@ -68,9 +68,9 @@ public class GameControl : MonoBehaviour {
 
     void NextBatter()
     {
-        ballInPlay = false;
         int curBatter = GetCurrentBatter();
         curBatter = curBatter + 1 == activeTeams[teamAtBat].players.Count ? 0 : curBatter + 1;
+        ballInPlay = false;
 
         foreach (var player in activeTeams[teamAtBat].players)
         {
@@ -81,10 +81,9 @@ public class GameControl : MonoBehaviour {
         {
             runner.atBat = false;
         }
-
-        AddBatterToField();
         activeTeams[teamAtBat].players[curBatter].isAtBat = true;
         activeTeams[teamAtBat].players[curBatter].atBats += 1;
+        AddBatterToField();
     }
 
     public static void InitializeField()

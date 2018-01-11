@@ -34,6 +34,10 @@ public class Runner : MonoBehaviour {
             //If you've reached your next destination
             if (CheckEqual(rb.position, new Vector2(targetBase[0].transform.position.x, targetBase[0].transform.position.y),0.1f))
             {
+                if (hasScored)
+                {
+                    Destroy(gameObject);
+                }
                 //If you reached home plate score and then kindly remove yourself from the game
                 if (currentBase == 3)
                 {
@@ -70,11 +74,6 @@ public class Runner : MonoBehaviour {
                     targetBase.Clear();
                     isAdvancing = false;
                 }
-
-                if (hasScored)
-                {
-
-                }
             }
         }
 
@@ -105,7 +104,7 @@ public class Runner : MonoBehaviour {
 
     public void SetBaseAsTarget(GameObject baseToTarget)
     {
-        this.targetBase.Add(baseToTarget);
+        targetBase.Add(baseToTarget);
     }
 
     public void SetOut()
@@ -119,6 +118,5 @@ public class Runner : MonoBehaviour {
         targetBase.Clear();
         currentBase = 0;
         SetBaseAsTarget(team.dugout);
-        //Destroy(gameObject);
     }
 }

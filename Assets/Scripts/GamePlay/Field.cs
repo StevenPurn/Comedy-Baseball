@@ -8,15 +8,25 @@ public static class Field {
     public static List<Runner> runners = new List<Runner>();
     public static List<Fielder> fielders = new List<Fielder>();
 
-    public static void AssignBases(Base[] _bases)
-    {
-        bases = _bases;
-    }
-
     public static void AssignDugouts()
     {
         GameControl.instance.activeTeams[0].dugout = dugouts[0];
         GameControl.instance.activeTeams[1].dugout = dugouts[1];
+    }
+
+    public static void UpdateBases()
+    {
+        for (var i = 0; i < bases.Length; i++)
+        {
+            if(runners.Find(x => x.currentBase == i))
+            {
+                bases[i].isOccupied = true;
+            }
+            else
+            {
+                bases[i].isOccupied = false;
+            }
+        }
     }
 
     public static List<Runner> CheckWhichRunnersAdvance(int numberOfBases)
