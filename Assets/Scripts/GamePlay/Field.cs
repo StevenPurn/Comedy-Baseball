@@ -5,6 +5,7 @@ public static class Field {
 
     public static Base[] bases = new Base[4];
     public static GameObject[] dugouts = new GameObject[2];
+    public static GameObject[] fieldPositions = new GameObject[9];
     public static List<Runner> runners = new List<Runner>();
     public static List<Fielder> fielders = new List<Fielder>();
 
