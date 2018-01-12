@@ -24,22 +24,19 @@ public class Runner : MonoBehaviour {
     private void FixedUpdate()
     {
         //If we still have another base to move towards
-        if(targetBase.Count > 0)
+        if (targetBase.Count > 0)
         {
-            isAdvancing = true;
-            //Move towards the next base
-            Vector3 direction = (targetBase[0].transform.position - transform.position).normalized;
-            rb.MovePosition(transform.position + direction * movementSpeed * Time.deltaTime);
-            //Clean up the state of your previous base when you leave
-            //If you've reached your next destination
-            if (CheckEqual(rb.position, new Vector2(targetBase[0].transform.position.x, targetBase[0].transform.position.y),0.1f))
+            Vector3 movementTarget = new Vector3(0, 0, 0);
+            movementTarget = targetBase[0].transform.position;
+            if (Utility.CheckEqual(movementTarget, transform.position, 0.1f))
             {
+                isAdvancing = false;
                 if (hasScored)
                 {
+                    targetBase.Clear();
                     Destroy(gameObject);
                 }
-                //If you reached home plate score and then kindly remove yourself from the game
-                if (currentBase == 3)
+                else if (currentBase == 3)
                 {
                     hasScored = true;
                     GameControl.instance.ChangeTeamScore(1);
@@ -47,50 +44,35 @@ public class Runner : MonoBehaviour {
                 }
                 else
                 {
-                    //Inform the runner of which base they are on
-                    for (int i = Field.bases.Length - 1; i > 0; i--)
+                    if (targetBase[0].name.Contains("Base"))
                     {
-                        if (targetBase[0] == Field.bases[i].baseObj)
-                        {
-                            currentBase = i;
-                            //Make sure the field is also aware of which base the runner is on
-                            Field.bases[currentBase].isOccupied = true;
-                            if (Field.bases[currentBase - 1] != null)
-                            {
-                                if (Field.bases[currentBase - 1].isOccupied)
-                                {
-                                    Field.bases[currentBase - 1].isOccupied = false;
-                                }
-                            }
-                        }
+                        currentBase += 1;
                     }
-                }
-                //Remove the target as we've reached the base
-                targetBase.Remove(targetBase[0]);
-                //If there are no more targets remaining ensure everything is cleared out
-                if (targetBase.Count == 0)
-                {
-                    //Totally necessary
-                    targetBase.Clear();
-                    isAdvancing = false;
+                    targetBase.Remove(targetBase[0]);
                 }
             }
+            else
+            {
+                isAdvancing = true;
+                MovePlayer(movementTarget);
+            }
         }
-
-        if(currentBase >= 4)
+        else if (targetBase.Count == 0)
+        {
+            //Totally necessary
+            targetBase.Clear();
+            isAdvancing = false;
+        }
+        if (currentBase >= 4)
         {
             Debug.LogWarning("Someone went way too far. Like, good on them. But you should check it");
         }
     }
 
-    //Approximation of position equality to prevent weird rubber banding issues
-    bool CheckEqual(Vector2 v1, Vector2 v2, float tolerance)
+    void MovePlayer(Vector3 target)
     {
-        if (Mathf.Abs(v1.x - v2.x) < tolerance && Mathf.Abs(v1.y - v2.y) < tolerance)
-        {
-            return true;
-        }
-        else return false;
+        Vector3 direction = (target - transform.position).normalized;
+        rb.MovePosition(transform.position + direction * movementSpeed * Time.deltaTime);
     }
 
     //Get target bases to move towards from Field class
@@ -116,7 +98,7 @@ public class Runner : MonoBehaviour {
     public void RemoveRunner()
     {
         targetBase.Clear();
-        currentBase = 0;
         SetBaseAsTarget(team.dugout);
+        currentBase = 0;
     }
 }

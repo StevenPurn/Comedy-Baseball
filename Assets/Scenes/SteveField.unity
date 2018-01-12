@@ -172,16 +172,17 @@ MonoBehaviour:
   dugouts:
   - {fileID: 88058327}
   - {fileID: 1448955580}
-  fieldPositions:
+  positions: 000000000100000002000000030000000400000005000000060000000700000008000000
+  positionObjs:
   - {fileID: 1106640992}
+  - {fileID: 215422895}
   - {fileID: 1570510311}
   - {fileID: 1941976454}
   - {fileID: 523429215}
   - {fileID: 1018435660}
   - {fileID: 156562629}
-  - {fileID: 1651625442}
   - {fileID: 2069569482}
-  - {fileID: 215422895}
+  - {fileID: 1651625442}
 --- !u!1 &88058327
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +235,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 116481578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 751, y: -358.99997, z: 0}
+  m_LocalPosition: {x: 751, y: -450.39996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1243276028}
@@ -243,8 +244,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -209, y: 181}
-  m_SizeDelta: {x: 381, y: 321.7}
+  m_AnchoredPosition: {x: -209, y: 89.6}
+  m_SizeDelta: {x: 381, y: 138.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &116481580
 MonoBehaviour:
@@ -1319,7 +1320,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1243276027}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 92.350006, z: 0}
+  m_LocalPosition: {x: 0, y: 0.94999695, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1901434417}
@@ -1728,7 +1729,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1733910089}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08399999, y: 0, z: 1.957}
+  m_LocalPosition: {x: 0.1719, y: 0, z: 1.957}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1239817501}
@@ -2303,6 +2304,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114291111928252342, guid: d78d13169ecc21148a29885ce83e1bf9,
+        type: 2}
+      propertyPath: fieldParent
+      value: 
+      objectReference: {fileID: 1273472705}
     - target: {fileID: 114291111928252342, guid: d78d13169ecc21148a29885ce83e1bf9,
         type: 2}
       propertyPath: battersBox

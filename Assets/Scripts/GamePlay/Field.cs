@@ -5,7 +5,7 @@ public static class Field {
 
     public static Base[] bases = new Base[4];
     public static GameObject[] dugouts = new GameObject[2];
-    public static GameObject[] fieldPositions = new GameObject[9];
+    public static Dictionary<Fielder.Position, GameObject> fieldPositions = new Dictionary<Fielder.Position, GameObject> { };
     public static List<Runner> runners = new List<Runner>();
     public static List<Fielder> fielders = new List<Fielder>();
 
@@ -19,14 +19,7 @@ public static class Field {
     {
         for (var i = 0; i < bases.Length; i++)
         {
-            if(runners.Find(x => x.currentBase == i))
-            {
-                bases[i].isOccupied = true;
-            }
-            else
-            {
-                bases[i].isOccupied = false;
-            }
+            bases[i].isOccupied = runners.Find(x => x.currentBase == i);
         }
     }
 
@@ -128,9 +121,24 @@ public static class Field {
 
     public static void ResetInning()
     {
+        //Set fielders to return to dugout
+        foreach (var fielder in fielders)
+        {
+            fielder.inningOver = true;
+        }
         for (int i = runners.Count - 1; i >= 0; i--)
         {
             runners[i].RemoveRunner();
+        }
+
+        SpawnFielders();
+    }
+
+    public static void SpawnFielders()
+    {
+        foreach (var pos in fieldPositions)
+        {
+            GameControl.instance.AddFielderToField(pos.Key, pos.Value);
         }
     }
 }

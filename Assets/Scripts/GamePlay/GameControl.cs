@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameControl : MonoBehaviour {
 
-    //Fake singleton implementation
+    //Singleton implementation
     public static GameControl instance;
     //Static variables
     public static int numberOfInnings = 3;
@@ -13,16 +13,14 @@ public class GameControl : MonoBehaviour {
     //Save location for team & player files
     public string teamFilePath = "/Data/Teams.xml";
     public string playerFilePath = "/Data/Players.xml";
-    public GameObject runnerPrefab;
-    public Transform battersBox;
+    public GameObject runnerPrefab, fielderPrefab;
+    public Transform battersBox, fieldParent;
     //Teams & players that exist in the xml files
     public List<Team> teams = new List<Team>();
     public List<Player> players = new List<Player>();
     //Teams & players participating in this game
     public List<ActiveTeam> activeTeams = new List<ActiveTeam>();
     public List<ActivePlayer> activePlayers = new List<ActivePlayer>();
-    //List of runners in the game at the moment
-    public List<Runner> runners = new List<Runner>();
     private int runnerNumber;
     private int teamAtBat;
     public static bool ballInPlay = false;
@@ -68,21 +66,22 @@ public class GameControl : MonoBehaviour {
 
     void NextBatter()
     {
+        ActiveTeam battingTeam = GetTeamAtBat();
         int curBatter = GetCurrentBatter();
-        curBatter = curBatter + 1 == activeTeams[teamAtBat].players.Count ? 0 : curBatter + 1;
+        curBatter = curBatter + 1 == battingTeam.players.Count ? 0 : curBatter + 1;
         ballInPlay = false;
 
-        foreach (var player in activeTeams[teamAtBat].players)
+        foreach (var player in battingTeam.players)
         {
             player.isAtBat = false;
         }
 
-        foreach (var runner in runners)
+        foreach (var runner in Field.runners)
         {
             runner.atBat = false;
         }
-        activeTeams[teamAtBat].players[curBatter].isAtBat = true;
-        activeTeams[teamAtBat].players[curBatter].atBats += 1;
+        battingTeam.players[curBatter].isAtBat = true;
+        battingTeam.players[curBatter].atBats += 1;
         AddBatterToField();
     }
 
@@ -90,6 +89,7 @@ public class GameControl : MonoBehaviour {
     {
         instance.teamAtBat = instance.activeTeams[0].currentlyAtBat ? 0 : 1;
         instance.AddBatterToField();
+        Field.SpawnFielders();
     }
 
     public void AddBatterToField()
@@ -98,19 +98,35 @@ public class GameControl : MonoBehaviour {
         {
             battersBox = GameObject.Find("BattersBox").transform;
         }
-        GameObject go = Instantiate(runnerPrefab, activeTeams[teamAtBat].dugout.transform.position, Quaternion.identity); //Need to set this up to have players walk out from dugouts (under the stands)
+        if (fieldParent == null)
+        {
+            fieldParent = GameObject.Find("Field").transform;
+        }
+        GameObject go = Instantiate(runnerPrefab, GetTeamAtBat().dugout.transform.position, Quaternion.identity, fieldParent);
         go.GetComponent<Runner>().SetBaseAsTarget(battersBox.gameObject);
-        go.GetComponent<Runner>().team = activeTeams[teamAtBat];
+        go.GetComponent<Runner>().team = GetTeamAtBat();
         go.name = "Runner " + runnerNumber;
         runnerNumber += 1;
         Field.runners.Add(go.GetComponent<Runner>());
     }
 
+    public void AddFielderToField(Fielder.Position pos, GameObject obj)
+    {
+        if (fieldParent == null)
+        {
+            fieldParent = GameObject.Find("Field").transform;
+        }
+        GameObject go = Instantiate(fielderPrefab, GetTeamInField().dugout.transform.position, Quaternion.identity, fieldParent);
+        go.name = pos.ToString();
+        go.GetComponent<Fielder>().SetPosition(pos);
+        Field.fielders.Add(go.GetComponent<Fielder>());
+    }
+
     int GetCurrentBatter()
     {
-        if(activeTeams[teamAtBat].players.Find(x => x.isAtBat == true) != null)
+        if(GetTeamAtBat().players.Find(x => x.isAtBat == true) != null)
         {
-            return activeTeams[teamAtBat].players.FindIndex(x => x.isAtBat == true);
+            return GetTeamAtBat().players.FindIndex(x => x.isAtBat == true);
         }
         //By default return 0, should only occur with first batter of the game
         return 0;
@@ -130,10 +146,9 @@ public class GameControl : MonoBehaviour {
 
     int GetCurrentPitcher()
     {
-        int teamPitching = teamAtBat == 0 ? 1 : 0;
-        if (activeTeams[teamPitching].players.Find(x => x.isPitching == true) != null)
+        if (GetTeamInField().players.Find(x => x.isPitching == true) != null)
         {
-            return activeTeams[teamPitching].players.FindIndex(x => x.isPitching == true);
+            return GetTeamInField().players.FindIndex(x => x.isPitching == true);
         }
         //By default return 0, should only occur with first batter of the game
         return 0;
@@ -150,6 +165,17 @@ public class GameControl : MonoBehaviour {
         {
             return activeTeams[teamAtBat].players.Find(x => x.isPitching == true);
         }
+    }
+
+    public ActiveTeam GetTeamAtBat()
+    {
+        return activeTeams[teamAtBat];
+    }
+
+    public ActiveTeam GetTeamInField()
+    {
+        int index = teamAtBat == 1 ? 0 : 1;
+        return activeTeams[index];
     }
 
     void SwitchTeamAtBat()

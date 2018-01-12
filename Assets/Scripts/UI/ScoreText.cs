@@ -35,8 +35,6 @@ public class ScoreText : MonoBehaviour {
     {
         ActivePlayer curBatter = GameControl.instance.GetCurrentBattingPlayer();
         string batAvg = ((float)Math.Round(((float)curBatter.totalHits / (float)curBatter.totalAtBats), 3) * 1000).ToString();
-        Debug.Log(batAvg);
-        Debug.Log(String.Format("{0:.000}", batAvg));
         string batText = curBatter.number.ToString() + "\n" + curBatter.name + "\n." + batAvg;
         batterInfo.text = batText;
     }

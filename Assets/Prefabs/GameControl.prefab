@@ -55,5 +55,8 @@ MonoBehaviour:
   playerFilePath: /Data/Players.xml
   runnerPrefab: {fileID: 1498871029291636, guid: 65799857900d41f49b828115812af325,
     type: 2}
+  fielderPrefab: {fileID: 1498871029291636, guid: 2da81ba40bc73734899397bc6e4eb0bf,
+    type: 2}
+  fieldParent: {fileID: 0}
   battersBox: {fileID: 0}
   runners: []

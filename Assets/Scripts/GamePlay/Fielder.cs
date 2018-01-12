@@ -4,45 +4,76 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Fielder : MonoBehaviour {
 
+    public enum Position { pitcher, catcher, firstBaseman, secondBaseman, thirdBaseman, shortstop, rightField, centerField, leftField };
     private Rigidbody2D rb;
     private float movementSpeed = 10f;
+    public ActiveTeam team;
     public bool ballInHands;
+    public Position position;
+    public Transform startPosition;
+    public GameObject ball;
+    public bool inningOver = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    /*public void SetPosition(FieldPositions pos)
+    public void SetPosition(Position pos)
     {
         position = pos;
         Init();
-    }*/
+    }
 
     private void Init()
     {
-        //do setup stuff here
+        startPosition = Field.fieldPositions[position].transform;
+        team = GameControl.instance.GetTeamInField();
+        ball = GameObject.Find("ball");
     }
 
     private void FixedUpdate()
     {
-        if (GameControl.ballInPlay)
+        Vector3 movementTarget = new Vector3(0, 0, 0);
+        if (!inningOver)
         {
-            //check if ball is in the players region || should he pursue the ball? 
-            if (ballInHands)
+            if (GameControl.ballInPlay)
             {
-                //determine what to do with the ball, throw it at the base a runner is advancing towards
+                //check if ball is in the players region || should he pursue the ball? 
+                if (ballInHands)
+                {
+                    //determine what to do with the ball, throw it at the base a runner is advancing towards
+                    movementTarget = ball.transform.position;
+                }
             }
-        }        
+            else
+            {
+                movementTarget = startPosition.position;
+            }
+        }
+        else
+        {
+            movementTarget = team.dugout.transform.position;
+        }
+
+        if(Utility.CheckEqual(movementTarget, transform.position, 0.1f))
+        {
+            //reached destination so do a thing based on where you were going
+            //pick up ball? throw ball? destroy yourself?
+            if (inningOver)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            MovePlayer(movementTarget);
+        }
     }
 
-    //Approximation of position equality to prevent weird rubber banding issues
-    bool CheckEqual(Vector2 v1, Vector2 v2, float tolerance)
+    void MovePlayer(Vector3 target)
     {
-        if (Mathf.Abs(v1.x - v2.x) < tolerance && Mathf.Abs(v1.y - v2.y) < tolerance)
-        {
-            return true;
-        }
-        else return false;
+        Vector3 direction = (target - transform.position).normalized;
+        rb.MovePosition(transform.position + direction * movementSpeed * Time.deltaTime);
     }
 }
