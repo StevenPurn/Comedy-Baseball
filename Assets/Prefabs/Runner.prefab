@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4552251984615272}
   - component: {fileID: 114936065654412508}
   - component: {fileID: 50946631644629072}
-  - component: {fileID: 95640888030412070}
   - component: {fileID: 212467659345142464}
+  - component: {fileID: 95018126673552232}
   m_Layer: 0
   m_Name: Runner
   m_TagString: Untagged
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1498871029291636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37, y: -1.69, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,7 +63,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &95640888030412070
+--- !u!95 &95018126673552232
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -72,7 +72,7 @@ Animator:
   m_GameObject: {fileID: 1498871029291636}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 543e2d214b94744469dedd50c04613fe, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   atBat: 0
   currentBase: 0
   isOut: 0
-  hasScored: 0
+  exitingField: 0
   isAdvancing: 0
   targetBase: []
 --- !u!212 &212467659345142464

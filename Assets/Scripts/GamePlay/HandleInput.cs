@@ -2,7 +2,8 @@
 
 public class HandleInput : MonoBehaviour
 {
-	void Update ()
+
+    void Update ()
     {
         if(!Field.runners.Find(x => x.isAdvancing))
         {
@@ -42,7 +43,6 @@ public class HandleInput : MonoBehaviour
         else
         {
             Field.UpdateBases();
-            GameControl.instance.changeCountEvent();
         }
         GameControl.instance.FastForward(Controls.GetButton("FastForward"));
     }

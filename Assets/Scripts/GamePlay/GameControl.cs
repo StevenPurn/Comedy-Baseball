@@ -248,7 +248,7 @@ public class GameControl : MonoBehaviour {
     {
         if (isSpedUp)
         {
-            Time.timeScale = 1.2f;
+            Time.timeScale = 1.5f;
         }
         else
         {

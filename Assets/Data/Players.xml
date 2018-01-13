@@ -2,123 +2,123 @@
 <ArrayOfPlayer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <player>
     <number>1</number>
-    <battingAvg>0.25</battingAvg>
-    <rbi>2</rbi>
+    <battingAvg>0.294</battingAvg>
+    <rbi>7</rbi>
+    <portraitPath>/Art/testPortrait2.png</portraitPath>
     <name>Tirumari Jothi</name>
-    <atbats>20</atbats>
-    <hits>5</hits>
+    <atbats>51</atbats>
+    <hits>15</hits>
     <strikeoutsAtBat>10</strikeoutsAtBat>
     <strikeoutsPitched>9</strikeoutsPitched>
-    <portraitPath>/Art/testPortrait2.png</portraitPath>
   </player>
   <player>
     <number>1</number>
-    <battingAvg>0.13</battingAvg>
-    <rbi>1</rbi>
+    <battingAvg>0.241</battingAvg>
+    <rbi>6</rbi>
+    <portraitPath>/Art/testPortrait3.png</portraitPath>
     <name>Davey Jones</name>
-    <atbats>23</atbats>
-    <hits>3</hits>
+    <atbats>54</atbats>
+    <hits>13</hits>
     <strikeoutsAtBat>10</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
-    <portraitPath>/Art/testPortrait3.png</portraitPath>
   </player>
   <player>
     <number>1</number>
-    <battingAvg>0.05</battingAvg>
-    <rbi>2</rbi>
-    <name>Justin Gomes</name>
-    <atbats>20</atbats>
-    <hits>1</hits>
-    <strikeoutsAtBat>12</strikeoutsAtBat>
-    <strikeoutsPitched>0</strikeoutsPitched>
+    <battingAvg>0.216</battingAvg>
+    <rbi>12</rbi>
     <portraitPath>/Art/testPortrait1.png</portraitPath>
+    <name>Justin Gomes</name>
+    <atbats>51</atbats>
+    <hits>11</hits>
+    <strikeoutsAtBat>17</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
     <number>1</number>
-    <battingAvg>0.062</battingAvg>
-    <rbi>0</rbi>
-    <name>Joe Smith</name>
-    <atbats>16</atbats>
-    <hits>1</hits>
-    <strikeoutsAtBat>9</strikeoutsAtBat>
-    <strikeoutsPitched>9</strikeoutsPitched>
+    <battingAvg>0.275</battingAvg>
+    <rbi>10</rbi>
     <portraitPath>/Art/testPortrait2.png</portraitPath>
+    <name>Joe Smith</name>
+    <atbats>40</atbats>
+    <hits>11</hits>
+    <strikeoutsAtBat>14</strikeoutsAtBat>
+    <strikeoutsPitched>19</strikeoutsPitched>
   </player>
   <player>
     <number>1</number>
-    <battingAvg>0.1</battingAvg>
-    <rbi>2</rbi>
+    <battingAvg>0.245</battingAvg>
+    <rbi>12</rbi>
+    <portraitPath>/Art/testPortrait3.png</portraitPath>
     <name>Jack Sparrow</name>
-    <atbats>20</atbats>
-    <hits>2</hits>
+    <atbats>49</atbats>
+    <hits>12</hits>
     <strikeoutsAtBat>10</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
-    <portraitPath>/Art/testPortrait3.png</portraitPath>
   </player>
   <player>
     <number>1</number>
-    <battingAvg>0.167</battingAvg>
-    <rbi>1</rbi>
+    <battingAvg>0.171</battingAvg>
+    <rbi>6</rbi>
+    <portraitPath>/Art/testPortrait1.png</portraitPath>
     <name>Will Turner</name>
-    <atbats>12</atbats>
-    <hits>2</hits>
+    <atbats>41</atbats>
+    <hits>7</hits>
     <strikeoutsAtBat>4</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
-    <portraitPath>/Art/testPortrait1.png</portraitPath>
   </player>
   <player>
     <number>1</number>
     <battingAvg>0</battingAvg>
     <rbi>0</rbi>
+    <portraitPath>/Art/testPortrait2.png</portraitPath>
     <name>Elizabeth Swan</name>
     <atbats>0</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
-    <portraitPath>/Art/testPortrait2.png</portraitPath>
   </player>
   <player>
     <number>1</number>
     <battingAvg>0.6</battingAvg>
     <rbi>8</rbi>
+    <portraitPath>/Art/testPortrait3.png</portraitPath>
     <name>Emma Watson</name>
     <atbats>5</atbats>
     <hits>3</hits>
     <strikeoutsAtBat>4</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
-    <portraitPath>/Art/testPortrait3.png</portraitPath>
   </player>
   <player>
     <number>1</number>
     <battingAvg>0</battingAvg>
     <rbi>0</rbi>
+    <portraitPath>/Art/testPortrait1.png</portraitPath>
     <name>Captain Barbossa</name>
     <atbats>0</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
-    <portraitPath>/Art/testPortrait1.png</portraitPath>
   </player>
   <player>
     <number>1</number>
     <battingAvg>0</battingAvg>
     <rbi>0</rbi>
+    <portraitPath>/Art/testPortrait2.png</portraitPath>
     <name>Avatar Aang</name>
     <atbats>0</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
-    <portraitPath>/Art/testPortrait2.png</portraitPath>
   </player>
   <player>
     <number>1</number>
     <battingAvg>0</battingAvg>
     <rbi>0</rbi>
+    <portraitPath>/Art/testPortrait3.png</portraitPath>
     <name>Avatar Korra</name>
     <atbats>0</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
-    <portraitPath>/Art/testPortrait3.png</portraitPath>
   </player>
 </ArrayOfPlayer>

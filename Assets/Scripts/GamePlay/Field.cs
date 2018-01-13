@@ -26,6 +26,8 @@ public static class Field {
         {
             bases[i].isOccupied = runners.Find(x => x.currentBase == i);
         }
+
+        GameObject.FindObjectOfType<UIControl>().UpdateBaseIndicators();
     }
 
     public static List<Runner> CheckWhichRunnersAdvance(int numberOfBases)

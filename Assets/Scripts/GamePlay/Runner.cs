@@ -13,9 +13,11 @@ public class Runner : MonoBehaviour {
     private Rigidbody2D rb;
     private float movementSpeed = 10f;
     public ActiveTeam team;
+    private Animator anim;
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         atBat = true;
     }
@@ -63,6 +65,7 @@ public class Runner : MonoBehaviour {
             //Totally necessary
             targetBase.Clear();
             isAdvancing = false;
+            SetAnimationValues(Vector3.zero);
         }
         if (currentBase >= 4)
         {
@@ -73,7 +76,22 @@ public class Runner : MonoBehaviour {
     void MovePlayer(Vector3 target)
     {
         Vector3 direction = (target - transform.position).normalized;
+        SetAnimationValues(direction);
         rb.MovePosition(transform.position + direction * movementSpeed * Time.deltaTime);
+    }
+
+    private void SetAnimationValues(Vector3 moveDir)
+    {
+        anim.SetFloat("xMove", moveDir.x);
+        anim.SetFloat("yMove", moveDir.y);
+        if(moveDir == Vector3.zero)
+        {
+            anim.SetBool("isIdle", true);
+        }
+        else
+        {
+            anim.SetBool("isIdle", false);
+        }
     }
 
     //Get target bases to move towards from Field class

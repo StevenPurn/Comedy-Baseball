@@ -17,6 +17,8 @@ public class UIControl : MonoBehaviour {
     void Start () {
         GameControl.instance.changeCountEvent += UpdateUI;
         UpdateUI();
+        GameControl.instance.changeCountEvent += UpdateUI;
+        UpdateUI();
     }
 	
 	void UpdateUI()
@@ -66,20 +68,22 @@ public class UIControl : MonoBehaviour {
             item.sprite = inactiveOut;
         }
 
+        for (int i = 0; i < GameControl.outs; i++)
+        {
+            outs[i].sprite = activeOut;
+        }
+    }
+
+    public void UpdateBaseIndicators()
+    {
         foreach (var item in bases)
         {
             item.sprite = unoccupiedBase;
         }
 
-        //This needs to be fixed
         for (int i = 0; i < bases.Length; i++)
         {
             bases[i].sprite = Field.bases[i + 1].isOccupied ? occupiedBase : unoccupiedBase;
-        }
-
-        for (int i = 0; i < GameControl.outs; i++)
-        {
-            outs[i].sprite = activeOut;
         }
     }
 }
