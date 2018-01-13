@@ -210,6 +210,7 @@ public class GameControl : MonoBehaviour {
             }
             else
             {
+                Field.BatterIsOut();
                 GetCurrentPitchingPlayer().ChangeStrikeoutsPitched(1);
                 HandleOut();
                 GetCurrentBattingPlayer().ChangeStrikeOutsAtBat(1);

@@ -9,6 +9,8 @@ public class Team
     public int id { get; set; }
     [XmlElement("name")]
     public string name { get; set; }
+    [XmlElement("abbreviation")]
+    public string abbreviation { get; set; }
     [XmlElement("wins")]
     public int wins { get; set; }
     [XmlElement("loses")]

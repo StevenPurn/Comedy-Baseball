@@ -4,10 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Runner : MonoBehaviour {
 
-    public bool atBat;
+    public bool atBat = true;
     public int currentBase = 0;
     public bool isOut;
-    public bool hasScored = false;
+    public bool exitingField = false;
     public bool isAdvancing;
     public List<GameObject> targetBase = new List<GameObject>();
     private Rigidbody2D rb;
@@ -17,6 +17,7 @@ public class Runner : MonoBehaviour {
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        atBat = true;
     }
 
     //Move player towards next base if they have one
@@ -31,14 +32,14 @@ public class Runner : MonoBehaviour {
             if (Utility.CheckEqual(movementTarget, transform.position, 0.1f))
             {
                 isAdvancing = false;
-                if (hasScored)
+                if (exitingField)
                 {
                     targetBase.Clear();
                     Destroy(gameObject);
                 }
                 else if (currentBase == 3)
                 {
-                    hasScored = true;
+                    exitingField = true;
                     GameControl.instance.ChangeTeamScore(1);
                     RemoveRunner();
                 }
@@ -97,6 +98,7 @@ public class Runner : MonoBehaviour {
 
     public void RemoveRunner()
     {
+        exitingField = true;
         targetBase.Clear();
         SetBaseAsTarget(team.dugout);
         currentBase = 0;

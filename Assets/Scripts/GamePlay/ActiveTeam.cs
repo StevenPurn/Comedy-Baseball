@@ -6,6 +6,7 @@ public enum TeamColor { orange, blue }
 public class ActiveTeam
 {
     public string name;
+    public string abbreviation;
     public List<ActivePlayer> players = new List<ActivePlayer>();
     public GameObject dugout;
     //Might need to make this a list so we can dynamically change the number of innings

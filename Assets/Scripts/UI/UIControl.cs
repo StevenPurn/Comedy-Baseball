@@ -7,6 +7,7 @@ public class UIControl : MonoBehaviour {
 
     public Text inning;
     public Text batter;
+    public Text homeScore, awayScore;
     public Image[] outs;
     public Image[] inningIndicators;
     public Image[] bases;
@@ -20,9 +21,16 @@ public class UIControl : MonoBehaviour {
 	
 	void UpdateUI()
     {
+        UpdateScoreText();
         UpdateBatterUI();
         UpdateCountUI();
 	}
+
+    void UpdateScoreText()
+    {
+        homeScore.text = GameControl.instance.activeTeams[0].abbreviation + ": " + GameControl.instance.activeTeams[0].score;
+        awayScore.text = GameControl.instance.activeTeams[1].abbreviation + ": " + GameControl.instance.activeTeams[1].score;
+    }
 
     void UpdateBatterUI()
     {

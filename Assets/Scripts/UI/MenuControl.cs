@@ -77,6 +77,7 @@ public class MenuControl : MonoBehaviour {
             {
                 ActiveTeam aTeam = new ActiveTeam();
                 aTeam.name = team.name;
+                aTeam.abbreviation = team.abbreviation;
                 aTeam.currentlyAtBat = t1Toggle.isOn;
                 aTeam.score = 0;
                 AddPlayers(aTeam, 1);
@@ -91,6 +92,7 @@ public class MenuControl : MonoBehaviour {
             {
                 ActiveTeam aTeam = new ActiveTeam();
                 aTeam.name = team.name;
+                aTeam.abbreviation = team.abbreviation;
                 aTeam.score = 0;
                 aTeam.currentlyAtBat = t2Toggle.isOn;
                 AddPlayers(aTeam, 2);

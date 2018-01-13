@@ -3,6 +3,7 @@
   <team>
     <id>1</id>
     <name>Batmen</name>
+    <abbreviation>BTM</abbreviation>
     <wins>2</wins>
     <loses>4</loses>
     <ties>0</ties>
@@ -14,6 +15,7 @@
   <team>
     <id>2</id>
     <name>Funny Guys</name>
+    <abbreviation>FGS</abbreviation>
     <wins>4</wins>
     <loses>2</loses>
     <ties>0</ties>
@@ -25,6 +27,7 @@
   <team>
     <id>3</id>
     <name>Funny Gals</name>
+    <abbreviation>FGa</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -36,6 +39,7 @@
   <team>
     <id>4</id>
     <name>Komedians</name>
+    <abbreviation>KMD</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -47,6 +51,7 @@
   <team>
     <id>5</id>
     <name>Lame Peeps</name>
+    <abbreviation>LPS</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -58,6 +63,7 @@
   <team>
     <id>6</id>
     <name>Rangers</name>
+    <abbreviation>RGR</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>

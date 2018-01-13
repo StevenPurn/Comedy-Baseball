@@ -15,6 +15,11 @@ public static class Field {
         GameControl.instance.activeTeams[1].dugout = dugouts[1];
     }
 
+    public static void BatterIsOut()
+    {
+        runners.Find(x => x.atBat == true).RemoveRunner();
+    }
+
     public static void UpdateBases()
     {
         for (var i = 0; i < bases.Length; i++)

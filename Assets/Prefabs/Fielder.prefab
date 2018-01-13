@@ -76,6 +76,7 @@ MonoBehaviour:
   ballInHands: 0
   position: 0
   startPosition: {fileID: 0}
+  ball: {fileID: 0}
   inningOver: 0
 --- !u!212 &212269122695426300
 SpriteRenderer:
@@ -111,7 +112,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300024, guid: 7f02b90e1fabcd3488ac97e2112eaeae, type: 3}
+  m_Sprite: {fileID: 21300092, guid: 32daf427ac4f1454fb61912755a29313, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
