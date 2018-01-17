@@ -41,7 +41,6 @@ public class Runner : MonoBehaviour {
                 }
                 else if (currentBase == 3)
                 {
-                    exitingField = true;
                     GameControl.instance.ChangeTeamScore(1);
                     RemoveRunner();
                 }
@@ -95,7 +94,7 @@ public class Runner : MonoBehaviour {
     }
 
     //Get target bases to move towards from Field class
-    public void SetBaseAsTarget(List<GameObject> baseToTarget)
+    public void SetBasesAsTargets(List<GameObject> baseToTarget)
     {
         foreach (var targetBase in baseToTarget)
         {

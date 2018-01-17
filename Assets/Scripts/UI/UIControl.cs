@@ -8,6 +8,7 @@ public class UIControl : MonoBehaviour {
     public Text inning;
     public Text batter;
     public Text homeScore, awayScore;
+    public Text count;
     public Image[] outs;
     public Image[] inningIndicators;
     public Image[] bases;
@@ -17,8 +18,8 @@ public class UIControl : MonoBehaviour {
     void Start () {
         GameControl.instance.changeCountEvent += UpdateUI;
         UpdateUI();
-        GameControl.instance.changeCountEvent += UpdateUI;
-        UpdateUI();
+        //GameControl.instance.changeCountEvent += UpdateUI;
+        //UpdateUI();
     }
 	
 	void UpdateUI()
@@ -63,6 +64,7 @@ public class UIControl : MonoBehaviour {
         inningIndicators[0].sprite = GameControl.curInning.isBottom ? inactiveInning : activeInning;
         inningIndicators[1].sprite = GameControl.curInning.isBottom ? activeInning : inactiveInning;
         inning.text = GameControl.curInning.inningNumber.ToString();
+        count.text = GameControl.balls.ToString() + "-" + GameControl.strikes.ToString();
         foreach (var item in outs)
         {
             item.sprite = inactiveOut;

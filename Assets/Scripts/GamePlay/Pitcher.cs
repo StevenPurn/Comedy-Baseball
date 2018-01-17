@@ -1,16 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Pitcher : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    public Fielder fielder;
+    public float pitchSpeed = 20.0f;
+
+    private void Start()
+    {
+        fielder = GetComponent<Fielder>();
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -19,5 +20,8 @@ public class Pitcher : MonoBehaviour {
         //Play animation
         //Add force to ball
         //Decide if it should be a strike?
+        fielder.anim.SetBool("isThrowing", true);
+        Vector2 dir = Field.fielders.Find(x => x.position == Fielder.Position.catcher).transform.position;
+        Field.ball.GetComponent<Ball>().AddForceToBall(dir * pitchSpeed);
     }
 }

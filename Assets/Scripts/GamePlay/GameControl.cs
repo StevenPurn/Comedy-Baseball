@@ -100,7 +100,7 @@ public class GameControl : MonoBehaviour {
         }
         if (fieldParent == null)
         {
-            fieldParent = GameObject.Find("Field").transform;
+            fieldParent = GameObject.Find("Players").transform;
         }
         GameObject go = Instantiate(runnerPrefab, GetTeamAtBat().dugout.transform.position, Quaternion.identity, fieldParent);
         go.GetComponent<Runner>().SetBaseAsTarget(battersBox.gameObject);
@@ -114,10 +114,14 @@ public class GameControl : MonoBehaviour {
     {
         if (fieldParent == null)
         {
-            fieldParent = GameObject.Find("Field").transform;
+            fieldParent = GameObject.Find("Players").transform;
         }
         GameObject go = Instantiate(fielderPrefab, GetTeamInField().dugout.transform.position, Quaternion.identity, fieldParent);
         go.name = pos.ToString();
+        if (pos == Fielder.Position.pitcher)
+        {
+            go.AddComponent<Pitcher>();
+        }
         go.GetComponent<Fielder>().SetPosition(pos);
         Field.fielders.Add(go.GetComponent<Fielder>());
     }
@@ -201,6 +205,7 @@ public class GameControl : MonoBehaviour {
     public void HandleStrike(bool wasFoul = false)
     {
         GetCurrentPitchingPlayer().ChangePitches(1);
+        Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch();
         strikes += 1;
         if (strikes >= 3)
         {

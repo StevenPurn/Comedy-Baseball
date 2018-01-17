@@ -11,12 +11,13 @@ public class Fielder : MonoBehaviour {
     public bool ballInHands;
     public Position position;
     public Transform startPosition;
-    public GameObject ball;
     public bool inningOver = false;
+    public Animator anim;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     public void SetPosition(Position pos)
@@ -29,7 +30,6 @@ public class Fielder : MonoBehaviour {
     {
         startPosition = Field.fieldPositions[position].transform;
         team = GameControl.instance.GetTeamInField();
-        ball = GameObject.Find("ball");
     }
 
     private void FixedUpdate()
@@ -43,7 +43,7 @@ public class Fielder : MonoBehaviour {
                 if (ballInHands)
                 {
                     //determine what to do with the ball, throw it at the base a runner is advancing towards
-                    movementTarget = ball.transform.position;
+                    movementTarget = Field.ball.transform.position;
                 }
             }
             else

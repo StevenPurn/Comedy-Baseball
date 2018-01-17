@@ -9,7 +9,7 @@ public class SetUpField : MonoBehaviour {
     public GameObject[] positionObjs = new GameObject[9];
     public Dictionary<Fielder.Position, GameObject> fieldPos = new Dictionary<Fielder.Position, GameObject> { };
 
-    // Use this for initialization4
+    // Use this for initialization
     void Awake ()
     {
         for (int i = 0; i < positions.Length; i++)
@@ -20,6 +20,7 @@ public class SetUpField : MonoBehaviour {
         Field.dugouts = dugouts;
         Field.AssignDugouts();
         Field.fieldPositions = fieldPos;
+        Field.ball = GameObject.Find("Ball").GetComponent<Ball>();
         GameControl.InitializeField();
     }
 }

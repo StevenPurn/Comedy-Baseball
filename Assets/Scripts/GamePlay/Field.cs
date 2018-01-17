@@ -8,6 +8,7 @@ public static class Field {
     public static Dictionary<Fielder.Position, GameObject> fieldPositions = new Dictionary<Fielder.Position, GameObject> { };
     public static List<Runner> runners = new List<Runner>();
     public static List<Fielder> fielders = new List<Fielder>();
+    public static Ball ball;
 
     public static void AssignDugouts()
     {
@@ -17,7 +18,14 @@ public static class Field {
 
     public static void BatterIsOut()
     {
-        runners.Find(x => x.atBat == true).RemoveRunner();
+        foreach (var runner in runners)
+        {
+            if(runner.team == GameControl.instance.GetTeamAtBat() && runner.atBat)
+            {
+                runner.RemoveRunner();
+                return;
+            }
+        }
     }
 
     public static void UpdateBases()
@@ -96,7 +104,7 @@ public static class Field {
                 }
                 baseList.Add(bases[runner.currentBase + i].baseObj);
             }
-            runner.SetBaseAsTarget(baseList);
+            runner.SetBasesAsTargets(baseList);
         }
     }
 
