@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4452278118236566}
   - component: {fileID: 114291111928252342}
+  - component: {fileID: 114813708333285834}
   m_Layer: 0
   m_Name: GameControl
   m_TagString: Untagged
@@ -55,8 +56,18 @@ MonoBehaviour:
   playerFilePath: /Data/Players.xml
   runnerPrefab: {fileID: 1498871029291636, guid: 65799857900d41f49b828115812af325,
     type: 2}
-  fielderPrefab: {fileID: 1498871029291636, guid: 2da81ba40bc73734899397bc6e4eb0bf,
+  fielderPrefab: {fileID: 1498871029291636, guid: e9bfeab63ee40a946a0923a896833f9f,
     type: 2}
-  fieldParent: {fileID: 0}
   battersBox: {fileID: 0}
-  runners: []
+  fieldParent: {fileID: 0}
+--- !u!114 &114813708333285834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100936223214516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 399df302fb83791498675a6ad132a91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

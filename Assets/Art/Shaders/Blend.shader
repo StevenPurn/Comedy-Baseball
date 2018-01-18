@@ -1,6 +1,4 @@
-﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-Shader "Shaders101/Exercise 7"
+﻿Shader "Custom/Blend"
 {
 	Properties
 	{
@@ -59,7 +57,6 @@ Shader "Shaders101/Exercise 7"
 				float4 color2 = tex2D(_SecondTex, i.uv);
 				float lum = color1.r * 0.3 + color1.g * 0.59 + color1.b * 0.11;
 				float4 result;
-				//check if the source texture color has a blue value of over 50%
 				if(color1.a > 0){
 					//If so, replace it with an adjusted color
 					result = float4(color1.r * _Color.r, color1.g * _Color.g, color1.b * _Color.b, color1.a * _Color.a);

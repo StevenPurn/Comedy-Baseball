@@ -1806,22 +1806,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 382991328}
---- !u!1 &400443188 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1100936223214516, guid: d78d13169ecc21148a29885ce83e1bf9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1060985921}
---- !u!114 &400443191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 400443188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 399df302fb83791498675a6ad132a91c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &404154372
 GameObject:
   m_ObjectHideFlags: 0
@@ -5305,6 +5289,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114291111928252342, guid: d78d13169ecc21148a29885ce83e1bf9,
+        type: 2}
+      propertyPath: homeTeamMat
+      value: 
+      objectReference: {fileID: 2100000, guid: b3093739a8919c940aa5114a74dababc, type: 2}
+    - target: {fileID: 114291111928252342, guid: d78d13169ecc21148a29885ce83e1bf9,
+        type: 2}
+      propertyPath: awayTeamMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 2598d8cb6de8a2e4b9e550a23ee21123, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d78d13169ecc21148a29885ce83e1bf9, type: 2}
   m_IsPrefabParent: 0

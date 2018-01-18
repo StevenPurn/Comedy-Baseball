@@ -19,12 +19,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4552251984615272}
-  - component: {fileID: 114936065654412508}
   - component: {fileID: 50946631644629072}
-  - component: {fileID: 212467659345142464}
-  - component: {fileID: 95018126673552232}
+  - component: {fileID: 114535640636611058}
+  - component: {fileID: 212269122695426300}
+  - component: {fileID: 95599338981437652}
   m_Layer: 0
-  m_Name: Runner
+  m_Name: Fielder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1498871029291636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.37, y: -1.69, z: -10}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,7 +63,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &95018126673552232
+--- !u!95 &95599338981437652
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -72,7 +72,7 @@ Animator:
   m_GameObject: {fileID: 1498871029291636}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 543e2d214b94744469dedd50c04613fe, type: 2}
+  m_Controller: {fileID: 9100000, guid: c11190531b71a654dbdbbe167563902e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -80,7 +80,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114936065654412508
+--- !u!114 &114535640636611058
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -88,16 +88,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1498871029291636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa169698a36221418630faf5bc888b4, type: 3}
+  m_Script: {fileID: 11500000, guid: abd65b02e19f2a94cbcfad423b14008f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atBat: 0
-  currentBase: 0
-  isOut: 0
-  exitingField: 0
-  isAdvancing: 0
-  targetBase: []
---- !u!212 &212467659345142464
+  ballInHands: 0
+  position: 0
+  startPosition: {fileID: 0}
+  inningOver: 0
+  anim: {fileID: 0}
+--- !u!212 &212269122695426300
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -131,12 +130,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300014, guid: c66bc4cb6c650fc48b9f820147129203, type: 3}
+  m_Sprite: {fileID: 21300092, guid: 32daf427ac4f1454fb61912755a29313, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.13, y: 0.22}
+  m_Size: {x: 0.13, y: 0.19}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

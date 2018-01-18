@@ -24,7 +24,7 @@ public class GameControl : MonoBehaviour {
     private int runnerNumber;
     private int teamAtBat;
     public static bool ballInPlay = false;
-
+    public Material homeTeamMat, awayTeamMat;
     public Dictionary<TeamColor, Color> teamColors = new Dictionary<TeamColor, Color>()
     {
         {TeamColor.orange, Color.green }, //This makes no sense and will need to be changed to orange at some point
