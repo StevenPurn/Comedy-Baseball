@@ -90,6 +90,7 @@ public class Runner : MonoBehaviour {
         }
         else
         {
+            anim.SetBool("isAtBat", atBat);
             anim.SetBool("isIdle", false);
         }
     }
