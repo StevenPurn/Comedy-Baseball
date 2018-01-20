@@ -90,12 +90,11 @@ public class Runner : MonoBehaviour {
         }
         else
         {
-            anim.SetBool("isAtBat", atBat);
             anim.SetBool("isIdle", false);
         }
+        anim.SetBool("isAtBat", atBat);
     }
 
-    //Get target bases to move towards from Field class
     public void SetBasesAsTargets(List<GameObject> baseToTarget)
     {
         foreach (var targetBase in baseToTarget)
