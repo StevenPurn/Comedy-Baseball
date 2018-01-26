@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 114535640636611058}
   - component: {fileID: 212269122695426300}
   - component: {fileID: 95599338981437652}
+  - component: {fileID: 61323354114769518}
   m_Layer: 0
   m_Name: Fielder 1
-  m_TagString: Untagged
+  m_TagString: Fielder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,6 +64,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &61323354114769518
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1498871029291636}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.055, y: 0.07981652}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0.11, y: 0.2}
+    newSize: {x: 0.13, y: 0.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.11, y: 0.0396533}
+  m_EdgeRadius: 0
 --- !u!95 &95599338981437652
 Animator:
   serializedVersion: 3

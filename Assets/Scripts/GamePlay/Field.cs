@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class Field {
@@ -81,6 +82,21 @@ public static class Field {
             }
         }
         return runnersToAdvance;
+    }
+
+    public static Vector2 GetDirectionToThrowBall(Vector3 position)
+    {
+        Vector2 dir = Vector2.zero;
+
+        if(!runners.Find(x => x.isAdvancing))
+        {
+            dir = fielders.Find(x => x.position == Fielder.Position.pitcher).transform.position - position;
+        }
+        else
+        {
+            dir = GetFurthestRunner().targetBase[0].transform.position - position;
+        }
+        return dir;
     }
 
     public static void AdvanceRunners(int numberOfBases = 1)

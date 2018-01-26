@@ -7,6 +7,7 @@ public class Fielder : MonoBehaviour {
     public enum Position { pitcher, catcher, firstBaseman, secondBaseman, thirdBaseman, shortstop, rightField, centerField, leftField };
     private Rigidbody2D rb;
     private float movementSpeed = 10f;
+    private float throwSpeed = 20f;
     public ActiveTeam team;
     public bool ballInHands;
     public Position position;
@@ -44,8 +45,19 @@ public class Fielder : MonoBehaviour {
                 if (ballInHands)
                 {
                     //determine what to do with the ball, throw it at the base a runner is advancing towards
+                }
+                else
+                {
                     movementTarget = Field.ball.transform.position;
                 }
+            }
+            else if (position == Position.catcher && ballInHands)
+            {
+                Vector2 dir = Field.GetDirectionToThrowBall(transform.position);
+                anim.SetBool("isThrowing", true);
+                Field.ball.AddForceToBall(dir * throwSpeed);
+                Debug.Log("Throwing ball");
+                ballInHands = false;
             }
             else
             {
@@ -63,6 +75,7 @@ public class Fielder : MonoBehaviour {
             //pick up ball? throw ball? destroy yourself?
             if (inningOver)
             {
+                Field.fielders.Remove(this);
                 Destroy(gameObject);
             }
         }
@@ -70,6 +83,11 @@ public class Fielder : MonoBehaviour {
         {
             MovePlayer(movementTarget);
         }
+    }
+
+    void ThrowBall(Vector3 target)
+    {
+        
     }
 
     void MovePlayer(Vector3 target)

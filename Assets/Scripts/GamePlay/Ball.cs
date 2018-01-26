@@ -20,4 +20,18 @@ public class Ball : MonoBehaviour {
     {
         //Can potentially be used for throws if you don't want randomly dropped balls or anything
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        string tag = collision.transform.tag;
+        if (tag == "Fielder")
+        {
+            Debug.Log("fielder has ball");
+            collision.GetComponent<Fielder>().ballInHands = true;
+            rb.velocity = Vector2.zero;
+        }else if(tag == "Runner")
+        {
+            collision.GetComponent<Runner>().SwingBat();
+        }
+    }
 }

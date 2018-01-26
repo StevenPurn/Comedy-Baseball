@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -21,6 +22,15 @@ public class Runner : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         GetComponent<SpriteRenderer>().material = team == GameControl.instance.activeTeams[0] ? GameControl.instance.homeTeamMat : GameControl.instance.awayTeamMat;
         atBat = true;
+    }
+
+    public void SwingBat()
+    {
+        //Check if this should be a strike or a hit
+        if (true)
+        {
+
+        }
     }
 
     //Move player towards next base if they have one
@@ -116,6 +126,7 @@ public class Runner : MonoBehaviour {
 
     public void RemoveRunner()
     {
+        atBat = false;
         exitingField = true;
         targetBase.Clear();
         SetBaseAsTarget(team.dugout);

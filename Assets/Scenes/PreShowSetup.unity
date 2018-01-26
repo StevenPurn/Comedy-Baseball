@@ -3851,6 +3851,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 699746345}
+--- !u!1001 &732747715
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4920660282030462, guid: 1213fd946c1939049964bbf674983692, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920660282030462, guid: 1213fd946c1939049964bbf674983692, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920660282030462, guid: 1213fd946c1939049964bbf674983692, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920660282030462, guid: 1213fd946c1939049964bbf674983692, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920660282030462, guid: 1213fd946c1939049964bbf674983692, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920660282030462, guid: 1213fd946c1939049964bbf674983692, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920660282030462, guid: 1213fd946c1939049964bbf674983692, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920660282030462, guid: 1213fd946c1939049964bbf674983692, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446193678772132, guid: 1213fd946c1939049964bbf674983692, type: 2}
+      propertyPath: m_Name
+      value: Runner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1213fd946c1939049964bbf674983692, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &743804798
 GameObject:
   m_ObjectHideFlags: 0
@@ -5299,6 +5345,12 @@ Prefab:
       propertyPath: awayTeamMat
       value: 
       objectReference: {fileID: 2100000, guid: 2598d8cb6de8a2e4b9e550a23ee21123, type: 2}
+    - target: {fileID: 114291111928252342, guid: d78d13169ecc21148a29885ce83e1bf9,
+        type: 2}
+      propertyPath: runnerPrefab
+      value: 
+      objectReference: {fileID: 1446193678772132, guid: 1213fd946c1939049964bbf674983692,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d78d13169ecc21148a29885ce83e1bf9, type: 2}
   m_IsPrefabParent: 0
