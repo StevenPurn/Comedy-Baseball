@@ -26,10 +26,19 @@ public class Runner : MonoBehaviour {
 
     public void SwingBat()
     {
+        bool isStrike = true;
         //Check if this should be a strike or a hit
-        if (true)
+        if (isStrike)
         {
-
+            if (UnityEngine.Random.Range(0, 1) >= 0.4f)
+            {
+                anim.SetBool("isSwingingBat", true);
+            }
+        }
+        else
+        {
+            anim.SetBool("isSwingingBat", true);
+            //hit the ball
         }
     }
 
