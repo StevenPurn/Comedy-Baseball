@@ -6,7 +6,7 @@ public class Fielder : MonoBehaviour {
 
     public enum Position { pitcher, catcher, firstBaseman, secondBaseman, thirdBaseman, shortstop, rightField, centerField, leftField };
     private Rigidbody2D rb;
-    private float movementSpeed = 10f;
+    public float movementSpeed = 3.5f;
     private float throwSpeed = 20f;
     public ActiveTeam team;
     public bool ballInHands;

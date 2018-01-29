@@ -12,7 +12,7 @@ public class Runner : MonoBehaviour {
     public bool isAdvancing;
     public List<GameObject> targetBase = new List<GameObject>();
     private Rigidbody2D rb;
-    public float movementSpeed = 10f;
+    public float movementSpeed = 3.5f;
     public ActiveTeam team;
     private Animator anim;
 
