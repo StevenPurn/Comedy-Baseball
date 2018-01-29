@@ -103,8 +103,8 @@ public class GameControl : MonoBehaviour {
             fieldParent = GameObject.Find("Players").transform;
         }
         GameObject go = Instantiate(runnerPrefab, GetTeamAtBat().dugout.transform.position, Quaternion.identity, fieldParent);
-        go.GetComponent<Runner>().SetBaseAsTarget(battersBox.gameObject);
-        go.GetComponent<Runner>().team = GetTeamAtBat();
+        go.GetComponentInChildren<Runner>().SetBaseAsTarget(battersBox.gameObject);
+        go.GetComponentInChildren<Runner>().team = GetTeamAtBat();
         go.name = "Runner " + runnerNumber;
         runnerNumber += 1;
         Field.runners.Add(go.GetComponent<Runner>());
