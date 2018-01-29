@@ -107,7 +107,7 @@ public class GameControl : MonoBehaviour {
         go.GetComponentInChildren<Runner>().team = GetTeamAtBat();
         go.name = "Runner " + runnerNumber;
         runnerNumber += 1;
-        Field.runners.Add(go.GetComponent<Runner>());
+        Field.runners.Add(go.GetComponentInChildren<Runner>());
     }
 
     public void AddFielderToField(Fielder.Position pos, GameObject obj)
