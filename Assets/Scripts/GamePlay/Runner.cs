@@ -9,6 +9,7 @@ public class Runner : MonoBehaviour {
     public int currentBase = 0;
     public bool isOut;
     public bool exitingField = false;
+    private bool swungLastFrame;
     public bool isAdvancing;
     public List<GameObject> targetBase = new List<GameObject>();
     private Rigidbody2D rb;
@@ -29,16 +30,18 @@ public class Runner : MonoBehaviour {
         //Check if this should be a strike or a hit
         if (isStrike)
         {
-            if (UnityEngine.Random.Range(0, 1) >= 0.4f)
+            if (UnityEngine.Random.Range(0f, 1f) >= 0)//0.4f)
             {
-                anim.SetBool("isSwingingBat", true);
+                anim.SetTrigger("isSwingingBat");
             }
         }
         else
         {
             anim.SetBool("isSwingingBat", true);
             //hit the ball
+            swungLastFrame = true;
         }
+        
     }
 
     //Move player towards next base if they have one
@@ -139,13 +142,5 @@ public class Runner : MonoBehaviour {
         targetBase.Clear();
         SetBaseAsTarget(team.dugout);
         currentBase = 0;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Ball")
-        {
-            SwingBat(true);
-        }
     }
 }

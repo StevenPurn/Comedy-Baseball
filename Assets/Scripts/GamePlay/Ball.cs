@@ -31,7 +31,8 @@ public class Ball : MonoBehaviour {
             rb.velocity = Vector2.zero;
         }else if(tag == "Runner")
         {
-            collision.GetComponent<Runner>().SwingBat();
+            Debug.Log("Bat should be swung");
+            collision.GetComponent<Runner>().SwingBat(true);
         }
     }
 }
