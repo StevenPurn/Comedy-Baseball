@@ -24,9 +24,8 @@ public class Runner : MonoBehaviour {
         atBat = true;
     }
 
-    public void SwingBat()
+    public void SwingBat(bool isStrike)
     {
-        bool isStrike = true;
         //Check if this should be a strike or a hit
         if (isStrike)
         {
@@ -140,5 +139,13 @@ public class Runner : MonoBehaviour {
         targetBase.Clear();
         SetBaseAsTarget(team.dugout);
         currentBase = 0;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Ball")
+        {
+            SwingBat(true);
+        }
     }
 }
