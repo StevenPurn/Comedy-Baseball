@@ -205,7 +205,7 @@ public class GameControl : MonoBehaviour {
     public void HandleStrike(bool wasFoul = false)
     {
         GetCurrentPitchingPlayer().ChangePitches(1);
-        Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch();
+        Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch(Pitcher.Pitches.strike);
         strikes += 1;
         if (strikes >= 3)
         {
@@ -265,6 +265,17 @@ public class GameControl : MonoBehaviour {
     //Should add enum for on base/fly out/ground out
     //Can also switch to next batter or next team if there are 3 outs
     public void HandleHit(int bases)
+    {
+        Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch(Pitcher.Pitches.hit);
+        ballInPlay = true;
+        GetCurrentBattingPlayer().ChangeHits(1);
+        activeTeams[teamAtBat].hits += 1;
+        Field.AdvanceRunners(bases);
+        NextBatter();
+        ResetCount();
+    }
+
+    public void HandleHitOld(int bases)
     {
         ballInPlay = true;
         GetCurrentBattingPlayer().ChangeHits(1);

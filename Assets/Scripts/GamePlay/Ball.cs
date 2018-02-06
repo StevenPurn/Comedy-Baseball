@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
     public Rigidbody2D rb;
+    public bool isStrike;
 
     private void Start()
     {
@@ -26,13 +25,11 @@ public class Ball : MonoBehaviour {
         string tag = collision.transform.tag;
         if (tag == "Fielder")
         {
-            Debug.Log("fielder has ball");
             collision.GetComponent<Fielder>().ballInHands = true;
             rb.velocity = Vector2.zero;
         }else if(tag == "Runner")
         {
-            Debug.Log("Bat should be swung");
-            collision.GetComponent<Runner>().SwingBat(true);
+            collision.GetComponent<Runner>().SwingBat(isStrike);
         }
     }
 }
