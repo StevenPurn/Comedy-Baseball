@@ -4,6 +4,7 @@ public class Ball : MonoBehaviour {
 
     public Rigidbody2D rb;
     public bool isStrike;
+    public float curHeight;
 
     private void Start()
     {
