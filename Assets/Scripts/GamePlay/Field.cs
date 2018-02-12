@@ -9,6 +9,7 @@ public static class Field {
     public static Dictionary<Fielder.Position, GameObject> fieldPositions = new Dictionary<Fielder.Position, GameObject> { };
     public static List<Runner> runners = new List<Runner>();
     public static List<Fielder> fielders = new List<Fielder>();
+    public static List<GameObject> runnerTargets = new List<GameObject>();
     public static Ball ball;
 
     public static void AssignDugouts()
@@ -90,11 +91,20 @@ public static class Field {
 
         if(!runners.Find(x => x.isAdvancing))
         {
+            GameControl.ballInPlay = false;
             dir = fielders.Find(x => x.position == Fielder.Position.pitcher).transform.position - position;
         }
         else
         {
-            dir = GetFurthestRunner().targetBase[0].transform.position - position;
+            if(GetFurthestRunner() == null)
+            {
+                GameControl.ballInPlay = false;
+                dir = fielders.Find(x => x.position == Fielder.Position.pitcher).transform.position - position;
+            }
+            else
+            {
+                dir = GetFurthestRunner().targetBase[0].transform.position - position;
+            }
         }
         return dir;
     }
@@ -136,7 +146,6 @@ public static class Field {
                 run = runner;
             }
         }
-
         return run;
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Fielder : MonoBehaviour {
 
     public enum Position { pitcher, catcher, firstBaseman, secondBaseman, thirdBaseman, shortstop, rightField, centerField, leftField };
+    public float distanceTolerance;
     private Rigidbody2D rb;
     public float movementSpeed = 3.5f;
     private float throwSpeed = 20f;
@@ -39,12 +40,14 @@ public class Fielder : MonoBehaviour {
         Vector3 movementTarget = new Vector3(0, 0, 0);
         if (!inningOver)
         {
-            if (GameControl.ballInPlay)
+            float distanceToBall = Vector2.Distance(startPosition.position, Field.ball.transform.position);
+            if (GameControl.ballInPlay && distanceToBall < distanceTolerance)
             {
                 //check if ball is in the players region || should he pursue the ball? 
                 if (ballInHands)
                 {
                     //determine what to do with the ball, throw it at the base a runner is advancing towards
+                    GameControl.ballInPlay = false;
                 }
                 else
                 {
@@ -55,9 +58,7 @@ public class Fielder : MonoBehaviour {
             {
                 Vector2 dir = Field.GetDirectionToThrowBall(transform.position);
                 anim.SetBool("isThrowing", true);
-                Field.ball.AddForceToBall(dir * throwSpeed);
-                Debug.Log("Throwing ball");
-                ballInHands = false;
+                ThrowBall(dir);
             }
             else
             {
@@ -87,7 +88,9 @@ public class Fielder : MonoBehaviour {
 
     void ThrowBall(Vector3 target)
     {
-        
+        GameControl.ballInPlay = true;
+        Field.ball.AddForceToBall(target * throwSpeed);
+        ballInHands = false;
     }
 
     void MovePlayer(Vector3 target)

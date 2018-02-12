@@ -23,7 +23,9 @@ public class GameControl : MonoBehaviour {
     public List<ActivePlayer> activePlayers = new List<ActivePlayer>();
     private int runnerNumber;
     private int teamAtBat;
+    private static Vector2 currentHitForce;
     public static bool ballInPlay = false;
+    private bool waitingForNextBatter = false;
     public Material homeTeamMat, awayTeamMat;
     public Dictionary<TeamColor, Color> teamColors = new Dictionary<TeamColor, Color>()
     {
@@ -33,6 +35,11 @@ public class GameControl : MonoBehaviour {
 
     public delegate void ChangeCount();
     public ChangeCount changeCountEvent;
+
+    internal static Vector2 GetCurrentHitForce()
+    {
+        return currentHitForce;
+    }
 
     //Load player & team data from xml files
     void Awake () {
@@ -50,6 +57,15 @@ public class GameControl : MonoBehaviour {
         SaveLoad.PopulateTeamList();
         SaveLoad.PopulatePlayerList();
         curInning.inningNumber = 1;
+    }
+
+    private void Update()
+    {
+        if(waitingForNextBatter && !ballInPlay)
+        {
+            waitingForNextBatter = false;
+            NextBatter();
+        }
     }
 
     //Save list of teams & players to respective xml files
@@ -82,7 +98,7 @@ public class GameControl : MonoBehaviour {
         }
         battingTeam.players[curBatter].isAtBat = true;
         battingTeam.players[curBatter].atBats += 1;
-        AddBatterToField();
+        waitingForNextBatter = true;
     }
 
     public static void InitializeField()
@@ -94,20 +110,49 @@ public class GameControl : MonoBehaviour {
 
     public void AddBatterToField()
     {
-        if (battersBox == null)
-        {
-            battersBox = GameObject.Find("BattersBox").transform;
-        }
+        //This needs to wait for the previous play to be over before being called
         if (fieldParent == null)
         {
             fieldParent = GameObject.Find("Players").transform;
         }
         GameObject go = Instantiate(runnerPrefab, GetTeamAtBat().dugout.transform.position, Quaternion.identity, fieldParent);
-        go.GetComponentInChildren<Runner>().SetBaseAsTarget(battersBox.gameObject);
         go.GetComponentInChildren<Runner>().team = GetTeamAtBat();
         go.name = "Runner " + runnerNumber;
         runnerNumber += 1;
         Field.runners.Add(go.GetComponentInChildren<Runner>());
+    }
+
+    private void GenerateHit(int hitQuality)
+    {
+        Vector2 dir = new Vector2(0, 10);
+        currentHitForce = dir * 20;
+        //This is where we put the logic to determine the hit speed/distance/whatnot
+        switch (hitQuality)
+        {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            case 10:
+                break;
+            default:
+                Debug.LogWarning("Something is broken");
+                break;
+        }
     }
 
     public void AddFielderToField(Fielder.Position pos, GameObject obj)
@@ -229,7 +274,7 @@ public class GameControl : MonoBehaviour {
     {
         outs += 1;
         ResetCount();
-        NextBatter();
+        waitingForNextBatter = true;
         if (outs >= 3)
         {
             ResetInning();
@@ -264,14 +309,14 @@ public class GameControl : MonoBehaviour {
     //Respond to hits based on input from Umpire
     //Should add enum for on base/fly out/ground out
     //Can also switch to next batter or next team if there are 3 outs
-    public void HandleHit(int bases)
+    public void HandleHit(int hitQuality)
     {
+        //Will need to edit the below line eventually
         Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch(Pitcher.Pitches.hit);
-        ballInPlay = true;
         GetCurrentBattingPlayer().ChangeHits(1);
         activeTeams[teamAtBat].hits += 1;
-        Field.AdvanceRunners(bases);
-        NextBatter();
+        GenerateHit(hitQuality);
+        waitingForNextBatter = true;
         ResetCount();
     }
 
@@ -281,7 +326,7 @@ public class GameControl : MonoBehaviour {
         GetCurrentBattingPlayer().ChangeHits(1);
         activeTeams[teamAtBat].hits += 1;
         Field.AdvanceRunners(bases);
-        NextBatter();
+        waitingForNextBatter = true;
         ResetCount();
     }
 

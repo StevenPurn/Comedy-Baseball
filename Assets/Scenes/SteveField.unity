@@ -173,6 +173,12 @@ MonoBehaviour:
   - {fileID: 88058327}
   - {fileID: 1448955580}
   positions: 000000000100000002000000030000000400000005000000060000000700000008000000
+  runnerTargets:
+  - {fileID: 1733910089}
+  - {fileID: 1000370719}
+  - {fileID: 1300694208}
+  - {fileID: 283475343}
+  - {fileID: 1552439608}
   positionObjs:
   - {fileID: 1106640992}
   - {fileID: 215422895}
