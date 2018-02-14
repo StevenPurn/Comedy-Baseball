@@ -8,11 +8,12 @@ public class Fielder : MonoBehaviour {
     public float distanceTolerance;
     private Rigidbody2D rb;
     public float movementSpeed = 3.5f;
-    private float throwSpeed = 20f;
+    private float throwSpeed = 1.8f;
+    public Vector3 movementTarget;
     public ActiveTeam team;
     public bool ballInHands;
     public Position position;
-    public Transform startPosition;
+    public Transform startPosition, playPosition;
     public bool inningOver = false;
     public Animator anim;
 
@@ -32,38 +33,15 @@ public class Fielder : MonoBehaviour {
     private void Init()
     {
         startPosition = Field.fieldPositions[position].transform;
+        playPosition = Field.playPositions[position].transform;
         team = GameControl.instance.GetTeamInField();
     }
 
     private void FixedUpdate()
     {
-        Vector3 movementTarget = new Vector3(0, 0, 0);
         if (!inningOver)
         {
-            float distanceToBall = Vector2.Distance(startPosition.position, Field.ball.transform.position);
-            if (GameControl.ballInPlay && distanceToBall < distanceTolerance)
-            {
-                //check if ball is in the players region || should he pursue the ball? 
-                if (ballInHands)
-                {
-                    //determine what to do with the ball, throw it at the base a runner is advancing towards
-                    GameControl.ballInPlay = false;
-                }
-                else
-                {
-                    movementTarget = Field.ball.transform.position;
-                }
-            }
-            else if (position == Position.catcher && ballInHands)
-            {
-                Vector2 dir = Field.GetDirectionToThrowBall(transform.position);
-                anim.SetBool("isThrowing", true);
-                ThrowBall(dir);
-            }
-            else
-            {
-                movementTarget = startPosition.position;
-            }
+            
         }
         else
         {
@@ -72,8 +50,6 @@ public class Fielder : MonoBehaviour {
 
         if(Utility.CheckEqual(movementTarget, transform.position, 0.1f))
         {
-            //reached destination so do a thing based on where you were going
-            //pick up ball? throw ball? destroy yourself?
             if (inningOver)
             {
                 Field.fielders.Remove(this);
@@ -86,9 +62,9 @@ public class Fielder : MonoBehaviour {
         }
     }
 
-    void ThrowBall(Vector3 target)
+    public void ThrowBall(Vector3 target)
     {
-        GameControl.ballInPlay = true;
+        Field.ball.TemporarilyDisableCollision();
         Field.ball.AddForceToBall(target * throwSpeed);
         ballInHands = false;
     }

@@ -17,15 +17,6 @@ public static class Controls {
         { "hit8",     KeyCode.Alpha8  },
         { "hit9",     KeyCode.Alpha9  },
         { "hit10",    KeyCode.Alpha0  },
-        { "Single",    KeyCode.Alpha1  },
-        { "Double",    KeyCode.Alpha2  },
-        { "Triple",    KeyCode.Alpha3  },
-        { "Homerun",    KeyCode.Alpha4  },
-        { "Foul",       KeyCode.F       },
-        { "Strike",     KeyCode.S       },
-        { "Ball",       KeyCode.B       },
-        { "Out",        KeyCode.O       },
-        { "Steal",      KeyCode.T       },
         { "FastForward",KeyCode.Space   }
     };
 

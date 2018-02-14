@@ -23,7 +23,6 @@ public class GameControl : MonoBehaviour {
     public List<ActivePlayer> activePlayers = new List<ActivePlayer>();
     private int runnerNumber;
     private int teamAtBat;
-    private static Vector2 currentHitForce;
     public static bool ballInPlay = false;
     private bool waitingForNextBatter = false;
     public Material homeTeamMat, awayTeamMat;
@@ -35,11 +34,6 @@ public class GameControl : MonoBehaviour {
 
     public delegate void ChangeCount();
     public ChangeCount changeCountEvent;
-
-    internal static Vector2 GetCurrentHitForce()
-    {
-        return currentHitForce;
-    }
 
     //Load player & team data from xml files
     void Awake () {
@@ -66,6 +60,8 @@ public class GameControl : MonoBehaviour {
             waitingForNextBatter = false;
             NextBatter();
         }
+
+        Field.FielderAI();
     }
 
     //Save list of teams & players to respective xml files
@@ -85,7 +81,7 @@ public class GameControl : MonoBehaviour {
         ActiveTeam battingTeam = GetTeamAtBat();
         int curBatter = GetCurrentBatter();
         curBatter = curBatter + 1 == battingTeam.players.Count ? 0 : curBatter + 1;
-        ballInPlay = false;
+        //ballInPlay = false;
 
         foreach (var player in battingTeam.players)
         {
@@ -98,7 +94,7 @@ public class GameControl : MonoBehaviour {
         }
         battingTeam.players[curBatter].isAtBat = true;
         battingTeam.players[curBatter].atBats += 1;
-        waitingForNextBatter = true;
+        AddBatterToField();
     }
 
     public static void InitializeField()
@@ -122,37 +118,79 @@ public class GameControl : MonoBehaviour {
         Field.runners.Add(go.GetComponentInChildren<Runner>());
     }
 
-    private void GenerateHit(int hitQuality)
+    private Pitch EvaluatePitch(int hitQuality)
     {
-        Vector2 dir = new Vector2(0, 10);
-        currentHitForce = dir * 20;
+        Pitch pitch = new Pitch();
         //This is where we put the logic to determine the hit speed/distance/whatnot
         switch (hitQuality)
         {
             case 1:
+                Debug.Log("Fly out");
+                pitch.type = Pitcher.Pitches.hit;
+                pitch.maxHeight = 6.0f;
+                pitch.hitSpeed = 2.0f;
+                pitch.hitAngles.Add(new Vector3(0, 1, 0));
                 break;
             case 2:
+                pitch.type = Pitcher.Pitches.hit;
+                pitch.maxHeight = 6.0f;
+                pitch.hitSpeed = 0.2f;
+                pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 3:
+                pitch.type = Pitcher.Pitches.hit;
+                pitch.maxHeight = 6.0f;
+                pitch.hitSpeed = 0.2f;
+                pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 4:
+                pitch.type = Pitcher.Pitches.hit;
+                pitch.maxHeight = 6.0f;
+                pitch.hitSpeed = 0.2f;
+                pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 5:
+                pitch.type = Pitcher.Pitches.hit;
+                pitch.maxHeight = 6.0f;
+                pitch.hitSpeed = 0.2f;
+                pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 6:
+                pitch.type = Pitcher.Pitches.hit;
+                pitch.maxHeight = 6.0f;
+                pitch.hitSpeed = 0.2f;
+                pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 7:
+                pitch.type = Pitcher.Pitches.hit;
+                pitch.maxHeight = 6.0f;
+                pitch.hitSpeed = 0.2f;
+                pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 8:
+                pitch.type = Pitcher.Pitches.hit;
+                pitch.maxHeight = 6.0f;
+                pitch.hitSpeed = 0.2f;
+                pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 9:
+                pitch.type = Pitcher.Pitches.hit;
+                pitch.maxHeight = 6.0f;
+                pitch.hitSpeed = 0.2f;
+                pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 10:
+                pitch.type = Pitcher.Pitches.hit;
+                pitch.maxHeight = 6.0f;
+                pitch.hitSpeed = 0.2f;
+                pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             default:
-                Debug.LogWarning("Something is broken");
+                Debug.LogWarning("Hit quality wasn't generated correctly");
                 break;
         }
+
+        return pitch;
     }
 
     public void AddFielderToField(Fielder.Position pos, GameObject obj)
@@ -165,12 +203,12 @@ public class GameControl : MonoBehaviour {
         go.name = pos.ToString();
         if (pos == Fielder.Position.pitcher)
         {
-            go.AddComponent<Pitcher>();
+            go.transform.GetChild(0).gameObject.AddComponent<Pitcher>();
         }
-        go.GetComponent<Fielder>().SetPosition(pos);
-        Field.fielders.Add(go.GetComponent<Fielder>());
+        go.GetComponentInChildren<Fielder>().SetPosition(pos);
+        Field.fielders.Add(go.GetComponentInChildren<Fielder>());
     }
-
+        
     int GetCurrentBatter()
     {
         if(GetTeamAtBat().players.Find(x => x.isAtBat == true) != null)
@@ -291,7 +329,6 @@ public class GameControl : MonoBehaviour {
             balls = 4;
         }
         changeCountEvent();
-        //Walk batter to 1st base & reset count
     }
 
     public void FastForward(bool isSpedUp = true)
@@ -306,29 +343,26 @@ public class GameControl : MonoBehaviour {
         }
     }
 
-    //Respond to hits based on input from Umpire
-    //Should add enum for on base/fly out/ground out
-    //Can also switch to next batter or next team if there are 3 outs
-    public void HandleHit(int hitQuality)
+    public void HandlePitch(int hitQuality)
     {
-        //Will need to edit the below line eventually
-        Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch(Pitcher.Pitches.hit);
-        GetCurrentBattingPlayer().ChangeHits(1);
-        activeTeams[teamAtBat].hits += 1;
-        GenerateHit(hitQuality);
-        waitingForNextBatter = true;
-        ResetCount();
+        Pitch curPitch = EvaluatePitch(hitQuality);
+        Field.ball.curPitch = curPitch;
+        Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch(curPitch.type);
+        //GetCurrentBattingPlayer().ChangeHits(1);
+        //activeTeams[teamAtBat].hits += 1;
+        //waitingForNextBatter = true;
+        //ResetCount();
     }
 
-    public void HandleHitOld(int bases)
-    {
-        ballInPlay = true;
-        GetCurrentBattingPlayer().ChangeHits(1);
-        activeTeams[teamAtBat].hits += 1;
-        Field.AdvanceRunners(bases);
-        waitingForNextBatter = true;
-        ResetCount();
-    }
+    //public void HandleHitOld(int bases)
+    //{
+    //    ballInPlay = true;
+    //    GetCurrentBattingPlayer().ChangeHits(1);
+    //    activeTeams[teamAtBat].hits += 1;
+    //    Field.AdvanceRunners(bases);
+    //    waitingForNextBatter = true;
+    //    ResetCount();
+    //}
 
     public void ChangeTeamScore(int change)
     {

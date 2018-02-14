@@ -47,8 +47,10 @@ public class Runner : MonoBehaviour {
             atBat = false;
             anim.SetTrigger("isSwingingBat");
             //hit the ball
-            ball.AddForceToBall(GameControl.GetCurrentHitForce());
+            ball.rb.velocity = Vector2.zero;
+            ball.AddForceToBall(ball.curPitch.hitAngles[0] * ball.curPitch.hitSpeed);
             GameControl.ballInPlay = true;
+            isAdvancing = true;
         }
     }
 
@@ -62,7 +64,7 @@ public class Runner : MonoBehaviour {
             movementTarget = targetBase[0].transform.position;
         }
         //Check if they are exiting the field and then add the dugout as the target
-        bool canRun = (GameControl.ballInPlay || isAdvancing || exitingField || enteringField) && !anim.GetCurrentAnimatorStateInfo(0).IsName("runnerSwingBat");
+        bool canRun = ((GameControl.ballInPlay && !atBat) || isAdvancing || exitingField || enteringField) && !anim.GetCurrentAnimatorStateInfo(0).IsName("runnerSwingBat");
         if (canRun) { 
             if (Utility.CheckEqual(movementTarget, transform.position, 0.1f))
             {
@@ -72,13 +74,12 @@ public class Runner : MonoBehaviour {
                 if (exitingField)
                 {
                     targetBase.Clear();
-                    Destroy(gameObject);
+                    Destroy(transform.parent.gameObject);
                 }
                 else if (currentBase == 3)
                 {
                     GameControl.instance.ChangeTeamScore(1);
                     exitingField = true;
-                    //RemoveRunner();
                 }
                 if(targetBase.Count > 0)
                 {
@@ -91,60 +92,14 @@ public class Runner : MonoBehaviour {
             }
             else
             {
-                isAdvancing = true;
+                if(!(enteringField || exitingField))
+                {
+                    isAdvancing = true;
+                }
                 MovePlayer(movementTarget);
             }
         }
     }
-
-
-    //private void FixedUpdateOld()
-    //{
-    //    //If we still have another base to move towards
-    //    if (targetBase.Count > 0)
-    //    {
-    //        Vector3 movementTarget = new Vector3(0, 0, 0);
-    //        movementTarget = targetBase[0].transform.position;
-    //        if (Utility.CheckEqual(movementTarget, transform.position, 0.1f))
-    //        {
-    //            isAdvancing = false;
-    //            if (exitingField)
-    //            {
-    //                targetBase.Clear();
-    //                Destroy(gameObject);
-    //            }
-    //            else if (currentBase == 3)
-    //            {
-    //                GameControl.instance.ChangeTeamScore(1);
-    //                RemoveRunner();
-    //            }
-    //            else
-    //            {
-    //                if (targetBase[0].name.Contains("Base"))
-    //                {
-    //                    currentBase += 1;
-    //                }
-    //                targetBase.Remove(targetBase[0]);
-    //            }
-    //        }
-    //        else
-    //        {
-    //            isAdvancing = true;
-    //            MovePlayer(movementTarget);
-    //        }
-    //    }
-    //    else if (targetBase.Count == 0)
-    //    {
-    //        //Totally necessary
-    //        targetBase.Clear();
-    //        isAdvancing = false;
-    //        SetAnimationValues(Vector3.zero);
-    //    }
-    //    if (currentBase >= 4)
-    //    {
-    //        Debug.LogWarning("Someone went way too far. Like, good on them. But you should check it");
-    //    }
-    //}
 
     void MovePlayer(Vector3 target)
     {
@@ -184,15 +139,10 @@ public class Runner : MonoBehaviour {
     public void SetOut()
     {
         isOut = true;
-        RemoveRunner();
-    }
-
-    public void RemoveRunner()
-    {
-        atBat = false;
         exitingField = true;
-        targetBase.Clear();
-        SetBaseAsTarget(team.dugout);
-        currentBase = 0;
+        for (int i = targetBase.Count - 2; i >= 0; i--)
+        {
+            targetBase.Remove(targetBase[i]);
+        }
     }
 }

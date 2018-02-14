@@ -7,10 +7,12 @@ public static class Field {
     public static Base[] bases = new Base[4];
     public static GameObject[] dugouts = new GameObject[2];
     public static Dictionary<Fielder.Position, GameObject> fieldPositions = new Dictionary<Fielder.Position, GameObject> { };
+    public static Dictionary<Fielder.Position, GameObject> playPositions = new Dictionary<Fielder.Position, GameObject> { };
     public static List<Runner> runners = new List<Runner>();
     public static List<Fielder> fielders = new List<Fielder>();
     public static List<GameObject> runnerTargets = new List<GameObject>();
     public static Ball ball;
+    public static bool ballHasBeenThrown;
 
     public static void AssignDugouts()
     {
@@ -24,8 +26,90 @@ public static class Field {
         {
             if(runner.team == GameControl.instance.GetTeamAtBat() && runner.atBat)
             {
-                runner.RemoveRunner();
+                runner.SetOut();
                 return;
+            }
+        }
+    }
+
+    public static void FielderAI()
+    {
+        if (GameControl.ballInPlay && !ballHasBeenThrown)
+        {
+            MoveFieldersToPlayPosition();
+            GetClosestFielderToTransform(ball.transform).movementTarget = ball.transform.position;
+            if(fielders.Find(x => x.ballInHands))
+            {
+                Fielder player = fielders.Find(x => x.ballInHands);
+                WhatDoIDoWithTheBall(player);
+            }
+        }
+        else if(GameControl.ballInPlay == false)
+        {
+            MoveFieldersToStartPosition();
+        }
+    }
+
+    public static Fielder GetClosestFielderToTransform(Transform loc)
+    {
+        Fielder closestPlayer = fielders[0];
+        float dis = float.MaxValue;
+        foreach (var player in fielders)
+        {
+            if (Vector2.Distance(player.transform.position, loc.position) < dis)
+            {
+                closestPlayer = player;
+                dis = Vector2.Distance(player.transform.position, loc.position);
+            }
+        }
+
+        return closestPlayer;
+    }
+
+    public static void MoveFieldersToPlayPosition(bool ignorePlayerWithBall = true)
+    {
+        if (ignorePlayerWithBall)
+        {
+            foreach (var player in fielders)
+            {
+                if (!player.ballInHands)
+                {
+                    player.movementTarget = player.playPosition.position;
+                }
+            }
+        }
+        else
+        {
+            foreach (var player in fielders)
+            {
+                player.movementTarget = player.playPosition.position;
+            }
+        }
+    }
+
+    public static void WhatDoIDoWithTheBall(Fielder player)
+    {
+        Debug.Log(GetFurthestRunner().name);
+        Debug.Log(GetFurthestRunner().targetBase[0].name);
+        Transform baseLocation = GetFurthestRunner().targetBase[0].transform;
+        GetClosestFielderToTransform(baseLocation).movementTarget = baseLocation.position;
+        if (player == GetClosestFielderToTransform(baseLocation))
+        {
+            return;
+        }
+        else
+        {
+            player.ThrowBall(GetDirectionToThrowBall(player.transform.position));
+        }
+    }
+
+    public static void MoveFieldersToStartPosition()
+    {
+        foreach (var player in fielders)
+        {
+            if (!player.ballInHands)
+            {
+                player.movementTarget = player.startPosition.position;
             }
         }
     }
@@ -137,7 +221,7 @@ public static class Field {
     public static Runner GetFurthestRunner()
     {
         Runner run = null;
-        int highestBase = 0;
+        int highestBase = int.MinValue;
         foreach (var runner in runners)
         {
             if (runner.currentBase > highestBase)
@@ -168,7 +252,7 @@ public static class Field {
         }
         for (int i = runners.Count - 1; i >= 0; i--)
         {
-            runners[i].RemoveRunner();
+            runners[i].SetOut();
         }
 
         SpawnFielders();

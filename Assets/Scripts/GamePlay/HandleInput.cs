@@ -2,42 +2,49 @@
 
 public class HandleInput : MonoBehaviour
 {
-
     void Update ()
     {
         if(!Field.runners.Find(x => x.isAdvancing))
         {
-            if (Controls.GetButtonDown("Single"))
+            if (Controls.GetButtonDown("hit1"))
             {
-                GameControl.instance.HandleHit(1);
+                GameControl.instance.HandlePitch(1);
             }
-            else if (Controls.GetButtonDown("Double"))
+            else if (Controls.GetButtonDown("hit2"))
             {
-                GameControl.instance.HandleHit(2);
+                GameControl.instance.HandlePitch(2);
             }
-            else if (Controls.GetButtonDown("Triple"))
+            else if (Controls.GetButtonDown("hit3"))
             {
-                GameControl.instance.HandleHit(3);
+                GameControl.instance.HandlePitch(3);
             }
-            else if (Controls.GetButtonDown("Homerun"))
+            else if (Controls.GetButtonDown("hit4"))
             {
-                GameControl.instance.HandleHit(4);
+                GameControl.instance.HandlePitch(4);
             }
-            else if (Controls.GetButtonDown("Foul"))
+            else if (Controls.GetButtonDown("hit5"))
             {
-                GameControl.instance.HandleStrike(true);
+                GameControl.instance.HandlePitch(5);
             }
-            else if (Controls.GetButtonDown("Strike"))
+            else if (Controls.GetButtonDown("hit6"))
             {
-                GameControl.instance.HandleStrike();
+                GameControl.instance.HandlePitch(6);
             }
-            else if (Controls.GetButtonDown("Ball"))
+            else if (Controls.GetButtonDown("hit7"))
             {
-                GameControl.instance.HandleBall();
+                GameControl.instance.HandlePitch(7);
             }
-            else if (Controls.GetButtonDown("Out"))
+            else if (Controls.GetButtonDown("hit8"))
             {
-                GameControl.instance.HandleOut();
+                GameControl.instance.HandlePitch(8);
+            }
+            else if (Controls.GetButtonDown("hit9"))
+            {
+                GameControl.instance.HandlePitch(9);
+            }
+            else if (Controls.GetButtonDown("hit10"))
+            {
+                GameControl.instance.HandlePitch(10);
             }
             Field.UpdateBases();
         }

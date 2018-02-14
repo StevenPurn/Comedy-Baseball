@@ -3,7 +3,7 @@
 public class Pitcher : MonoBehaviour {
 
     public Fielder fielder;
-    public float pitchSpeed = 20.0f;
+    public float pitchSpeed = 2.0f;
     private Ball ball;
     public enum Pitches { strike, foul, ball, hit};
 
@@ -13,32 +13,11 @@ public class Pitcher : MonoBehaviour {
         fielder = GetComponent<Fielder>();
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
-
     public void ThrowPitch(Pitches pitchType)
     {
-        //Play animation
-        //Add force to ball
-        //Decide if it should be a strike?
         fielder.anim.SetBool("isThrowing", true);
         Vector2 dir = Field.fielders.Find(x => x.position == Fielder.Position.catcher).transform.position;
-        ball.isStrike = false;
-        switch (pitchType)
-        {
-            case Pitches.ball:
-                break;
-            case Pitches.strike:
-                ball.isStrike = true;
-                break;
-            case Pitches.foul:
-                break;
-            case Pitches.hit:
-                break;
-        }
-
+        ball.curPitch.type = pitchType;
         ball.AddForceToBall(dir * pitchSpeed);
     }
 }
