@@ -5,6 +5,7 @@ public class Ball : MonoBehaviour {
     public Rigidbody2D rb;
     private float curHeight = 1.5f;
     public bool popFly = false;
+    //Chance of error (possibly from previous play)
     private BoxCollider2D col;
     public Pitch curPitch;
 
@@ -27,11 +28,14 @@ public class Ball : MonoBehaviour {
     public void AddForceToBall(Vector2 force)
     {
         rb.velocity = Vector2.zero;
-        if(force.magnitude > 5.0f)
-        {
-            popFly = true;
-        }
         rb.AddForce(force, ForceMode2D.Impulse);
+    }
+
+    public void HitBallWithFuckingBat(Vector2 force)
+    {
+        rb.velocity = Vector2.zero;
+        Vector2 pos = transform.position;
+        rb.AddForce(pos - force, ForceMode2D.Impulse);
     }
 
     public void TemporarilyDisableCollision()

@@ -89,8 +89,6 @@ public static class Field {
 
     public static void WhatDoIDoWithTheBall(Fielder player)
     {
-        Debug.Log(GetFurthestRunner().name);
-        Debug.Log(GetFurthestRunner().targetBase[0].name);
         Transform baseLocation = GetFurthestRunner().targetBase[0].transform;
         GetClosestFielderToTransform(baseLocation).movementTarget = baseLocation.position;
         if (player == GetClosestFielderToTransform(baseLocation))

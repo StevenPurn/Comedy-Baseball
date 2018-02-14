@@ -46,10 +46,12 @@ public class Runner : MonoBehaviour {
         {
             atBat = false;
             anim.SetTrigger("isSwingingBat");
-            //hit the ball
-            ball.rb.velocity = Vector2.zero;
-            ball.AddForceToBall(ball.curPitch.hitAngles[0] * ball.curPitch.hitSpeed);
+            //ball.rb.velocity = Vector2.zero;
+            Vector2 angle = ball.curPitch.hitAngles[0] - ball.transform.position; 
+            Vector2 force = angle * ball.curPitch.hitSpeed;
+            ball.AddForceToBall(force);
             GameControl.ballInPlay = true;
+            GameControl.waitingForNextBatter = true;
             isAdvancing = true;
         }
     }

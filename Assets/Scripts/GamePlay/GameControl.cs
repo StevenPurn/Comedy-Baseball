@@ -24,7 +24,7 @@ public class GameControl : MonoBehaviour {
     private int runnerNumber;
     private int teamAtBat;
     public static bool ballInPlay = false;
-    private bool waitingForNextBatter = false;
+    public static bool waitingForNextBatter = false;
     public Material homeTeamMat, awayTeamMat;
     public Dictionary<TeamColor, Color> teamColors = new Dictionary<TeamColor, Color>()
     {
@@ -121,65 +121,73 @@ public class GameControl : MonoBehaviour {
     private Pitch EvaluatePitch(int hitQuality)
     {
         Pitch pitch = new Pitch();
-        //This is where we put the logic to determine the hit speed/distance/whatnot
         switch (hitQuality)
         {
             case 1:
-                Debug.Log("Fly out");
-                pitch.type = Pitcher.Pitches.hit;
+                //Pop fly/ground out
+                pitch.type = Pitcher.Pitches.popfly;
                 pitch.maxHeight = 6.0f;
                 pitch.hitSpeed = 2.0f;
                 pitch.hitAngles.Add(new Vector3(0, 1, 0));
                 break;
             case 2:
+                //fly out/ground out or foul
                 pitch.type = Pitcher.Pitches.hit;
                 pitch.maxHeight = 6.0f;
                 pitch.hitSpeed = 0.2f;
                 pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 3:
+                //strike or foul
                 pitch.type = Pitcher.Pitches.hit;
                 pitch.maxHeight = 6.0f;
                 pitch.hitSpeed = 0.2f;
                 pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 4:
+                //single
                 pitch.type = Pitcher.Pitches.hit;
                 pitch.maxHeight = 6.0f;
                 pitch.hitSpeed = 0.2f;
                 pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 5:
+                //single with better on base chance + speed boost
                 pitch.type = Pitcher.Pitches.hit;
                 pitch.maxHeight = 6.0f;
                 pitch.hitSpeed = 0.2f;
                 pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 6:
+                //shallow outfield at best
                 pitch.type = Pitcher.Pitches.hit;
                 pitch.maxHeight = 6.0f;
                 pitch.hitSpeed = 0.2f;
                 pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 7:
+                //shallow outfield
                 pitch.type = Pitcher.Pitches.hit;
                 pitch.maxHeight = 6.0f;
                 pitch.hitSpeed = 0.2f;
                 pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 8:
+                //past infield
                 pitch.type = Pitcher.Pitches.hit;
                 pitch.maxHeight = 6.0f;
                 pitch.hitSpeed = 0.2f;
                 pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 9:
+                //Homerun + error on next play less likely than 10
                 pitch.type = Pitcher.Pitches.hit;
                 pitch.maxHeight = 6.0f;
                 pitch.hitSpeed = 0.2f;
                 pitch.hitAngles.Add(new Vector3(0, 0, 1));
                 break;
             case 10:
+                //Homerun + error on next play
                 pitch.type = Pitcher.Pitches.hit;
                 pitch.maxHeight = 6.0f;
                 pitch.hitSpeed = 0.2f;
