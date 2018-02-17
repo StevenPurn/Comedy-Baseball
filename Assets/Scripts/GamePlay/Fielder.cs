@@ -22,6 +22,7 @@ public class Fielder : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         GetComponent<SpriteRenderer>().material = team == GameControl.instance.activeTeams[0] ? GameControl.instance.homeTeamMat : GameControl.instance.awayTeamMat;
+        GetComponent<SpriteRenderer>().material.renderQueue = team == GameControl.instance.activeTeams[0] ? 3001 : 3000;
     }
 
     public void SetPosition(Position pos)
