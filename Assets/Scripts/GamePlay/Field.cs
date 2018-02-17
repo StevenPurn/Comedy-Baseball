@@ -174,18 +174,19 @@ public static class Field {
         if(!runners.Find(x => x.isAdvancing))
         {
             GameControl.ballInPlay = false;
-            dir = fielders.Find(x => x.position == Fielder.Position.pitcher).transform.position - position;
+            dir = fielders.Find(x => x.position == Fielder.Position.pitcher).glove.position - position;
         }
         else
         {
             if(GetFurthestRunner() == null)
             {
                 GameControl.ballInPlay = false;
-                dir = fielders.Find(x => x.position == Fielder.Position.pitcher).transform.position - position;
+                dir = fielders.Find(x => x.position == Fielder.Position.pitcher).glove.position - position;
             }
             else
             {
-                dir = GetFurthestRunner().targetBase[0].transform.position - position;
+                Fielder player = GetClosestFielderToTransform(GetFurthestRunner().targetBase[0].transform);
+                dir = player.glove.position - position;
             }
         }
         return dir;

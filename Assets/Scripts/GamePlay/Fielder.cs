@@ -13,7 +13,7 @@ public class Fielder : MonoBehaviour {
     public ActiveTeam team;
     public bool ballInHands;
     public Position position;
-    public Transform startPosition, playPosition;
+    public Transform startPosition, playPosition, glove;
     public bool inningOver = false;
     public Animator anim;
 
