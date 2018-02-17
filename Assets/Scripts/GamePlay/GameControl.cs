@@ -26,11 +26,6 @@ public class GameControl : MonoBehaviour {
     public static bool ballInPlay = false;
     public static bool waitingForNextBatter = false;
     public Material homeTeamMat, awayTeamMat;
-    public Dictionary<TeamColor, Color> teamColors = new Dictionary<TeamColor, Color>()
-    {
-        {TeamColor.orange, Color.green }, //This makes no sense and will need to be changed to orange at some point
-        {TeamColor.blue, Color.blue }
-    };
 
     public delegate void ChangeCount();
     public ChangeCount changeCountEvent;
@@ -127,29 +122,29 @@ public class GameControl : MonoBehaviour {
                 //Pop fly/ground out
                 pitch.type = Pitcher.Pitches.popfly;
                 pitch.maxHeight = 6.0f;
-                pitch.hitSpeed = 2.0f;
-                pitch.hitAngles.Add(new Vector3(0, 1, 0));
+                pitch.hitSpeed = 3.0f;
+                pitch.hitAngles.Add(new Vector2(1, 0));
                 break;
             case 2:
                 //fly out/ground out or foul
                 pitch.type = Pitcher.Pitches.hit;
                 pitch.maxHeight = 6.0f;
-                pitch.hitSpeed = 0.2f;
-                pitch.hitAngles.Add(new Vector3(0, 0, 1));
+                pitch.hitSpeed = 3f;
+                pitch.hitAngles.Add(new Vector2(0, 1));
                 break;
             case 3:
                 //strike or foul
                 pitch.type = Pitcher.Pitches.hit;
                 pitch.maxHeight = 6.0f;
-                pitch.hitSpeed = 0.2f;
-                pitch.hitAngles.Add(new Vector3(0, 0, 1));
+                pitch.hitSpeed = 3f;
+                pitch.hitAngles.Add(new Vector2(-1, 0));
                 break;
             case 4:
                 //single
                 pitch.type = Pitcher.Pitches.hit;
                 pitch.maxHeight = 6.0f;
-                pitch.hitSpeed = 0.2f;
-                pitch.hitAngles.Add(new Vector3(0, 0, 1));
+                pitch.hitSpeed = 3f;
+                pitch.hitAngles.Add(new Vector2(0, -1));
                 break;
             case 5:
                 //single with better on base chance + speed boost
@@ -163,7 +158,7 @@ public class GameControl : MonoBehaviour {
                 pitch.type = Pitcher.Pitches.hit;
                 pitch.maxHeight = 6.0f;
                 pitch.hitSpeed = 0.2f;
-                pitch.hitAngles.Add(new Vector3(0, 0, 1));
+                pitch.hitAngles.Add(new Vector3(8, 8, 1));
                 break;
             case 7:
                 //shallow outfield
@@ -343,7 +338,7 @@ public class GameControl : MonoBehaviour {
     {
         if (isSpedUp)
         {
-            Time.timeScale = 1.5f;
+            Time.timeScale = 2f;
         }
         else
         {
@@ -356,21 +351,7 @@ public class GameControl : MonoBehaviour {
         Pitch curPitch = EvaluatePitch(hitQuality);
         Field.ball.curPitch = curPitch;
         Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch(curPitch.type);
-        //GetCurrentBattingPlayer().ChangeHits(1);
-        //activeTeams[teamAtBat].hits += 1;
-        //waitingForNextBatter = true;
-        //ResetCount();
     }
-
-    //public void HandleHitOld(int bases)
-    //{
-    //    ballInPlay = true;
-    //    GetCurrentBattingPlayer().ChangeHits(1);
-    //    activeTeams[teamAtBat].hits += 1;
-    //    Field.AdvanceRunners(bases);
-    //    waitingForNextBatter = true;
-    //    ResetCount();
-    //}
 
     public void ChangeTeamScore(int change)
     {

@@ -29,6 +29,11 @@ public class Ball : MonoBehaviour {
     {
         rb.velocity = Vector2.zero;
         rb.AddForce(force, ForceMode2D.Impulse);
+
+        Debug.Log("FORCE");
+        Debug.Log(force);
+        Debug.Log("UP");
+        Debug.Log(transform.up);
     }
 
     public void HitBallWithFuckingBat(Vector2 force)
