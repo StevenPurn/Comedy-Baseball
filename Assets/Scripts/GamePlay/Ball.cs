@@ -29,11 +29,6 @@ public class Ball : MonoBehaviour {
     {
         rb.velocity = Vector2.zero;
         rb.AddForce(force, ForceMode2D.Impulse);
-
-        Debug.Log("FORCE");
-        Debug.Log(force);
-        Debug.Log("UP");
-        Debug.Log(transform.up);
     }
 
     public void HitBallWithFuckingBat(Vector2 force)
@@ -48,7 +43,13 @@ public class Ball : MonoBehaviour {
         col.enabled = false;
         Invoke("EnableCollision", 0.2f);
     }
-    
+
+    public void TemporarilyDisableCollision(float timeDelay)
+    {
+        col.enabled = false;
+        Invoke("EnableCollision", timeDelay);
+    }
+
     public void EnableCollision()
     {
         col.enabled = true;

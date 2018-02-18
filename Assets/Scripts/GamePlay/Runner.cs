@@ -14,8 +14,9 @@ public class Runner : MonoBehaviour {
     public List<GameObject> targetBase = new List<GameObject>();
     private Rigidbody2D rb;
     public float movementSpeed = 3.5f;
+    private Collider2D col;
     public ActiveTeam team;
-    private Animator anim;
+    public Animator anim;
     private Ball ball;
 
     private void Start()
@@ -30,6 +31,7 @@ public class Runner : MonoBehaviour {
             targetBase.Add(item);
         }
         targetBase.Add(team.dugout);
+        col = GetComponent<Collider2D>();
     }
 
     public void SwingBat(bool isStrike)
@@ -49,11 +51,12 @@ public class Runner : MonoBehaviour {
             //ball.rb.velocity = Vector2.zero;
             Vector2 angle = ball.curPitch.hitAngles[0]; 
             Vector2 force = angle * ball.curPitch.hitSpeed;
-            ball.TemporarilyDisableCollision();
+            ball.TemporarilyDisableCollision(0.3f);
             ball.AddForceToBall(force);
             GameControl.ballInPlay = true;
             GameControl.waitingForNextBatter = true;
             isAdvancing = true;
+            col.enabled = false;
         }
     }
 
@@ -67,8 +70,7 @@ public class Runner : MonoBehaviour {
             movementTarget = targetBase[0].transform.position;
         }
         //Check if they are exiting the field and then add the dugout as the target
-        bool canRun = ((GameControl.ballInPlay && !atBat) || isAdvancing || exitingField || enteringField) && !anim.GetCurrentAnimatorStateInfo(0).IsName("runnerSwingBat");
-        if (canRun) { 
+        if (Field.CanRunnerAdvance(this)) { 
             if (Utility.CheckEqual(movementTarget, transform.position, 0.1f))
             {
                 SetAnimationValues(Vector3.zero);
@@ -77,6 +79,7 @@ public class Runner : MonoBehaviour {
                 if (exitingField)
                 {
                     targetBase.Clear();
+                    Field.runners.Remove(this);
                     Destroy(transform.parent.gameObject);
                 }
                 else if (currentBase == 3)

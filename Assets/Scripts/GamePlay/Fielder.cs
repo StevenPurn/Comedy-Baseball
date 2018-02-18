@@ -61,11 +61,22 @@ public class Fielder : MonoBehaviour {
         {
             MovePlayer(movementTarget);
         }
+        if (ballInHands)
+        {
+            //apparently this causes some major issues for some reason
+            //GameControl.ballInPlay = false;
+            Field.ball.transform.parent = glove.gameObject.transform;
+            Field.ball.transform.localPosition = Vector3.zero;
+        }
+        else
+        {
+            Field.ball.transform.parent = Field.fieldParent;
+        }
     }
 
     public void ThrowBall(Vector3 target)
     {
-        Field.ball.TemporarilyDisableCollision();
+        Field.ball.TemporarilyDisableCollision(0.3f);
         Field.ball.AddForceToBall(target * throwSpeed);
         ballInHands = false;
     }

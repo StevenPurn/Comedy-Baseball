@@ -13,11 +13,13 @@ public static class Field {
     public static List<GameObject> runnerTargets = new List<GameObject>();
     public static Ball ball;
     public static bool ballHasBeenThrown;
+    public static Transform fieldParent;
 
     public static void AssignDugouts()
     {
         GameControl.instance.activeTeams[0].dugout = dugouts[0];
         GameControl.instance.activeTeams[1].dugout = dugouts[1];
+        fieldParent = GameObject.Find("Field").transform;
     }
 
     public static void BatterIsOut()
@@ -97,7 +99,7 @@ public static class Field {
         }
         else
         {
-            player.ThrowBall(GetDirectionToThrowBall(player.transform.position));
+            player.ThrowBall(GetDirectionToThrowBall(player.glove.transform.position));
         }
     }
 
@@ -122,99 +124,49 @@ public static class Field {
         GameObject.FindObjectOfType<UIControl>().UpdateBaseIndicators();
     }
 
-    public static List<Runner> CheckWhichRunnersAdvance(int numberOfBases)
+    public static bool CanRunnerAdvance(Runner runner)
     {
-        List<Runner> runnersToAdvance = new List<Runner>();
-        foreach (var runner in runners)
+        if (runner.anim.GetCurrentAnimatorStateInfo(0).IsName("runnerSwingBat"))
         {
-            if (runner.currentBase > 1)
-            {
-                switch (runner.currentBase)
-                {
-                    case 2:
-                        //If single, check if runner on first
-                        if(numberOfBases == 1 && runners.Find(x => x.currentBase == 1) != null)
-                        {
-                            runnersToAdvance.Add(runner);
-                        }else if(numberOfBases >= 2)
-                        {
-                            runnersToAdvance.Add(runner);
-                        }
-                        break;
-                    case 3:
-                        //If single, check if runner is on second
-                        if (numberOfBases == 1 && (runners.Find(x => x.currentBase == 1) != null && runners.Find(x => x.currentBase == 2) != null))
-                        {
-                            runnersToAdvance.Add(runner);
-                        }
-                        //If double, check if runner on first or second
-                        else if(numberOfBases == 2 && (runners.Find(x => x.currentBase == 1) != null || runners.Find(x => x.currentBase == 2) != null))
-                        {
-                            runnersToAdvance.Add(runner);
-                        }
-                        else if(numberOfBases > 2)
-                        {
-                            runnersToAdvance.Add(runner);
-                        }
-                        break;
-                }
-            }
-            else
-            {
-                runnersToAdvance.Add(runner);
-            }
+            return false;
         }
-        return runnersToAdvance;
+        else if (runner.isAdvancing)
+        {
+            return true;
+        }
+        else if(runner.exitingField || runner.enteringField)
+        {
+            return true;
+        }
+        else if(fielders.Find(x => x.ballInHands))
+        {
+            return false;
+        }
+        else
+        {
+            return GameControl.ballInPlay;
+        }
     }
 
     public static Vector2 GetDirectionToThrowBall(Vector3 position)
     {
         Vector2 dir = Vector2.zero;
 
-        if(!runners.Find(x => x.isAdvancing))
+        if (GetFurthestRunner() == null)
+        {
+            GameControl.ballInPlay = false;
+            dir = fielders.Find(x => x.position == Fielder.Position.pitcher).glove.position - position;
+        }else if (!runners.Find(x => x.isAdvancing))
         {
             GameControl.ballInPlay = false;
             dir = fielders.Find(x => x.position == Fielder.Position.pitcher).glove.position - position;
         }
         else
         {
-            if(GetFurthestRunner() == null)
-            {
-                GameControl.ballInPlay = false;
-                dir = fielders.Find(x => x.position == Fielder.Position.pitcher).glove.position - position;
-            }
-            else
-            {
-                Fielder player = GetClosestFielderToTransform(GetFurthestRunner().targetBase[0].transform);
-                dir = player.glove.position - position;
-            }
+            Fielder player = GetClosestFielderToTransform(GetFurthestRunner().targetBase[0].transform);
+            dir = player.glove.position - position;
         }
         return dir;
-    }
-
-    public static void AdvanceRunners(int numberOfBases = 1)
-    {
-        foreach (var runner in CheckWhichRunnersAdvance(numberOfBases))
-        {
-            List<GameObject> baseList = new List<GameObject>();
-            for (int i = 1; i <= numberOfBases; i++)
-            {
-                if(runner.currentBase + i >= 4)
-                {
-                    if (baseList.Contains(bases[0].baseObj))
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        baseList.Add(bases[0].baseObj);
-                        continue;
-                    }
-                }
-                baseList.Add(bases[runner.currentBase + i].baseObj);
-            }
-            runner.SetBasesAsTargets(baseList);
-        }
     }
 
     public static Runner GetFurthestRunner()

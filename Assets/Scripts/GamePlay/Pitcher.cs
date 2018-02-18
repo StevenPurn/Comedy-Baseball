@@ -16,7 +16,8 @@ public class Pitcher : MonoBehaviour {
     public void ThrowPitch(Pitches pitchType)
     {
         fielder.anim.SetBool("isThrowing", true);
-        Vector2 dir = Field.fielders.Find(x => x.position == Fielder.Position.catcher).glove.position;
+        fielder.ballInHands = false;
+        Vector2 dir = Field.fielders.Find(x => x.position == Fielder.Position.catcher).glove.position - Field.ball.transform.position;
         ball.curPitch.type = pitchType;
         ball.AddForceToBall(dir * pitchSpeed);
     }
