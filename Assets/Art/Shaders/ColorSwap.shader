@@ -52,7 +52,7 @@
 				float4 color1 = tex2D(_MainTex, i.uv);
 				float4 result;
 				if(color1.a < 1 && color1.a > 0.5){
-					result = float4(color1.r * _Color.r, color1.g * _Color.g, color1.b * _Color.b, 100);
+					result = float4(color1.r * _Color.r, color1.g * _Color.g, color1.b * _Color.b, 1);
 				}else{
 					result = float4(color1.r, color1.g, color1.b, color1.a);
 				}
