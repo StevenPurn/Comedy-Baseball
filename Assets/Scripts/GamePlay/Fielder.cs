@@ -40,6 +40,7 @@ public class Fielder : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        anim.SetBool("isIdle", true);
         if (!inningOver)
         {
             
@@ -84,6 +85,21 @@ public class Fielder : MonoBehaviour {
     void MovePlayer(Vector3 target)
     {
         Vector3 direction = (target - transform.position).normalized;
+        SetAnimationValues(direction);
         rb.MovePosition(transform.position + direction * movementSpeed * Time.deltaTime);
+    }
+
+    private void SetAnimationValues(Vector3 moveDir)
+    {
+        anim.SetFloat("xMove", moveDir.x);
+        anim.SetFloat("yMove", moveDir.y);
+        if (moveDir == Vector3.zero)
+        {
+            anim.SetBool("isIdle", true);
+        }
+        else
+        {
+            anim.SetBool("isIdle", false);
+        }
     }
 }
