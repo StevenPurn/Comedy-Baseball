@@ -48,12 +48,21 @@ public static class Field {
         }
         else if(GameControl.ballInPlay == false)
         {
+            Fielder player = fielders.Find(x => x.ballInHands);
+            if (player != null && player.position != Fielder.Position.pitcher)
+            {
+                player.ThrowBall(GetDirectionToThrowBall(player.transform.position));
+            }
             MoveFieldersToStartPosition();
         }
     }
 
     public static Fielder GetClosestFielderToTransform(Transform loc)
     {
+        if(loc == null)
+        {
+            return null;
+        }
         Fielder closestPlayer = fielders[0];
         float dis = float.MaxValue;
         foreach (var player in fielders)
@@ -91,6 +100,11 @@ public static class Field {
 
     public static void WhatDoIDoWithTheBall(Fielder player)
     {
+        if (GetFurthestRunner() == null)
+        {
+            player.ThrowBall(GetDirectionToThrowBall(player.glove.transform.position));
+            return;
+        }
         Transform baseLocation = GetFurthestRunner().targetBase[0].transform;
         GetClosestFielderToTransform(baseLocation).movementTarget = baseLocation.position;
         if (player == GetClosestFielderToTransform(baseLocation))
@@ -175,7 +189,7 @@ public static class Field {
         int highestBase = int.MinValue;
         foreach (var runner in runners)
         {
-            if (runner.currentBase > highestBase)
+            if (runner.currentBase > highestBase && !runner.exitingField)
             {
                 highestBase = runner.currentBase;
                 run = runner;
@@ -214,6 +228,20 @@ public static class Field {
         foreach (var pos in fieldPositions)
         {
             GameControl.instance.AddFielderToField(pos.Key, pos.Value);
+        }
+    }
+
+    public static void CheckIfRunnerOut(Runner runner)
+    {
+        Fielder fielder = GetClosestFielderToTransform(runner.targetBase[0].transform);
+        if (fielder.ballInHands && Utility.CheckEqual(fielder.transform.position, runner.targetBase[0].transform.position, 0.1f))
+        {
+            if(GetFurthestRunner() == null)
+            {
+                GameControl.ballInPlay = false;
+            }
+            runner.SetOut();
+            GameControl.instance.HandleOut();
         }
     }
 }

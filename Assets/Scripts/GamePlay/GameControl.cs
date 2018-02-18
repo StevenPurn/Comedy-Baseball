@@ -315,7 +315,6 @@ public class GameControl : MonoBehaviour {
     {
         outs += 1;
         ResetCount();
-        waitingForNextBatter = true;
         if (outs >= 3)
         {
             ResetInning();
@@ -372,6 +371,7 @@ public class GameControl : MonoBehaviour {
 
     void ResetInning()
     {
+        ballInPlay = false;
         if (curInning.isBottom)
         {
             if(curInning.inningNumber >= numberOfInnings)

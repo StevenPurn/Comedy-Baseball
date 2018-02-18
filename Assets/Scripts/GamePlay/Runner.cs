@@ -105,6 +105,11 @@ public class Runner : MonoBehaviour {
                 MovePlayer(movementTarget);
             }
         }
+
+        if(isAdvancing && targetBase[0].name.Contains("Base"))
+        {
+            Field.CheckIfRunnerOut(this);
+        }
     }
 
     void MovePlayer(Vector3 target)

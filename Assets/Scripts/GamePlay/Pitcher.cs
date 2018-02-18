@@ -11,6 +11,7 @@ public class Pitcher : MonoBehaviour {
     {
         ball = Field.ball.GetComponent<Ball>();
         fielder = GetComponent<Fielder>();
+        fielder.ballInHands = true;
     }
 
     public void ThrowPitch(Pitches pitchType)

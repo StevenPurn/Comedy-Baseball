@@ -22,7 +22,7 @@ public class Fielder : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         GetComponent<SpriteRenderer>().material = team == GameControl.instance.activeTeams[0] ? GameControl.instance.homeTeamMat : GameControl.instance.awayTeamMat;
-        GetComponent<SpriteRenderer>().material.renderQueue = team == GameControl.instance.activeTeams[0] ? 3001 : 3000;
+        //GetComponent<SpriteRenderer>().material.renderQueue = team == GameControl.instance.activeTeams[0] ? 3001 : 3000;
     }
 
     public void SetPosition(Position pos)
@@ -64,8 +64,6 @@ public class Fielder : MonoBehaviour {
         }
         if (ballInHands)
         {
-            //apparently this causes some major issues for some reason
-            //GameControl.ballInPlay = false;
             Field.ball.transform.parent = glove.gameObject.transform;
             Field.ball.transform.localPosition = Vector3.zero;
         }

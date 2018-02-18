@@ -13,6 +13,7 @@ public class Ball : MonoBehaviour {
     {
         col = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
+        TemporarilyDisableCollision(2.0f);
     }
 
     public void AddRelativeForceToBall(Vector2 force)
