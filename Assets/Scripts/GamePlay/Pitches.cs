@@ -3,6 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pitches : MonoBehaviour {
+    //EXAMPLE
+    /*
+     * pitch1 where 1 repesents the 1-10 score given by the umpire
+    public static Pitch pitch1 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
+            { 0.4f, Pitcher.Pitches.popfly }, ----- number represents the probability of the pitch type occurring, pitch type doesn't mean too much right now other than strike
+            { 0.6f, Pitcher.Pitches.groundOut }
+        },
+    new List<Vector2>() {
+            new Vector2 (1,1), ------ possibilities for which direction the ball will be hit
+            new Vector2 (-1, 1)
+    }, 0.5f, 2.0f, 5.0f);  --------- in order (minimum hit speed, max hit speed, max hit height)
+    */
+
 
     public static Pitch pitch1 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 0.4f, Pitcher.Pitches.popfly },
