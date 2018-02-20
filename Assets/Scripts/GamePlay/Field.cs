@@ -141,7 +141,7 @@ public static class Field {
     public static bool CanRunnerAdvance(Runner runner)
     {
         if (runner.anim.GetCurrentAnimatorStateInfo(0).IsName("runnerSwingBat"))
-        {
+        { 
             return false;
         }
         else if (runner.isAdvancing)
@@ -196,16 +196,6 @@ public static class Field {
             }
         }
         return run;
-    }
-
-    public static void FurthestRunnerOut()
-    {
-        Runner runner = GetFurthestRunner();
-
-        if(runner != null)
-        {
-            runner.SetOut();
-        }
     }
 
     public static void ResetInning()

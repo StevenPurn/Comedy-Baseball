@@ -113,14 +113,6 @@ public class GameControl : MonoBehaviour {
         Field.runners.Add(go.GetComponentInChildren<Runner>());
     }
 
-    private Pitch EvaluatePitch(int hitQuality)
-    {
-        Pitch pitch = Pitches.pitches[hitQuality];
-        //set variables that fall within ranges
-
-        return pitch;
-    }
-
     public void AddFielderToField(Fielder.Position pos, GameObject obj)
     {
         if (fieldParent == null)
@@ -216,7 +208,6 @@ public class GameControl : MonoBehaviour {
     public void HandleStrike(bool wasFoul = false)
     {
         GetCurrentPitchingPlayer().ChangePitches(1);
-        Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch(Pitcher.Pitches.strike);
         strikes += 1;
         if (strikes >= 3)
         {
@@ -254,6 +245,7 @@ public class GameControl : MonoBehaviour {
         if (balls >= 4)
         {
             balls = 4;
+            //Walk batter
         }
         changeCountEvent();
     }
@@ -272,9 +264,9 @@ public class GameControl : MonoBehaviour {
 
     public void HandlePitch(int hitQuality)
     {
-        Pitch curPitch = EvaluatePitch(hitQuality);
-        Field.ball.curPitch = curPitch;
-        Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch(curPitch.type);
+        Field.ball.curPitch = Pitches.pitches[hitQuality];
+        Field.ball.DeterminePitchResults();
+        Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch();
     }
 
     public void ChangeTeamScore(int change)

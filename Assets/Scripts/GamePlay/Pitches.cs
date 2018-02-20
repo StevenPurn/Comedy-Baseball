@@ -5,63 +5,94 @@ using UnityEngine;
 public class Pitches : MonoBehaviour {
 
     public static Pitch pitch1 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
-            { 0.5f, Pitcher.Pitches.popfly },
-            { 0.5f, Pitcher.Pitches.groundOut }
+            { 0.4f, Pitcher.Pitches.popfly },
+            { 0.6f, Pitcher.Pitches.groundOut }
         }, 
-            new List<Vector3>() { }, 0.5f, 2.0f, 5.0f);
+            new List<Vector2>() {
+            new Vector2 (1,1),
+            new Vector2 (-1, 1)
+            }, 0.5f, 2.0f, 5.0f);
 
     public static Pitch pitch2 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
-            { 0.5f, Pitcher.Pitches.popfly },
-            { 0.5f, Pitcher.Pitches.groundOut }
+            { 0.4f, Pitcher.Pitches.popfly },
+            { 0.6f, Pitcher.Pitches.groundOut }
         },
-            new List<Vector3>() { }, 0.5f, 2.0f, 5.0f);
+            new List<Vector2>() {
+            new Vector2 (1,1),
+            new Vector2 (-1, 1)
+            }, 0.5f, 2.0f, 5.0f);
 
     public static Pitch pitch3 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
-            { 0.5f, Pitcher.Pitches.popfly },
-            { 0.5f, Pitcher.Pitches.groundOut }
+            { 0.4f, Pitcher.Pitches.strike },
+            { 0.6f, Pitcher.Pitches.foul }
         },
-        new List<Vector3>() { }, 0.5f, 2.0f, 5.0f);
+        new List<Vector2>() {
+            new Vector2 (0, 1),
+            new Vector2 (0, -1)
+        }, 0.5f, 2.0f, 5.0f);
 
     public static Pitch pitch4 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
-            { 0.5f, Pitcher.Pitches.popfly },
-            { 0.5f, Pitcher.Pitches.groundOut }
+            { 0.4f, Pitcher.Pitches.popfly },
+            { 0.6f, Pitcher.Pitches.groundOut }
         },
-        new List<Vector3>() { }, 0.5f, 2.0f, 5.0f);
+        new List<Vector2>() {
+            new Vector2 (1,1),
+            new Vector2 (-1, 1)
+        }, 0.5f, 2.0f, 5.0f);
 
     public static Pitch pitch5 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
-            { 0.5f, Pitcher.Pitches.popfly },
-            { 0.5f, Pitcher.Pitches.groundOut }
+            { 0.4f, Pitcher.Pitches.popfly },
+            { 0.6f, Pitcher.Pitches.groundOut }
         },
-        new List<Vector3>() { }, 0.5f, 2.0f, 5.0f);
+        new List<Vector2>() {
+            new Vector2 (1,1),
+            new Vector2 (-1, 1)
+        }, 0.5f, 2.0f, 5.0f);
 
     public static Pitch pitch6 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
-            { 0.5f, Pitcher.Pitches.popfly },
-            { 0.5f, Pitcher.Pitches.groundOut }
+            { 0.4f, Pitcher.Pitches.popfly },
+            { 0.6f, Pitcher.Pitches.groundOut }
         },
-        new List<Vector3>() { }, 0.5f, 2.0f, 5.0f);
+        new List<Vector2>() {
+            new Vector2 (1,1),
+            new Vector2 (-1, 1)
+        }, 0.5f, 2.0f, 5.0f);
 
     public static Pitch pitch7 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
-            { 0.5f, Pitcher.Pitches.popfly },
-            { 0.5f, Pitcher.Pitches.groundOut }
+            { 0.4f, Pitcher.Pitches.popfly },
+            { 0.6f, Pitcher.Pitches.groundOut }
         },
-        new List<Vector3>() { }, 0.5f, 2.0f, 5.0f);
+        new List<Vector2>() {
+            new Vector2 (1,1),
+            new Vector2 (-1, 1)
+        }, 0.5f, 2.0f, 5.0f);
 
     public static Pitch pitch8 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
-            { 0.5f, Pitcher.Pitches.popfly },
-            { 0.5f, Pitcher.Pitches.groundOut }
+            { 0.4f, Pitcher.Pitches.popfly },
+            { 0.6f, Pitcher.Pitches.groundOut }
         },
-        new List<Vector3>() { }, 0.5f, 2.0f, 5.0f);
+        new List<Vector2>() {
+            new Vector2 (1,1),
+            new Vector2 (-1, 1)
+        }, 0.5f, 2.0f, 5.0f);
 
     public static Pitch pitch9 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
-            { 0.5f, Pitcher.Pitches.hit },
-            { 0.5f, Pitcher.Pitches.homerun }
+            { 0.4f, Pitcher.Pitches.hit },
+            { 0.6f, Pitcher.Pitches.homerun }
         },
-        new List<Vector3>() { }, 0.5f, 2.0f, 5.0f);
+        new List<Vector2>() {
+            new Vector2 (1,1),
+            new Vector2 (-1, 1)
+        }, 0.5f, 2.0f, 5.0f);
 
     public static Pitch pitch10 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 1.0f, Pitcher.Pitches.homerun },
         },
-        new List<Vector3>() { }, 0.5f, 2.0f, 5.0f);
+        new List<Vector2>() {
+            new Vector2 (1,1),
+            new Vector2 (-1, 1)
+        }, 0.5f, 2.0f, 5.0f);
+
     public static Dictionary<int, Pitch> pitches = new Dictionary<int, Pitch>()
     {
         { 1, pitch1 },

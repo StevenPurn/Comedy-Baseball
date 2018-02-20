@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class Runner : MonoBehaviour {
 
     public bool atBat = true;
@@ -21,8 +20,8 @@ public class Runner : MonoBehaviour {
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponentInParent<Animator>();
+        rb = GetComponentInParent<Rigidbody2D>();
         ball = Field.ball.GetComponent<Ball>();
         GetComponent<SpriteRenderer>().material = team == GameControl.instance.activeTeams[0] ? GameControl.instance.homeTeamMat : GameControl.instance.awayTeamMat;
         atBat = true;
@@ -48,8 +47,7 @@ public class Runner : MonoBehaviour {
         {
             atBat = false;
             anim.SetTrigger("isSwingingBat");
-            //ball.rb.velocity = Vector2.zero;
-            Vector2 angle = ball.curPitch.hitAngles[0]; 
+            Vector2 angle = ball.curPitch.hitAngle; //This needs to be randomized
             Vector2 force = angle * ball.curPitch.hitSpeed;
             ball.TemporarilyDisableCollision(0.3f);
             ball.AddForceToBall(force);
@@ -132,19 +130,6 @@ public class Runner : MonoBehaviour {
             anim.SetBool("isIdle", false);
         }
         anim.SetBool("isAtBat", atBat);
-    }
-
-    public void SetBasesAsTargets(List<GameObject> baseToTarget)
-    {
-        foreach (var targetBase in baseToTarget)
-        {
-            this.targetBase.Add(targetBase);
-        }
-    }
-
-    public void SetBaseAsTarget(GameObject baseToTarget)
-    {
-        targetBase.Add(baseToTarget);
     }
 
     public void SetOut()
