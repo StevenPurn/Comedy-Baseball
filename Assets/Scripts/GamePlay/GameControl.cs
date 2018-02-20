@@ -113,89 +113,6 @@ public class GameControl : MonoBehaviour {
         Field.runners.Add(go.GetComponentInChildren<Runner>());
     }
 
-    private Pitch EvaluatePitch(int hitQuality)
-    {
-        Pitch pitch = new Pitch();
-        switch (hitQuality)
-        {
-            case 1:
-                //Pop fly/ground out
-                pitch.type = Pitcher.Pitches.popfly;
-                pitch.maxHeight = 6.0f;
-                pitch.hitSpeed = 3.0f;
-                pitch.hitAngles.Add(new Vector2(1, 0));
-                break;
-            case 2:
-                //fly out/ground out or foul
-                pitch.type = Pitcher.Pitches.hit;
-                pitch.maxHeight = 6.0f;
-                pitch.hitSpeed = 3f;
-                pitch.hitAngles.Add(new Vector2(0, 1));
-                break;
-            case 3:
-                //strike or foul
-                pitch.type = Pitcher.Pitches.hit;
-                pitch.maxHeight = 6.0f;
-                pitch.hitSpeed = 3f;
-                pitch.hitAngles.Add(new Vector2(-1, 0));
-                break;
-            case 4:
-                //single
-                pitch.type = Pitcher.Pitches.hit;
-                pitch.maxHeight = 6.0f;
-                pitch.hitSpeed = 3f;
-                pitch.hitAngles.Add(new Vector2(0, -1));
-                break;
-            case 5:
-                //single with better on base chance + speed boost
-                pitch.type = Pitcher.Pitches.hit;
-                pitch.maxHeight = 6.0f;
-                pitch.hitSpeed = 0.2f;
-                pitch.hitAngles.Add(new Vector3(0, 0, 1));
-                break;
-            case 6:
-                //shallow outfield at best
-                pitch.type = Pitcher.Pitches.hit;
-                pitch.maxHeight = 6.0f;
-                pitch.hitSpeed = 0.2f;
-                pitch.hitAngles.Add(new Vector3(8, 8, 1));
-                break;
-            case 7:
-                //shallow outfield
-                pitch.type = Pitcher.Pitches.hit;
-                pitch.maxHeight = 6.0f;
-                pitch.hitSpeed = 0.2f;
-                pitch.hitAngles.Add(new Vector3(0, 0, 1));
-                break;
-            case 8:
-                //past infield
-                pitch.type = Pitcher.Pitches.hit;
-                pitch.maxHeight = 6.0f;
-                pitch.hitSpeed = 0.2f;
-                pitch.hitAngles.Add(new Vector3(0, 0, 1));
-                break;
-            case 9:
-                //Homerun + error on next play less likely than 10
-                pitch.type = Pitcher.Pitches.hit;
-                pitch.maxHeight = 6.0f;
-                pitch.hitSpeed = 0.2f;
-                pitch.hitAngles.Add(new Vector3(0, 0, 1));
-                break;
-            case 10:
-                //Homerun + error on next play
-                pitch.type = Pitcher.Pitches.hit;
-                pitch.maxHeight = 6.0f;
-                pitch.hitSpeed = 0.2f;
-                pitch.hitAngles.Add(new Vector3(0, 0, 1));
-                break;
-            default:
-                Debug.LogWarning("Hit quality wasn't generated correctly");
-                break;
-        }
-
-        return pitch;
-    }
-
     public void AddFielderToField(Fielder.Position pos, GameObject obj)
     {
         if (fieldParent == null)
@@ -291,7 +208,6 @@ public class GameControl : MonoBehaviour {
     public void HandleStrike(bool wasFoul = false)
     {
         GetCurrentPitchingPlayer().ChangePitches(1);
-        Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch(Pitcher.Pitches.strike);
         strikes += 1;
         if (strikes >= 3)
         {
@@ -329,6 +245,7 @@ public class GameControl : MonoBehaviour {
         if (balls >= 4)
         {
             balls = 4;
+            //Walk batter
         }
         changeCountEvent();
     }
@@ -347,9 +264,9 @@ public class GameControl : MonoBehaviour {
 
     public void HandlePitch(int hitQuality)
     {
-        Pitch curPitch = EvaluatePitch(hitQuality);
-        Field.ball.curPitch = curPitch;
-        Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch(curPitch.type);
+        Field.ball.curPitch = Pitches.pitches[hitQuality];
+        Field.ball.DeterminePitchResults();
+        Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch();
     }
 
     public void ChangeTeamScore(int change)
@@ -372,6 +289,8 @@ public class GameControl : MonoBehaviour {
     void ResetInning()
     {
         ballInPlay = false;
+        waitingForNextBatter = false;
+        Field.ball.TemporarilyDisableCollision(10f);
         if (curInning.isBottom)
         {
             if(curInning.inningNumber >= numberOfInnings)

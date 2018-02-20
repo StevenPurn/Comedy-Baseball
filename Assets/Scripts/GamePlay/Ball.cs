@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
@@ -24,6 +25,31 @@ public class Ball : MonoBehaviour {
             popFly = true;
         }
         rb.AddRelativeForce(force, ForceMode2D.Impulse);
+    }
+
+    public void DeterminePitchResults()
+    {
+        //This needs to be randomized, iterate through list and randomly pick one result based on probability
+        float total = 0f;
+        foreach(KeyValuePair<float, Pitcher.Pitches> entry in curPitch.types)
+        {
+            total += entry.Key;
+        }
+        float randType = Random.Range(0f, total);
+        float curTotal = 0f;
+        foreach (KeyValuePair<float, Pitcher.Pitches> entry in curPitch.types)
+        {
+            curTotal += entry.Key;
+            if(randType <= curTotal)
+            {
+                curPitch.type = entry.Value;
+                Debug.Log(curPitch.type);
+                break;
+            }
+        }
+
+        curPitch.hitAngle = curPitch.hitAngles[Random.Range(0, curPitch.hitAngles.Count)];
+        curPitch.hitSpeed = Random.Range(curPitch.minSpeed, curPitch.maxSpeed);
     }
 
     public void AddForceToBall(Vector2 force)
@@ -54,11 +80,6 @@ public class Ball : MonoBehaviour {
     public void EnableCollision()
     {
         col.enabled = true;
-    }
-
-    void FixedUpdate ()
-    {
-        //Can potentially be used for throws if you don't want randomly dropped balls or anything
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

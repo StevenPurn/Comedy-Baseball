@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4920660282030462}
+  - component: {fileID: 95899391857458938}
   m_Layer: 0
   m_Name: Runner
   m_TagString: Untagged
@@ -37,7 +38,6 @@ GameObject:
   - component: {fileID: 114628127086920504}
   - component: {fileID: 50767948652552334}
   - component: {fileID: 212776513850502408}
-  - component: {fileID: 95648709478327814}
   - component: {fileID: 61722183708820120}
   m_Layer: 0
   m_Name: Runner
@@ -118,18 +118,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.11946298, y: 0.07251994}
   m_EdgeRadius: 0
---- !u!95 &95648709478327814
+--- !u!95 &95899391857458938
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1472948527163240}
+  m_GameObject: {fileID: 1446193678772132}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 543e2d214b94744469dedd50c04613fe, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 1
+  m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -154,6 +154,7 @@ MonoBehaviour:
   enteringField: 1
   targetBase: []
   movementSpeed: 3.5
+  anim: {fileID: 0}
 --- !u!212 &212776513850502408
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -141,7 +141,7 @@ public static class Field {
     public static bool CanRunnerAdvance(Runner runner)
     {
         if (runner.anim.GetCurrentAnimatorStateInfo(0).IsName("runnerSwingBat"))
-        {
+        { 
             return false;
         }
         else if (runner.isAdvancing)
@@ -169,16 +169,16 @@ public static class Field {
         if (GetFurthestRunner() == null)
         {
             GameControl.ballInPlay = false;
-            dir = fielders.Find(x => x.position == Fielder.Position.pitcher).glove.position - position;
+            dir = fielders.Find(x => x.position == Fielder.Position.pitcher).glove.position - ball.transform.position;
         }else if (!runners.Find(x => x.isAdvancing))
         {
             GameControl.ballInPlay = false;
-            dir = fielders.Find(x => x.position == Fielder.Position.pitcher).glove.position - position;
+            dir = fielders.Find(x => x.position == Fielder.Position.pitcher).glove.position - ball.transform.position;
         }
         else
         {
             Fielder player = GetClosestFielderToTransform(GetFurthestRunner().targetBase[0].transform);
-            dir = player.glove.position - position;
+            dir = player.glove.position - ball.transform.position;
         }
         return dir;
     }
@@ -196,16 +196,6 @@ public static class Field {
             }
         }
         return run;
-    }
-
-    public static void FurthestRunnerOut()
-    {
-        Runner runner = GetFurthestRunner();
-
-        if(runner != null)
-        {
-            runner.SetOut();
-        }
     }
 
     public static void ResetInning()
