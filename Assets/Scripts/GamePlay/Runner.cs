@@ -60,6 +60,7 @@ public class Runner : MonoBehaviour {
             anim.SetTrigger("isSwingingBat");
             Vector2 angle = ball.curPitch.hitAngle;
             Vector2 force = angle * ball.curPitch.hitSpeed;
+            Debug.Log("hit force is: " + force);
             ball.TemporarilyDisableCollision(0.3f);
             ball.AddForceToBall(force);
             GameControl.ballInPlay = true;

@@ -57,20 +57,21 @@ public static class Field {
         }
     }
 
-    public static Fielder GetClosestFielderToTransform(Transform loc)
+    public static Fielder GetClosestFielderToTransform(Transform loc, bool accountForDistFromStartPos = true)
     {
         if(loc == null)
         {
             return null;
         }
         Fielder closestPlayer = fielders[0];
-        float dis = float.MaxValue;
+        float lowestDist = float.MaxValue;
         foreach (var player in fielders)
         {
-            if (Vector2.Distance(player.transform.position, loc.position) < dis)
+            float distance = Vector2.Distance(player.transform.position, loc.position) + Vector2.Distance(player.transform.position, player.startPosition.position);
+            if (distance < lowestDist)
             {
                 closestPlayer = player;
-                dis = Vector2.Distance(player.transform.position, loc.position);
+                lowestDist = distance;
             }
         }
 
@@ -106,7 +107,7 @@ public static class Field {
             return;
         }
         Transform baseLocation = GetFurthestRunner().targetBase[0].transform;
-        GetClosestFielderToTransform(baseLocation).movementTarget = baseLocation.position;
+        GetClosestFielderToTransform(baseLocation, false).movementTarget = baseLocation.position;
         if (player == GetClosestFielderToTransform(baseLocation))
         {
             return;
@@ -177,7 +178,7 @@ public static class Field {
         }
         else
         {
-            Fielder player = GetClosestFielderToTransform(GetFurthestRunner().targetBase[0].transform);
+            Fielder player = GetClosestFielderToTransform(GetFurthestRunner().targetBase[0].transform, false);
             dir = player.glove.position - ball.transform.position;
         }
         return dir;
@@ -223,7 +224,7 @@ public static class Field {
 
     public static void CheckIfRunnerOut(Runner runner)
     {
-        Fielder fielder = GetClosestFielderToTransform(runner.targetBase[0].transform);
+        Fielder fielder = GetClosestFielderToTransform(runner.targetBase[0].transform, false);
         if (fielder.ballInHands && Utility.CheckEqual(fielder.transform.position, runner.targetBase[0].transform.position, 0.1f))
         {
             if(GetFurthestRunner() == null)

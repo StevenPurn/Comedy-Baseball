@@ -227,7 +227,6 @@ public class GameControl : MonoBehaviour {
         changeCountEvent();
     }
 
-    //Need to add potential for advancing runners on base during an out
     public void HandleOut()
     {
         outs += 1;

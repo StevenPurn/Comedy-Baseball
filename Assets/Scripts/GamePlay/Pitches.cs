@@ -24,7 +24,7 @@ public class Pitches : MonoBehaviour {
             new List<Vector2>() {
             new Vector2 (1,1),
             new Vector2 (-1, 1)
-            }, 1.2f, 2.0f, 5.0f);
+            }, 1.2f, 5.0f, 5.0f);
 
     public static Pitch pitch2 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 0.4f, Pitcher.Pitches.popfly },
