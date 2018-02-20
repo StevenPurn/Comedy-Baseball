@@ -42,12 +42,23 @@ public class Runner : MonoBehaviour {
             {
                 anim.SetTrigger("isSwingingBat");
             }
+            GameControl.instance.HandleStrike(false);
+        }
+        else if (ball.curPitch.type == Pitcher.Pitches.foul)
+        {
+            anim.SetTrigger("isSwingingBat");
+            Vector2 angle = ball.curPitch.hitAngle;
+            Vector2 force = angle * ball.curPitch.hitSpeed;
+            ball.TemporarilyDisableCollision(0.3f);
+            ball.AddForceToBall(force);
+            GameControl.ballInPlay = true;
+            GameControl.instance.HandleStrike(true);
         }
         else
         {
             atBat = false;
             anim.SetTrigger("isSwingingBat");
-            Vector2 angle = ball.curPitch.hitAngle; //This needs to be randomized
+            Vector2 angle = ball.curPitch.hitAngle;
             Vector2 force = angle * ball.curPitch.hitSpeed;
             ball.TemporarilyDisableCollision(0.3f);
             ball.AddForceToBall(force);

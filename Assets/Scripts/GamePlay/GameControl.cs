@@ -221,6 +221,7 @@ public class GameControl : MonoBehaviour {
                 GetCurrentPitchingPlayer().ChangeStrikeoutsPitched(1);
                 HandleOut();
                 GetCurrentBattingPlayer().ChangeStrikeOutsAtBat(1);
+                waitingForNextBatter = true;
             }
         }
         changeCountEvent();
