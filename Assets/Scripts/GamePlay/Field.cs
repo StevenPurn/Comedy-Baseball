@@ -53,7 +53,7 @@ public static class Field {
             {
                 player.ThrowBall(GetDirectionToThrowBall(player.transform.position));
             }
-            MoveFieldersToStartPosition();
+            MoveFieldersToStartPosition(false);
         }
     }
 
@@ -118,11 +118,21 @@ public static class Field {
         }
     }
 
-    public static void MoveFieldersToStartPosition()
+    public static void MoveFieldersToStartPosition(bool ignorePlayerWithBall = true)
     {
-        foreach (var player in fielders)
+        if (ignorePlayerWithBall)
         {
-            if (!player.ballInHands)
+            foreach (var player in fielders)
+            {
+                if (!player.ballInHands)
+                {
+                    player.movementTarget = player.startPosition.position;
+                }
+            }
+        }
+        else
+        {
+            foreach (var player in fielders)
             {
                 player.movementTarget = player.startPosition.position;
             }

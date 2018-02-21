@@ -104,7 +104,7 @@ public class Pitches : MonoBehaviour {
         new List<Vector2>() {
             new Vector2 (1,1),
             new Vector2 (-1, 1)
-        }, 0.5f, 2.0f, 5.0f);
+        }, 10f, 20f, 5.0f);
 
     public static Dictionary<int, Pitch> pitches = new Dictionary<int, Pitch>()
     {

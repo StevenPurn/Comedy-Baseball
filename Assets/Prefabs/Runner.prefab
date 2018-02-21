@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4920660282030462}
   - component: {fileID: 95899391857458938}
+  - component: {fileID: 50614982449821950}
   m_Layer: 0
   m_Name: Runner
   m_TagString: Untagged
@@ -36,7 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4323878153340386}
   - component: {fileID: 114628127086920504}
-  - component: {fileID: 50767948652552334}
   - component: {fileID: 212776513850502408}
   - component: {fileID: 61722183708820120}
   m_Layer: 0
@@ -73,13 +73,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50767948652552334
+--- !u!50 &50614982449821950
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1472948527163240}
+  m_GameObject: {fileID: 1446193678772132}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
