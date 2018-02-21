@@ -290,7 +290,7 @@ public class GameControl : MonoBehaviour {
     {
         ballInPlay = false;
         waitingForNextBatter = false;
-        Field.ball.TemporarilyDisableCollision(10f);
+        Field.ball.curHeight = 5f;
         if (curInning.isBottom)
         {
             if(curInning.inningNumber >= numberOfInnings)

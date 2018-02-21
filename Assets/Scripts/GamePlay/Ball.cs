@@ -4,7 +4,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
 
     public Rigidbody2D rb;
-    private float curHeight = 1.5f;
+    public float curHeight = 1.5f;
     public bool popFly = false;
     //Chance of error (possibly from previous play)
     private BoxCollider2D col;
@@ -15,6 +15,7 @@ public class Ball : MonoBehaviour {
         col = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         TemporarilyDisableCollision(2.0f);
+        curHeight = 10f;
     }
 
     public void AddRelativeForceToBall(Vector2 force)
