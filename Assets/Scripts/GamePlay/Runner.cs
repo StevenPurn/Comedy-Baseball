@@ -80,6 +80,7 @@ public class Runner : MonoBehaviour {
             movementTarget = targetBase[0].transform.position;
         }
         //Check if they are exiting the field and then add the dugout as the target
+        //Check how far fielders are away from the ball
         if (Field.CanRunnerAdvance(this)) { 
             if (Utility.CheckEqual(movementTarget, transform.position, 0.1f))
             {

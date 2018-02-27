@@ -7,6 +7,7 @@ public class Ball : MonoBehaviour {
     public float curHeight = 1.5f;
     public bool popFly = false;
     //Chance of error (possibly from previous play)
+    //Update the angles of the hits to be more human readable
     private BoxCollider2D col;
     public Pitch curPitch;
 

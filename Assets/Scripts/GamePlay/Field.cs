@@ -36,7 +36,7 @@ public static class Field {
 
     public static void FielderAI()
     {
-        if (GameControl.ballInPlay && !ballHasBeenThrown)
+        if (GameControl.ballInPlay)
         {
             MoveFieldersToPlayPosition();
             GetClosestFielderToTransform(ball.transform).movementTarget = ball.transform.position;
@@ -151,6 +151,7 @@ public static class Field {
 
     public static bool CanRunnerAdvance(Runner runner)
     {
+        //Check if ball has been thrown
         if (runner.anim.GetCurrentAnimatorStateInfo(0).IsName("runnerSwingBat"))
         { 
             return false;

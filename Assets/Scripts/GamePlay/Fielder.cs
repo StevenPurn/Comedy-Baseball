@@ -74,6 +74,7 @@ public class Fielder : MonoBehaviour {
 
     public void ThrowBall(Vector3 target)
     {
+        Field.ballHasBeenThrown = true;
         Field.ball.TemporarilyDisableCollision(0.3f);
         Field.ball.AddForceToBall(target * throwSpeed);
         ballInHands = false;

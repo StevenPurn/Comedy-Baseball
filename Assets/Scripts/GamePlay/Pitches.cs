@@ -16,6 +16,7 @@ public class Pitches : MonoBehaviour {
     }, 0.5f, 2.0f, 5.0f);  --------- in order (minimum hit speed, max hit speed, max hit height)
     */
 
+        //New object that contains a vector2 for landing location and four floats for randomly adjusting the location
 
     public static Pitch pitch1 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 0.4f, Pitcher.Pitches.popfly },
@@ -49,9 +50,8 @@ public class Pitches : MonoBehaviour {
             { 0.6f, Pitcher.Pitches.groundOut }
         },
         new List<Vector2>() {
-            new Vector2 (1,1),
-            new Vector2 (-1, 1)
-        }, 0.5f, 2.0f, 5.0f);
+            new Vector2 (0.2f, 0.8f)
+        }, 4f, 8f, 5.0f);
 
     public static Pitch pitch5 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 0.4f, Pitcher.Pitches.popfly },
@@ -67,18 +67,18 @@ public class Pitches : MonoBehaviour {
             { 0.6f, Pitcher.Pitches.groundOut }
         },
         new List<Vector2>() {
-            new Vector2 (1,1),
-            new Vector2 (-1, 1)
-        }, 0.5f, 2.0f, 5.0f);
+            new Vector2 (-0.5f,0.5f),
+            new Vector2 (-0.2f, 1f)
+        }, 6f, 10f, 5.0f);
 
     public static Pitch pitch7 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 0.4f, Pitcher.Pitches.popfly },
             { 0.6f, Pitcher.Pitches.groundOut }
         },
         new List<Vector2>() {
-            new Vector2 (1,1),
-            new Vector2 (-1, 1)
-        }, 0.5f, 2.0f, 5.0f);
+            new Vector2 (0.5f,0.5f),
+            new Vector2 (0.2f, 1f)
+        }, 6f, 10f, 5.0f);
 
     public static Pitch pitch8 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 0.4f, Pitcher.Pitches.popfly },

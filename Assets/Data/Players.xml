@@ -2,66 +2,66 @@
 <ArrayOfPlayer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <player>
     <number>1</number>
-    <battingAvg>0.294</battingAvg>
+    <battingAvg>0.273</battingAvg>
     <rbi>7</rbi>
     <portraitPath>/Art/testPortrait2.png</portraitPath>
     <name>Tirumari Jothi</name>
-    <atbats>51</atbats>
+    <atbats>55</atbats>
     <hits>15</hits>
     <strikeoutsAtBat>10</strikeoutsAtBat>
     <strikeoutsPitched>9</strikeoutsPitched>
   </player>
   <player>
     <number>1</number>
-    <battingAvg>0.241</battingAvg>
+    <battingAvg>0.22</battingAvg>
     <rbi>6</rbi>
     <portraitPath>/Art/testPortrait3.png</portraitPath>
     <name>Davey Jones</name>
-    <atbats>54</atbats>
+    <atbats>59</atbats>
     <hits>13</hits>
     <strikeoutsAtBat>10</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
     <number>1</number>
-    <battingAvg>0.216</battingAvg>
+    <battingAvg>0.196</battingAvg>
     <rbi>12</rbi>
     <portraitPath>/Art/testPortrait1.png</portraitPath>
     <name>Justin Gomes</name>
-    <atbats>51</atbats>
+    <atbats>56</atbats>
     <hits>11</hits>
     <strikeoutsAtBat>17</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
     <number>1</number>
-    <battingAvg>0.275</battingAvg>
+    <battingAvg>0.25</battingAvg>
     <rbi>10</rbi>
     <portraitPath>/Art/testPortrait2.png</portraitPath>
     <name>Joe Smith</name>
-    <atbats>40</atbats>
+    <atbats>44</atbats>
     <hits>11</hits>
     <strikeoutsAtBat>14</strikeoutsAtBat>
     <strikeoutsPitched>19</strikeoutsPitched>
   </player>
   <player>
     <number>1</number>
-    <battingAvg>0.245</battingAvg>
+    <battingAvg>0.222</battingAvg>
     <rbi>12</rbi>
     <portraitPath>/Art/testPortrait3.png</portraitPath>
     <name>Jack Sparrow</name>
-    <atbats>49</atbats>
+    <atbats>54</atbats>
     <hits>12</hits>
     <strikeoutsAtBat>10</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
     <number>1</number>
-    <battingAvg>0.171</battingAvg>
+    <battingAvg>0.152</battingAvg>
     <rbi>6</rbi>
     <portraitPath>/Art/testPortrait1.png</portraitPath>
     <name>Will Turner</name>
-    <atbats>41</atbats>
+    <atbats>46</atbats>
     <hits>7</hits>
     <strikeoutsAtBat>4</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>

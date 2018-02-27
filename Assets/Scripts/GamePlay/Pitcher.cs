@@ -16,6 +16,7 @@ public class Pitcher : MonoBehaviour {
 
     public void ThrowPitch()
     {
+        Field.ballHasBeenThrown = false;
         fielder.anim.SetBool("isThrowing", true);
         fielder.ballInHands = false;
         Vector2 dir = Field.fielders.Find(x => x.position == Fielder.Position.catcher).glove.position - Field.ball.transform.position;
