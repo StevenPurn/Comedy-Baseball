@@ -7,6 +7,7 @@ public class SetUpField : MonoBehaviour {
     public GameObject[] dugouts = new GameObject[2];
     public Fielder.Position[] positions = new Fielder.Position[9];
     public List<GameObject> runnerTargets = new List<GameObject>();
+    public List<GameObject> hitLocationObjs = new List<GameObject>();
     public GameObject[] positionObjs = new GameObject[9];
     public GameObject[] playPosObjs = new GameObject[9];
     public Dictionary<Fielder.Position, GameObject> fieldPos = new Dictionary<Fielder.Position, GameObject> { };
@@ -28,6 +29,7 @@ public class SetUpField : MonoBehaviour {
         Field.bases = bases;
         Field.dugouts = dugouts;
         Field.AssignDugouts();
+        Field.SetUpHitLocations(hitLocationObjs);
         Field.fieldPositions = fieldPos;
         Field.playPositions = playPos;
         Field.runnerTargets = runnerTargets;

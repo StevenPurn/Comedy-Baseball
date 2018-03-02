@@ -6,10 +6,12 @@ public class Ball : MonoBehaviour {
     public Rigidbody2D rb;
     public float curHeight = 1.5f;
     public bool popFly = false;
-    //Chance of error (possibly from previous play)
-    //Update the angles of the hits to be more human readable
+    public float maxHeight, curSpeed;
+    public Vector2 endPoint, startPoint;
     private BoxCollider2D col;
     public Pitch curPitch;
+    //Chance of error (possibly from previous play)
+    //Update the angles of the hits to be more human readable
 
     private void Start()
     {
@@ -19,19 +21,28 @@ public class Ball : MonoBehaviour {
         curHeight = 10f;
     }
 
-    public void AddRelativeForceToBall(Vector2 force)
+    private void Update()
     {
-        rb.velocity = Vector2.zero;
-        if (force.magnitude > 5.0f)
+        if (Utility.CheckEqual(transform.position, endPoint, 0.01f))
         {
-            popFly = true;
+            endPoint = Vector3.zero;
         }
-        rb.AddRelativeForce(force, ForceMode2D.Impulse);
+        if(endPoint != Vector2.zero)
+        {
+            MoveBall(endPoint);
+        }
+    }
+
+    public void MoveBall(Vector3 target)
+    {
+        Vector3 direction = (target - transform.position).normalized;
+        rb.MovePosition(transform.position + direction * curSpeed * Time.deltaTime);
+        Vector2 halfwayPoint = (endPoint - startPoint) / 2 + startPoint;
+        curHeight = maxHeight * (1 - Mathf.Abs(Vector2.Distance(transform.position, halfwayPoint) / Vector2.Distance(startPoint, halfwayPoint)));
     }
 
     public void DeterminePitchResults()
     {
-        //This needs to be randomized, iterate through list and randomly pick one result based on probability
         float total = 0f;
         foreach(KeyValuePair<float, Pitcher.Pitches> entry in curPitch.types)
         {
@@ -45,38 +56,16 @@ public class Ball : MonoBehaviour {
             if(randType <= curTotal)
             {
                 curPitch.type = entry.Value;
-                Debug.Log(curPitch.type);
                 break;
             }
         }
-
-        curPitch.hitAngle = curPitch.hitAngles[Random.Range(0, curPitch.hitAngles.Count)];
         curPitch.hitSpeed = Random.Range(curPitch.minSpeed, curPitch.maxSpeed);
     }
 
-    public void AddForceToBall(Vector2 force)
-    {
-        rb.velocity = Vector2.zero;
-        rb.AddForce(force, ForceMode2D.Impulse);
-    }
-
-    public void HitBallWithFuckingBat(Vector2 force)
-    {
-        rb.velocity = Vector2.zero;
-        Vector2 pos = transform.position;
-        rb.AddForce(pos - force, ForceMode2D.Impulse);
-    }
-
-    public void TemporarilyDisableCollision()
+    public void TemporarilyDisableCollision(float timeDelay = 0.2f)
     {
         col.enabled = false;
         Invoke("EnableCollision", 0.2f);
-    }
-
-    public void TemporarilyDisableCollision(float timeDelay)
-    {
-        col.enabled = false;
-        Invoke("EnableCollision", timeDelay);
     }
 
     public void EnableCollision()
@@ -92,7 +81,8 @@ public class Ball : MonoBehaviour {
             if (curHeight < 4.0f)
             {
                 collision.GetComponentInParent<Fielder>().ballInHands = true;
-                rb.velocity = Vector2.zero;
+                endPoint = Vector3.zero;
+                startPoint = Vector3.zero;
             }
         }else if(tag == "Runner")
         {

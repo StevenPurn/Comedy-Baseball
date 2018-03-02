@@ -50,8 +50,10 @@ public class GameControl : MonoBehaviour {
 
     private void Update()
     {
+
         if(waitingForNextBatter && !ballInPlay)
         {
+            Debug.Log("batter should be coming out");
             waitingForNextBatter = false;
             NextBatter();
         }
@@ -76,7 +78,6 @@ public class GameControl : MonoBehaviour {
         ActiveTeam battingTeam = GetTeamAtBat();
         int curBatter = GetCurrentBatter();
         curBatter = curBatter + 1 == battingTeam.players.Count ? 0 : curBatter + 1;
-        //ballInPlay = false;
 
         foreach (var player in battingTeam.players)
         {
@@ -265,6 +266,7 @@ public class GameControl : MonoBehaviour {
     public void HandlePitch(int hitQuality)
     {
         Field.ball.curPitch = Pitches.pitches[hitQuality];
+        Debug.Log(hitQuality);
         Field.ball.DeterminePitchResults();
         Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch();
     }
@@ -279,7 +281,7 @@ public class GameControl : MonoBehaviour {
 
     #endregion
 
-    void ResetCount()
+    public void ResetCount()
     {
         balls = 0;
         strikes = 0;

@@ -8,7 +8,7 @@ public class Fielder : MonoBehaviour {
     public float distanceTolerance;
     private Rigidbody2D rb;
     public float movementSpeed = 3.5f;
-    private float throwSpeed = 1.8f;
+    private float throwSpeed = 5f;
     public Vector3 movementTarget;
     public ActiveTeam team;
     public bool ballInHands;
@@ -76,7 +76,10 @@ public class Fielder : MonoBehaviour {
     {
         Field.ballHasBeenThrown = true;
         Field.ball.TemporarilyDisableCollision(0.3f);
-        Field.ball.AddForceToBall(target * throwSpeed);
+        Field.ball.curSpeed = throwSpeed;
+        Field.ball.maxHeight = 3.0f;
+        Field.ball.endPoint = target;
+        Field.ball.startPoint = Field.ball.transform.position;
         ballInHands = false;
     }
 

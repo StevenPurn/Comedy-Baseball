@@ -13,7 +13,7 @@ public class Runner : MonoBehaviour {
     public List<GameObject> targetBase = new List<GameObject>();
     private Rigidbody2D rb;
     public float movementSpeed = 3.5f;
-    private Collider2D col;
+    public Collider2D col;
     public ActiveTeam team;
     public Animator anim;
     private Ball ball;
@@ -47,10 +47,15 @@ public class Runner : MonoBehaviour {
         else if (ball.curPitch.type == Pitcher.Pitches.foul)
         {
             anim.SetTrigger("isSwingingBat");
-            Vector2 angle = ball.curPitch.hitAngle;
-            Vector2 force = angle * ball.curPitch.hitSpeed;
+            int pitchIndex = UnityEngine.Random.Range(0, ball.curPitch.hitLoc.Count);
+            Vector2 hitTarget = ball.curPitch.hitLoc[pitchIndex].center.transform.position;
+            hitTarget.x += UnityEngine.Random.Range(ball.curPitch.hitLoc[pitchIndex].minOffset.x, ball.curPitch.hitLoc[pitchIndex].maxOffset.x);
+            hitTarget.y += UnityEngine.Random.Range(ball.curPitch.hitLoc[pitchIndex].minOffset.y, ball.curPitch.hitLoc[pitchIndex].maxOffset.y);
             ball.TemporarilyDisableCollision(0.3f);
-            ball.AddForceToBall(force);
+            ball.curSpeed = ball.curPitch.hitSpeed;
+            ball.maxHeight = ball.curPitch.maxHeight;
+            ball.endPoint = hitTarget;
+            ball.startPoint = ball.transform.position;
             GameControl.ballInPlay = true;
             GameControl.instance.HandleStrike(true);
         }
@@ -58,15 +63,21 @@ public class Runner : MonoBehaviour {
         {
             atBat = false;
             anim.SetTrigger("isSwingingBat");
-            Vector2 angle = ball.curPitch.hitAngle;
-            Vector2 force = angle * ball.curPitch.hitSpeed;
-            Debug.Log("hit force is: " + force);
+            int pitchIndex = UnityEngine.Random.Range(0, ball.curPitch.hitLoc.Count);
+            Vector2 hitTarget = ball.curPitch.hitLoc[pitchIndex].center.transform.position;
+            hitTarget.x += UnityEngine.Random.Range(ball.curPitch.hitLoc[pitchIndex].minOffset.x, ball.curPitch.hitLoc[pitchIndex].maxOffset.x);
+            hitTarget.y += UnityEngine.Random.Range(ball.curPitch.hitLoc[pitchIndex].minOffset.y, ball.curPitch.hitLoc[pitchIndex].maxOffset.y);
+            Field.ballLandingSpot = hitTarget;
             ball.TemporarilyDisableCollision(0.3f);
-            ball.AddForceToBall(force);
+            ball.curSpeed = ball.curPitch.hitSpeed;
+            ball.maxHeight = ball.curPitch.maxHeight;
+            ball.startPoint = ball.transform.position;
+            ball.endPoint = hitTarget;
+            GameControl.instance.ResetCount();
             GameControl.ballInPlay = true;
             GameControl.waitingForNextBatter = true;
             isAdvancing = true;
-            col.enabled = false;
+            Destroy(col);
         }
     }
 
@@ -90,7 +101,10 @@ public class Runner : MonoBehaviour {
                 if (exitingField)
                 {
                     targetBase.Clear();
-                    Field.runners.Remove(this);
+                    if (Field.runners.Contains(this))
+                    {
+                        Field.runners.Remove(this);
+                    }
                     Destroy(transform.parent.gameObject);
                 }
                 else if (currentBase == 3)
@@ -117,7 +131,7 @@ public class Runner : MonoBehaviour {
             }
         }
 
-        if(isAdvancing && targetBase[0].name.Contains("Base"))
+        if(isAdvancing && (targetBase[0].name.Contains("Base") || targetBase[0].name.Contains("Plate")))
         {
             Field.CheckIfRunnerOut(this);
         }
@@ -147,6 +161,7 @@ public class Runner : MonoBehaviour {
 
     public void SetOut()
     {
+        Field.runners.Remove(this);
         isOut = true;
         exitingField = true;
         for (int i = targetBase.Count - 2; i >= 0; i--)
