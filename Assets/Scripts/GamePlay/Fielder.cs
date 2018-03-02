@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Fielder : MonoBehaviour {
 
     public enum Position { pitcher, catcher, firstBaseman, secondBaseman, thirdBaseman, shortstop, rightField, centerField, leftField };
-    public float distanceTolerance;
+    public float distanceTolerance = 0.05f;
     private Rigidbody2D rb;
     public float movementSpeed = 3.5f;
     private float throwSpeed = 5f;
@@ -49,7 +48,7 @@ public class Fielder : MonoBehaviour {
             movementTarget = team.dugout.transform.position;
         }
 
-        if(Utility.CheckEqual(movementTarget, transform.position, 0.1f))
+        if(Utility.CheckEqual(movementTarget, transform.position, distanceTolerance))
         {
             if (inningOver)
             {

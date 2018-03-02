@@ -12,8 +12,8 @@ public class Runner : MonoBehaviour {
     public bool enteringField = true;
     public List<GameObject> targetBase = new List<GameObject>();
     private Rigidbody2D rb;
-    public float movementSpeed = 3.5f;
-    public Collider2D col;
+    public float movementSpeed = 3.0f;
+    private Collider2D col;
     public ActiveTeam team;
     public Animator anim;
     private Ball ball;

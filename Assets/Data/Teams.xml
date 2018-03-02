@@ -4,10 +4,10 @@
     <id>1</id>
     <name>Batmen</name>
     <abbreviation>BTM</abbreviation>
-    <wins>2</wins>
+    <wins>3</wins>
     <loses>11</loses>
     <ties>0</ties>
-    <runs>30</runs>
+    <runs>33</runs>
     <hits>44</hits>
     <atbatstrikeouts>37</atbatstrikeouts>
     <pitchedstrikeouts>9</pitchedstrikeouts>
@@ -19,7 +19,7 @@
     <wins>11</wins>
     <loses>2</loses>
     <ties>0</ties>
-    <runs>36</runs>
+    <runs>37</runs>
     <hits>33</hits>
     <atbatstrikeouts>32</atbatstrikeouts>
     <pitchedstrikeouts>19</pitchedstrikeouts>
