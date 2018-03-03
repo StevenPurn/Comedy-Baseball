@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd65b02e19f2a94cbcfad423b14008f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceTolerance: 2.5
+  distanceTolerance: 0.1
   movementSpeed: 3
   movementTarget: {x: 0, y: 0, z: 0}
   ballInHands: 0

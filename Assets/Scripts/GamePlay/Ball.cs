@@ -10,11 +10,13 @@ public class Ball : MonoBehaviour {
     public Vector2 endPoint, startPoint;
     private BoxCollider2D col;
     public Pitch curPitch;
+    public Animator anim;
     //Chance of error (possibly from previous play)
     //Update the angles of the hits to be more human readable
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         col = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         TemporarilyDisableCollision(2.0f);
@@ -25,12 +27,16 @@ public class Ball : MonoBehaviour {
     {
         if (Utility.CheckEqual(transform.position, endPoint, 0.01f))
         {
+            anim.SetBool("Moving", false);
             endPoint = Vector3.zero;
         }
         if(endPoint != Vector2.zero)
         {
             MoveBall(endPoint);
         }
+
+        float scale = Mathf.Clamp(curHeight / 4, 0.5f, 4f);
+        transform.localScale = new Vector3(scale, scale);
     }
 
     public void MoveBall(Vector3 target)
@@ -39,6 +45,7 @@ public class Ball : MonoBehaviour {
         rb.MovePosition(transform.position + direction * curSpeed * Time.deltaTime);
         Vector2 halfwayPoint = (endPoint - startPoint) / 2 + startPoint;
         curHeight = maxHeight * (1 - Mathf.Abs(Vector2.Distance(transform.position, halfwayPoint) / Vector2.Distance(startPoint, halfwayPoint)));
+        anim.SetBool("Moving", true);
     }
 
     public void DeterminePitchResults()
