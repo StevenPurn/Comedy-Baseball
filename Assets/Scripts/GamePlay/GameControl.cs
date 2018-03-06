@@ -125,6 +125,7 @@ public class GameControl : MonoBehaviour {
         if (pos == Fielder.Position.pitcher)
         {
             go.transform.GetChild(0).gameObject.AddComponent<Pitcher>();
+            go.GetComponentInChildren<Fielder>().ballInHands = true;
         }
         go.GetComponentInChildren<Fielder>().SetPosition(pos);
         Field.fielders.Add(go.GetComponentInChildren<Fielder>());
@@ -292,7 +293,7 @@ public class GameControl : MonoBehaviour {
     {
         ballInPlay = false;
         waitingForNextBatter = false;
-        Field.ball.curHeight = 5f;
+        Field.ball.TemporarilyDisableCollision(7.0f);
         if (curInning.isBottom)
         {
             if(curInning.inningNumber >= numberOfInnings)

@@ -38,18 +38,14 @@ public class Fielder : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        anim.SetBool("isIdle", true);
-        if (!inningOver)
-        {
-            
-        }
-        else
+        if (inningOver)
         {
             movementTarget = team.dugout.transform.position;
         }
 
         if(Utility.CheckEqual(movementTarget, transform.position, distanceTolerance))
         {
+            SetAnimationValues(Vector3.zero);
             if (inningOver)
             {
                 Field.fielders.Remove(this);

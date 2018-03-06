@@ -40,6 +40,8 @@ public static class Field {
         {
             if(runner.team == GameControl.instance.GetTeamAtBat() && runner.atBat)
             {
+                string aud = "out" + UnityEngine.Random.Range(1, 5);
+                AudioControl.instance.PlayAudio(aud);
                 runner.SetOut();
                 return;
             }
@@ -52,7 +54,8 @@ public static class Field {
         {
             GameControl.ballInPlay = false;
         }
-        if (GameControl.ballInPlay)
+        Fielder player = fielders.Find(x => x.ballInHands);
+        if (GameControl.ballInPlay || player.position != Fielder.Position.pitcher)
         {
             MoveFieldersToPlayPosition();
             if(ballLandingSpot == Vector2.zero)
@@ -65,13 +68,11 @@ public static class Field {
             }
             if(fielders.Find(x => x.ballInHands))
             {
-                Fielder player = fielders.Find(x => x.ballInHands);
                 WhatDoIDoWithTheBall(player);
             }
         }
         else if(GameControl.ballInPlay == false)
         {
-            Fielder player = fielders.Find(x => x.ballInHands);
             if (player != null && player.position != Fielder.Position.pitcher)
             {
                 player.ThrowBall(GetLocationToThrowBall());
@@ -287,11 +288,12 @@ public static class Field {
         Fielder fielder = GetClosestFielderToTransform(runner.targetBase[0].transform, false);
         if (fielder.ballInHands && Utility.CheckEqual(fielder.transform.position, runner.targetBase[0].transform.position, 0.1f))
         {
-            Debug.Log("runner should be out");
             if(GetFurthestRunner() == null)
             {
                 GameControl.ballInPlay = false;
             }
+            string aud = "out" + UnityEngine.Random.Range(1, 5);
+            AudioControl.instance.PlayAudio(aud);
             runner.SetOut();
             GameControl.instance.HandleOut();
         }

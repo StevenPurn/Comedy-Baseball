@@ -38,6 +38,8 @@ public class Runner : MonoBehaviour {
         //Check if this should be a strike or a hit
         if (isStrike)
         {
+            string aud = "strike" + UnityEngine.Random.Range(1, 4);
+            AudioControl.instance.PlayAudio(aud);
             if (UnityEngine.Random.Range(0f, 1f) >= 0.5f)
             {
                 anim.SetTrigger("isSwingingBat");
@@ -73,6 +75,8 @@ public class Runner : MonoBehaviour {
             ball.maxHeight = ball.curPitch.maxHeight;
             ball.startPoint = ball.transform.position;
             ball.endPoint = hitTarget;
+            string aud = "hit" + UnityEngine.Random.Range(1, 3);
+            AudioControl.instance.PlayAudio(aud);
             GameControl.instance.ResetCount();
             GameControl.ballInPlay = true;
             GameControl.waitingForNextBatter = true;
@@ -116,6 +120,9 @@ public class Runner : MonoBehaviour {
                 {
                     if (targetBase[0].name.Contains("Base"))
                     {
+                        //Can say safe
+                        //string aud = "hit" + UnityEngine.Random.Range(1, 3);
+                        //AudioControl.instance.PlayAudio(aud);
                         currentBase += 1;
                     }
                     targetBase.Remove(targetBase[0]);
@@ -150,13 +157,14 @@ public class Runner : MonoBehaviour {
         anim.SetFloat("yMove", moveDir.y);
         if(moveDir == Vector3.zero)
         {
+            anim.SetBool("isAtBat", atBat);
             anim.SetBool("isIdle", true);
         }
         else
         {
+            anim.SetBool("isAtBat", false);
             anim.SetBool("isIdle", false);
         }
-        anim.SetBool("isAtBat", atBat);
     }
 
     public void SetOut()

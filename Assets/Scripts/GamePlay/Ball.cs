@@ -20,7 +20,7 @@ public class Ball : MonoBehaviour {
         col = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         TemporarilyDisableCollision(2.0f);
-        curHeight = 10f;
+        curHeight = 2f;
     }
 
     private void Update()
@@ -90,6 +90,8 @@ public class Ball : MonoBehaviour {
                 collision.GetComponentInParent<Fielder>().ballInHands = true;
                 endPoint = Vector3.zero;
                 startPoint = Vector3.zero;
+                string aud = "catch";
+                //AudioControl.instance.PlayAudio(aud);
             }
         }else if(tag == "Runner")
         {

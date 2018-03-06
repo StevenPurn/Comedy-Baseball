@@ -16,7 +16,7 @@ public class Pitches : MonoBehaviour {
         //New object that contains a vector2 for landing location and four floats for randomly adjusting the location
 
     public static Pitch pitch1 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
-            { 0.4f, Pitcher.Pitches.popfly },
+            { 1f, Pitcher.Pitches.strike },
             { 0.6f, Pitcher.Pitches.groundOut }
         }, 
         new List<HitLocation>(), 4f, 6.0f, 5.0f);
@@ -29,7 +29,7 @@ public class Pitches : MonoBehaviour {
 
     public static Pitch pitch3 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 0.4f, Pitcher.Pitches.strike },
-            { 0.6f, Pitcher.Pitches.foul }
+            { 0.6f, Pitcher.Pitches.groundOut }
         },
         new List<HitLocation>(), 4f, 5.0f, 5.0f);
 
