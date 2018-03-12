@@ -123,6 +123,7 @@ public class Ball : MonoBehaviour {
                         {
                             Debug.Log("Ball caught in the air");
                             //Set most recent runner (batter) to out
+                            //Should runners not advance yet? Need to ask Justin about that
                         }
                         popFly = false;
                         if (collision.GetComponentInParent<Fielder>().ballInHands == false)
