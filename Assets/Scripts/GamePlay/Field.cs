@@ -79,6 +79,7 @@ public static class Field {
         {
             ball.transform.parent = fielderWithBall.glove.gameObject.transform;
             ball.transform.localPosition = Vector3.zero;
+            ball.curHeight = 1.0f;
             playerOtherThanPitcherHasBall = fielderWithBall.position != Fielder.Position.pitcher;
             
         }

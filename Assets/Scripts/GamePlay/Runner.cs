@@ -49,21 +49,22 @@ public class Runner : MonoBehaviour {
             }
             GameControl.instance.HandleStrike(false);
         }
-        else if (ball.curPitch.type == Pitcher.Pitches.foul)
-        {
-            anim.SetTrigger("isSwingingBat");
-            int pitchIndex = UnityEngine.Random.Range(0, ball.curPitch.hitLoc.Count);
-            Vector2 hitTarget = ball.curPitch.hitLoc[pitchIndex].center.transform.position;
-            hitTarget.x += UnityEngine.Random.Range(ball.curPitch.hitLoc[pitchIndex].minOffset.x, ball.curPitch.hitLoc[pitchIndex].maxOffset.x);
-            hitTarget.y += UnityEngine.Random.Range(ball.curPitch.hitLoc[pitchIndex].minOffset.y, ball.curPitch.hitLoc[pitchIndex].maxOffset.y);
-            ball.TemporarilyDisableCollision(0.3f);
-            ball.curSpeed = ball.curPitch.hitSpeed;
-            ball.maxHeight = ball.curPitch.maxHeight;
-            ball.endPoint = hitTarget;
-            ball.startPoint = ball.transform.position;
-            GameControl.ballInPlay = true;
-            GameControl.instance.HandleStrike(true);
-        }
+        //Revisit this if we decide to implement foul balls
+        //else if (ball.curPitch.type == Pitcher.Pitches.foul)
+        //{
+        //    anim.SetTrigger("isSwingingBat");
+        //    int pitchIndex = UnityEngine.Random.Range(0, ball.curPitch.hitLoc.Count);
+        //    Vector2 hitTarget = ball.curPitch.hitLoc[pitchIndex].center.transform.position;
+        //    hitTarget.x += UnityEngine.Random.Range(ball.curPitch.hitLoc[pitchIndex].minOffset.x, ball.curPitch.hitLoc[pitchIndex].maxOffset.x);
+        //    hitTarget.y += UnityEngine.Random.Range(ball.curPitch.hitLoc[pitchIndex].minOffset.y, ball.curPitch.hitLoc[pitchIndex].maxOffset.y);
+        //    ball.TemporarilyDisableCollision(0.3f);
+        //    ball.curSpeed = ball.curPitch.hitSpeed;
+        //    ball.maxHeight = ball.curPitch.maxHeight;
+        //    ball.endPoint = hitTarget;
+        //    ball.startPoint = ball.transform.position;
+        //    GameControl.ballInPlay = true;
+        //    GameControl.instance.HandleStrike(true);
+        //}
         else
         {
             atBat = false;
@@ -78,6 +79,10 @@ public class Runner : MonoBehaviour {
             ball.startPoint = ball.transform.position;
             ball.endPoint = hitTarget;
             string aud = "hit" + UnityEngine.Random.Range(1, 3);
+            if(ball.curPitch.type == Pitcher.Pitches.homerun)
+            {
+                ball.HandleHomeRun();
+            }
             AudioControl.instance.PlayAudio(aud);
             GameControl.instance.ResetCount();
             GameControl.ballInPlay = true;

@@ -5,7 +5,7 @@ public class Pitcher : MonoBehaviour {
     public Fielder fielder;
     public float pitchSpeed = 5.0f;
     private Ball ball;
-    public enum Pitches { strike, foul, ball, hit, popfly, groundOut, homerun };
+    public enum Pitches { strike, ball, hit, homerun, grandslam };
 
     private void Start()
     {

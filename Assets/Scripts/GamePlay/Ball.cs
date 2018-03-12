@@ -20,7 +20,6 @@ public class Ball : MonoBehaviour {
         anim = GetComponent<Animator>();
         col = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
-        TemporarilyDisableCollision();
         curHeight = 2f;
     }
 
@@ -77,14 +76,10 @@ public class Ball : MonoBehaviour {
                 break;
             }
         }
-        if(curPitch.type == Pitcher.Pitches.homerun)
-        {
-            HandleHomeRun();
-        }
         curPitch.hitSpeed = Random.Range(curPitch.minSpeed, curPitch.maxSpeed);
     }
 
-    private void HandleHomeRun(float timeDelay = 10f)
+    public void HandleHomeRun(float timeDelay = 10f)
     {
         TemporarilyDisableCollision(timeDelay);
         Invoke("ReturnToPitcher", timeDelay);
@@ -100,6 +95,7 @@ public class Ball : MonoBehaviour {
     {
         anim.SetBool("Moving", false);
         Fielder pitcher = Field.fielders.Find(x => x.position == Fielder.Position.pitcher);
+        endPoint = Vector2.zero;
         pitcher.ballInHands = true;
     }
 
@@ -122,7 +118,6 @@ public class Ball : MonoBehaviour {
                 {
                     if (curHeight < 4.0f)
                     {
-                        Debug.Log(collision.transform.parent.gameObject.name + " is now holding the ball");
                         if (collision.GetComponentInParent<Fielder>().ballInHands == false)
                         {
                             string aud = "catch";
@@ -142,10 +137,9 @@ public class Ball : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision)
     {
         string tag = collision.transform.tag;
-        if (tag == "Fielder" && GameControl.curInning.pitchesThrownThisInning > 0)
+        if (tag == "Fielder")
         {
             collision.GetComponentInParent<Fielder>().ballInHands = false;
-            Debug.Log("Leaving " + collision.transform.parent.gameObject.name + "'s hands");
         }
     }
 }
