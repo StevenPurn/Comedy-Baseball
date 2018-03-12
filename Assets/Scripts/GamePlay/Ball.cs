@@ -122,6 +122,7 @@ public class Ball : MonoBehaviour {
                 {
                     if (curHeight < 4.0f)
                     {
+                        Debug.Log(collision.transform.parent.gameObject.name + " is now holding the ball");
                         if (collision.GetComponentInParent<Fielder>().ballInHands == false)
                         {
                             string aud = "catch";
@@ -135,6 +136,16 @@ public class Ball : MonoBehaviour {
                     }
                 }
             }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        string tag = collision.transform.tag;
+        if (tag == "Fielder" && GameControl.curInning.pitchesThrownThisInning > 0)
+        {
+            collision.GetComponentInParent<Fielder>().ballInHands = false;
+            Debug.Log("Leaving " + collision.transform.parent.gameObject.name + "'s hands");
         }
     }
 }

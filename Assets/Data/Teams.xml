@@ -5,7 +5,7 @@
     <name>Batmen</name>
     <abbreviation>BTM</abbreviation>
     <wins>3</wins>
-    <loses>11</loses>
+    <loses>13</loses>
     <ties>0</ties>
     <runs>33</runs>
     <hits>44</hits>
@@ -16,7 +16,7 @@
     <id>2</id>
     <name>Funny Guys</name>
     <abbreviation>FGS</abbreviation>
-    <wins>11</wins>
+    <wins>13</wins>
     <loses>2</loses>
     <ties>0</ties>
     <runs>37</runs>
