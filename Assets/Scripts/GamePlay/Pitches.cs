@@ -71,7 +71,7 @@ public class Pitches : MonoBehaviour {
     public static Pitch pitch10 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 1.0f, Pitcher.Pitches.homerun },
         },
-        new List<HitLocation>(), 10f, 20f, 5.0f);
+        new List<HitLocation>(), 10f, 20f, 10.0f);
 
     public static Dictionary<int, Pitch> pitches = new Dictionary<int, Pitch>()
     {

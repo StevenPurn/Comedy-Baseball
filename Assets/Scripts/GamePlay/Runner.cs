@@ -86,6 +86,11 @@ public class Runner : MonoBehaviour {
             isAdvancing = true;
             col.enabled = false;
         }
+
+        if(ball.curPitch.type == Pitcher.Pitches.homerun)
+        {
+            GameControl.isHomeRun = true;
+        }
     }
 
     //Move player towards next base if they have one
@@ -121,7 +126,7 @@ public class Runner : MonoBehaviour {
                 }
                 if(targetBase.Count > 0)
                 {
-                    if (targetBase[0].name.Contains("Base"))
+                    if (targetBase[0].name.Contains("Base") && !GameControl.isHomeRun)
                     {
                         //Can say safe
                         AudioControl.instance.PlayAudio("safe");

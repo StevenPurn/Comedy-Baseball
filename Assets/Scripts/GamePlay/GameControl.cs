@@ -25,6 +25,7 @@ public class GameControl : MonoBehaviour {
     private int teamAtBat;
     public static bool ballInPlay = false;
     public static bool playIsActive = false;
+    public static bool isHomeRun = false;
     public static bool waitingForNextBatter = false;
     public Material homeTeamMat, awayTeamMat;
 
@@ -61,6 +62,7 @@ public class GameControl : MonoBehaviour {
         if (!playIsActive)
         {
             outsThisPlay = 0;
+            isHomeRun = false;
         }
 
         Field.FielderAI();

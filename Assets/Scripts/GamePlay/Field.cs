@@ -220,6 +220,9 @@ public static class Field {
         if (runner.anim.GetCurrentAnimatorStateInfo(0).IsName("runnerSwingBat"))
         { 
             return false;
+        }else if(GameControl.isHomeRun && !runner.atBat)
+        {
+            return true;
         }
         else if (runner.isAdvancing)
         {

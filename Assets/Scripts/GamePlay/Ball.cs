@@ -66,13 +66,31 @@ public class Ball : MonoBehaviour {
                 break;
             }
         }
+        if(curPitch.type == Pitcher.Pitches.homerun)
+        {
+            HandleHomeRun();
+        }
         curPitch.hitSpeed = Random.Range(curPitch.minSpeed, curPitch.maxSpeed);
+    }
+
+    private void HandleHomeRun(float timeDelay = 7f)
+    {
+        TemporarilyDisableCollision(timeDelay);
+        Invoke("ReturnToPitcher", timeDelay);
     }
 
     public void TemporarilyDisableCollision(float timeDelay = 3.5f)
     {
         col.enabled = false;
         Invoke("EnableCollision", timeDelay);
+    }
+
+    private void ReturnToPitcher()
+    {
+        Fielder pitcher = Field.fielders.Find(x => x.position == Fielder.Position.pitcher);
+        Field.ball.transform.parent = pitcher.glove.gameObject.transform;
+        Field.ball.transform.localPosition = Vector3.zero;
+        pitcher.ballInHands = true;
     }
 
     public void EnableCollision()
