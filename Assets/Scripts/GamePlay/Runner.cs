@@ -78,6 +78,7 @@ public class Runner : MonoBehaviour {
             ball.maxHeight = ball.curPitch.maxHeight;
             ball.startPoint = ball.transform.position;
             ball.endPoint = hitTarget;
+            ball.popFly = true;
             string aud = "hit" + UnityEngine.Random.Range(1, 3);
             if(ball.curPitch.type == Pitcher.Pitches.homerun)
             {

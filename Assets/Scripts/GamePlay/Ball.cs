@@ -27,6 +27,7 @@ public class Ball : MonoBehaviour {
     {
         if (Utility.CheckEqual(transform.position, endPoint, 0.03f))
         {
+            popFly = false;
             anim.SetBool("Moving", false);
             endPoint = Vector3.zero;
         }
@@ -118,6 +119,12 @@ public class Ball : MonoBehaviour {
                 {
                     if (curHeight < 4.0f)
                     {
+                        if (popFly)
+                        {
+                            Debug.Log("Ball caught in the air");
+                            //Set most recent runner (batter) to out
+                        }
+                        popFly = false;
                         if (collision.GetComponentInParent<Fielder>().ballInHands == false)
                         {
                             string aud = "catch";
