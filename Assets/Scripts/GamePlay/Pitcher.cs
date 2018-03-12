@@ -19,7 +19,7 @@ public class Pitcher : MonoBehaviour {
         Field.ballHasBeenThrown = false;
         fielder.anim.SetBool("isThrowing", true);
         fielder.ballInHands = false;
-        ball.TemporarilyDisableCollision();
+        ball.TemporarilyDisableCollision(0.2f);
         ball.curHeight = 1f;
         ball.curSpeed = pitchSpeed;
         ball.maxHeight = 3.0f;

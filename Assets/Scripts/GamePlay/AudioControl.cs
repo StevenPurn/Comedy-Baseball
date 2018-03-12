@@ -28,8 +28,7 @@ public class AudioControl : MonoBehaviour {
         {
             if(item.audioEvent == eventName)
             {
-                src.clip = item.sfx;
-                src.Play();
+                src.PlayOneShot(item.sfx);
             }
         }
     }

@@ -8451,6 +8451,14 @@ MonoBehaviour:
     sfx: {fileID: 8300000, guid: cbc4609fbe2132a4a8b02ad8f1351ecf, type: 3}
   - audioEvent: grandslam
     sfx: {fileID: 8300000, guid: 4fed34de0eaf8f042a4836fdf5cdfbd0, type: 3}
+  - audioEvent: doubleplay
+    sfx: {fileID: 8300000, guid: de7a5f03c2ebf94489174833b11f46a9, type: 3}
+  - audioEvent: tripleplay
+    sfx: {fileID: 8300000, guid: 9b31b97f27f19414489093cc861a6311, type: 3}
+  - audioEvent: playball
+    sfx: {fileID: 8300000, guid: 08144219ea482254fb75b3ede82f4833, type: 3}
+  - audioEvent: safe
+    sfx: {fileID: 8300000, guid: 3f4c27bd2983518478235d4d3181625f, type: 3}
   src: {fileID: 0}
 --- !u!82 &1795823317
 AudioSource:

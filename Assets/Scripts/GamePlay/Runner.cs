@@ -38,8 +38,11 @@ public class Runner : MonoBehaviour {
         //Check if this should be a strike or a hit
         if (isStrike)
         {
-            string aud = "strike" + UnityEngine.Random.Range(1, 4);
-            AudioControl.instance.PlayAudio(aud);
+            if (GameControl.strikes != 2)
+            {
+                string aud = "strike" + UnityEngine.Random.Range(1, 4);
+                AudioControl.instance.PlayAudio(aud);
+            }
             if (UnityEngine.Random.Range(0f, 1f) >= 0.5f)
             {
                 anim.SetTrigger("isSwingingBat");
@@ -81,7 +84,7 @@ public class Runner : MonoBehaviour {
             GameControl.ballInPlay = true;
             GameControl.waitingForNextBatter = true;
             isAdvancing = true;
-            Destroy(col);
+            col.enabled = false;
         }
     }
 
@@ -121,8 +124,7 @@ public class Runner : MonoBehaviour {
                     if (targetBase[0].name.Contains("Base"))
                     {
                         //Can say safe
-                        //string aud = "hit" + UnityEngine.Random.Range(1, 3);
-                        //AudioControl.instance.PlayAudio(aud);
+                        AudioControl.instance.PlayAudio("safe");
                         currentBase += 1;
                     }
                     targetBase.Remove(targetBase[0]);
@@ -169,6 +171,10 @@ public class Runner : MonoBehaviour {
 
     public void SetOut()
     {
+        if (col.enabled)
+        {
+            col.enabled = false;
+        }
         Field.runners.Remove(this);
         isOut = true;
         exitingField = true;

@@ -56,6 +56,7 @@ public class Fielder : MonoBehaviour {
         {
             MovePlayer(movementTarget);
         }
+        //This should only be done once instead of on each fielder; probably run it in the Field script
         if (ballInHands)
         {
             Field.ball.transform.parent = glove.gameObject.transform;

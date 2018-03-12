@@ -40,8 +40,18 @@ public static class Field {
         {
             if(runner.team == GameControl.instance.GetTeamAtBat() && runner.atBat)
             {
-                string aud = "out" + UnityEngine.Random.Range(1, 5);
-                AudioControl.instance.PlayAudio(aud);
+                Debug.Log("Outs this play: " + GameControl.outsThisPlay);
+                if(GameControl.outsThisPlay > 1)
+                {
+                    Debug.Log("double play audio should play");
+                    string aud = "doubleplay";
+                    AudioControl.instance.PlayAudio(aud);
+                }
+                else
+                {
+                    string aud = "out" + UnityEngine.Random.Range(1, 5);
+                    AudioControl.instance.PlayAudio(aud);
+                }
                 runner.SetOut();
                 return;
             }
@@ -55,7 +65,12 @@ public static class Field {
             GameControl.ballInPlay = false;
         }
         Fielder player = fielders.Find(x => x.ballInHands);
-        if (GameControl.ballInPlay || player.position != Fielder.Position.pitcher)
+        bool playerOtherThanPitcherHasBall = false;
+        if(player != null)
+        {
+            playerOtherThanPitcherHasBall = player.position != Fielder.Position.pitcher;
+        }
+        if (GameControl.ballInPlay || playerOtherThanPitcherHasBall)
         {
             MoveFieldersToPlayPosition();
             if(ballLandingSpot == Vector2.zero)
@@ -76,6 +91,11 @@ public static class Field {
             if (player != null && player.position != Fielder.Position.pitcher)
             {
                 player.ThrowBall(GetLocationToThrowBall());
+            }
+            else if(player != null && player.position == Fielder.Position.pitcher)
+            {
+
+                GameControl.playIsActive = false;
             }
             MoveFieldersToStartPosition(false);
         }
@@ -292,7 +312,18 @@ public static class Field {
             {
                 GameControl.ballInPlay = false;
             }
-            string aud = "out" + UnityEngine.Random.Range(1, 5);
+            string aud;
+            if (GameControl.outsThisPlay == 1)
+            {
+                aud = "doubleplay";
+            }else if (GameControl.outsThisPlay == 2)
+            {
+                aud = "tripleplay";
+            }
+            else
+            {
+                aud = "out" + UnityEngine.Random.Range(1, 5);
+            }
             AudioControl.instance.PlayAudio(aud);
             runner.SetOut();
             GameControl.instance.HandleOut();

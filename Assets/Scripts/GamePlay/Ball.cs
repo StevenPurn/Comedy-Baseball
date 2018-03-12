@@ -19,13 +19,13 @@ public class Ball : MonoBehaviour {
         anim = GetComponent<Animator>();
         col = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
-        TemporarilyDisableCollision(2.0f);
+        TemporarilyDisableCollision();
         curHeight = 2f;
     }
 
     private void Update()
     {
-        if (Utility.CheckEqual(transform.position, endPoint, 0.01f))
+        if (Utility.CheckEqual(transform.position, endPoint, 0.05f))
         {
             anim.SetBool("Moving", false);
             endPoint = Vector3.zero;
@@ -69,10 +69,10 @@ public class Ball : MonoBehaviour {
         curPitch.hitSpeed = Random.Range(curPitch.minSpeed, curPitch.maxSpeed);
     }
 
-    public void TemporarilyDisableCollision(float timeDelay = 0.2f)
+    public void TemporarilyDisableCollision(float timeDelay = 3.5f)
     {
         col.enabled = false;
-        Invoke("EnableCollision", 0.2f);
+        Invoke("EnableCollision", timeDelay);
     }
 
     public void EnableCollision()
@@ -87,11 +87,15 @@ public class Ball : MonoBehaviour {
         {
             if (curHeight < 4.0f)
             {
+                if (collision.GetComponentInParent<Fielder>().ballInHands == false)
+                {
+                    string aud = "catch";
+                    AudioControl.instance.PlayAudio(aud);
+                }
                 collision.GetComponentInParent<Fielder>().ballInHands = true;
                 endPoint = Vector3.zero;
                 startPoint = Vector3.zero;
-                string aud = "catch";
-                //AudioControl.instance.PlayAudio(aud);
+                anim.SetBool("Moving", false);
             }
         }else if(tag == "Runner")
         {

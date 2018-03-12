@@ -9,7 +9,7 @@ public class GameControl : MonoBehaviour {
     //Static variables
     public static int numberOfInnings = 3;
     public static Inning curInning = new Inning();
-    public static int strikes, balls, outs;
+    public static int strikes, balls, outs, outsThisPlay;
     //Save location for team & player files
     public string teamFilePath = "/Data/Teams.xml";
     public string playerFilePath = "/Data/Players.xml";
@@ -24,6 +24,7 @@ public class GameControl : MonoBehaviour {
     private int runnerNumber;
     private int teamAtBat;
     public static bool ballInPlay = false;
+    public static bool playIsActive = false;
     public static bool waitingForNextBatter = false;
     public Material homeTeamMat, awayTeamMat;
 
@@ -53,9 +54,13 @@ public class GameControl : MonoBehaviour {
 
         if(waitingForNextBatter && !ballInPlay)
         {
-            Debug.Log("batter should be coming out");
             waitingForNextBatter = false;
             NextBatter();
+        }
+
+        if (!playIsActive)
+        {
+            outsThisPlay = 0;
         }
 
         Field.FielderAI();
@@ -95,6 +100,7 @@ public class GameControl : MonoBehaviour {
 
     public static void InitializeField()
     {
+        AudioControl.instance.PlayAudio("playball");
         instance.teamAtBat = instance.activeTeams[0].currentlyAtBat ? 0 : 1;
         instance.AddBatterToField();
         Field.SpawnFielders();
@@ -219,11 +225,15 @@ public class GameControl : MonoBehaviour {
             }
             else
             {
+                if (outs < 2)
+                { 
+                    waitingForNextBatter = true;
+                }
                 Field.BatterIsOut();
                 GetCurrentPitchingPlayer().ChangeStrikeoutsPitched(1);
                 HandleOut();
                 GetCurrentBattingPlayer().ChangeStrikeOutsAtBat(1);
-                waitingForNextBatter = true;
+                Debug.Log("GameControl is asking for the next batter to come to the field");
             }
         }
         changeCountEvent();
@@ -232,6 +242,7 @@ public class GameControl : MonoBehaviour {
     public void HandleOut()
     {
         outs += 1;
+        outsThisPlay += 1;
         ResetCount();
         if (outs >= 3)
         {
@@ -267,9 +278,9 @@ public class GameControl : MonoBehaviour {
     public void HandlePitch(int hitQuality)
     {
         Field.ball.curPitch = Pitches.pitches[hitQuality];
-        Debug.Log(hitQuality);
         Field.ball.DeterminePitchResults();
         Field.fielders.Find(x => x.position == Fielder.Position.pitcher).GetComponent<Pitcher>().ThrowPitch();
+        playIsActive = true;
     }
 
     public void ChangeTeamScore(int change)
@@ -293,7 +304,7 @@ public class GameControl : MonoBehaviour {
     {
         ballInPlay = false;
         waitingForNextBatter = false;
-        Field.ball.TemporarilyDisableCollision(7.0f);
+        Field.ball.TemporarilyDisableCollision();
         if (curInning.isBottom)
         {
             if(curInning.inningNumber >= numberOfInnings)
