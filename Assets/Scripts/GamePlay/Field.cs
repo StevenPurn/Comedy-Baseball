@@ -10,6 +10,7 @@ public static class Field {
     public static Dictionary<Fielder.Position, GameObject> playPositions = new Dictionary<Fielder.Position, GameObject> { };
     public static List<Runner> runners = new List<Runner>();
     public static List<Fielder> fielders = new List<Fielder>();
+    public static Runner mostRecentBatter;
     public static List<GameObject> runnerTargets = new List<GameObject>();
     public static Ball ball;
     public static Vector2 ballLandingSpot;

@@ -84,6 +84,7 @@ public class Runner : MonoBehaviour {
             {
                 ball.HandleHomeRun();
             }
+            Field.mostRecentBatter = this;
             AudioControl.instance.PlayAudio(aud);
             GameControl.instance.ResetCount();
             GameControl.ballInPlay = true;
