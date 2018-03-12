@@ -15,6 +15,7 @@ public static class Field {
     public static Vector2 ballLandingSpot;
     public static bool ballHasBeenThrown;
     public static Transform fieldParent;
+    private static Vector3 ballOffset = new Vector3(0.09f, -0.05f, 0f);
 
     public static void AssignDugouts()
     {
@@ -40,10 +41,8 @@ public static class Field {
         {
             if(runner.team == GameControl.instance.GetTeamAtBat() && runner.atBat)
             {
-                Debug.Log("Outs this play: " + GameControl.outsThisPlay);
                 if(GameControl.outsThisPlay > 1)
                 {
-                    Debug.Log("double play audio should play");
                     string aud = "doubleplay";
                     AudioControl.instance.PlayAudio(aud);
                 }
@@ -60,44 +59,69 @@ public static class Field {
 
     public static void FielderAI()
     {
-        if(runners.Find(x => x.isAdvancing) == null)
+        Vector3 targetFielderMoveTarget = Vector3.zero;
+        if (ball != null && ball.targetFielder != null)
+        {
+            targetFielderMoveTarget = ball.targetFielder.playPosition.position;
+        }
+
+        if (runners.Find(x => x.isAdvancing) == null)
         {
             GameControl.ballInPlay = false;
         }
-        Fielder player = fielders.Find(x => x.ballInHands);
+        Fielder fielderWithBall = fielders.Find(x => x.ballInHands);
         bool playerOtherThanPitcherHasBall = false;
-        if(player != null)
+
+        //TODO: Check if the ball was thrown towards you, if so, don't move until you have the damn ball
+
+        //Set the ball to follow a fielder if he is holding it
+        if(fielderWithBall != null)
         {
-            playerOtherThanPitcherHasBall = player.position != Fielder.Position.pitcher;
+            ball.transform.parent = fielderWithBall.glove.gameObject.transform;
+            ball.transform.localPosition = Vector3.zero;
+            playerOtherThanPitcherHasBall = fielderWithBall.position != Fielder.Position.pitcher;
+            
         }
+        else
+        {
+            if(ball != null)
+            {
+                ball.transform.parent = fieldParent;
+            }
+        }
+
         if (GameControl.ballInPlay || playerOtherThanPitcherHasBall)
         {
             MoveFieldersToPlayPosition();
             if(ballLandingSpot == Vector2.zero)
             {
-                GetClosestFielderToTransform(ball.transform).movementTarget = ball.transform.position;
+                GetClosestFielderToTransform(ball.transform).movementTarget = ball.transform.position + ballOffset;
             }
             else
             {
                 GetClosestFielderToLocation(ballLandingSpot).movementTarget = ballLandingSpot;
             }
-            if(fielders.Find(x => x.ballInHands))
+            if(fielderWithBall != null)
             {
-                WhatDoIDoWithTheBall(player);
+                WhatDoIDoWithTheBall(fielderWithBall);
             }
         }
         else if(GameControl.ballInPlay == false)
         {
-            if (player != null && player.position != Fielder.Position.pitcher)
+            if (fielderWithBall != null && fielderWithBall.position != Fielder.Position.pitcher)
             {
-                player.ThrowBall(GetLocationToThrowBall());
+                fielderWithBall.ThrowBall(GetPlayerToThrowBallTo());
             }
-            else if(player != null && player.position == Fielder.Position.pitcher)
+            else if(fielderWithBall != null && fielderWithBall.position == Fielder.Position.pitcher)
             {
-
                 GameControl.playIsActive = false;
             }
-            MoveFieldersToStartPosition(false);
+            MoveFieldersToStartPosition(false);     //Check this if it is ruining the thing
+        }
+
+        if(ball != null && ball.targetFielder != null)
+        {
+            ball.targetFielder.movementTarget = targetFielderMoveTarget;
         }
     }
 
@@ -164,7 +188,7 @@ public static class Field {
     {
         if (GetFurthestRunner() == null)
         {
-            player.ThrowBall(GetLocationToThrowBall());
+            player.ThrowBall(GetPlayerToThrowBallTo());
             return;
         }
         Transform baseLocation = GetFurthestRunner().targetBase[0].transform;
@@ -173,13 +197,13 @@ public static class Field {
         {
             if(Utility.CheckEqual(player.transform.position, baseLocation.position, 0.1f) && !GameControl.ballInPlay)
             {
-                player.ThrowBall(GetLocationToThrowBall());
+                player.ThrowBall(GetPlayerToThrowBallTo());
             }
             return;
         }
         else
         {
-            player.ThrowBall(GetLocationToThrowBall());
+            player.ThrowBall(GetPlayerToThrowBallTo());
         }
     }
 
@@ -220,15 +244,16 @@ public static class Field {
         if (runner.anim.GetCurrentAnimatorStateInfo(0).IsName("runnerSwingBat"))
         { 
             return false;
-        }else if(GameControl.isHomeRun && !runner.atBat)
-        {
-            return true;
         }
         else if (runner.isAdvancing)
         {
             return true;
         }
         else if(runner.exitingField || runner.enteringField)
+        {
+            return true;
+        }
+        else if (GameControl.isHomeRun && !runner.atBat)
         {
             return true;
         }
@@ -245,30 +270,29 @@ public static class Field {
         }
     }
 
-    public static Vector2 GetLocationToThrowBall()
+    public static Fielder GetPlayerToThrowBallTo()
     {
-        Vector2 loc = Vector2.zero;
+        Fielder playerToThrowTo;
         if(GameControl.ballInPlay == false)
         {
-            loc = fielders.Find(x => x.position == Fielder.Position.pitcher).glove.position;
+            playerToThrowTo = fielders.Find(x => x.position == Fielder.Position.pitcher);
         }else if (GetFurthestRunner() == null)
         {
             GameControl.ballInPlay = false;
-            loc = fielders.Find(x => x.position == Fielder.Position.pitcher).glove.position;
+            playerToThrowTo = fielders.Find(x => x.position == Fielder.Position.pitcher);
         }else if (!runners.Find(x => x.isAdvancing))
         {
             GameControl.ballInPlay = false;
-            loc = fielders.Find(x => x.position == Fielder.Position.pitcher).glove.position;
+            playerToThrowTo = fielders.Find(x => x.position == Fielder.Position.pitcher);
         }
         else
         {
-            Fielder player = GetClosestFielderToTransform(GetFurthestRunner().targetBase[0].transform, false);
-            loc = player.glove.position;
+            playerToThrowTo = GetClosestFielderToTransform(GetFurthestRunner().targetBase[0].transform, false); ;
         }
-        return loc;
+        return playerToThrowTo;
     }
 
-    public static Runner GetFurthestRunner()
+    public static Runner GetFurthestRunner(bool onlyConsiderAdvancingRunner = true)
     {
         Runner run = null;
         int highestBase = int.MinValue;
@@ -276,8 +300,16 @@ public static class Field {
         {
             if (runner.currentBase > highestBase && !runner.exitingField)
             {
-                highestBase = runner.currentBase;
-                run = runner;
+                if (onlyConsiderAdvancingRunner && runner.isAdvancing)
+                {
+                    highestBase = runner.currentBase;
+                    run = runner;
+                }
+                else
+                {
+                    highestBase = runner.currentBase;
+                    run = runner;
+                }
             }
         }
         return run;

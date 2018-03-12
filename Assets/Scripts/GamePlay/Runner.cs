@@ -72,7 +72,6 @@ public class Runner : MonoBehaviour {
             Vector2 hitTarget = ball.curPitch.hitLoc[pitchIndex].center.transform.position;
             hitTarget.x += UnityEngine.Random.Range(ball.curPitch.hitLoc[pitchIndex].minOffset.x, ball.curPitch.hitLoc[pitchIndex].maxOffset.x);
             hitTarget.y += UnityEngine.Random.Range(ball.curPitch.hitLoc[pitchIndex].minOffset.y, ball.curPitch.hitLoc[pitchIndex].maxOffset.y);
-            Field.ballLandingSpot = hitTarget;
             ball.TemporarilyDisableCollision(0.3f);
             ball.curSpeed = ball.curPitch.hitSpeed;
             ball.maxHeight = ball.curPitch.maxHeight;
@@ -126,10 +125,12 @@ public class Runner : MonoBehaviour {
                 }
                 if(targetBase.Count > 0)
                 {
-                    if (targetBase[0].name.Contains("Base") && !GameControl.isHomeRun)
+                    if (targetBase[0].name.Contains("Base"))
                     {
-                        //Can say safe
-                        AudioControl.instance.PlayAudio("safe");
+                        if (GameControl.isHomeRun == false)
+                        {
+                            AudioControl.instance.PlayAudio("safe");
+                        }
                         currentBase += 1;
                     }
                     targetBase.Remove(targetBase[0]);

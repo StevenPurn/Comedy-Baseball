@@ -53,13 +53,13 @@ public class GameControl : MonoBehaviour {
     private void Update()
     {
 
-        if(waitingForNextBatter && !ballInPlay)
+        if(waitingForNextBatter && ballInPlay == false)
         {
             waitingForNextBatter = false;
             NextBatter();
         }
 
-        if (!playIsActive)
+        if (playIsActive == false)
         {
             outsThisPlay = 0;
             isHomeRun = false;
@@ -133,7 +133,6 @@ public class GameControl : MonoBehaviour {
         if (pos == Fielder.Position.pitcher)
         {
             go.transform.GetChild(0).gameObject.AddComponent<Pitcher>();
-            go.GetComponentInChildren<Fielder>().ballInHands = true;
         }
         go.GetComponentInChildren<Fielder>().SetPosition(pos);
         Field.fielders.Add(go.GetComponentInChildren<Fielder>());
@@ -235,7 +234,6 @@ public class GameControl : MonoBehaviour {
                 GetCurrentPitchingPlayer().ChangeStrikeoutsPitched(1);
                 HandleOut();
                 GetCurrentBattingPlayer().ChangeStrikeOutsAtBat(1);
-                Debug.Log("GameControl is asking for the next batter to come to the field");
             }
         }
         changeCountEvent();
@@ -306,7 +304,6 @@ public class GameControl : MonoBehaviour {
     {
         ballInPlay = false;
         waitingForNextBatter = false;
-        Field.ball.TemporarilyDisableCollision();
         if (curInning.isBottom)
         {
             if(curInning.inningNumber >= numberOfInnings)
@@ -315,6 +312,7 @@ public class GameControl : MonoBehaviour {
             }
             curInning.inningNumber += 1;
             curInning.isBottom = false;
+            curInning.pitchesThrownThisInning = 0;
         }
         else
         {

@@ -4,7 +4,7 @@
 public class Fielder : MonoBehaviour {
 
     public enum Position { pitcher, catcher, firstBaseman, secondBaseman, thirdBaseman, shortstop, rightField, centerField, leftField };
-    public float distanceTolerance = 0.05f;
+    public float distanceTolerance = 0.03f;
     private Rigidbody2D rb;
     public float movementSpeed = 3.5f;
     private float throwSpeed = 5f;
@@ -21,6 +21,7 @@ public class Fielder : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         GetComponent<SpriteRenderer>().material = team == GameControl.instance.activeTeams[0] ? GameControl.instance.homeTeamMat : GameControl.instance.awayTeamMat;
+        ballInHands = false;
     }
 
     public void SetPosition(Position pos)
@@ -56,26 +57,17 @@ public class Fielder : MonoBehaviour {
         {
             MovePlayer(movementTarget);
         }
-        //This should only be done once instead of on each fielder; probably run it in the Field script
-        if (ballInHands)
-        {
-            Field.ball.transform.parent = glove.gameObject.transform;
-            Field.ball.transform.localPosition = Vector3.zero;
-        }
-        else
-        {
-            Field.ball.transform.parent = Field.fieldParent;
-        }
     }
 
-    public void ThrowBall(Vector3 target)
+    public void ThrowBall(Fielder target)
     {
         Field.ballHasBeenThrown = true;
         Field.ball.TemporarilyDisableCollision(0.3f);
         Field.ball.curSpeed = throwSpeed;
         Field.ball.maxHeight = 3.0f;
-        Field.ball.endPoint = target;
+        Field.ball.endPoint = target.glove.transform.position;
         Field.ball.startPoint = Field.ball.transform.position;
+        Field.ball.targetFielder = target;
         ballInHands = false;
     }
 

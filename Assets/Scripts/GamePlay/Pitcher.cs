@@ -11,19 +11,28 @@ public class Pitcher : MonoBehaviour {
     {
         ball = Field.ball.GetComponent<Ball>();
         fielder = GetComponent<Fielder>();
+        ball.TemporarilyDisableCollision();
         fielder.ballInHands = true;
     }
 
     public void ThrowPitch()
     {
-        Field.ballHasBeenThrown = false;
-        fielder.anim.SetBool("isThrowing", true);
-        fielder.ballInHands = false;
-        ball.TemporarilyDisableCollision(0.2f);
-        ball.curHeight = 1f;
-        ball.curSpeed = pitchSpeed;
-        ball.maxHeight = 3.0f;
-        ball.startPoint = ball.transform.position;
-        ball.endPoint = Field.fielders.Find(x => x.position == Fielder.Position.catcher).glove.position;
+        if(fielder.ballInHands == true)
+        {
+            GameControl.curInning.pitchesThrownThisInning += 1;
+            Field.ballHasBeenThrown = false;
+            fielder.anim.SetBool("isThrowing", true);
+            fielder.ballInHands = false;
+            ball.TemporarilyDisableCollision(0.2f);
+            ball.curHeight = 1f;
+            ball.curSpeed = pitchSpeed;
+            ball.maxHeight = 3.0f;
+            ball.startPoint = ball.transform.position;
+            ball.endPoint = Field.fielders.Find(x => x.position == Fielder.Position.catcher).glove.position;
+        }
+        else
+        {
+            fielder.ThrowBall(fielder);
+        }
     }
 }

@@ -415,7 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 162500173}
   - component: {fileID: 162500174}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 180234865}
   - component: {fileID: 180234866}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,7 +597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 216896458}
   - component: {fileID: 216896459}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightWallCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,7 +651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 236935467}
   - component: {fileID: 236935468}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -843,7 +843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 303527760}
   - component: {fileID: 303527761}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -940,7 +940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 386140957}
   - component: {fileID: 386140958}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1290,7 +1290,7 @@ GameObject:
   m_Component:
   - component: {fileID: 548091930}
   - component: {fileID: 548091931}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1460,7 +1460,7 @@ GameObject:
   m_Component:
   - component: {fileID: 597653557}
   - component: {fileID: 597653558}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1930,7 +1930,7 @@ GameObject:
   m_Component:
   - component: {fileID: 954706971}
   - component: {fileID: 954706972}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CenterWallCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1984,7 +1984,7 @@ GameObject:
   m_Component:
   - component: {fileID: 962173123}
   - component: {fileID: 962173124}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightWallwBoardCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2651,7 +2651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1115730318}
   - component: {fileID: 1115730319}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftWallCollider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3380,7 +3380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1452922134}
   - component: {fileID: 1452922135}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3506,7 +3506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1494607493}
   - component: {fileID: 1494607494}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3588,7 +3588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1530750117}
   - component: {fileID: 1530750118}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3780,7 +3780,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1634893517}
   - component: {fileID: 1634893518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4004,7 +4004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1723181615}
   - component: {fileID: 1723181616}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4160,7 +4160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1798991031}
   - component: {fileID: 1798991032}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4350,7 +4350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1876655751}
   - component: {fileID: 1876655752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4585,7 +4585,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1923675454}
   - component: {fileID: 1923675455}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftWallCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4826,7 +4826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2002887210}
   - component: {fileID: 2002887211}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4908,7 +4908,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2018029484}
   - component: {fileID: 2018029485}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftMonster (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5131,7 +5131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2123514437}
   - component: {fileID: 2123514438}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FarRightWallCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
