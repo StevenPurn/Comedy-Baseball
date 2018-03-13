@@ -5,7 +5,7 @@ public class Ball : MonoBehaviour {
 
     public Rigidbody2D rb;
     public float curHeight = 1.5f;
-    public bool popFly = false;
+    public bool hasntHitGround = false;
     public float maxHeight, curSpeed;
     public Vector2 endPoint, startPoint;
     private BoxCollider2D col;
@@ -27,7 +27,7 @@ public class Ball : MonoBehaviour {
     {
         if (Utility.CheckEqual(transform.position, endPoint, 0.03f))
         {
-            popFly = false;
+            hasntHitGround = false;
             anim.SetBool("Moving", false);
             endPoint = Vector3.zero;
         }
@@ -119,14 +119,15 @@ public class Ball : MonoBehaviour {
                 {
                     if (curHeight < 4.0f)
                     {
-                        if (popFly)
+                        if (hasntHitGround)
                         {
                             Debug.Log("Ball caught in the air");
                             //Set most recent runner (batter) to out
                             //Should runners not advance yet? Need to ask Justin about that
                             Field.mostRecentBatter.SetOut();
+                            GameControl.instance.HandleOut();
                         }
-                        popFly = false;
+                        hasntHitGround = false;
                         if (collision.GetComponentInParent<Fielder>().ballInHands == false)
                         {
                             string aud = "catch";

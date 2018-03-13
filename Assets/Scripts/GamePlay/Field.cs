@@ -95,7 +95,7 @@ public static class Field {
         if (GameControl.ballInPlay || playerOtherThanPitcherHasBall)
         {
             MoveFieldersToPlayPosition();
-            if(ballLandingSpot == Vector2.zero)
+            if(ball.hasntHitGround == false)
             {
                 GetClosestFielderToTransform(ball.transform).movementTarget = ball.transform.position + ballOffset;
             }
