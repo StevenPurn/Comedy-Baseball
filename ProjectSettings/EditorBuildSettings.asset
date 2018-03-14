@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SteveField.unity
     guid: 5aad9a7e278535a48b1d7280e0a18eba
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 1e5ce9e841f8451498cdeeb8fd80fd6b

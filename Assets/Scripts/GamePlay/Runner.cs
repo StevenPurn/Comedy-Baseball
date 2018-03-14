@@ -89,6 +89,7 @@ public class Runner : MonoBehaviour {
             Field.mostRecentBatter = this;
             AudioControl.instance.PlayAudio(aud);
             GameControl.instance.ResetCount();
+            GameControl.instance.SetCameraToFollowBall(true);
             GameControl.ballInPlay = true;
             GameControl.waitingForNextBatter = true;
             isAdvancing = true;

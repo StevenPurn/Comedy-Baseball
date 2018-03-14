@@ -73,16 +73,12 @@ public static class Field {
         Fielder fielderWithBall = fielders.Find(x => x.ballInHands);
         bool playerOtherThanPitcherHasBall = false;
 
-        //TODO: Check if the ball was thrown towards you, if so, don't move until you have the damn ball
-
-        //Set the ball to follow a fielder if he is holding it
         if(fielderWithBall != null)
         {
             ball.transform.parent = fielderWithBall.glove.gameObject.transform;
             ball.transform.localPosition = Vector3.zero;
             ball.curHeight = 1.0f;
             playerOtherThanPitcherHasBall = fielderWithBall.position != Fielder.Position.pitcher;
-            
         }
         else
         {
@@ -116,6 +112,7 @@ public static class Field {
             }
             else if(fielderWithBall != null && fielderWithBall.position == Fielder.Position.pitcher)
             {
+                GameControl.instance.SetCameraToFollowBall(false);
                 GameControl.playIsActive = false;
             }
             MoveFieldersToStartPosition(false);

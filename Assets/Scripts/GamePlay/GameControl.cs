@@ -16,6 +16,7 @@ public class GameControl : MonoBehaviour {
     public string playerFilePath = "/Data/Players.xml";
     public GameObject runnerPrefab, fielderPrefab;
     public Transform battersBox, fieldParent;
+    public CameraControl fieldCam;
     //Teams & players that exist in the xml files
     public List<Team> teams = new List<Team>();
     public List<Player> players = new List<Player>();
@@ -138,7 +139,29 @@ public class GameControl : MonoBehaviour {
         go.GetComponentInChildren<Fielder>().SetPosition(pos);
         Field.fielders.Add(go.GetComponentInChildren<Fielder>());
     }
-        
+
+    public void SetCameraToFollowBall(bool followBall)
+    {
+        Debug.Log("Setting camera");
+        if(fieldCam == null)
+        {
+            fieldCam = FindObjectOfType<CameraControl>();
+        }
+        if (followBall)
+        {
+            Debug.Log("Should follow ball");
+            fieldCam.followBall = true;
+            fieldCam.SetParent(Field.ball.transform);
+            fieldCam.ResetPosition();
+        }
+        else
+        {
+            fieldCam.followBall = false;
+            fieldCam.SetParent();
+            fieldCam.ResetPosition();
+        }
+    }
+
     int GetCurrentBatter()
     {
         if(GetTeamAtBat().players.Find(x => x.isAtBat == true) != null)
