@@ -110,11 +110,11 @@ public class Ball : MonoBehaviour {
         if (tag == "Runner")
         {
             collision.GetComponent<Runner>().SwingBat(curPitch.type == Pitcher.Pitches.strike);
-        }else if(curPitch != null)
+        }else if(curPitch != null && tag == "Fielder")
         {
             if (curPitch.type != Pitcher.Pitches.homerun)
             {
-                if (tag == "Fielder" && GameControl.curInning.pitchesThrownThisInning > 0)
+                if (GameControl.curInning.pitchesThrownThisInning > 0)
                 {
                     if (curHeight < 4.0f)
                     {
@@ -131,6 +131,10 @@ public class Ball : MonoBehaviour {
                     }
                 }
             }
+        }else if(tag == "Wall" && curPitch.type != Pitcher.Pitches.homerun)
+        {
+            startPoint = transform.position;
+            endPoint = transform.position + new Vector3(Random.Range(-0.5f, 0.5f),Random.Range(-10, -5),0);
         }
     }
 

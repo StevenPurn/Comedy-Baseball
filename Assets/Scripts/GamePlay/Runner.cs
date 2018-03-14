@@ -81,6 +81,7 @@ public class Runner : MonoBehaviour {
             string aud = "hit" + UnityEngine.Random.Range(1, 3);
             if(ball.curPitch.type == Pitcher.Pitches.homerun)
             {
+                //Ensure the ball makes it out of the park
                 ball.HandleHomeRun();
             }
             AudioControl.instance.PlayAudio(aud);
