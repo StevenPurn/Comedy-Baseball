@@ -5,24 +5,24 @@
     <name>Batmen</name>
     <abbreviation>BTM</abbreviation>
     <wins>3</wins>
-    <loses>13</loses>
+    <loses>14</loses>
     <ties>0</ties>
     <runs>33</runs>
     <hits>44</hits>
-    <atbatstrikeouts>37</atbatstrikeouts>
-    <pitchedstrikeouts>9</pitchedstrikeouts>
+    <atbatstrikeouts>39</atbatstrikeouts>
+    <pitchedstrikeouts>11</pitchedstrikeouts>
   </team>
   <team>
     <id>2</id>
     <name>Funny Guys</name>
     <abbreviation>FGS</abbreviation>
-    <wins>13</wins>
+    <wins>14</wins>
     <loses>2</loses>
     <ties>0</ties>
     <runs>37</runs>
     <hits>33</hits>
-    <atbatstrikeouts>32</atbatstrikeouts>
-    <pitchedstrikeouts>19</pitchedstrikeouts>
+    <atbatstrikeouts>34</atbatstrikeouts>
+    <pitchedstrikeouts>21</pitchedstrikeouts>
   </team>
   <team>
     <id>3</id>

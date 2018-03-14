@@ -118,7 +118,7 @@ public static class Field {
             {
                 GameControl.playIsActive = false;
             }
-            MoveFieldersToStartPosition(false);     //Check this if it is ruining the thing
+            MoveFieldersToStartPosition(false);
         }
 
         if(ball != null && ball.targetFielder != null)

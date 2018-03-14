@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4993202046983640}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Glove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4949461531175228}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fielder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 212752872042044598}
   - component: {fileID: 95757068999300996}
   - component: {fileID: 61824213951961274}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fielder
   m_TagString: Fielder
   m_Icon: {fileID: 0}

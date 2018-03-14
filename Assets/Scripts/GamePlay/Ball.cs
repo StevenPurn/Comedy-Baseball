@@ -29,7 +29,9 @@ public class Ball : MonoBehaviour {
         {
             hasntHitGround = false;
             anim.SetBool("Moving", false);
-            endPoint = Vector3.zero;
+            float xPos = (transform.position.x - Field.bases[0].transform.position.x) * curSpeed/2;
+            float yPos = (transform.position.y - Field.bases[0].transform.position.y) * curSpeed/2;
+            endPoint = new Vector3(xPos, yPos, 0);
         }
         if(endPoint != Vector2.zero)
         {
@@ -121,8 +123,6 @@ public class Ball : MonoBehaviour {
                     {
                         if (hasntHitGround)
                         {
-                            Debug.Log("Ball caught in the air");
-                            //Set most recent runner (batter) to out
                             //Should runners not advance yet? Need to ask Justin about that
                             Field.mostRecentBatter.SetOut();
                             GameControl.instance.HandleOut();
@@ -144,7 +144,7 @@ public class Ball : MonoBehaviour {
         }else if(tag == "Wall" && curPitch.type != Pitcher.Pitches.homerun)
         {
             startPoint = transform.position;
-            endPoint = transform.position + new Vector3(Random.Range(-0.5f, 0.5f),Random.Range(-10, -5),0);
+            endPoint = transform.position + new Vector3(Random.Range(-0.5f, 0.5f),Random.Range(-0.5f, -1f),0);
         }
     }
 
