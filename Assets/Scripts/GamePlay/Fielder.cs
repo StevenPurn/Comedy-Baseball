@@ -78,14 +78,6 @@ public class Fielder : MonoBehaviour {
         rb.MovePosition(transform.position + direction * movementSpeed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.transform.tag == "Wall")
-        {
-            Debug.Log("should stop moving");
-        }
-    }
-
     private void SetAnimationValues(Vector3 moveDir)
     {
         anim.SetFloat("xMove", moveDir.x);

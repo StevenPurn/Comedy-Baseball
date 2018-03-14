@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour {
 
@@ -338,5 +339,6 @@ public class GameControl : MonoBehaviour {
         ActiveTeam winner = activeTeams[0].score > activeTeams[1].score ? activeTeams[0] : activeTeams[1];
         winner.wonGame = true;
         Save();
+        SceneManager.LoadScene("GameOver");
     }
 }

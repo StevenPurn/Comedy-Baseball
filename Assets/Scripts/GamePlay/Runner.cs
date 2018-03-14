@@ -43,7 +43,8 @@ public class Runner : MonoBehaviour {
                 string aud = "strike" + UnityEngine.Random.Range(1, 4);
                 AudioControl.instance.PlayAudio(aud);
             }
-            if (UnityEngine.Random.Range(0f, 1f) >= 0.5f)
+            float rand = UnityEngine.Random.Range(0f, 1f);
+            if (rand >= 0.5f)
             {
                 anim.SetTrigger("isSwingingBat");
             }
@@ -190,6 +191,7 @@ public class Runner : MonoBehaviour {
             col.enabled = false;
         }
         Field.runners.Remove(this);
+        atBat = false;
         isOut = true;
         exitingField = true;
         for (int i = targetBase.Count - 2; i >= 0; i--)
