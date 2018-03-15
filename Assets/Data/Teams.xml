@@ -144,4 +144,28 @@
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
   </team>
+  <team>
+    <id>13</id>
+    <name>TEST</name>
+    <abbreviation>TS1</abbreviation>
+    <wins>0</wins>
+    <loses>0</loses>
+    <ties>0</ties>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
+  </team>
+  <team>
+    <id>14</id>
+    <name>TEST2</name>
+    <abbreviation>TS2</abbreviation>
+    <wins>0</wins>
+    <loses>0</loses>
+    <ties>0</ties>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
+  </team>
 </ArrayOfTeam>
