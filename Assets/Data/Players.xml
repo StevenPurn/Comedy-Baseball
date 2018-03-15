@@ -2,120 +2,395 @@
 <ArrayOfPlayer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <player>
     <number>1</number>
-    <battingAvg>0.208</battingAvg>
-    <rbi>8</rbi>
-    <portraitPath>/Art/testPortrait2.png</portraitPath>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/alejandroochoa.png</portraitPath>
+    <name>Dro Ochoa</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>2</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/alexandrialove.png</portraitPath>
+    <name>Alexandria Love</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>3</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/andrewholmgren.png</portraitPath>
+    <name>Andrew Holmgren</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>4</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/andrewmoore.png</portraitPath>
+    <name>Andrew Moore</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>5</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/anicacihla.png</portraitPath>
+    <name>Anica Cihla</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>6</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/avivasiegel.png</portraitPath>
+    <name>Aviva Siegel</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>7</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/benkolina.png</portraitPath>
+    <name>Ben Kolina</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>8</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/benspoon.png</portraitPath>
+    <name>Ben Spoon</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>9</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/brycedruzin.png</portraitPath>
+    <name>Bryce Druzin</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>10</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/calvinalbright.png</portraitPath>
+    <name>Calvin Albright</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>11</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/chloekeister.png</portraitPath>
+    <name>Chloe Keister</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>12</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/connormarshall.png</portraitPath>
+    <name>Connor Marshall</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>13</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/dereklipkin.png</portraitPath>
+    <name>Derek Lipkin</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>14</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/genevarustorta.png</portraitPath>
+    <name>Geneva Rust-Orta</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>15</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/jayhuston.png</portraitPath>
+    <name>Jay Huston</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>16</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/jeenyee.png</portraitPath>
+    <name>Jeen Yee</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>17</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/jonalcabes.png</portraitPath>
+    <name>Jon Alcabes</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>18</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/jordanthewlis.png</portraitPath>
+    <name>Jordan Thewlis</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>19</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/keithdsouza.png</portraitPath>
+    <name>Keith D'Souza</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>20</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/kollinholtz.png</portraitPath>
+    <name>Kollin Holtz</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>21</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/lukelockfeld.png</portraitPath>
+    <name>Luke Lockfeld</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>22</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/mikespeigelman.png</portraitPath>
+    <name>Mike Speigelman</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>23</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/natashaminik.png</portraitPath>
+    <name>Natasha Vinik</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>24</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/natashamuse.png</portraitPath>
+    <name>Natasha Muse</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>25</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/pambenjamin.png</portraitPath>
+    <name>Pam Benjamin</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>26</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/shawnkresal.png</portraitPath>
+    <name>Shawn Kresal</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>27</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/spencerdevine.png</portraitPath>
+    <name>Spencer Devine</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>28</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/stephenku.png</portraitPath>
+    <name>Stephen Ku</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>29</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/tirumarijothi.png</portraitPath>
     <name>Tirumari Jothi</name>
-    <atbats>72</atbats>
-    <hits>15</hits>
-    <strikeoutsAtBat>10</strikeoutsAtBat>
-    <strikeoutsPitched>11</strikeoutsPitched>
-  </player>
-  <player>
-    <number>1</number>
-    <battingAvg>0.165</battingAvg>
-    <rbi>6</rbi>
-    <portraitPath>/Art/testPortrait3.png</portraitPath>
-    <name>Davey Jones</name>
-    <atbats>79</atbats>
-    <hits>13</hits>
-    <strikeoutsAtBat>11</strikeoutsAtBat>
-    <strikeoutsPitched>0</strikeoutsPitched>
-  </player>
-  <player>
-    <number>1</number>
-    <battingAvg>0.149</battingAvg>
-    <rbi>15</rbi>
-    <portraitPath>/Art/testPortrait1.png</portraitPath>
-    <name>Justin Gomes</name>
-    <atbats>74</atbats>
-    <hits>11</hits>
-    <strikeoutsAtBat>18</strikeoutsAtBat>
-    <strikeoutsPitched>0</strikeoutsPitched>
-  </player>
-  <player>
-    <number>1</number>
-    <battingAvg>0.186</battingAvg>
-    <rbi>10</rbi>
-    <portraitPath>/Art/testPortrait2.png</portraitPath>
-    <name>Joe Smith</name>
-    <atbats>59</atbats>
-    <hits>11</hits>
-    <strikeoutsAtBat>15</strikeoutsAtBat>
-    <strikeoutsPitched>21</strikeoutsPitched>
-  </player>
-  <player>
-    <number>1</number>
-    <battingAvg>0.16</battingAvg>
-    <rbi>12</rbi>
-    <portraitPath>/Art/testPortrait3.png</portraitPath>
-    <name>Jack Sparrow</name>
-    <atbats>75</atbats>
-    <hits>12</hits>
-    <strikeoutsAtBat>11</strikeoutsAtBat>
-    <strikeoutsPitched>0</strikeoutsPitched>
-  </player>
-  <player>
-    <number>1</number>
-    <battingAvg>0.111</battingAvg>
-    <rbi>10</rbi>
-    <portraitPath>/Art/testPortrait1.png</portraitPath>
-    <name>Will Turner</name>
-    <atbats>63</atbats>
-    <hits>7</hits>
-    <strikeoutsAtBat>4</strikeoutsAtBat>
-    <strikeoutsPitched>0</strikeoutsPitched>
-  </player>
-  <player>
-    <number>1</number>
-    <battingAvg>0</battingAvg>
-    <rbi>0</rbi>
-    <portraitPath>/Art/testPortrait2.png</portraitPath>
-    <name>Elizabeth Swan</name>
     <atbats>0</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
-    <number>1</number>
-    <battingAvg>0.6</battingAvg>
-    <rbi>8</rbi>
-    <portraitPath>/Art/testPortrait3.png</portraitPath>
-    <name>Emma Watson</name>
-    <atbats>5</atbats>
-    <hits>3</hits>
-    <strikeoutsAtBat>4</strikeoutsAtBat>
-    <strikeoutsPitched>0</strikeoutsPitched>
-  </player>
-  <player>
-    <number>1</number>
+    <number>30</number>
     <battingAvg>0</battingAvg>
     <rbi>0</rbi>
-    <portraitPath>/Art/testPortrait1.png</portraitPath>
-    <name>Captain Barbossa</name>
+    <portraitPath>/Art/Portraits/tonyzavala.png</portraitPath>
+    <name>Tony Zavala</name>
     <atbats>0</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
-    <number>1</number>
+    <number>31</number>
     <battingAvg>0</battingAvg>
     <rbi>0</rbi>
-    <portraitPath>/Art/testPortrait2.png</portraitPath>
-    <name>Avatar Aang</name>
+    <portraitPath>/Art/Portraits/toriovangrol.png</portraitPath>
+    <name>Torio Van Grol</name>
     <atbats>0</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
-    <number>1</number>
+    <number>32</number>
     <battingAvg>0</battingAvg>
     <rbi>0</rbi>
-    <portraitPath>/Art/testPortrait3.png</portraitPath>
-    <name>Avatar Korra</name>
+    <portraitPath>/Art/Portraits/tracynguyen.png</portraitPath>
+    <name>Tracy Nguyen</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>33</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/warholkaufman.png</portraitPath>
+    <name>Warhol Kaufman</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>34</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/colinmahan.png</portraitPath>
+    <name>Colin Mahan</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>35</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/jodyfrandle.png</portraitPath>
+    <name>Jody Frandle</name>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
+    <number>36</number>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/johngallagher.png</portraitPath>
+    <name>John Gallagher</name>
     <atbats>0</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>

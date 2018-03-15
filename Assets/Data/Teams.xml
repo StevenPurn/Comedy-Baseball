@@ -2,32 +2,32 @@
 <ArrayOfTeam xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <team>
     <id>1</id>
-    <name>Batmen</name>
-    <abbreviation>BTM</abbreviation>
-    <wins>4</wins>
-    <loses>17</loses>
+    <name>Boner Squad</name>
+    <abbreviation>BNR</abbreviation>
+    <wins>0</wins>
+    <loses>0</loses>
     <ties>0</ties>
-    <runs>34</runs>
-    <hits>44</hits>
-    <atbatstrikeouts>39</atbatstrikeouts>
-    <pitchedstrikeouts>11</pitchedstrikeouts>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
   </team>
   <team>
     <id>2</id>
-    <name>Funny Guys</name>
-    <abbreviation>FGS</abbreviation>
-    <wins>17</wins>
-    <loses>3</loses>
+    <name>Jon, Tony, and Deathsaber</name>
+    <abbreviation>JTD</abbreviation>
+    <wins>0</wins>
+    <loses>0</loses>
     <ties>0</ties>
-    <runs>40</runs>
-    <hits>33</hits>
-    <atbatstrikeouts>34</atbatstrikeouts>
-    <pitchedstrikeouts>21</pitchedstrikeouts>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
   </team>
   <team>
     <id>3</id>
-    <name>Funny Gals</name>
-    <abbreviation>FGa</abbreviation>
+    <name>Goof Troop</name>
+    <abbreviation>GTP</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -38,8 +38,8 @@
   </team>
   <team>
     <id>4</id>
-    <name>Komedians</name>
-    <abbreviation>KMD</abbreviation>
+    <name>Chicken Scratchers</name>
+    <abbreviation>Ckn</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -50,8 +50,8 @@
   </team>
   <team>
     <id>5</id>
-    <name>Lame Peeps</name>
-    <abbreviation>LPS</abbreviation>
+    <name>Trill Buckner</name>
+    <abbreviation>Trl</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -62,8 +62,80 @@
   </team>
   <team>
     <id>6</id>
-    <name>Rangers</name>
-    <abbreviation>RGR</abbreviation>
+    <name>Baby Steaks</name>
+    <abbreviation>Stk</abbreviation>
+    <wins>0</wins>
+    <loses>0</loses>
+    <ties>0</ties>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
+  </team>
+  <team>
+    <id>7</id>
+    <name>Team Mutiny Radio</name>
+    <abbreviation>MTY</abbreviation>
+    <wins>0</wins>
+    <loses>0</loses>
+    <ties>0</ties>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
+  </team>
+  <team>
+    <id>8</id>
+    <name>Team Komedio</name>
+    <abbreviation>KDO</abbreviation>
+    <wins>0</wins>
+    <loses>0</loses>
+    <ties>0</ties>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
+  </team>
+  <team>
+    <id>9</id>
+    <name>Super Trashed Bros</name>
+    <abbreviation>STB</abbreviation>
+    <wins>0</wins>
+    <loses>0</loses>
+    <ties>0</ties>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
+  </team>
+  <team>
+    <id>10</id>
+    <name>18 Holes</name>
+    <abbreviation>18H</abbreviation>
+    <wins>0</wins>
+    <loses>0</loses>
+    <ties>0</ties>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
+  </team>
+  <team>
+    <id>11</id>
+    <name>DruNK</name>
+    <abbreviation>DNK</abbreviation>
+    <wins>0</wins>
+    <loses>0</loses>
+    <ties>0</ties>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
+  </team>
+  <team>
+    <id>12</id>
+    <name>Team Sylvan</name>
+    <abbreviation>SYL</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
