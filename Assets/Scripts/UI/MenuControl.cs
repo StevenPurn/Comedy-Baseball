@@ -166,6 +166,8 @@ public class MenuControl : MonoBehaviour {
     //Set selected teams as active
     void SetupTeams()
     {
+        Debug.Log(team1.options[team1.value].text);
+        Debug.Log(team2.options[team2.value].text);
         foreach (var team in GameControl.instance.teams)
         {
             if (team.name == team1.options[team1.value].text)
