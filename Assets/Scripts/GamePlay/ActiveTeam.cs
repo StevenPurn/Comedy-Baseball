@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public enum TeamColor { orange, blue }
-
 public class ActiveTeam
 {
     public string name;
@@ -17,7 +15,7 @@ public class ActiveTeam
     public int totalHits;
     public bool currentlyAtBat;
     public bool wonGame;
-    public TeamColor color;
+    public Color color;
 
     public void AddPlayer(ActivePlayer player)
     {

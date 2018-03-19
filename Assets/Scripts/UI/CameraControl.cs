@@ -4,6 +4,7 @@ public class CameraControl : MonoBehaviour {
 
     public bool followBall = false;
     public Transform camParent;
+    public float smoothSpeed = 0.12f;
 
     private void Awake()
     {
@@ -23,10 +24,11 @@ public class CameraControl : MonoBehaviour {
 
     public void ResetPosition()
     {
-        this.transform.localPosition = new Vector3(0,0,-10);
+        Vector3 smoothedPosition = Vector3.Lerp(transform.localPosition, new Vector3(0, 0, -10), smoothSpeed);
+        transform.localPosition = smoothedPosition;
     }
 
-    public void Update()
+    public void LateUpdate()
     {
         if (followBall)
         {

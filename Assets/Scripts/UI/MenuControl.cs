@@ -82,6 +82,9 @@ public class MenuControl : MonoBehaviour {
                 aTeam.score = 0;
                 AddPlayers(aTeam, 1);
                 GameControl.instance.activeTeams.Add(aTeam);
+                Color teamColor = new Color(team.colorR, team.colorG, team.colorB);
+                GameControl.instance.homeTeamMat.color = teamColor;
+                aTeam.color = teamColor;
                 break;
             }
         }
@@ -97,6 +100,9 @@ public class MenuControl : MonoBehaviour {
                 aTeam.currentlyAtBat = t2Toggle.isOn;
                 AddPlayers(aTeam, 2);
                 GameControl.instance.activeTeams.Add(aTeam);
+                Color teamColor = new Color(team.colorR, team.colorG, team.colorB);
+                GameControl.instance.awayTeamMat.color = teamColor;
+                aTeam.color = teamColor;
                 break;
             }
         }

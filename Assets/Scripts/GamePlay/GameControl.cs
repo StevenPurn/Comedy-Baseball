@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -142,14 +141,12 @@ public class GameControl : MonoBehaviour {
 
     public void SetCameraToFollowBall(bool followBall)
     {
-        Debug.Log("Setting camera");
         if(fieldCam == null)
         {
             fieldCam = FindObjectOfType<CameraControl>();
         }
         if (followBall)
-        {
-            Debug.Log("Should follow ball");
+        { 
             fieldCam.followBall = true;
             fieldCam.SetParent(Field.ball.transform);
             fieldCam.ResetPosition();

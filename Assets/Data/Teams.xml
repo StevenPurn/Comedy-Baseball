@@ -11,6 +11,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
+    <colorr>255</colorr>
+    <colorg>0</colorg>
+    <colorb>0</colorb>
   </team>
   <team>
     <id>2</id>
@@ -23,6 +26,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
+    <colorr>0</colorr>
+    <colorg>255</colorg>
+    <colorb>0</colorb>
   </team>
   <team>
     <id>3</id>
@@ -35,6 +41,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
+    <colorr>0</colorr>
+    <colorg>0</colorg>
+    <colorb>255</colorb>
   </team>
   <team>
     <id>4</id>

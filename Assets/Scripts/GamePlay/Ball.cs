@@ -25,6 +25,7 @@ public class Ball : MonoBehaviour {
 
     private void Update()
     {
+        Debug.DrawRay(this.transform.position, new Vector3(0, 0.5f, 0));
         if (Utility.CheckEqual(transform.position, endPoint, 0.03f))
         {
             hasntHitGround = false;
@@ -123,9 +124,10 @@ public class Ball : MonoBehaviour {
                     {
                         if (hasntHitGround)
                         {
-                            //Should runners not advance yet? Need to ask Justin about that
                             Field.mostRecentBatter.SetOut();
                             GameControl.instance.HandleOut();
+                            string aud = "out" + UnityEngine.Random.Range(1, 5);
+                            AudioControl.instance.PlayAudio(aud);
                         }
                         hasntHitGround = false;
                         if (collision.GetComponentInParent<Fielder>().ballInHands == false)
