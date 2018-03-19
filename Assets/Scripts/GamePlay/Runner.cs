@@ -137,7 +137,7 @@ public class Runner : MonoBehaviour {
                 {
                     if (targetBase[0].name.Contains("Base"))
                     {
-                        if (GameControl.isHomeRun == false)
+                        if (GameControl.isHomeRun == false && Vector2.Distance(transform.position, Field.ball.transform.position) < 1f)
                         {
                             AudioControl.instance.PlayAudio("safe");
                         }

@@ -6,28 +6,24 @@ public class GameControl : MonoBehaviour {
 
     //Singleton implementation
     public static GameControl instance;
-    //Static variables
     public static int numberOfInnings = 3;
     public static Inning curInning = new Inning();
     public static int strikes, balls, outs, outsThisPlay;
-    //Save location for team & player files
+    public static bool ballInPlay = false;
+    public static bool playIsActive = false;
+    public static bool isHomeRun = false;
+    public static bool waitingForNextBatter = false;
     public string teamFilePath = "/Data/Teams.xml";
     public string playerFilePath = "/Data/Players.xml";
     public GameObject runnerPrefab, fielderPrefab;
     public Transform battersBox, fieldParent;
     public CameraControl fieldCam;
-    //Teams & players that exist in the xml files
     public List<Team> teams = new List<Team>();
     public List<Player> players = new List<Player>();
-    //Teams & players participating in this game
     public List<ActiveTeam> activeTeams = new List<ActiveTeam>();
     public List<ActivePlayer> activePlayers = new List<ActivePlayer>();
     private int runnerNumber;
     private int teamAtBat;
-    public static bool ballInPlay = false;
-    public static bool playIsActive = false;
-    public static bool isHomeRun = false;
-    public static bool waitingForNextBatter = false;
     public Material homeTeamMat, awayTeamMat;
 
     public delegate void ChangeCount();
@@ -99,6 +95,7 @@ public class GameControl : MonoBehaviour {
         battingTeam.players[curBatter].isAtBat = true;
         battingTeam.players[curBatter].atBats += 1;
         AddBatterToField();
+        changeCountEvent();
     }
 
     public static void InitializeField()

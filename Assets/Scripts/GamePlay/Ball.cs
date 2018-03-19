@@ -29,9 +29,10 @@ public class Ball : MonoBehaviour {
         if (Utility.CheckEqual(transform.position, endPoint, 0.03f))
         {
             hasntHitGround = false;
-            anim.SetBool("Moving", false);
-            float xPos = (transform.position.x - Field.bases[0].transform.position.x) * curSpeed/2;
-            float yPos = (transform.position.y - Field.bases[0].transform.position.y) * curSpeed/2;
+            //anim.SetBool("Moving", false);
+            float xPos = Field.bases[0].transform.position.x - transform.position.x;
+            float yPos = Field.bases[0].transform.position.y - transform.position.y;
+            curSpeed = curSpeed / 2;
             endPoint = new Vector3(xPos, yPos, 0);
         }
         if(endPoint != Vector2.zero)
@@ -122,13 +123,13 @@ public class Ball : MonoBehaviour {
                 {
                     if (curHeight < 4.0f)
                     {
-                        if (hasntHitGround)
-                        {
-                            Field.mostRecentBatter.SetOut();
-                            GameControl.instance.HandleOut();
-                            string aud = "out" + UnityEngine.Random.Range(1, 5);
-                            AudioControl.instance.PlayAudio(aud);
-                        }
+                        //if (hasntHitGround)
+                        //{
+                        //    Field.mostRecentBatter.SetOut();
+                        //    GameControl.instance.HandleOut();
+                        //    string aud = "out" + UnityEngine.Random.Range(1, 5);
+                        //    AudioControl.instance.PlayAudio(aud);
+                        //}
                         hasntHitGround = false;
                         if (collision.GetComponentInParent<Fielder>().ballInHands == false)
                         {

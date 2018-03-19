@@ -90,19 +90,19 @@ public static class Field {
 
         if (GameControl.ballInPlay || playerOtherThanPitcherHasBall)
         {
-            MoveFieldersToPlayPosition();
-            if(ball.hasntHitGround == false)
-            {
-                GetClosestFielderToTransform(ball.transform).movementTarget = ball.transform.position + ballOffset;
-            }
-            else
-            {
-                GetClosestFielderToLocation(ballLandingSpot).movementTarget = ballLandingSpot;
-            }
-            if(fielderWithBall != null)
-            {
-                WhatDoIDoWithTheBall(fielderWithBall);
-            }
+            //MoveFieldersToPlayPosition();
+            //if(ball.hasntHitGround == false && ballHasBeenThrown == false)
+            //{
+            //    GetClosestFielderToTransform(ball.transform).movementTarget = ball.transform.position + ballOffset;
+            //}
+            //else
+            //{
+            //    GetClosestFielderToLocation(ballLandingSpot).movementTarget = ballLandingSpot;
+            //}
+            //if(fielderWithBall != null)
+            //{
+            //    WhatDoIDoWithTheBall(fielderWithBall);
+            //}
         }
         else if(GameControl.ballInPlay == false)
         {
