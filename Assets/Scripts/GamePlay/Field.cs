@@ -60,67 +60,67 @@ public static class Field {
 
     public static void FielderAI()
     {
-        if(ball != null)
+        Vector3 targetFielderMoveTarget = Vector3.zero;
+        if (ball != null && ball.targetFielder != null)
         {
-            Vector3 targetFielderMoveTarget = Vector3.zero;
-            if (ball.targetFielder != null)
-            {
-                targetFielderMoveTarget = ball.targetFielder.playPosition.position;
-            }
+            targetFielderMoveTarget = ball.targetFielder.playPosition.position;
+        }
 
-            if (runners.Find(x => x.isAdvancing) == null)
-            {
-                GameControl.ballInPlay = false;
-            }
-            Fielder fielderWithBall = fielders.Find(x => x.ballInHands);
-            bool pitcherHasBall = false;
+        if (runners.Find(x => x.isAdvancing) == null)
+        {
+            GameControl.ballInPlay = false;
+        }
+        Fielder fielderWithBall = fielders.Find(x => x.ballInHands);
+        bool playerOtherThanPitcherHasBall = false;
 
-            if (fielderWithBall != null)
-            {
-                ball.transform.parent = fielderWithBall.glove.gameObject.transform;
-                ball.transform.localPosition = Vector3.zero;
-                ball.curHeight = 1.0f;
-                pitcherHasBall = fielderWithBall.position == Fielder.Position.pitcher;
-            }
-            else
+        if(fielderWithBall != null)
+        {
+            ball.transform.parent = fielderWithBall.glove.gameObject.transform;
+            ball.transform.localPosition = Vector3.zero;
+            ball.curHeight = 1.0f;
+            playerOtherThanPitcherHasBall = fielderWithBall.position != Fielder.Position.pitcher;
+        }
+        else
+        {
+            if(ball != null)
             {
                 ball.transform.parent = fieldParent;
             }
+        }
 
-            if (GameControl.ballInPlay || pitcherHasBall == false)
+        if (GameControl.ballInPlay || playerOtherThanPitcherHasBall)
+        {
+            MoveFieldersToPlayPosition();
+            if(ball.hasntHitGround == false)
             {
-                MoveFieldersToPlayPosition();
-                if (ball.hasntHitGround == false)
-                {
-                    GetClosestFielderToTransform(ball.transform).movementTarget = ball.transform.position + ballOffset;
-                }
-                else
-                {
-                    GetClosestFielderToLocation(ballLandingSpot).movementTarget = ballLandingSpot;
-                }
-                if (fielderWithBall != null)
-                {
-                    WhatDoIDoWithTheBall(fielderWithBall);
-                }
+                GetClosestFielderToTransform(ball.transform).movementTarget = ball.transform.position + ballOffset;
             }
-            else if (GameControl.ballInPlay == false)
+            else
             {
-                if (fielderWithBall != null && fielderWithBall.position != Fielder.Position.pitcher)
-                {
-                    fielderWithBall.ThrowBall(GetPlayerToThrowBallTo());
-                }
-                else if (fielderWithBall != null && fielderWithBall.position == Fielder.Position.pitcher)
-                {
-                    GameControl.instance.SetCameraToFollowBall(false);
-                    GameControl.playIsActive = false;
-                }
-                MoveFieldersToStartPosition(false);
+                GetClosestFielderToLocation(ballLandingSpot).movementTarget = ballLandingSpot;
             }
+            if(fielderWithBall != null)
+            {
+                WhatDoIDoWithTheBall(fielderWithBall);
+            }
+        }
+        else if(GameControl.ballInPlay == false)
+        {
+            if (fielderWithBall != null && fielderWithBall.position != Fielder.Position.pitcher)
+            {
+                fielderWithBall.ThrowBall(GetPlayerToThrowBallTo());
+            }
+            else if(fielderWithBall != null && fielderWithBall.position == Fielder.Position.pitcher)
+            {
+                GameControl.instance.SetCameraToFollowBall(false);
+                GameControl.playIsActive = false;
+            }
+            MoveFieldersToStartPosition(false);
+        }
 
-            if (ball.targetFielder != null)
-            {
-                ball.targetFielder.movementTarget = targetFielderMoveTarget;
-            }
+        if(ball != null && ball.targetFielder != null)
+        {
+            ball.targetFielder.movementTarget = targetFielderMoveTarget;
         }
     }
 
