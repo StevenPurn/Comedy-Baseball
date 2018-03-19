@@ -26,9 +26,9 @@ public class Team
     [XmlElement("pitchedstrikeouts")]
     public int pitchedstrikeouts { get; set; }
     [XmlElement("colorr")]
-    public int colorR { get; set; }
+    public float colorR { get; set; }
     [XmlElement("colorg")]
-    public int colorG { get; set; }
+    public float colorG { get; set; }
     [XmlElement("colorb")]
-    public int colorB { get; set; }
+    public float colorB { get; set; }
 }

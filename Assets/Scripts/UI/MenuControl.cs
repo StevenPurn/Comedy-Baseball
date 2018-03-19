@@ -38,12 +38,89 @@ public class MenuControl : MonoBehaviour {
             {
                 Color teamColor = new Color(team.colorR, team.colorG, team.colorB);
                 GameControl.instance.homeTeamMat.color = teamColor;
-
+                var count = 0;
+                foreach (var player in GameControl.instance.players)
+                {
+                    if (team.name == player.team)
+                    {
+                        if (count < 1)
+                        {
+                            count++;
+                            for (int i = 0; i < t1player1.options.Count; i++)
+                            {
+                                if(t1player1.options[i].text == player.name)
+                                {
+                                    t1player1.value = i;
+                                }
+                            }
+                        }
+                        else if (count == 1)
+                        {
+                            count++;
+                            for (int i = 0; i < t1player1.options.Count; i++)
+                            {
+                                if (t1player2.options[i].text == player.name)
+                                {
+                                    t1player2.value = i;
+                                }
+                            }
+                        }
+                        else if (count > 1)
+                        {
+                            for (int i = 0; i < t1player1.options.Count; i++)
+                            {
+                                if (t1player3.options[i].text == player.name)
+                                {
+                                    t1player3.value = i;
+                                }
+                            }
+                        }
+                    }
+                }
             }
             if (team.name == team2.options[team2.value].text)
             {
                 Color teamColor = new Color(team.colorR, team.colorG, team.colorB);
                 GameControl.instance.awayTeamMat.color = teamColor;
+                var count = 0;
+                foreach (var player in GameControl.instance.players)
+                {
+                    if (team.name == player.team)
+                    {
+                        if (count < 1)
+                        {
+                            count++;
+                            for (int i = 0; i < t2player1.options.Count; i++)
+                            {
+                                if (t2player1.options[i].text == player.name)
+                                {
+                                    t2player1.value = i;
+                                }
+                            }
+                        }
+                        else if (count == 1)
+                        {
+                            count++;
+                            for (int i = 0; i < t2player2.options.Count; i++)
+                            {
+                                if (t2player2.options[i].text == player.name)
+                                {
+                                    t2player2.value = i;
+                                }
+                            }
+                        }
+                        else if (count > 1)
+                        {
+                            for (int i = 0; i < t2player3.options.Count; i++)
+                            {
+                                if (t2player3.options[i].text == player.name)
+                                {
+                                    t2player3.value = i;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

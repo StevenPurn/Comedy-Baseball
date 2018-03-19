@@ -10,6 +10,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Trill Buckner</team>
   </player>
   <player>
     <number>2</number>
@@ -21,6 +22,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Team Komedio</team>
   </player>
   <player>
     <number>3</number>
@@ -32,6 +34,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Team Sylvan</team>
   </player>
   <player>
     <number>4</number>
@@ -43,6 +46,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Team Sylvan</team>
   </player>
   <player>
     <number>5</number>
@@ -54,6 +58,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Goof Troop</team>
   </player>
   <player>
     <number>6</number>
@@ -65,6 +70,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Goof Troop</team>
   </player>
   <player>
     <number>7</number>
@@ -76,6 +82,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Trill Buckner</team>
   </player>
   <player>
     <number>8</number>
@@ -87,6 +94,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Super Trashed Bros</team>
   </player>
   <player>
     <number>9</number>
@@ -98,6 +106,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>DruNK</team>
   </player>
   <player>
     <number>10</number>
@@ -109,6 +118,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Super Trashed Bros</team>
   </player>
   <player>
     <number>11</number>
@@ -120,6 +130,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Baby Steaks</team>
   </player>
   <player>
     <number>12</number>
@@ -131,6 +142,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Boner Squad</team>
   </player>
   <player>
     <number>13</number>
@@ -142,6 +154,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Super Trashed Bros</team>
   </player>
   <player>
     <number>14</number>
@@ -153,6 +166,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>18 Holes</team>
   </player>
   <player>
     <number>15</number>
@@ -164,6 +178,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Chicken Scratchers</team>
   </player>
   <player>
     <number>16</number>
@@ -175,6 +190,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Baby Steaks</team>
   </player>
   <player>
     <number>17</number>
@@ -186,6 +202,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Jon, Tony, and Deathsaber</team>
   </player>
   <player>
     <number>18</number>
@@ -197,6 +214,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Jon, Tony, and Deathsaber</team>
   </player>
   <player>
     <number>19</number>
@@ -208,6 +226,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Boner Squad</team>
   </player>
   <player>
     <number>20</number>
@@ -218,7 +237,9 @@
     <atbats>0</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
+    <team></team>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>18 Holes</team>
   </player>
   <player>
     <number>21</number>
@@ -230,6 +251,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Boner Squad</team>
   </player>
   <player>
     <number>22</number>
@@ -241,6 +263,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Team Mutiny Radio</team>
   </player>
   <player>
     <number>23</number>
@@ -252,6 +275,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Baby Steaks</team>
   </player>
   <player>
     <number>24</number>
@@ -263,6 +287,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Goof Troop</team>
   </player>
   <player>
     <number>25</number>
@@ -274,6 +299,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Team Mutiny Radio</team>
   </player>
   <player>
     <number>26</number>
@@ -285,6 +311,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Chicken Scratchers</team>
   </player>
   <player>
     <number>27</number>
@@ -296,6 +323,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Team Sylvan</team>
   </player>
   <player>
     <number>28</number>
@@ -307,6 +335,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Team Komedio</team>
   </player>
   <player>
     <number>29</number>
@@ -318,6 +347,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Team Komedio</team>
   </player>
   <player>
     <number>30</number>
@@ -329,6 +359,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Jon, Tony, and Deathsaber</team>
   </player>
   <player>
     <number>31</number>
@@ -340,6 +371,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Trill Buckner</team>
   </player>
   <player>
     <number>32</number>
@@ -351,6 +383,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>DruNK</team>
   </player>
   <player>
     <number>33</number>
@@ -362,6 +395,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>DruNK</team>
   </player>
   <player>
     <number>34</number>
@@ -373,6 +407,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Team Mutiny Radio</team>
   </player>
   <player>
     <number>35</number>
@@ -384,6 +419,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>Chicken Scratchers</team>
   </player>
   <player>
     <number>36</number>
@@ -395,6 +431,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team>18 Holes</team>
   </player>
   <player>
     <number>90</number>
@@ -406,6 +443,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team></team>
   </player>
   <player>
     <number>91</number>
@@ -417,6 +455,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team></team>
   </player>
   <player>
     <number>92</number>
@@ -428,6 +467,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team></team>
   </player>
   <player>
     <number>93</number>
@@ -439,6 +479,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team></team>
   </player>
   <player>
     <number>94</number>
@@ -450,6 +491,7 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team></team>
   </player>
   <player>
     <number>95</number>
@@ -461,5 +503,6 @@
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
+    <team></team>
   </player>
 </ArrayOfPlayer>

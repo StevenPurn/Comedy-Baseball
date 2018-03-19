@@ -71,9 +71,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
-    <colorr>0</colorr>
-    <colorg>255</colorg>
-    <colorb>0</colorb>
+    <colorr>.823</colorr>
+    <colorg>.41</colorg>
+    <colorb>.127</colorb>
   </team>
   <team>
     <id>6</id>
@@ -146,8 +146,8 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
-    <colorr>0</colorr>
-    <colorg>255</colorg>
+    <colorr>255</colorr>
+    <colorg>215</colorg>
     <colorb>0</colorb>
   </team>
   <team>
@@ -161,8 +161,8 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
-    <colorr>0</colorr>
-    <colorg>255</colorg>
+    <colorr>255</colorr>
+    <colorg>165</colorg>
     <colorb>0</colorb>
   </team>
   <team>
@@ -176,9 +176,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
-    <colorr>0</colorr>
-    <colorg>255</colorg>
-    <colorb>0</colorb>
+    <colorr>128</colorr>
+    <colorg>128</colorg>
+    <colorb>128</colorb>
   </team>
   <team>
     <id>13</id>
