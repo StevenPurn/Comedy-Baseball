@@ -133,13 +133,13 @@ public class Ball : MonoBehaviour {
                 {
                     if (curHeight < 4.0f)
                     {
-                        //if (hasntHitGround)
-                        //{
-                        //    Field.mostRecentBatter.SetOut();
-                        //    GameControl.instance.HandleOut();
-                        //    string aud = "out" + UnityEngine.Random.Range(1, 5);
-                        //    AudioControl.instance.PlayAudio(aud);
-                        //}
+                        if (hasntHitGround)
+                        {
+                            Field.mostRecentBatter.SetOut();
+                            GameControl.instance.HandleOut();
+                            string aud = "out" + UnityEngine.Random.Range(1, 5);
+                            AudioControl.instance.PlayAudio(aud);
+                        }
                         hasntHitGround = false;
                         if (collision.GetComponentInParent<Fielder>().ballInHands == false)
                         {

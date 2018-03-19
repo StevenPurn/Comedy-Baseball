@@ -13,6 +13,7 @@ public class Pitcher : MonoBehaviour {
         fielder = GetComponent<Fielder>();
         ball.TemporarilyDisableCollision();
         fielder.ballInHands = true;
+        ball.anim.SetBool("Moving", false);
     }
 
     public void ThrowPitch()

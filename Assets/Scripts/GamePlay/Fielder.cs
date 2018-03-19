@@ -68,6 +68,7 @@ public class Fielder : MonoBehaviour {
         Field.ball.endPoint = target.glove.transform.position;
         Field.ball.startPoint = Field.ball.transform.position;
         Field.ball.targetFielder = target;
+        Field.ball.curPitch.type = Pitcher.Pitches.hit;
         ballInHands = false;
     }
 
