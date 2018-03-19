@@ -28,7 +28,7 @@
     <pitchedstrikeouts>0</pitchedstrikeouts>
     <colorr>0</colorr>
     <colorg>255</colorg>
-    <colorb>0</colorb>
+    <colorb>255</colorb>
   </team>
   <team>
     <id>3</id>
@@ -43,7 +43,7 @@
     <pitchedstrikeouts>0</pitchedstrikeouts>
     <colorr>0</colorr>
     <colorg>0</colorg>
-    <colorb>255</colorb>
+    <colorb>0</colorb>
   </team>
   <team>
     <id>4</id>
@@ -56,6 +56,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
+    <colorr>255</colorr>
+    <colorg>255</colorg>
+    <colorb>255</colorb>
   </team>
   <team>
     <id>5</id>
@@ -68,6 +71,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
+    <colorr>0</colorr>
+    <colorg>255</colorg>
+    <colorb>0</colorb>
   </team>
   <team>
     <id>6</id>
@@ -80,6 +86,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
+    <colorr>177</colorr>
+    <colorg>0</colorg>
+    <colorb>255</colorb>
   </team>
   <team>
     <id>7</id>
@@ -92,6 +101,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
+    <colorr>255</colorr>
+    <colorg>0</colorg>
+    <colorb>0</colorb>
   </team>
   <team>
     <id>8</id>
@@ -104,6 +116,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
+    <colorr>0</colorr>
+    <colorg>255</colorg>
+    <colorb>0</colorb>
   </team>
   <team>
     <id>9</id>
@@ -116,6 +131,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
+    <colorr>0</colorr>
+    <colorg>0</colorg>
+    <colorb>255</colorb>
   </team>
   <team>
     <id>10</id>
@@ -128,6 +146,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
+    <colorr>0</colorr>
+    <colorg>255</colorg>
+    <colorb>0</colorb>
   </team>
   <team>
     <id>11</id>
@@ -140,6 +161,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
+    <colorr>0</colorr>
+    <colorg>255</colorg>
+    <colorb>0</colorb>
   </team>
   <team>
     <id>12</id>
@@ -152,6 +176,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
+    <colorr>0</colorr>
+    <colorg>255</colorg>
+    <colorb>0</colorb>
   </team>
   <team>
     <id>13</id>
@@ -164,6 +191,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
+    <colorr>0</colorr>
+    <colorg>255</colorg>
+    <colorb>0</colorb>
   </team>
   <team>
     <id>14</id>
@@ -176,5 +206,8 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
+    <colorr>0</colorr>
+    <colorg>255</colorg>
+    <colorb>0</colorb>
   </team>
 </ArrayOfTeam>

@@ -30,6 +30,24 @@ public class MenuControl : MonoBehaviour {
         SceneManager.LoadScene(nextScene);
     }
 
+    public void OnTeamChanged()
+    {
+        foreach (var team in GameControl.instance.teams)
+        {
+            if (team.name == team1.options[team1.value].text)
+            {
+                Color teamColor = new Color(team.colorR, team.colorG, team.colorB);
+                GameControl.instance.homeTeamMat.color = teamColor;
+
+            }
+            if (team.name == team2.options[team2.value].text)
+            {
+                Color teamColor = new Color(team.colorR, team.colorG, team.colorB);
+                GameControl.instance.awayTeamMat.color = teamColor;
+            }
+        }
+    }
+
     //Prevent players from being chosen twice
     //or the same team being selected in both options
     bool CheckForIssues()
