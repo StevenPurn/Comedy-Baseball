@@ -25,15 +25,25 @@ public class Ball : MonoBehaviour {
 
     private void Update()
     {
-        Debug.DrawRay(this.transform.position, new Vector3(0, 0.5f, 0));
         if (Utility.CheckEqual(transform.position, endPoint, 0.03f))
         {
+            Debug.Log("reached endpoint");
             hasntHitGround = false;
             //anim.SetBool("Moving", false);
-            float xPos = Field.bases[0].transform.position.x - transform.position.x;
-            float yPos = Field.bases[0].transform.position.y - transform.position.y;
             curSpeed = curSpeed / 2;
-            endPoint = new Vector3(xPos, yPos, 0);
+            if(curSpeed < 0.1f)
+            {
+                maxHeight = 1;
+                endPoint = Vector3.zero;
+            }
+            else
+            {
+                maxHeight = maxHeight / 4;
+                float xPos = Field.bases[0].transform.position.x - transform.position.x;
+                float yPos = Field.bases[0].transform.position.y - transform.position.y;
+                //These need to be better approxiate locations you fool.
+                endPoint = new Vector3(xPos, yPos, 0);
+            } 
         }
         if(endPoint != Vector2.zero)
         {
