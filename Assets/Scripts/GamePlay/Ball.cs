@@ -26,23 +26,25 @@ public class Ball : MonoBehaviour {
 
     private void Update()
     {
-        if (curSpeed < 0.1f)
+        if (curSpeed < 1f)
         {
             maxHeight = 1;
             endPoint = Vector3.zero;
             anim.SetBool("Moving", false);
+            curSpeed = 0;
         }
-        if (Utility.CheckEqual(transform.position, endPoint, 0.04f))
+        if (Utility.CheckEqual(transform.position, endPoint, 0.05f))
         {
             hasntHitGround = false;
             curSpeed = curSpeed / 3f;
-            maxHeight = maxHeight / 4;
-            Vector2 dir = transform.position - Field.bases[0].transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            Debug.Log(angle);
+            Debug.Log(curSpeed);
+            maxHeight = maxHeight / 4f;
+            Vector2 dir = startPoint - endPoint;
+            float angle = Mathf.Atan2(-dir.y, -dir.x) * Mathf.Rad2Deg;
             Vector2 newLandingPoint = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) + new Vector2(transform.position.x, transform.position.y);
-            newLandingPoint = newLandingPoint * (Vector2.Distance(startPoint, endPoint) / 4);
+            newLandingPoint = newLandingPoint * (Vector2.Distance(startPoint, endPoint) / 5);
             endPoint = newLandingPoint;
+            startPoint = transform.position;
         }
         if(endPoint != Vector2.zero)
         {
@@ -124,7 +126,10 @@ public class Ball : MonoBehaviour {
         string tag = collision.transform.tag;
         if (tag == "Runner")
         {
-            collision.GetComponent<Runner>().SwingBat(curPitch.type == Pitcher.Pitches.strike);
+            if(targetFielder != null && targetFielder.position == Fielder.Position.catcher)
+            {
+                collision.GetComponent<Runner>().SwingBat(curPitch.type == Pitcher.Pitches.strike);
+            }
         }else if(curPitch != null && tag == "Fielder")
         {
             if (curPitch.type != Pitcher.Pitches.homerun)
@@ -157,7 +162,7 @@ public class Ball : MonoBehaviour {
         }else if(tag == "Wall" && curPitch.type != Pitcher.Pitches.homerun)
         {
             startPoint = transform.position;
-            endPoint = transform.position + new Vector3(Random.Range(-0.5f, 0.5f),Random.Range(-0.5f, -1f),0);
+            endPoint = transform.position + new Vector3(Random.Range(-0.25f, 0.25f),Random.Range(-0.25f, 0.25f),0);
         }
     }
 

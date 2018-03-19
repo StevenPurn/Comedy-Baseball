@@ -29,7 +29,9 @@ public class Pitcher : MonoBehaviour {
             ball.curSpeed = pitchSpeed;
             ball.maxHeight = 3.0f;
             ball.startPoint = ball.transform.position;
-            ball.endPoint = Field.fielders.Find(x => x.position == Fielder.Position.catcher).glove.position;
+            Fielder catcher = Field.fielders.Find(x => x.position == Fielder.Position.catcher);
+            ball.endPoint = catcher.glove.position;
+            ball.targetFielder = catcher;
         }
         else
         {
