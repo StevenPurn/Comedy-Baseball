@@ -14,6 +14,7 @@ public class Ball : MonoBehaviour {
     public Fielder targetFielder;
     //Chance of error (possibly from previous play)
     //Update the angles of the hits to be more human readable
+    //Set the origin point and compare the pos to that (for bouncing off walls)
 
     private void Start()
     {
@@ -25,29 +26,28 @@ public class Ball : MonoBehaviour {
 
     private void Update()
     {
-        if (Utility.CheckEqual(transform.position, endPoint, 0.03f))
+        if (curSpeed < 0.1f)
         {
-            Debug.Log("reached endpoint");
+            maxHeight = 1;
+            endPoint = Vector3.zero;
+            anim.SetBool("Moving", false);
+        }
+        if (Utility.CheckEqual(transform.position, endPoint, 0.04f))
+        {
             hasntHitGround = false;
-            //anim.SetBool("Moving", false);
-            curSpeed = curSpeed / 2;
-            if(curSpeed < 0.1f)
-            {
-                maxHeight = 1;
-                endPoint = Vector3.zero;
-            }
-            else
-            {
-                maxHeight = maxHeight / 4;
-                float xPos = Field.bases[0].transform.position.x - transform.position.x;
-                float yPos = Field.bases[0].transform.position.y - transform.position.y;
-                //These need to be better approxiate locations you fool.
-                endPoint = new Vector3(xPos, yPos, 0);
-            } 
+            curSpeed = curSpeed / 3f;
+            maxHeight = maxHeight / 4;
+            Vector2 dir = transform.position - Field.bases[0].transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            Debug.Log(angle);
+            Vector2 newLandingPoint = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) + new Vector2(transform.position.x, transform.position.y);
+            newLandingPoint = newLandingPoint * (Vector2.Distance(startPoint, endPoint) / 4);
+            endPoint = newLandingPoint;
         }
         if(endPoint != Vector2.zero)
         {
             MoveBall(endPoint);
+            rb.velocity = Vector2.zero;
         }
 
         float scale = Mathf.Clamp(curHeight / 4, 0.5f, 4f);
