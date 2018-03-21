@@ -16,6 +16,7 @@ public static class Field {
     public static Vector2 ballLandingSpot;
     public static bool ballHasBeenThrown;
     public static Transform fieldParent;
+    public static bool fieldersCanReact;
     private static Vector3 ballOffset = new Vector3(0.09f, -0.05f, 0f);
 
     public static void AssignDugouts()
@@ -82,23 +83,27 @@ public static class Field {
             }
         }
 
-        if (GameControl.ballInPlay || playerOtherThanPitcherHasBall)
+        if (fieldersCanReact)
         {
-            MoveFieldersToPlayPosition();
-            if (ball.hasntHitGround == false && ballHasBeenThrown == false)
+            if (GameControl.ballInPlay || playerOtherThanPitcherHasBall)
             {
-                GetClosestFielderToTransform(ball.transform).movementTarget = ball.transform.position + ballOffset;
-            }
-            else
-            {
-                GetClosestFielderToLocation(ballLandingSpot).movementTarget = ballLandingSpot;
-            }
-            if (fielderWithBall != null)
-            {
-                WhatDoIDoWithTheBall(fielderWithBall);
+                MoveFieldersToPlayPosition();
+                if (ball.hasntHitGround == false && ballHasBeenThrown == false)
+                {
+                    GetClosestFielderToTransform(ball.transform).movementTarget = ball.transform.position + ballOffset;
+                }
+                else
+                {
+                    GetClosestFielderToLocation(ballLandingSpot).movementTarget = ballLandingSpot;
+                }
+                if (fielderWithBall != null)
+                {
+                    WhatDoIDoWithTheBall(fielderWithBall);
+                }
             }
         }
-        else if (GameControl.ballInPlay == false)
+ 
+        if (GameControl.ballInPlay == false)
         {
             if (fielderWithBall != null && fielderWithBall.position != Fielder.Position.pitcher)
             {
@@ -108,6 +113,7 @@ public static class Field {
             {
                 GameControl.instance.SetCameraToFollowBall(false);
                 GameControl.playIsActive = false;
+                fieldersCanReact = false;
             }
             MoveFieldersToStartPosition(false);
         }
@@ -357,4 +363,5 @@ public static class Field {
             GameControl.instance.HandleOut();
         }
     }
+
 }

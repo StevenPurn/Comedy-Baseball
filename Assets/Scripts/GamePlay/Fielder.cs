@@ -4,7 +4,7 @@
 public class Fielder : MonoBehaviour {
 
     public enum Position { pitcher, catcher, firstBaseman, secondBaseman, thirdBaseman, shortstop, rightField, centerField, leftField };
-    public float distanceTolerance = 0.03f;
+    public float distanceTolerance = 0.02f;
     private Rigidbody2D rb;
     public float movementSpeed = 2.5f;
     private float throwSpeed = 4.5f;

@@ -5,7 +5,7 @@
     <name>Boner Squad</name>
     <abbreviation>BNR</abbreviation>
     <wins>0</wins>
-    <loses>0</loses>
+    <loses>1</loses>
     <ties>0</ties>
     <runs>0</runs>
     <hits>0</hits>
@@ -19,7 +19,7 @@
     <id>2</id>
     <name>Jon, Tony, and Deathsaber</name>
     <abbreviation>JTD</abbreviation>
-    <wins>0</wins>
+    <wins>1</wins>
     <loses>0</loses>
     <ties>0</ties>
     <runs>0</runs>
@@ -71,9 +71,9 @@
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
-    <colorr>.823</colorr>
-    <colorg>.41</colorg>
-    <colorb>.127</colorb>
+    <colorr>0.823</colorr>
+    <colorg>0.41</colorg>
+    <colorb>0.127</colorb>
   </team>
   <team>
     <id>6</id>

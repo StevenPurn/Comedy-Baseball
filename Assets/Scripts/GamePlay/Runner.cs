@@ -87,6 +87,7 @@ public class Runner : MonoBehaviour {
                 ball.HandleHomeRun();
             }
             Field.mostRecentBatter = this;
+            Invoke("FieldersCanReact", 0.2f);
             AudioControl.instance.PlayAudio(aud);
             GameControl.instance.ResetCount();
             GameControl.instance.SetCameraToFollowBall(true);
@@ -102,6 +103,11 @@ public class Runner : MonoBehaviour {
         }
     }
 
+    private void FieldersCanReact()
+    {
+        Field.fieldersCanReact = true;
+    }
+
     //Move player towards next base if they have one
     //Use a list of bases to prevent them from moving directly to the final destination
     private void FixedUpdate()
@@ -114,7 +120,7 @@ public class Runner : MonoBehaviour {
         //Check if they are exiting the field and then add the dugout as the target
         //Check how far fielders are away from the ball
         if (Field.CanRunnerAdvance(this)) { 
-            if (Utility.CheckEqual(movementTarget, transform.position, 0.1f))
+            if (Utility.CheckEqual(movementTarget, transform.position, 0.05f))
             {
                 SetAnimationValues(Vector3.zero);
                 enteringField = false;
