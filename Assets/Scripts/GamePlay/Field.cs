@@ -63,7 +63,7 @@ public static class Field {
         Vector3 targetFielderMoveTarget = Vector3.zero;
         if (ball != null && ball.targetFielder != null)
         {
-            targetFielderMoveTarget = ball.targetFielder.playPosition.position;
+            targetFielderMoveTarget = ball.targetFielder.movementTarget;
         }
 
         if (runners.Find(x => x.isAdvancing) == null)
@@ -120,7 +120,7 @@ public static class Field {
 
         if(ball != null && ball.targetFielder != null)
         {
-            ball.targetFielder.movementTarget = targetFielderMoveTarget;
+            ball.targetFielder.movementTarget = ball.targetFielder.playPosition.position;
         }
     }
 

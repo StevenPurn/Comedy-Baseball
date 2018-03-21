@@ -349,6 +349,7 @@ public class GameControl : MonoBehaviour {
         Field.ResetInning();
         outs = 0;
         AddBatterToField();
+        SetCameraToFollowBall(false);
     }
 
     void GameOver()

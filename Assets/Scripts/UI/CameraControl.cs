@@ -4,7 +4,8 @@ public class CameraControl : MonoBehaviour {
 
     public bool followBall = false;
     public Transform camParent;
-    public float smoothSpeed = 0.12f;
+    private float smoothSpeed = 0.3f;
+    private Vector3 velocity = Vector3.zero;
 
     private void Awake()
     {
@@ -14,17 +15,17 @@ public class CameraControl : MonoBehaviour {
 
     public void SetParent(Transform par)
     {
-        this.transform.parent = par;
+        transform.parent = par;
     }
 
     public void SetParent()
     {
-        this.transform.parent = camParent;
+        transform.parent = camParent;
     }
 
     public void ResetPosition()
     {
-        Vector3 smoothedPosition = Vector3.Lerp(transform.localPosition, new Vector3(0, 0, -10), smoothSpeed);
+        Vector3 smoothedPosition = Vector3.SmoothDamp(transform.localPosition, new Vector3(0, 0, -10), ref velocity, smoothSpeed);
         transform.localPosition = smoothedPosition;
     }
 

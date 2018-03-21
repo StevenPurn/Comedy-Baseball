@@ -37,7 +37,6 @@ public class Ball : MonoBehaviour {
         {
             hasntHitGround = false;
             curSpeed = curSpeed / 3f;
-            Debug.Log(curSpeed);
             maxHeight = maxHeight / 4f;
             Vector2 dir = startPoint - endPoint;
             float angle = Mathf.Atan2(-dir.y, -dir.x) * Mathf.Rad2Deg;
