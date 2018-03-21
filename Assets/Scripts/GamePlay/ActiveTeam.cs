@@ -7,12 +7,13 @@ public class ActiveTeam
     public string abbreviation;
     public List<ActivePlayer> players = new List<ActivePlayer>();
     public GameObject dugout;
-    //Might need to make this a list so we can dynamically change the number of innings
     public Inning[] innings = new Inning[GameControl.numberOfInnings];
     public int score = 0;
     public int totalScore;
     public int hits;
     public int totalHits;
+    public int wins;
+    public int loses;
     public bool currentlyAtBat;
     public bool wonGame;
     public Color color;

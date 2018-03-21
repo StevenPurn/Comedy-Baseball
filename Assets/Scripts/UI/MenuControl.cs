@@ -175,6 +175,8 @@ public class MenuControl : MonoBehaviour {
                 aTeam.abbreviation = team.abbreviation;
                 aTeam.currentlyAtBat = t1Toggle.isOn;
                 aTeam.score = 0;
+                aTeam.wins = team.wins;
+                aTeam.loses = team.loses;
                 AddPlayers(aTeam, 1);
                 GameControl.instance.activeTeams.Add(aTeam);
                 Color teamColor = new Color(team.colorR, team.colorG, team.colorB);
@@ -193,6 +195,8 @@ public class MenuControl : MonoBehaviour {
                 aTeam.abbreviation = team.abbreviation;
                 aTeam.score = 0;
                 aTeam.currentlyAtBat = t2Toggle.isOn;
+                aTeam.wins = team.wins;
+                aTeam.loses = team.loses;
                 AddPlayers(aTeam, 2);
                 GameControl.instance.activeTeams.Add(aTeam);
                 Color teamColor = new Color(team.colorR, team.colorG, team.colorB);
