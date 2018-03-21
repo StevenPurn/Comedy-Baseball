@@ -60,12 +60,6 @@ public static class Field {
 
     public static void FielderAI()
     {
-        Vector3 targetFielderMoveTarget = Vector3.zero;
-        if (ball != null && ball.targetFielder != null)
-        {
-            targetFielderMoveTarget = ball.targetFielder.movementTarget;
-        }
-
         if (runners.Find(x => x.isAdvancing) == null)
         {
             GameControl.ballInPlay = false;
@@ -104,13 +98,13 @@ public static class Field {
                 WhatDoIDoWithTheBall(fielderWithBall);
             }
         }
-        else if(GameControl.ballInPlay == false)
+        else if (GameControl.ballInPlay == false)
         {
             if (fielderWithBall != null && fielderWithBall.position != Fielder.Position.pitcher)
             {
                 fielderWithBall.ThrowBall(GetPlayerToThrowBallTo());
             }
-            else if(fielderWithBall != null && fielderWithBall.position == Fielder.Position.pitcher)
+            else if (fielderWithBall != null && fielderWithBall.position == Fielder.Position.pitcher)
             {
                 GameControl.instance.SetCameraToFollowBall(false);
                 GameControl.playIsActive = false;
@@ -118,7 +112,7 @@ public static class Field {
             MoveFieldersToStartPosition(false);
         }
 
-        if(ball != null && ball.targetFielder != null)
+        if (ball != null && ball.targetFielder != null)
         {
             ball.targetFielder.movementTarget = ball.targetFielder.playPosition.position;
         }

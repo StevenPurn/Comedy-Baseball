@@ -38,11 +38,23 @@ public class Ball : MonoBehaviour {
             hasntHitGround = false;
             curSpeed = curSpeed / 3f;
             maxHeight = maxHeight / 4f;
-            Vector2 dir = startPoint - endPoint;
-            float angle = Mathf.Atan2(-dir.y, -dir.x) * Mathf.Rad2Deg;
-            Vector2 newLandingPoint = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) + new Vector2(transform.position.x, transform.position.y);
-            newLandingPoint = newLandingPoint * (Vector2.Distance(startPoint, endPoint) / 5);
-            endPoint = newLandingPoint;
+            Vector2 dir = (startPoint - endPoint);
+            Debug.Log("direction is" + dir);
+            float rads = Mathf.Atan2(dir.y, dir.x);
+            if(rads < 0)
+            {
+                rads = Mathf.Abs(rads);
+            }
+            else
+            {
+                rads = 2 * Mathf.PI - rads;
+            }
+            float angle = Mathf.Rad2Deg * rads;
+            Debug.Log("angle is" + angle);
+            Vector2 newLandingPoint = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+            Debug.Log("landingPoint  is" + newLandingPoint);
+            //newLandingPoint = newLandingPoint * (Vector2.Distance(startPoint, endPoint) / 5);
+            endPoint = newLandingPoint + new Vector2(transform.position.x, transform.position.y);
             startPoint = transform.position;
         }
         if(endPoint != Vector2.zero)
