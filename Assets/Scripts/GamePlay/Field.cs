@@ -61,7 +61,7 @@ public static class Field {
 
     public static void FielderAI()
     {
-        if (runners.Find(x => x.isAdvancing) == null)
+        if (runners.Find(x => x.isAdvancing) == null && ballHasBeenThrown)
         {
             GameControl.ballInPlay = false;
         }

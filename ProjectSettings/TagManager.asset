@@ -9,6 +9,7 @@ TagManager:
   - Base
   - Ball
   - Wall
+  - BottomWall
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - OutfieldWalls
   - Fielder
-  - 
+  - OutfieldBottomWall
   - 
   - 
   - 
