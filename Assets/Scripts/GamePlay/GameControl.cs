@@ -100,7 +100,7 @@ public class GameControl : MonoBehaviour {
 
     public static void InitializeField()
     {
-        AudioControl.instance.PlayAudio("playball");
+        //AudioControl.instance.PlayAudio("playball");
         instance.teamAtBat = instance.activeTeams[0].currentlyAtBat ? 0 : 1;
         instance.AddBatterToField();
         Field.SpawnFielders();

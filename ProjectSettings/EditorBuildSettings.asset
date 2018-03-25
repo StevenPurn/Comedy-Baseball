@@ -20,3 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 1e5ce9e841f8451498cdeeb8fd80fd6b
+  - enabled: 1
+    path: Assets/Scenes/SplashScreen.unity
+    guid: 90d997de82899bd48b60b3ff78a31b79
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 7b807b63eb4992a4c88a66ada74658d1
+  - enabled: 1
+    path: Assets/Scenes/WaitForSpaceBar.unity
+    guid: f476c3b0c0027234d8a91e3abb51ccfd
