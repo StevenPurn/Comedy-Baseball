@@ -140,7 +140,7 @@ public class Ball : MonoBehaviour {
             }
         }else if(tag == "Fielder")
         {
-            if (curPitch.type != Pitcher.Pitches.homerun)
+            if (curPitch != null && curPitch.type != Pitcher.Pitches.homerun)
             {
                 if (GameControl.curInning.pitchesThrownThisInning > 0)
                 {
@@ -150,7 +150,7 @@ public class Ball : MonoBehaviour {
                         {
                             Field.mostRecentBatter.SetOut();
                             GameControl.instance.HandleOut();
-                            string aud = "out" + UnityEngine.Random.Range(1, 5);
+                            string aud = "out" + Random.Range(1, 5);
                             AudioControl.instance.PlayAudio(aud);
                         }
                         hasntHitGround = false;
