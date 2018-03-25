@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceTolerance: 0.03
-  movementSpeed: 2.5
+  movementSpeed: 1.75
   movementTarget: {x: 0, y: 0, z: 0}
   ballInHands: 0
   position: 0
