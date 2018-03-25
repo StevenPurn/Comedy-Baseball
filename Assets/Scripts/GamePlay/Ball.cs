@@ -138,7 +138,7 @@ public class Ball : MonoBehaviour {
             {
                 collision.GetComponent<Runner>().SwingBat(curPitch.type == Pitcher.Pitches.strike);
             }
-        }else if(curPitch != null && tag == "Fielder")
+        }else if(tag == "Fielder")
         {
             if (curPitch.type != Pitcher.Pitches.homerun)
             {

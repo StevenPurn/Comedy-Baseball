@@ -120,7 +120,7 @@ public static class Field {
 
         if (ball != null && ball.targetFielder != null)
         {
-            ball.targetFielder.movementTarget = ball.targetFielder.playPosition.position;
+            ball.targetFielder.movementTarget = ball.endPoint;
         }
     }
 
