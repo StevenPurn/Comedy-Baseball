@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -333,6 +333,13 @@ MonoBehaviour:
   - {fileID: 1442852013}
   betweenInningUI: {fileID: 1463594126}
   suggestionsText: {fileID: 1096599298}
+  randomGameText: {fileID: 0}
+  randomGames:
+  - Back In My Day
+  - 185
+  - World's Worst
+  - Action Hero
+  - I Like My Partner
 --- !u!1 &46519373
 GameObject:
   m_ObjectHideFlags: 0
@@ -6551,7 +6558,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1300694208}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.037999995, y: 0.70000005, z: 0.261}
+  m_LocalPosition: {x: 0.039, y: 0.7, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1006136740}

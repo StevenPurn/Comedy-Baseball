@@ -306,7 +306,7 @@ public class GameControl : MonoBehaviour {
     {
         int curBatter = GetCurrentBatter() - 1 < 0 ? activeTeams[teamAtBat].players.Count - 1 : GetCurrentBatter() - 1;
         activeTeams[teamAtBat].players[curBatter].ChangeRBIs(change);
-        activeTeams[teamAtBat].score += change;
+        activeTeams[teamAtBat].ChangeScore(change, curInning.inningNumber);
         changeCountEvent();
     }
 

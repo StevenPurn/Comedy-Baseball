@@ -42,9 +42,10 @@ public class ActiveTeam
         }
     }
 
-    public void ChangeScore(int change)
+    public void ChangeScore(int change, int inning)
     {
         score += change;
+        innings[inning].score += change;
     }
 
     public int GetHits()
@@ -72,7 +73,6 @@ public class ActiveTeam
     public int GetPitchedStrikeouts()
     {
         int strikeouts = 0;
-
         foreach (var player in players)
         {
             strikeouts += player.strikeoutsPitched;
