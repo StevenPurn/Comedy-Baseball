@@ -33,7 +33,7 @@ public class Ball : MonoBehaviour {
             anim.SetBool("Moving", false);
             curSpeed = 0;
         }
-        if (Utility.CheckEqual(transform.position, endPoint, 0.05f))
+        if (Utility.CheckEqual(transform.position, endPoint, 0.07f))
         {
             hasntHitGround = false;
             curSpeed = curSpeed / 3f;
