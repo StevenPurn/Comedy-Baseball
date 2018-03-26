@@ -4680,6 +4680,53 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 990309487}
+--- !u!1001 &994186711
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1078145960}
+    m_Modifications:
+    - target: {fileID: 4944327390003084, guid: d14adb98d4bf1a742897c7273d085e8b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 5.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944327390003084, guid: d14adb98d4bf1a742897c7273d085e8b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944327390003084, guid: d14adb98d4bf1a742897c7273d085e8b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.3515625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944327390003084, guid: d14adb98d4bf1a742897c7273d085e8b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944327390003084, guid: d14adb98d4bf1a742897c7273d085e8b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944327390003084, guid: d14adb98d4bf1a742897c7273d085e8b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944327390003084, guid: d14adb98d4bf1a742897c7273d085e8b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944327390003084, guid: d14adb98d4bf1a742897c7273d085e8b, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d14adb98d4bf1a742897c7273d085e8b, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &994186712 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4944327390003084, guid: d14adb98d4bf1a742897c7273d085e8b,
+    type: 2}
+  m_PrefabInternal: {fileID: 994186711}
 --- !u!1 &1000370719
 GameObject:
   m_ObjectHideFlags: 0
@@ -5037,6 +5084,35 @@ Transform:
   - {fileID: 215422896}
   m_Father: {fileID: 1239817501}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1078145959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1078145960}
+  m_Layer: 0
+  m_Name: BoatSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1078145960
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1078145959}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.904268, y: 9.184573, z: -0.3515625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 994186712}
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1088082186
 GameObject:
