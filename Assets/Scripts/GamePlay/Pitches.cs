@@ -21,14 +21,14 @@ public class Pitches : MonoBehaviour {
         new List<HitLocation>(), 4f, 6.0f, 5.0f);
 
     public static Pitch pitch2 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
-            { 0.4f, Pitcher.Pitches.hit },
-            { 0.6f, Pitcher.Pitches.strike }
+            { 0.8f, Pitcher.Pitches.hit },
+            { 0.2f, Pitcher.Pitches.strike }
         },
         new List<HitLocation>(), 4f, 5.0f, 5.0f);
 
     public static Pitch pitch3 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
-            { 0.4f, Pitcher.Pitches.strike },
-            { 0.6f, Pitcher.Pitches.hit }
+            { 0.3f, Pitcher.Pitches.strike },
+            { 0.7f, Pitcher.Pitches.hit }
         },
         new List<HitLocation>(), 4f, 5.0f, 5.0f);
 
@@ -58,12 +58,12 @@ public class Pitches : MonoBehaviour {
         new List<HitLocation>(), 6f, 10f, 7.0f);
 
     public static Pitch pitch9 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
-            { 0.4f, Pitcher.Pitches.hit }
+            { 1f, Pitcher.Pitches.hit }
         },
         new List<HitLocation>(), 8f, 18f, 8.0f);
 
     public static Pitch pitch10 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
-            { 1.0f, Pitcher.Pitches.homerun },
+            { 1f, Pitcher.Pitches.homerun },
         },
         new List<HitLocation>(), 10f, 20f, 10.0f);
 
