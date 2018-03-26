@@ -333,7 +333,7 @@ MonoBehaviour:
   - {fileID: 1442852013}
   betweenInningUI: {fileID: 1463594126}
   suggestionsText: {fileID: 1096599298}
-  randomGameText: {fileID: 0}
+  randomGameText: {fileID: 200096801}
   randomGames:
   - Back In My Day
   - 185
