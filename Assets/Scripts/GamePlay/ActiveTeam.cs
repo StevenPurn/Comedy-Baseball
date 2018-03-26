@@ -45,7 +45,7 @@ public class ActiveTeam
     public void ChangeScore(int change, int inning)
     {
         score += change;
-        innings[inning].score += change;
+        //innings[inning - 1].score += change;
     }
 
     public int GetHits()
