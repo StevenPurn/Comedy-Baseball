@@ -35,11 +35,11 @@
     <name>Goof Troop</name>
     <abbreviation>GFTP</abbreviation>
     <wins>1</wins>
-    <loses>0</loses>
+    <loses>1</loses>
     <ties>0</ties>
     <runs>2</runs>
     <hits>0</hits>
-    <atbatstrikeouts>0</atbatstrikeouts>
+    <atbatstrikeouts>1</atbatstrikeouts>
     <pitchedstrikeouts>1</pitchedstrikeouts>
     <colorr>0</colorr>
     <colorg>0</colorg>
@@ -94,13 +94,13 @@
     <id>7</id>
     <name>Team Mutiny Radio</name>
     <abbreviation>MTYR</abbreviation>
-    <wins>0</wins>
+    <wins>1</wins>
     <loses>1</loses>
     <ties>0</ties>
     <runs>0</runs>
     <hits>0</hits>
     <atbatstrikeouts>1</atbatstrikeouts>
-    <pitchedstrikeouts>0</pitchedstrikeouts>
+    <pitchedstrikeouts>1</pitchedstrikeouts>
     <colorr>255</colorr>
     <colorg>0</colorg>
     <colorb>0</colorb>

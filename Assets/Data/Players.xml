@@ -55,7 +55,7 @@
     <portraitPath>/Art/Portraits/anicacihla.png</portraitPath>
     <team>Goof Troop</team>
     <name>Anica Cihla</name>
-    <atbats>3</atbats>
+    <atbats>5</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>1</strikeoutsPitched>
@@ -67,9 +67,9 @@
     <portraitPath>/Art/Portraits/avivasiegel.png</portraitPath>
     <team>Goof Troop</team>
     <name>Aviva Siegel</name>
-    <atbats>4</atbats>
+    <atbats>6</atbats>
     <hits>0</hits>
-    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsAtBat>1</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
@@ -259,10 +259,10 @@
     <portraitPath>/Art/Portraits/mikespeigelman.png</portraitPath>
     <team>Team Mutiny Radio</team>
     <name>Mike Speigelman</name>
-    <atbats>2</atbats>
+    <atbats>4</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
-    <strikeoutsPitched>0</strikeoutsPitched>
+    <strikeoutsPitched>1</strikeoutsPitched>
   </player>
   <player>
     <number>23</number>
@@ -283,7 +283,7 @@
     <portraitPath>/Art/Portraits/natashamuse.png</portraitPath>
     <team>Goof Troop</team>
     <name>Natasha Muse</name>
-    <atbats>3</atbats>
+    <atbats>5</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
@@ -295,7 +295,7 @@
     <portraitPath>/Art/Portraits/pambenjamin.png</portraitPath>
     <team>Team Mutiny Radio</team>
     <name>Pam Benjamin</name>
-    <atbats>3</atbats>
+    <atbats>6</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
@@ -403,7 +403,7 @@
     <portraitPath>/Art/Portraits/colinmahan.png</portraitPath>
     <team>Team Mutiny Radio</team>
     <name>Colin Mahan</name>
-    <atbats>3</atbats>
+    <atbats>5</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>1</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
