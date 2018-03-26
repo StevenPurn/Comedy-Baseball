@@ -17,7 +17,8 @@ public static class Controls {
         { "hit8",     KeyCode.Alpha8  },
         { "hit9",     KeyCode.Alpha9  },
         { "hit10",    KeyCode.Alpha0  },
-        { "FastForward",KeyCode.Space   }
+        { "FastForward",KeyCode.Space   },
+        { "escape", KeyCode.Escape }
     };
 
     public static bool GetButtonDown(string button)
