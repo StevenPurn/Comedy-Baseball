@@ -1,13 +1,13 @@
 fileFormatVersion: 2
 guid: a2b6e90d13349cf479e6e29481defd23
-timeCreated: 1515449278
+timeCreated: 1522026107
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Out
-    21300002: Strike
-    21300004: foul
-    21300006: ball
+    21300000: out
+    21300002: strike
+    21300004: ball
+    21300006: foul
     21300008: homerun
   externalObjects: {}
   serializedVersion: 4
@@ -41,7 +41,7 @@ TextureImporter:
     mipBias: -1
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -71,28 +71,19 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 8192
-    resizeAlgorithm: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
     textureFormat: 2
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 1
-  - buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Out
+      name: out
       rect:
         serializedVersion: 2
         x: 14
@@ -100,35 +91,21 @@ TextureImporter:
         width: 149
         height: 51
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Strike
+      name: strike
       rect:
         serializedVersion: 2
         x: 22
-        y: 250
+        y: 232
         width: 177
         height: 51
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: foul
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 149
-        width: 129
-        height: 52
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -138,11 +115,25 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 17
-        y: 198
+        y: 162
         width: 131
         height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: foul
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 94
+        width: 129
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,11 +143,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 8
-        y: 101
+        y: 29
         width: 192
         height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
