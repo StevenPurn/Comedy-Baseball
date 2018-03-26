@@ -9,9 +9,18 @@ public class BetweenInnings : MonoBehaviour {
     public GameObject betweenInningUI;
     public Text suggestionsText;
 
-    private void Awake()
+    private void Start()
     {
         //turn off input listening for the numbers
+        HandleInput.listenForHits = false;
+        foreach (var suggestion in suggestions)
+        {
+            suggestion.text = "";
+        }
+    }
+
+    private void OnEnable()
+    {
         HandleInput.listenForHits = false;
         foreach (var suggestion in suggestions)
         {
