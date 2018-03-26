@@ -12,10 +12,15 @@ public class BetweenInnings : MonoBehaviour {
     private void Awake()
     {
         //turn off input listening for the numbers
+        HandleInput.listenForHits = false;
+        foreach (var suggestion in suggestions)
+        {
+            suggestion.text = "Enter Suggestion";
+        }
     }
 
     void Update () {
-        if (Controls.GetButtonDown("escape"))
+        if (Controls.GetButtonDown("escape") && betweenInningUI.activeSelf)
         {
             suggestionsText.text = "";
             GameControl.curInning.suggestions.Clear();
@@ -29,6 +34,7 @@ public class BetweenInnings : MonoBehaviour {
                 i++;
             }
             betweenInningUI.SetActive(false);
+            HandleInput.listenForHits = true;
         }
 	}
 }

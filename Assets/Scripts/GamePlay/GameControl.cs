@@ -16,6 +16,7 @@ public class GameControl : MonoBehaviour {
     public string teamFilePath = "/Data/Teams.xml";
     public string playerFilePath = "/Data/Players.xml";
     public GameObject runnerPrefab, fielderPrefab;
+    public BetweenInnings betweenInningControl;
     public Transform battersBox, fieldParent;
     public CameraControl fieldCam;
     public List<Team> teams = new List<Team>();
@@ -324,13 +325,18 @@ public class GameControl : MonoBehaviour {
         waitingForNextBatter = false;
         if (curInning.isBottom)
         {
-            if(curInning.inningNumber >= numberOfInnings)
+            if (curInning.inningNumber >= numberOfInnings)
             {
                 GameOver();
             }
             curInning.inningNumber += 1;
             curInning.isBottom = false;
             curInning.pitchesThrownThisInning = 0;
+            if(betweenInningControl == null)
+            {
+                betweenInningControl = FindObjectOfType<BetweenInnings>();
+            }
+            betweenInningControl.betweenInningUI.SetActive(true);
         }
         else
         {

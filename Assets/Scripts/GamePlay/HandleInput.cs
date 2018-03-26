@@ -2,9 +2,11 @@
 
 public class HandleInput : MonoBehaviour
 {
+    public static bool listenForHits;
+
     void Update ()
     {
-        if(!Field.runners.Find(x => x.isAdvancing))
+        if (!Field.runners.Find(x => x.isAdvancing) && listenForHits)
         {
             if (Controls.GetButtonDown("hit1"))
             {
@@ -48,6 +50,9 @@ public class HandleInput : MonoBehaviour
             }
             Field.UpdateBases();
         }
-        GameControl.instance.FastForward(Controls.GetButton("FastForward"));
+        if (listenForHits)
+        {
+            GameControl.instance.FastForward(Controls.GetButton("FastForward"));
+        }
     }
 }
