@@ -55,7 +55,7 @@ public class UIControl : MonoBehaviour {
     {
         ActivePlayer curBatter = GameControl.instance.GetCurrentBattingPlayer();
         string batAvg = ((float)Math.Round(((float)curBatter.totalHits / (float)curBatter.totalAtBats), 3) * 1000).ToString();
-        if (curBatter.totalHit < 1)
+        if (curBatter.totalHits < 1)
         {
             batAvg = "000";
         }
