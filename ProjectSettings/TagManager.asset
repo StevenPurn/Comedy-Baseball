@@ -44,6 +44,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Skybox
+    uniqueID: 2661440931
+    locked: 0
+  - name: Water
+    uniqueID: 2569675161
+    locked: 0
+  - name: Water 2
+    uniqueID: 3826002177
+    locked: 0
+  - name: backround
+    uniqueID: 3871721923
+    locked: 0
+  - name: Scoreboard
+    uniqueID: 799045373
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
