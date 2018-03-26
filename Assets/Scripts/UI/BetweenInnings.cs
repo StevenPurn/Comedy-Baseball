@@ -7,7 +7,8 @@ public class BetweenInnings : MonoBehaviour {
 
     public List<InputField> suggestions = new List<InputField>();
     public GameObject betweenInningUI;
-    public Text suggestionsText;
+    public Text suggestionsText, randomGameText;
+    public List<string> randomGames = new List<string>();
 
     private void Start()
     {
@@ -26,6 +27,14 @@ public class BetweenInnings : MonoBehaviour {
         {
             suggestion.text = "";
         }
+        if(GameControl.curInning.inningNumber != 3)
+        {
+            randomGameText.text = randomGames[UnityEngine.Random.Range(0, randomGames.Count - 2)];
+        } else
+        {
+            randomGameText.text = randomGames[4];
+        }
+
     }
 
     void Update () {
@@ -39,8 +48,8 @@ public class BetweenInnings : MonoBehaviour {
                 if(suggestion.textComponent.color.a == 1)
                 {
                     suggestionsText.text += i == 0 ? "-" + suggestion.text : Environment.NewLine + "-" + suggestion.text;
+                    i++;
                 }
-                i++;
             }
             betweenInningUI.SetActive(false);
             HandleInput.listenForHits = true;
@@ -48,7 +57,6 @@ public class BetweenInnings : MonoBehaviour {
         {
             Color col = suggestions[0].textComponent.color;
             col.a = col.a < 1 ? 1 : .4f;
-            Debug.Log(col);
             suggestions[0].textComponent.color = col;
         }
         else if (Controls.GetButtonDown("hit2"))

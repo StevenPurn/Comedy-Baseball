@@ -6,4 +6,5 @@ public class Inning {
     public int inningNumber;
     public int pitchesThrownThisInning;
     public List<string> suggestions = new List<string>();
+    public int score;
 }
