@@ -29,7 +29,7 @@ public class BetweenInnings : MonoBehaviour {
         }
         if(GameControl.curInning.inningNumber != 3)
         {
-            randomGameText.text = randomGames[UnityEngine.Random.Range(0, randomGames.Count - 1)];
+            randomGameText.text = randomGames[UnityEngine.Random.Range(0, randomGames.Count - 2)];
         } else
         {
             randomGameText.text = randomGames[4];
