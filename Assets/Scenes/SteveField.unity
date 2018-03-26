@@ -718,6 +718,34 @@ MonoBehaviour:
   center: {fileID: 0}
   minOffset: {x: -1, y: -1}
   maxOffset: {x: 1, y: 1}
+--- !u!1 &113627655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 113627656}
+  m_Layer: 0
+  m_Name: CloudSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &113627656
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 113627655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.267734, y: 10.475444, z: -0.3515625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &116481578
 GameObject:
   m_ObjectHideFlags: 0
@@ -4696,11 +4724,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4944327390003084, guid: d14adb98d4bf1a742897c7273d085e8b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.91
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4944327390003084, guid: d14adb98d4bf1a742897c7273d085e8b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.08
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 4944327390003084, guid: d14adb98d4bf1a742897c7273d085e8b, type: 2}
       propertyPath: m_LocalPosition.z

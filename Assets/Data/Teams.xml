@@ -3,7 +3,7 @@
   <team>
     <id>1</id>
     <name>Boner Squad</name>
-    <abbreviation>BNR</abbreviation>
+    <abbreviation>BNRS</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -18,7 +18,7 @@
   <team>
     <id>2</id>
     <name>Jon, Tony, and Deathsaber</name>
-    <abbreviation>JTD</abbreviation>
+    <abbreviation>JTDS</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -33,7 +33,7 @@
   <team>
     <id>3</id>
     <name>Goof Troop</name>
-    <abbreviation>GTP</abbreviation>
+    <abbreviation>GFTP</abbreviation>
     <wins>1</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -48,7 +48,7 @@
   <team>
     <id>4</id>
     <name>Chicken Scratchers</name>
-    <abbreviation>Ckn</abbreviation>
+    <abbreviation>CKNS</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -63,7 +63,7 @@
   <team>
     <id>5</id>
     <name>Trill Buckner</name>
-    <abbreviation>Trl</abbreviation>
+    <abbreviation>TLBK</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -78,7 +78,7 @@
   <team>
     <id>6</id>
     <name>Baby Steaks</name>
-    <abbreviation>Stk</abbreviation>
+    <abbreviation>BSTK</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -93,7 +93,7 @@
   <team>
     <id>7</id>
     <name>Team Mutiny Radio</name>
-    <abbreviation>MTY</abbreviation>
+    <abbreviation>MTYR</abbreviation>
     <wins>0</wins>
     <loses>1</loses>
     <ties>0</ties>
@@ -108,7 +108,7 @@
   <team>
     <id>8</id>
     <name>Team Komedio</name>
-    <abbreviation>KDO</abbreviation>
+    <abbreviation>KMDO</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -123,7 +123,7 @@
   <team>
     <id>9</id>
     <name>Super Trashed Bros</name>
-    <abbreviation>STB</abbreviation>
+    <abbreviation>TBRO</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -138,7 +138,7 @@
   <team>
     <id>10</id>
     <name>18 Holes</name>
-    <abbreviation>18H</abbreviation>
+    <abbreviation>18HS</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -153,7 +153,7 @@
   <team>
     <id>11</id>
     <name>DruNK</name>
-    <abbreviation>DNK</abbreviation>
+    <abbreviation>DRNK</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
@@ -168,7 +168,7 @@
   <team>
     <id>12</id>
     <name>Team Sylvan</name>
-    <abbreviation>SYL</abbreviation>
+    <abbreviation>SYLV</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
