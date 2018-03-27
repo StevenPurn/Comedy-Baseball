@@ -65,7 +65,7 @@ public class UIControl : MonoBehaviour {
         }
         else
         {
-            batText = "\n." + batAvg.ToString();
+            batText = "\n." + (batAvg * 1000).ToString();
         }
         batText = curBatter.number.ToString() + "\n" + curBatter.name + batText;
         batter.text = batText;

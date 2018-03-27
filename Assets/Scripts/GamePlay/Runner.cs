@@ -79,6 +79,7 @@ public class Runner : MonoBehaviour {
             ball.TemporarilyDisableCollision(0.3f);
             ball.curSpeed = ball.curPitch.hitSpeed;
             ball.maxHeight = ball.curPitch.maxHeight;
+            ball.targetFielder = null;
             ball.startPoint = ball.transform.position;
             ball.endPoint = hitTarget;
             ball.hasntHitGround = true;
