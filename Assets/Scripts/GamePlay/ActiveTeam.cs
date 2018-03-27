@@ -52,10 +52,6 @@ public class ActiveTeam
     {
         score += change;
         scoreByInning[inning - 1] += change;
-        foreach (var item in scoreByInning)
-        {
-            Debug.Log(item);
-        }
     }
 
     public int GetHits()
