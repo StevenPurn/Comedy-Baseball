@@ -12,6 +12,7 @@ public class ActiveTeam
     public int totalScore;
     public int hits;
     public int totalHits;
+    public int pitches;
     public int wins;
     public int loses;
     public bool currentlyAtBat;
@@ -28,6 +29,11 @@ public class ActiveTeam
         {
             players.Add(player);
         }
+    }
+
+    public int GetPitches()
+    {
+        return pitches;
     }
 
     public void RemovePlayer(ActivePlayer player)
