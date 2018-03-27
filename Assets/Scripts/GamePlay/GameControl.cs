@@ -359,8 +359,25 @@ public class GameControl : MonoBehaviour {
 
     void GameOver()
     {
-        ActiveTeam winner = activeTeams[0].score > activeTeams[1].score ? activeTeams[0] : activeTeams[1];
-        winner.wonGame = true;
+        if(activeTeams[0].score == activeTeams[1].score)
+        {
+            activeTeams[0].tiedGame = true;
+            activeTeams[1].tiedGame = true;
+        }
+        else
+        {
+            if(activeTeams[0].score > activeTeams[1].score)
+            {
+                activeTeams[0].wonGame = true;
+                activeTeams[1].lostGame = true;
+            }
+            else
+            {
+                activeTeams[1].wonGame = true;
+                activeTeams[0].lostGame = true;
+            }
+        }
+
         Save();
         SceneManager.LoadScene("GameOver");
     }

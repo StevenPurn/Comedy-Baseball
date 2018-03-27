@@ -16,7 +16,7 @@ public class ActiveTeam
     public int wins;
     public int loses;
     public bool currentlyAtBat;
-    public bool wonGame;
+    public bool wonGame, lostGame, tiedGame;
     public Color color;
 
     public void AddPlayer(ActivePlayer player)
