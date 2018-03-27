@@ -336,7 +336,7 @@ public class GameControl : MonoBehaviour {
             {
                 betweenInningControl = FindObjectOfType<BetweenInnings>();
             }
-            betweenInningControl.betweenInningUI.SetActive(true);
+            betweenInningControl.EnableBetweenInningsUI();
         }
         else
         {

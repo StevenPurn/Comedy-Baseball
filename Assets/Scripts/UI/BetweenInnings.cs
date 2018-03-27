@@ -20,7 +20,13 @@ public class BetweenInnings : MonoBehaviour {
         }
     }
 
-    private void OnEnable()
+    public void EnableBetweenInningsUI()
+    {
+        betweenInningUI.SetActive(true);
+        Enable();
+    }
+
+    private void Enable()
     {
         HandleInput.listenForHits = false;
         foreach (var suggestion in suggestions)
