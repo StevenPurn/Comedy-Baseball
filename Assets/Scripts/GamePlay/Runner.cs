@@ -9,12 +9,14 @@ public class Runner : MonoBehaviour {
     public bool isOut;
     public bool exitingField = false;
     public bool isAdvancing;
+    private bool addedHit;
     public bool enteringField = true;
     public List<GameObject> targetBase = new List<GameObject>();
     private Rigidbody2D rb;
     public float movementSpeed = 3.0f;
     private Collider2D col;
     public ActiveTeam team;
+    public ActivePlayer player;
     public Animator anim;
     private Ball ball;
 
@@ -136,6 +138,7 @@ public class Runner : MonoBehaviour {
                 }
                 else if (currentBase == 3)
                 {
+                    player.ChangeRuns(1);
                     GameControl.instance.ChangeTeamScore(1);
                     exitingField = true;
                 }
@@ -150,6 +153,12 @@ public class Runner : MonoBehaviour {
                         currentBase += 1;
                     }
                     targetBase.Remove(targetBase[0]);
+                }
+
+                if(addedHit == false && atBat == false)
+                {
+                    player.ChangeHits(1);
+                    addedHit = true;
                 }
             }
             else
