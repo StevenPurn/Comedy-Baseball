@@ -94,7 +94,7 @@ public class GameControl : MonoBehaviour {
             runner.atBat = false;
         }
         battingTeam.players[curBatter].isAtBat = true;
-        battingTeam.players[curBatter].atBats += 1;
+        battingTeam.players[curBatter].ChangeAtBats(1);
         AddBatterToField();
         changeCountEvent();
     }
@@ -116,6 +116,7 @@ public class GameControl : MonoBehaviour {
         }
         GameObject go = Instantiate(runnerPrefab, GetTeamAtBat().dugout.transform.position, Quaternion.identity, fieldParent);
         go.GetComponentInChildren<Runner>().team = GetTeamAtBat();
+        go.GetComponentInChildren<Runner>().player = GetCurrentBattingPlayer();
         go.name = "Runner " + runnerNumber;
         runnerNumber += 1;
         Field.runners.Add(go.GetComponentInChildren<Runner>());
@@ -235,7 +236,6 @@ public class GameControl : MonoBehaviour {
 
     public void HandleStrike(bool wasFoul = false)
     {
-        GetCurrentPitchingPlayer().ChangePitches(1);
         strikes += 1;
         if (strikes >= 3)
         {
@@ -272,7 +272,6 @@ public class GameControl : MonoBehaviour {
 
     public void HandleBall()
     {
-        GetCurrentPitchingPlayer().ChangePitches(1);
         balls += 1;
         if (balls >= 4)
         {
@@ -336,7 +335,7 @@ public class GameControl : MonoBehaviour {
             {
                 betweenInningControl = FindObjectOfType<BetweenInnings>();
             }
-            betweenInningControl.betweenInningUI.SetActive(true);
+            betweenInningControl.EnableBetweenInningsUI();
         }
         else
         {

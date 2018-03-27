@@ -180,6 +180,7 @@ MonoBehaviour:
   movementTarget: {x: 0, y: 0, z: 0}
   ballInHands: 0
   position: 0
+  catcherController: {fileID: 9100000, guid: edf38af109d51134faab447be9ec4356, type: 2}
   startPosition: {fileID: 0}
   playPosition: {fileID: 0}
   glove: {fileID: 4993202046983640}

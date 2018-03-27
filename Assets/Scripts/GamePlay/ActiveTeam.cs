@@ -7,7 +7,7 @@ public class ActiveTeam
     public string abbreviation;
     public List<ActivePlayer> players = new List<ActivePlayer>();
     public GameObject dugout;
-    public Inning[] innings = new Inning[GameControl.numberOfInnings];
+    public int[] scoreByInning = new int[GameControl.numberOfInnings];
     public int score = 0;
     public int totalScore;
     public int hits;
@@ -45,7 +45,11 @@ public class ActiveTeam
     public void ChangeScore(int change, int inning)
     {
         score += change;
-        //innings[inning - 1].score += change;
+        scoreByInning[inning - 1] += change;
+        foreach (var item in scoreByInning)
+        {
+            Debug.Log(item);
+        }
     }
 
     public int GetHits()

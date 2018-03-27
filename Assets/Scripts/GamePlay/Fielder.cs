@@ -12,6 +12,7 @@ public class Fielder : MonoBehaviour {
     public ActiveTeam team;
     public bool ballInHands;
     public Position position;
+    public RuntimeAnimatorController catcherController;
     public Transform startPosition, playPosition, glove;
     public bool inningOver = false;
     public Animator anim;
@@ -22,6 +23,10 @@ public class Fielder : MonoBehaviour {
         anim = GetComponent<Animator>();
         GetComponent<SpriteRenderer>().material = team == GameControl.instance.activeTeams[0] ? GameControl.instance.homeTeamMat : GameControl.instance.awayTeamMat;
         ballInHands = false;
+        if(position == Position.catcher)
+        {
+            anim.runtimeAnimatorController = catcherController;
+        }
     }
 
     public void SetPosition(Position pos)

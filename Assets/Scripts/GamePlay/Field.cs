@@ -239,7 +239,6 @@ public static class Field {
 
     public static bool CanRunnerAdvance(Runner runner)
     {
-        //Check if ball has been thrown
         if (runner.anim.GetCurrentAnimatorStateInfo(0).IsName("runnerSwingBat"))
         { 
             return false;
@@ -253,6 +252,9 @@ public static class Field {
             return true;
         }
         else if (GameControl.isHomeRun && !runner.atBat)
+        {
+            return true;
+        }else if (runners.Find(x => x.isAdvancing && x.currentBase + 1 == runner.currentBase))
         {
             return true;
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -8511,7 +8511,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1689458465}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -74.920006, y: 27.07, z: 0}
+  m_LocalPosition: {x: -62.800003, y: 27.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1243276028}
@@ -8519,8 +8519,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 115.58, y: -41.43}
-  m_SizeDelta: {x: 152.17, y: 36.85}
+  m_AnchoredPosition: {x: 127.7, y: -41.43}
+  m_SizeDelta: {x: 176.4, y: 36.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1689458467
 MonoBehaviour:
@@ -8545,7 +8545,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: e1185109b0ab4fe498e62997ec3bff9c, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
@@ -9025,7 +9025,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1723808737}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -74.92004, y: -30.574997, z: 0}
+  m_LocalPosition: {x: -62.800003, y: -30.574997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1243276028}
@@ -9033,8 +9033,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 115.579956, y: 37.925003}
-  m_SizeDelta: {x: 152.17, y: 36.85}
+  m_AnchoredPosition: {x: 127.7, y: 37.925003}
+  m_SizeDelta: {x: 176.4, y: 36.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1723808739
 MonoBehaviour:
@@ -9059,7 +9059,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: e1185109b0ab4fe498e62997ec3bff9c, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
