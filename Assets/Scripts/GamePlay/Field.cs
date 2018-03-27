@@ -254,6 +254,9 @@ public static class Field {
         else if (GameControl.isHomeRun && !runner.atBat)
         {
             return true;
+        }else if (runners.Find(x => x.isAdvancing && x.currentBase + 1 == runner.currentBase))
+        {
+            return true;
         }
         else if(fielders.Find(x => x.ballInHands))
         {
