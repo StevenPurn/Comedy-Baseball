@@ -34,12 +34,11 @@ public class CameraControl : MonoBehaviour {
         if (followBall)
         {
             SetParent(Field.ball.transform);
-            ResetPosition();
         }
         else
         {
             SetParent(camParent);
-            ResetPosition();
         }
+        ResetPosition();
     }
 }

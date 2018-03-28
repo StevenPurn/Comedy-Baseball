@@ -43,6 +43,7 @@ public class Runner : MonoBehaviour {
             if (GameControl.strikes != 2)
             {
                 string aud = "strike" + UnityEngine.Random.Range(1, 4);
+                TextPopUps.instance.ShowPopUp("strike");
                 AudioControl.instance.PlayAudio(aud);
             }
             float rand = UnityEngine.Random.Range(0f, 1f);
@@ -86,7 +87,6 @@ public class Runner : MonoBehaviour {
             string aud = "hit" + UnityEngine.Random.Range(1, 3);
             if(ball.curPitch.type == Pitcher.Pitches.homerun)
             {
-                //Ensure the ball makes it out of the park
                 ball.HandleHomeRun();
             }
             Field.mostRecentBatter = this;

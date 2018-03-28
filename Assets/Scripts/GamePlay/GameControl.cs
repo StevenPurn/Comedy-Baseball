@@ -322,6 +322,7 @@ public class GameControl : MonoBehaviour {
     {
         ballInPlay = false;
         waitingForNextBatter = false;
+        Field.ball.transform.SetParent(GameObject.Find("Field").transform);
         if (curInning.isBottom)
         {
             if (curInning.inningNumber >= numberOfInnings)

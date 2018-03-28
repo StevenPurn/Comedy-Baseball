@@ -55,6 +55,7 @@ public class Fielder : MonoBehaviour {
             if (inningOver)
             {
                 Field.fielders.Remove(this);
+                ballInHands = false;
                 Destroy(gameObject.transform.parent.gameObject);
             }
         }

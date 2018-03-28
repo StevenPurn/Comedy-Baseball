@@ -40,5 +40,6 @@ public class TextPopUps : MonoBehaviour {
                 popUpImg.sprite = homeRun;
                 break;
         }
+        popUpObj.SetActive(true);
     }
 }

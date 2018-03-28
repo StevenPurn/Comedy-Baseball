@@ -12,6 +12,7 @@ public class Ball : MonoBehaviour {
     public Pitch curPitch;
     public Animator anim;
     public Fielder targetFielder;
+    public bool shownHomeRunPopup = false;
     //Chance of error (possibly from previous play)
     //Update the angles of the hits to be more human readable
     //Set the origin point and compare the pos to that (for bouncing off walls)
@@ -104,7 +105,7 @@ public class Ball : MonoBehaviour {
         curPitch.hitSpeed = Random.Range(curPitch.minSpeed, curPitch.maxSpeed);
     }
 
-    public void HandleHomeRun(float timeDelay = 10f)
+    public void HandleHomeRun(float timeDelay = 7f)
     {
         TemporarilyDisableCollision(timeDelay);
         Invoke("ReturnToPitcher", timeDelay);
@@ -119,7 +120,7 @@ public class Ball : MonoBehaviour {
     private void ReturnToPitcher()
     {
         anim.SetBool("Moving", false);
-        Fielder pitcher = Field.fielders.Find(x => x.position == Fielder.Position.pitcher);
+        Fielder pitcher = Field.fielders.Find(x => x.position == Fielder.Position.pitcher && x.inningOver == false);
         endPoint = Vector2.zero;
         pitcher.ballInHands = true;
     }
@@ -152,6 +153,7 @@ public class Ball : MonoBehaviour {
                             GameControl.instance.HandleOut();
                             string aud = "out" + Random.Range(1, 5);
                             AudioControl.instance.PlayAudio(aud);
+                            TextPopUps.instance.ShowPopUp("out");
                         }
                         hasntHitGround = false;
                         if (collision.GetComponentInParent<Fielder>().ballInHands == false)
@@ -175,7 +177,18 @@ public class Ball : MonoBehaviour {
         {
             startPoint = transform.position;
             endPoint = transform.position + new Vector3(Random.Range(-0.25f, 0.25f),Random.Range(-0.5f, -0.05f),0);
+        } else if(tag == "Wall" && curPitch.type == Pitcher.Pitches.homerun && shownHomeRunPopup == false)
+        {
+            shownHomeRunPopup = true;
+            AudioControl.instance.PlayAudio("homerun");
+            TextPopUps.instance.ShowPopUp("homerun");
+            Invoke("SetCameraParent", 0.6f);
         }
+    }
+
+    private void SetCameraParent()
+    {
+        GameControl.instance.SetCameraToFollowBall(false);
     }
 
     private void OnTriggerExit2D(Collider2D collision)

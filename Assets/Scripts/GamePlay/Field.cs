@@ -51,6 +51,7 @@ public static class Field {
                 else
                 {
                     string aud = "out" + UnityEngine.Random.Range(1, 5);
+                    TextPopUps.instance.ShowPopUp("out");
                     AudioControl.instance.PlayAudio(aud);
                 }
                 runner.SetOut();
@@ -276,15 +277,15 @@ public static class Field {
         Fielder playerToThrowTo;
         if(GameControl.ballInPlay == false)
         {
-            playerToThrowTo = fielders.Find(x => x.position == Fielder.Position.pitcher);
+            playerToThrowTo = fielders.Find(x => x.position == Fielder.Position.pitcher && !x.inningOver);
         }else if (GetFurthestRunner() == null)
         {
             GameControl.ballInPlay = false;
-            playerToThrowTo = fielders.Find(x => x.position == Fielder.Position.pitcher);
+            playerToThrowTo = fielders.Find(x => x.position == Fielder.Position.pitcher && !x.inningOver);
         }else if (!runners.Find(x => x.isAdvancing))
         {
             GameControl.ballInPlay = false;
-            playerToThrowTo = fielders.Find(x => x.position == Fielder.Position.pitcher);
+            playerToThrowTo = fielders.Find(x => x.position == Fielder.Position.pitcher && !x.inningOver);
         }
         else
         {
@@ -358,6 +359,7 @@ public static class Field {
             }
             else
             {
+                TextPopUps.instance.ShowPopUp("out");
                 aud = "out" + UnityEngine.Random.Range(1, 5);
             }
             AudioControl.instance.PlayAudio(aud);
