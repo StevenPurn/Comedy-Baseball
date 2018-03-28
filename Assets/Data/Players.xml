@@ -2,15 +2,15 @@
 <ArrayOfPlayer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <player>
     <number>1</number>
-    <battingAvg>1.4</battingAvg>
+    <battingAvg>0</battingAvg>
     <rbi>0</rbi>
     <portraitPath>/Art/Portraits/alejandroochoa.png</portraitPath>
     <team>Trill Buckner</team>
     <name>Dro Ochoa</name>
-    <atbats>5</atbats>
-    <hits>7</hits>
+    <atbats>0</atbats>
+    <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
-    <strikeoutsPitched>2</strikeoutsPitched>
+    <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
     <number>2</number>
@@ -55,7 +55,7 @@
     <portraitPath>/Art/Portraits/anicacihla.png</portraitPath>
     <team>Goof Troop</team>
     <name>Anica Cihla</name>
-    <atbats>5</atbats>
+    <atbats>0</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
@@ -63,25 +63,25 @@
   <player>
     <number>6</number>
     <battingAvg>0</battingAvg>
-    <rbi>2</rbi>
+    <rbi>0</rbi>
     <portraitPath>/Art/Portraits/avivasiegel.png</portraitPath>
     <team>Goof Troop</team>
     <name>Aviva Siegel</name>
-    <atbats>6</atbats>
+    <atbats>0</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
     <number>7</number>
-    <battingAvg>1.167</battingAvg>
-    <rbi>1</rbi>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
     <portraitPath>/Art/Portraits/benkolina.png</portraitPath>
     <team>Trill Buckner</team>
     <name>Ben Kolina</name>
-    <atbats>6</atbats>
-    <hits>7</hits>
-    <strikeoutsAtBat>1</strikeoutsAtBat>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
@@ -122,25 +122,25 @@
   </player>
   <player>
     <number>11</number>
-    <battingAvg>1.3</battingAvg>
-    <rbi>4</rbi>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
     <portraitPath>/Art/Portraits/chloekeister.png</portraitPath>
     <team>Baby Steaks</team>
     <name>Chloe Keister</name>
-    <atbats>10</atbats>
-    <hits>13</hits>
+    <atbats>0</atbats>
+    <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
     <number>12</number>
-    <battingAvg>1.2</battingAvg>
+    <battingAvg>0</battingAvg>
     <rbi>0</rbi>
     <portraitPath>/Art/Portraits/connormarshall.png</portraitPath>
     <team>Boner Squad</team>
     <name>Connor Marshall</name>
-    <atbats>5</atbats>
-    <hits>6</hits>
+    <atbats>0</atbats>
+    <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
@@ -170,61 +170,61 @@
   </player>
   <player>
     <number>15</number>
-    <battingAvg>2</battingAvg>
+    <battingAvg>0</battingAvg>
     <rbi>0</rbi>
     <portraitPath>/Art/Portraits/jayhuston.png</portraitPath>
     <team>Chicken Scratchers</team>
     <name>Jay Huston</name>
-    <atbats>4</atbats>
-    <hits>8</hits>
+    <atbats>0</atbats>
+    <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
     <number>16</number>
-    <battingAvg>1</battingAvg>
-    <rbi>5</rbi>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
     <portraitPath>/Art/Portraits/jeenyee.png</portraitPath>
     <team>Baby Steaks</team>
     <name>Jeen Yee</name>
-    <atbats>11</atbats>
-    <hits>11</hits>
+    <atbats>0</atbats>
+    <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
     <number>17</number>
-    <battingAvg>1.2</battingAvg>
+    <battingAvg>0</battingAvg>
     <rbi>0</rbi>
     <portraitPath>/Art/Portraits/jonalcabes.png</portraitPath>
     <team>Jon, Tony, and Deathsaber</team>
     <name>Jon Alcabes</name>
-    <atbats>5</atbats>
-    <hits>6</hits>
+    <atbats>0</atbats>
+    <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
     <number>18</number>
-    <battingAvg>1.4</battingAvg>
+    <battingAvg>0</battingAvg>
     <rbi>0</rbi>
     <portraitPath>/Art/Portraits/jordanthewlis.png</portraitPath>
     <team>Jon, Tony, and Deathsaber</team>
     <name>Jordan Thewlis</name>
-    <atbats>5</atbats>
-    <hits>7</hits>
+    <atbats>0</atbats>
+    <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
     <number>19</number>
-    <battingAvg>1.4</battingAvg>
+    <battingAvg>0</battingAvg>
     <rbi>0</rbi>
     <portraitPath>/Art/Portraits/keithdsouza.png</portraitPath>
     <team>Boner Squad</team>
     <name>Keith D'Souza</name>
-    <atbats>5</atbats>
-    <hits>7</hits>
+    <atbats>0</atbats>
+    <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
@@ -242,14 +242,14 @@
   </player>
   <player>
     <number>21</number>
-    <battingAvg>1.4</battingAvg>
-    <rbi>2</rbi>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
     <portraitPath>/Art/Portraits/lukelockfeld.png</portraitPath>
     <team>Boner Squad</team>
     <name>Luke Lockfeld</name>
-    <atbats>5</atbats>
-    <hits>7</hits>
-    <strikeoutsAtBat>1</strikeoutsAtBat>
+    <atbats>0</atbats>
+    <hits>0</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
@@ -266,13 +266,13 @@
   </player>
   <player>
     <number>23</number>
-    <battingAvg>1.273</battingAvg>
-    <rbi>3</rbi>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
     <portraitPath>/Art/Portraits/natashaminik.png</portraitPath>
     <team>Baby Steaks</team>
     <name>Natasha Vinik</name>
-    <atbats>11</atbats>
-    <hits>14</hits>
+    <atbats>0</atbats>
+    <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
@@ -302,13 +302,13 @@
   </player>
   <player>
     <number>26</number>
-    <battingAvg>1</battingAvg>
-    <rbi>2</rbi>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
     <portraitPath>/Art/Portraits/shawnkresal.png</portraitPath>
     <team>Chicken Scratchers</team>
     <name>Shawn Kresal</name>
-    <atbats>6</atbats>
-    <hits>6</hits>
+    <atbats>0</atbats>
+    <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
@@ -350,25 +350,25 @@
   </player>
   <player>
     <number>30</number>
-    <battingAvg>1.2</battingAvg>
+    <battingAvg>0</battingAvg>
     <rbi>0</rbi>
     <portraitPath>/Art/Portraits/tonyzavala.png</portraitPath>
     <team>Jon, Tony, and Deathsaber</team>
     <name>Tony Zavala</name>
-    <atbats>5</atbats>
-    <hits>6</hits>
+    <atbats>0</atbats>
+    <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
     <number>31</number>
-    <battingAvg>1.333</battingAvg>
-    <rbi>2</rbi>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
     <portraitPath>/Art/Portraits/toriovangrol.png</portraitPath>
     <team>Trill Buckner</team>
     <name>Torio Van Grol</name>
-    <atbats>6</atbats>
-    <hits>8</hits>
+    <atbats>0</atbats>
+    <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
@@ -410,13 +410,13 @@
   </player>
   <player>
     <number>35</number>
-    <battingAvg>1</battingAvg>
-    <rbi>1</rbi>
+    <battingAvg>0</battingAvg>
+    <rbi>0</rbi>
     <portraitPath>/Art/Portraits/jodyfrandle.png</portraitPath>
     <team>Chicken Scratchers</team>
     <name>Jody Frandle</name>
-    <atbats>5</atbats>
-    <hits>5</hits>
+    <atbats>0</atbats>
+    <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>

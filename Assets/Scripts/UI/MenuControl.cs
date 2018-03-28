@@ -19,6 +19,8 @@ public class MenuControl : MonoBehaviour {
     public Text errorText;
     public string error;
 
+    public GameObject confirmationDialog;
+
     //Go to the next scene unless there are invalid selections
     public void AdvanceToNextScene(string nextScene)
     {
@@ -207,6 +209,48 @@ public class MenuControl : MonoBehaviour {
                 break;
             }
         }
+    }
+
+    public void ClearSavedData()
+    {
+        foreach (var player in GameControl.instance.players)
+        {
+            ClearPlayerData(player);
+        }
+
+        foreach (var team in GameControl.instance.teams)
+        {
+            ClearTeamData(team);
+        }
+
+        SaveLoad.SaveData(GameControl.instance.teamFilePath, GameControl.instance.teams);
+        SaveLoad.SaveData(GameControl.instance.playerFilePath, GameControl.instance.players);
+    }
+
+    private void ClearPlayerData(Player player)
+    {
+        player.atBats = 0;
+        player.hits = 0;
+        player.rbis = 0;
+        player.strikeoutsAtBat = 0;
+        player.strikeoutsPitched = 0;
+        player.battingAvg = 0;
+    }
+
+    private void ClearTeamData(Team team)
+    {
+        team.wins = 0;
+        team.loses = 0;
+        team.ties = 0;
+        team.runs = 0;
+        team.pitchedstrikeouts = 0;
+        team.hits = 0;
+        team.atbatstrikeouts = 0;
+    }
+
+    public void OpenConfirmationDialog(bool isActive)
+    {
+        confirmationDialog.SetActive(isActive);
     }
 
     //Add selected players to active team

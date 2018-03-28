@@ -4,12 +4,12 @@
     <id>1</id>
     <name>Boner Squad</name>
     <abbreviation>BNRS</abbreviation>
-    <wins>1</wins>
-    <loses>1</loses>
+    <wins>0</wins>
+    <loses>0</loses>
     <ties>0</ties>
-    <runs>2</runs>
-    <hits>15</hits>
-    <atbatstrikeouts>1</atbatstrikeouts>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
     <colorr>255</colorr>
     <colorg>0</colorg>
@@ -20,10 +20,10 @@
     <name>Jon, Tony, and Deathsaber</name>
     <abbreviation>JTDS</abbreviation>
     <wins>0</wins>
-    <loses>2</loses>
+    <loses>0</loses>
     <ties>0</ties>
     <runs>0</runs>
-    <hits>13</hits>
+    <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
     <colorr>0</colorr>
@@ -37,7 +37,7 @@
     <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
-    <runs>2</runs>
+    <runs>0</runs>
     <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
@@ -49,11 +49,11 @@
     <id>4</id>
     <name>Chicken Scratchers</name>
     <abbreviation>CKNS</abbreviation>
-    <wins>1</wins>
-    <loses>1</loses>
+    <wins>0</wins>
+    <loses>0</loses>
     <ties>0</ties>
-    <runs>3</runs>
-    <hits>14</hits>
+    <runs>0</runs>
+    <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
     <colorr>255</colorr>
@@ -64,13 +64,13 @@
     <id>5</id>
     <name>Trill Buckner</name>
     <abbreviation>TLBK</abbreviation>
-    <wins>1</wins>
-    <loses>1</loses>
+    <wins>0</wins>
+    <loses>0</loses>
     <ties>0</ties>
-    <runs>3</runs>
-    <hits>16</hits>
-    <atbatstrikeouts>1</atbatstrikeouts>
-    <pitchedstrikeouts>2</pitchedstrikeouts>
+    <runs>0</runs>
+    <hits>0</hits>
+    <atbatstrikeouts>0</atbatstrikeouts>
+    <pitchedstrikeouts>0</pitchedstrikeouts>
     <colorr>0.823</colorr>
     <colorg>0.41</colorg>
     <colorb>0.127</colorb>
@@ -79,11 +79,11 @@
     <id>6</id>
     <name>Baby Steaks</name>
     <abbreviation>BSTK</abbreviation>
-    <wins>2</wins>
+    <wins>0</wins>
     <loses>0</loses>
     <ties>0</ties>
-    <runs>12</runs>
-    <hits>27</hits>
+    <runs>0</runs>
+    <hits>0</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
     <colorr>177</colorr>

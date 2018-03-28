@@ -94,7 +94,6 @@ public class GameControl : MonoBehaviour {
             runner.atBat = false;
         }
         battingTeam.players[curBatter].isAtBat = true;
-        battingTeam.players[curBatter].ChangeAtBats(1);
         AddBatterToField();
         changeCountEvent();
     }

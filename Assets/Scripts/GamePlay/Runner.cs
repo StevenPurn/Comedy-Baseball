@@ -45,6 +45,9 @@ public class Runner : MonoBehaviour {
                 string aud = "strike" + UnityEngine.Random.Range(1, 4);
                 TextPopUps.instance.ShowPopUp("strike");
                 AudioControl.instance.PlayAudio(aud);
+            } else
+            {
+                player.ChangeAtBats(1);
             }
             float rand = UnityEngine.Random.Range(0f, 1f);
             if (rand >= 0.5f)
@@ -98,6 +101,7 @@ public class Runner : MonoBehaviour {
             GameControl.waitingForNextBatter = true;
             isAdvancing = true;
             col.enabled = false;
+            player.ChangeAtBats(1);
         }
 
         if(ball.curPitch.type == Pitcher.Pitches.homerun)
@@ -158,7 +162,6 @@ public class Runner : MonoBehaviour {
 
                 if(addedHit == false && atBat == false && exitingField == false)
                 {
-                    Debug.Log(player.name + "added hit");
                     player.ChangeHits(1);
                     addedHit = true;
                 }

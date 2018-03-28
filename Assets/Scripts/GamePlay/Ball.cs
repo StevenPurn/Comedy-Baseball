@@ -64,6 +64,11 @@ public class Ball : MonoBehaviour {
             }
             Physics.IgnoreLayerCollision(0, 8, ignore);
         }
+
+        if(targetFielder != null)
+        {
+            curSpeed = targetFielder.throwSpeed;
+        }
     }
 
     public void MoveBall(Vector3 target)

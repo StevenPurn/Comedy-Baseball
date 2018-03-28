@@ -59,7 +59,7 @@ public static class SaveLoad
     }
 
     //Save data to xml file
-    static void SaveData(string filePath, System.Object obj)
+    public static void SaveData(string filePath, System.Object obj)
     {
         //Add new data to active teams & players
         DataHandler.SaveData(filePath, obj);

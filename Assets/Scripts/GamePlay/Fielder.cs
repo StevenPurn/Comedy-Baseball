@@ -7,7 +7,7 @@ public class Fielder : MonoBehaviour {
     public float distanceTolerance = 0.02f;
     private Rigidbody2D rb;
     public float movementSpeed = 2.5f;
-    private float throwSpeed = 4.5f;
+    public float throwSpeed = 4.5f;
     public Vector3 movementTarget;
     public ActiveTeam team;
     public bool ballInHands;
