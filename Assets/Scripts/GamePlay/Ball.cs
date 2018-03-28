@@ -16,7 +16,7 @@ public class Ball : MonoBehaviour {
     //Update the angles of the hits to be more human readable
     //Set the origin point and compare the pos to that (for bouncing off walls)
 
-    private void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
         col = GetComponent<BoxCollider2D>();
@@ -24,7 +24,7 @@ public class Ball : MonoBehaviour {
         curHeight = 2f;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (curSpeed < 1f)
         {
@@ -77,7 +77,7 @@ public class Ball : MonoBehaviour {
     public void MoveBall(Vector3 target)
     {
         Vector3 direction = (target - transform.position).normalized;
-        rb.MovePosition(transform.position + direction * curSpeed * Time.deltaTime);
+        rb.MovePosition(transform.position + direction * curSpeed * Time.fixedDeltaTime);
         Vector2 halfwayPoint = (endPoint - startPoint) / 2 + startPoint;
         curHeight = maxHeight * (1 - Mathf.Abs(Vector2.Distance(transform.position, halfwayPoint) / Vector2.Distance(startPoint, halfwayPoint)));
         anim.SetBool("Moving", true);
@@ -166,11 +166,15 @@ public class Ball : MonoBehaviour {
                         anim.SetBool("Moving", false);
                     }
                 }
+                else
+                {
+                    Field.fielders.Find(x => x.position == Fielder.Position.pitcher).ballInHands = true;
+                }
             }
         }else if(tag == "Wall" && curPitch.type != Pitcher.Pitches.homerun)
         {
             startPoint = transform.position;
-            endPoint = transform.position + new Vector3(Random.Range(-0.25f, 0.25f),Random.Range(-0.25f, 0.25f),0);
+            endPoint = transform.position + new Vector3(Random.Range(-0.25f, 0.25f),Random.Range(-0.5f, -0.05f),0);
         }
     }
 

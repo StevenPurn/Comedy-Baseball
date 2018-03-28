@@ -218,7 +218,7 @@ public static class Field {
                 }
             }
         }
-        else if(GameControl.curInning.inningNumber <= GameControl.numberOfInnings)
+        else if(fielders.Count > 0)
         {
             foreach (var player in fielders)
             {

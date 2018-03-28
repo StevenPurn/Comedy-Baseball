@@ -81,7 +81,7 @@ public class Fielder : MonoBehaviour {
     {
         Vector3 direction = (target - transform.position).normalized;
         SetAnimationValues(direction);
-        rb.MovePosition(transform.position + direction * movementSpeed * Time.deltaTime);
+        rb.MovePosition(transform.position + direction * movementSpeed * Time.fixedDeltaTime);
     }
 
     private void SetAnimationValues(Vector3 moveDir)

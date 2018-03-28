@@ -11,6 +11,7 @@ public class BetweenInnings : MonoBehaviour {
     public List<string> randomGames = new List<string>();
     public Text hTeamInning1Score, hTeamInning2Score, hTeamInning3Score, aTeamInning1Score, aTeamInning2Score, aTeamInning3Score;
     public Text hTeamRuns, hTeamHits, hTeamPitches, aTeamRuns, aTeamHits, aTeamPitches;
+    public Color textColor;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class BetweenInnings : MonoBehaviour {
         foreach (var suggestion in suggestions)
         {
             suggestion.text = "";
+            suggestion.textComponent.color = textColor;
         }
         if(GameControl.curInning.inningNumber != 3)
         {
@@ -55,7 +57,7 @@ public class BetweenInnings : MonoBehaviour {
             {
                 if(suggestion.textComponent.color.a == 1)
                 {
-                    suggestionsText.text += i == 0 ? "-" + suggestion.text : Environment.NewLine + "-" + suggestion.text;
+                    suggestionsText.text += i == 0 ? "*" + suggestion.text : Environment.NewLine + "*" + suggestion.text;
                     i++;
                 }
             }
