@@ -43,8 +43,6 @@ public class Ball : MonoBehaviour {
             float rads = Mathf.Atan2(dir.y, dir.x);
             float angle = Mathf.Rad2Deg * rads;
             Vector2 newLandingPoint = new Vector2(Mathf.Abs(Mathf.Cos(angle)), Mathf.Abs(Mathf.Sin(angle)));
-            Debug.Log(newLandingPoint);
-            //newLandingPoint = newLandingPoint * (Vector2.Distance(startPoint, endPoint) / 5);
             endPoint = endPoint + newLandingPoint;
             startPoint = transform.position;
         }
