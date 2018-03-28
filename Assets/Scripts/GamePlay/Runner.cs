@@ -156,8 +156,9 @@ public class Runner : MonoBehaviour {
                     targetBase.Remove(targetBase[0]);
                 }
 
-                if(addedHit == false && atBat == false)
+                if(addedHit == false && atBat == false && exitingField == false)
                 {
+                    Debug.Log(player.name + "added hit");
                     player.ChangeHits(1);
                     addedHit = true;
                 }
