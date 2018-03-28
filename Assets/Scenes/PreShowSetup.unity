@@ -1088,7 +1088,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 2598d8cb6de8a2e4b9e550a23ee21123, type: 2}
+  m_Material: {fileID: 2100000, guid: 41c497777411f4949b2650b3ab892bf8, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -5468,28 +5468,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114291111928252342, guid: d78d13169ecc21148a29885ce83e1bf9,
-        type: 2}
-      propertyPath: homeTeamMat
-      value: 
-      objectReference: {fileID: 2100000, guid: b3093739a8919c940aa5114a74dababc, type: 2}
-    - target: {fileID: 114291111928252342, guid: d78d13169ecc21148a29885ce83e1bf9,
-        type: 2}
-      propertyPath: awayTeamMat
-      value: 
-      objectReference: {fileID: 2100000, guid: 2598d8cb6de8a2e4b9e550a23ee21123, type: 2}
-    - target: {fileID: 114291111928252342, guid: d78d13169ecc21148a29885ce83e1bf9,
-        type: 2}
-      propertyPath: runnerPrefab
-      value: 
-      objectReference: {fileID: 1446193678772132, guid: 1213fd946c1939049964bbf674983692,
-        type: 2}
-    - target: {fileID: 114291111928252342, guid: d78d13169ecc21148a29885ce83e1bf9,
-        type: 2}
-      propertyPath: fielderPrefab
-      value: 
-      objectReference: {fileID: 1750577683345046, guid: 52d91422b8b5bee4abaa2198f85f42d1,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d78d13169ecc21148a29885ce83e1bf9, type: 2}
   m_IsPrefabParent: 0
@@ -8140,7 +8118,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b3093739a8919c940aa5114a74dababc, type: 2}
+  m_Material: {fileID: 2100000, guid: 4ec8427a4f4dcab47acedd46d9e2eff0, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
