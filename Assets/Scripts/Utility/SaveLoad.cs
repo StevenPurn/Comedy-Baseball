@@ -35,14 +35,16 @@ public static class SaveLoad
         team.runs += aTeam.score;
         team.atbatstrikeouts += aTeam.GetStrikeoutsAtBat();
         team.pitchedstrikeouts += aTeam.GetPitchedStrikeouts();
-
         if (aTeam.wonGame)
         {
             team.wins += 1;
         }
-        else
+        else if(aTeam.lostGame)
         {
             team.loses += 1;
+        }else if (aTeam.tiedGame)
+        {
+            team.ties += 1;
         }
     }
 
