@@ -15,6 +15,7 @@ public class ActiveTeam
     public int pitches;
     public int wins;
     public int loses;
+    public int ties;
     public bool currentlyAtBat;
     public bool wonGame, lostGame, tiedGame;
     public Color color;

@@ -176,6 +176,7 @@ public class MenuControl : MonoBehaviour {
                 aTeam.currentlyAtBat = t1Toggle.isOn;
                 aTeam.score = 0;
                 aTeam.wins = team.wins;
+                aTeam.ties = team.ties;
                 aTeam.loses = team.loses;
                 AddPlayers(aTeam, 1);
                 GameControl.instance.activeTeams.Add(aTeam);
@@ -196,6 +197,7 @@ public class MenuControl : MonoBehaviour {
                 aTeam.score = 0;
                 aTeam.currentlyAtBat = t2Toggle.isOn;
                 aTeam.wins = team.wins;
+                aTeam.ties = team.ties;
                 aTeam.loses = team.loses;
                 AddPlayers(aTeam, 2);
                 GameControl.instance.activeTeams.Add(aTeam);

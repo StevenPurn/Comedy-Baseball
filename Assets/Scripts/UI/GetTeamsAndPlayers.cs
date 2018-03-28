@@ -25,7 +25,6 @@ public class GetTeamsAndPlayers : MonoBehaviour {
 
         ActiveTeam homeTeam = GameControl.instance.activeTeams[0];
         ActiveTeam awayTeam = GameControl.instance.activeTeams[1];
-        //Set up home team
         homeTeamName.text = homeTeam.name;
         homePlayer1Img.sprite = GetPortaitForPlayer(homeTeam.players[0]);
         homePlayer1Name.text = homeTeam.players[0].name;
@@ -33,9 +32,8 @@ public class GetTeamsAndPlayers : MonoBehaviour {
         homePlayer2Name.text = homeTeam.players[1].name;
         homePlayer3Img.sprite = GetPortaitForPlayer(homeTeam.players[2]);
         homePlayer3Name.text = homeTeam.players[2].name;
-        homeTeamRecord.text = homeTeam.wins + "-" + homeTeam.loses;
+        homeTeamRecord.text = homeTeam.wins + "-" + homeTeam.loses + "-" + homeTeam.ties;
 
-        //Set up away team
         awayTeamName.text = awayTeam.name;
         awayPlayer1Img.sprite = GetPortaitForPlayer(awayTeam.players[0]);
         awayPlayer1Name.text = awayTeam.players[0].name;
@@ -43,7 +41,7 @@ public class GetTeamsAndPlayers : MonoBehaviour {
         awayPlayer2Name.text = awayTeam.players[1].name;
         awayPlayer3Img.sprite = GetPortaitForPlayer(awayTeam.players[2]);
         awayPlayer3Name.text = awayTeam.players[2].name;
-        awayTeamRecord.text = awayTeam.wins + "-" + awayTeam.loses;
+        awayTeamRecord.text = awayTeam.wins + "-" + awayTeam.loses + "-" + homeTeam.ties;
     }
 
     private Sprite GetPortaitForPlayer(ActivePlayer player)
