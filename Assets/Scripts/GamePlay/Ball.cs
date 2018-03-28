@@ -34,7 +34,7 @@ public class Ball : MonoBehaviour {
             anim.SetBool("Moving", false);
             curSpeed = 0;
         }
-        if (Utility.CheckEqual(transform.position, endPoint, 0.07f))
+        if (Utility.CheckEqual(transform.position, endPoint, 0.07f) || curHeight < 0)
         {
             hasntHitGround = false;
             curSpeed = curSpeed / 3f;
@@ -170,7 +170,7 @@ public class Ball : MonoBehaviour {
                 }
                 else
                 {
-                    Field.fielders.Find(x => x.position == Fielder.Position.pitcher).ballInHands = true;
+                    Field.fielders.Find(x => x.position == Fielder.Position.pitcher && x.inningOver == false).ballInHands = true;
                 }
             }
         }else if(tag == "Wall" && curPitch.type != Pitcher.Pitches.homerun)
