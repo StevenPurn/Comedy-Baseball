@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4452278118236566}
   - component: {fileID: 114813708333285834}
+  - component: {fileID: 82154148961353642}
+  - component: {fileID: 114321714043335636}
   m_Layer: 0
   m_Name: AudioControl
   m_TagString: Untagged
@@ -40,6 +42,133 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82154148961353642
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100936223214516}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &114321714043335636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100936223214516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555d7acb6ee9fbf4bafcb97290a8d90a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMap:
+  - audioEvent: strike1
+    sfx: {fileID: 8300000, guid: 2331351682e2b8b4fb404c15f0bfb439, type: 3}
+  - audioEvent: strike2
+    sfx: {fileID: 8300000, guid: 076d17db37d5df74587a2db1b093d79c, type: 3}
+  - audioEvent: strike3
+    sfx: {fileID: 8300000, guid: c153c338196a58f4c8ace0f640dbfc1c, type: 3}
+  - audioEvent: out1
+    sfx: {fileID: 8300000, guid: a60ce85407d04c24087702acb3fdc366, type: 3}
+  - audioEvent: out2
+    sfx: {fileID: 8300000, guid: b2c571d402c1ce240a8eb54bac2e9e88, type: 3}
+  - audioEvent: out3
+    sfx: {fileID: 8300000, guid: 79f37adee821add4db70cf67326cef58, type: 3}
+  - audioEvent: out4
+    sfx: {fileID: 8300000, guid: fb1c761a42ac5f84db0dcaa6ebfc1105, type: 3}
+  - audioEvent: hit1
+    sfx: {fileID: 8300000, guid: 57a75360e935d8d4487d90fb66e75591, type: 3}
+  - audioEvent: hit2
+    sfx: {fileID: 8300000, guid: 3418d0de90770e649a4743fb1cb613ff, type: 3}
+  - audioEvent: catch
+    sfx: {fileID: 8300000, guid: 7a78e526cfc19e145858acae05fb5388, type: 3}
+  - audioEvent: homerun
+    sfx: {fileID: 8300000, guid: cbc4609fbe2132a4a8b02ad8f1351ecf, type: 3}
+  - audioEvent: grandslam
+    sfx: {fileID: 8300000, guid: 4fed34de0eaf8f042a4836fdf5cdfbd0, type: 3}
+  - audioEvent: doubleplay
+    sfx: {fileID: 8300000, guid: de7a5f03c2ebf94489174833b11f46a9, type: 3}
+  - audioEvent: tripleplay
+    sfx: {fileID: 8300000, guid: 9b31b97f27f19414489093cc861a6311, type: 3}
+  - audioEvent: playball
+    sfx: {fileID: 8300000, guid: 08144219ea482254fb75b3ede82f4833, type: 3}
+  - audioEvent: safe
+    sfx: {fileID: 8300000, guid: 3f4c27bd2983518478235d4d3181625f, type: 3}
+  - audioEvent: theme
+    sfx: {fileID: 8300000, guid: b3a11eb1caf3af94e9818e0b1e7a8b77, type: 3}
+  src: {fileID: 0}
 --- !u!114 &114813708333285834
 MonoBehaviour:
   m_ObjectHideFlags: 1

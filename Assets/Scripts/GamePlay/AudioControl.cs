@@ -21,6 +21,11 @@ public class AudioControl : MonoBehaviour {
         src = GetComponent<AudioSource>();
     }
 
+    public void Stop()
+    {
+        src.Stop();
+    }
+
     public void PlayAudio(string eventName)
     {
         foreach (var item in audioMap)
