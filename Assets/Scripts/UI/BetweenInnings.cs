@@ -57,7 +57,7 @@ public class BetweenInnings : MonoBehaviour {
             {
                 if(suggestion.textComponent.color.a == 1)
                 {
-                    suggestionsText.text += i == 0 ? "*" + suggestion.text : Environment.NewLine + "*" + suggestion.text;
+                    suggestionsText.text += i == 0 ? "-" + suggestion.text : Environment.NewLine + "-" + suggestion.text;
                     i++;
                 }
             }
