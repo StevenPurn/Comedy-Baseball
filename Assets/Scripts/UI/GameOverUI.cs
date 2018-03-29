@@ -17,7 +17,13 @@ public class GameOverUI : MonoBehaviour {
         }
         if(winningTeam == null)
         {
-            gameOverText.text = "They tied. That sucks";
+            gameOverText.text = "They tied. That sucks. Hopefully it was funny anyway.";
+            player1Portrait.color = new Color(0,0,0,0);
+            player1Name.text = "";
+            player2Portrait.color = new Color(0, 0, 0, 0);
+            player2Name.text = "";
+            player3Portrait.color = new Color(0, 0, 0, 0);
+            player3Name.text = "";
         }
         else
         {

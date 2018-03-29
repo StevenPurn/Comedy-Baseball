@@ -101,7 +101,7 @@ public class Ball : MonoBehaviour {
         curPitch.hitSpeed = Random.Range(curPitch.minSpeed, curPitch.maxSpeed);
     }
 
-    public void HandleHomeRun(float timeDelay = 7f)
+    public void HandleHomeRun(float timeDelay = 9.5f)
     {
         TemporarilyDisableCollision(timeDelay);
         Invoke("ReturnToPitcher", timeDelay);
@@ -115,9 +115,10 @@ public class Ball : MonoBehaviour {
 
     private void ReturnToPitcher()
     {
+        GameControl.ballInPlay = false;
         anim.SetBool("Moving", false);
         Fielder pitcher = Field.fielders.Find(x => x.position == Fielder.Position.pitcher && x.inningOver == false);
-        endPoint = Vector2.zero;
+        endPoint = pitcher.glove.position;
         pitcher.ballInHands = true;
     }
 

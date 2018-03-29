@@ -4,11 +4,11 @@
     <id>1</id>
     <name>Boner Squad</name>
     <abbreviation>BNRS</abbreviation>
-    <wins>0</wins>
+    <wins>1</wins>
     <loses>0</loses>
     <ties>0</ties>
-    <runs>0</runs>
-    <hits>0</hits>
+    <runs>5</runs>
+    <hits>9</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
     <colorr>255</colorr>
@@ -20,10 +20,10 @@
     <name>Jon, Tony, and Deathsaber</name>
     <abbreviation>JTDS</abbreviation>
     <wins>0</wins>
-    <loses>0</loses>
+    <loses>1</loses>
     <ties>0</ties>
     <runs>0</runs>
-    <hits>0</hits>
+    <hits>2</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
     <colorr>0</colorr>

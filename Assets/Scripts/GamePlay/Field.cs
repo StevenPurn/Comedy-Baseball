@@ -67,14 +67,14 @@ public static class Field {
             GameControl.ballInPlay = false;
         }
         Fielder fielderWithBall = fielders.Find(x => x.ballInHands);
-        bool playerOtherThanPitcherHasBall = false;
+        bool pitcherHasBall = false;
 
         if(fielderWithBall != null)
         {
             ball.transform.parent = fielderWithBall.glove.gameObject.transform;
             ball.transform.localPosition = Vector3.zero;
             ball.curHeight = 1.0f;
-            playerOtherThanPitcherHasBall = fielderWithBall.position != Fielder.Position.pitcher;
+            pitcherHasBall = fielderWithBall.position == Fielder.Position.pitcher;
         }
         else
         {
@@ -86,7 +86,7 @@ public static class Field {
 
         if (fieldersCanReact)
         {
-            if (GameControl.ballInPlay || playerOtherThanPitcherHasBall)
+            if (GameControl.ballInPlay || pitcherHasBall == false)
             {
                 MoveFieldersToPlayPosition();
                 if (ball.hasntHitGround == false && ballHasBeenThrown == false)
@@ -97,15 +97,17 @@ public static class Field {
                 {
                     GetClosestFielderToLocation(ballLandingSpot).movementTarget = ballLandingSpot;
                 }
+                fielderWithBall = fielders.Find(x => x.ballInHands);
                 if (fielderWithBall != null)
                 {
                     WhatDoIDoWithTheBall(fielderWithBall);
                 }
             }
         }
- 
+
         if (GameControl.ballInPlay == false)
         {
+            fielderWithBall = fielders.Find(x => x.ballInHands);
             if (fielderWithBall != null && fielderWithBall.position != Fielder.Position.pitcher)
             {
                 fielderWithBall.ThrowBall(GetPlayerToThrowBallTo());
@@ -282,12 +284,7 @@ public static class Field {
         {
             GameControl.ballInPlay = false;
             playerToThrowTo = fielders.Find(x => x.position == Fielder.Position.pitcher && !x.inningOver);
-        }else if (!runners.Find(x => x.isAdvancing))
-        {
-            GameControl.ballInPlay = false;
-            playerToThrowTo = fielders.Find(x => x.position == Fielder.Position.pitcher && !x.inningOver);
-        }
-        else
+        }else
         {
             playerToThrowTo = GetClosestFielderToTransform(GetFurthestRunner().targetBase[0].transform, false); ;
         }

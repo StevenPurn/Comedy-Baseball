@@ -62,8 +62,10 @@ public class GameControl : MonoBehaviour {
             outsThisPlay = 0;
             isHomeRun = false;
         }
-
-        Field.FielderAI();
+        if(SceneManager.GetActiveScene().name == "SteveField")
+        {
+            Field.FielderAI();
+        }
     }
 
     //Save list of teams & players to respective xml files
@@ -379,6 +381,8 @@ public class GameControl : MonoBehaviour {
         }
 
         Save();
+        Field.runners.Clear();
+        Field.fielders.Clear();
         SceneManager.LoadScene("GameOver");
     }
 }

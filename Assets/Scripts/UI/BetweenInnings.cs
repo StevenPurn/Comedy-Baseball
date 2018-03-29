@@ -43,7 +43,6 @@ public class BetweenInnings : MonoBehaviour {
             int index = UnityEngine.Random.Range(0, randomGames.Count - 2);
             randomGameText.text = randomGames[index];
             randomGames.Remove(randomGames[index]);
-            Debug.Log(randomGames);
         } else
         {
             randomGameText.text = randomGames[randomGames.Count - 1];

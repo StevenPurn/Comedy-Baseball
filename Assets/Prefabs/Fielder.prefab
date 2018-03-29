@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceTolerance: 0.03
   movementSpeed: 1.35
+  throwSpeed: 4.5
   movementTarget: {x: 0, y: 0, z: 0}
   ballInHands: 0
   position: 0
@@ -200,7 +201,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b3093739a8919c940aa5114a74dababc, type: 2}
+  - {fileID: 2100000, guid: 4ec8427a4f4dcab47acedd46d9e2eff0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

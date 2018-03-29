@@ -50,7 +50,7 @@ public class Runner : MonoBehaviour {
                 player.ChangeAtBats(1);
             }
             float rand = UnityEngine.Random.Range(0f, 1f);
-            if (rand >= 0.5f)
+            if (rand >= 0.35f)
             {
                 anim.SetTrigger("isSwingingBat");
             }
