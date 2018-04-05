@@ -2,12 +2,12 @@
 <ArrayOfPlayer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <player>
     <number>1</number>
-    <battingAvg>0.6</battingAvg>
+    <battingAvg>0.375</battingAvg>
     <rbi>2</rbi>
     <portraitPath>/Art/Portraits/alejandroochoa.png</portraitPath>
     <team>Trill Buckner</team>
     <name>Dro Ochoa</name>
-    <atbats>5</atbats>
+    <atbats>8</atbats>
     <hits>3</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
@@ -15,59 +15,59 @@
   <player>
     <number>2</number>
     <battingAvg>0.5</battingAvg>
-    <rbi>2</rbi>
+    <rbi>3</rbi>
     <portraitPath>/Art/Portraits/alexandrialove.png</portraitPath>
     <team>Team Komedio</team>
     <name>Alexandria Love</name>
-    <atbats>6</atbats>
-    <hits>3</hits>
+    <atbats>8</atbats>
+    <hits>4</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
     <number>3</number>
-    <battingAvg>0.6</battingAvg>
+    <battingAvg>0.571</battingAvg>
     <rbi>1</rbi>
     <portraitPath>/Art/Portraits/andrewholmgren.png</portraitPath>
     <team>Team Sylvan</team>
     <name>Andrew Holmgren</name>
-    <atbats>5</atbats>
-    <hits>3</hits>
+    <atbats>7</atbats>
+    <hits>4</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
     <number>4</number>
-    <battingAvg>0</battingAvg>
+    <battingAvg>0.143</battingAvg>
     <rbi>0</rbi>
     <portraitPath>/Art/Portraits/andrewmoore.png</portraitPath>
     <team>Team Sylvan</team>
     <name>Andrew Moore</name>
-    <atbats>4</atbats>
-    <hits>0</hits>
-    <strikeoutsAtBat>0</strikeoutsAtBat>
-    <strikeoutsPitched>0</strikeoutsPitched>
-  </player>
-  <player>
-    <number>5</number>
-    <battingAvg>0.333</battingAvg>
-    <rbi>0</rbi>
-    <portraitPath>/Art/Portraits/anicacihla.png</portraitPath>
-    <team>Goof Troop</team>
-    <name>Anica Cihla</name>
-    <atbats>3</atbats>
+    <atbats>7</atbats>
     <hits>1</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
   <player>
+    <number>5</number>
+    <battingAvg>0.286</battingAvg>
+    <rbi>0</rbi>
+    <portraitPath>/Art/Portraits/anicacihla.png</portraitPath>
+    <team>Goof Troop</team>
+    <name>Anica Cihla</name>
+    <atbats>7</atbats>
+    <hits>2</hits>
+    <strikeoutsAtBat>0</strikeoutsAtBat>
+    <strikeoutsPitched>0</strikeoutsPitched>
+  </player>
+  <player>
     <number>6</number>
-    <battingAvg>0.25</battingAvg>
+    <battingAvg>0.125</battingAvg>
     <rbi>0</rbi>
     <portraitPath>/Art/Portraits/avivasiegel.png</portraitPath>
     <team>Goof Troop</team>
     <name>Aviva Siegel</name>
-    <atbats>4</atbats>
+    <atbats>8</atbats>
     <hits>1</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>

@@ -323,6 +323,7 @@ public class GameControl : MonoBehaviour {
     {
         ballInPlay = false;
         waitingForNextBatter = false;
+        int teamNotBatting = teamAtBat == 0 ? 1 : 0;
         Field.ball.transform.SetParent(GameObject.Find("Field").transform);
         if (curInning.isBottom)
         {
@@ -343,16 +344,22 @@ public class GameControl : MonoBehaviour {
         {
             if (curInning.inningNumber >= numberOfInnings)
             {
-                int teamNotBatting = teamAtBat == 0 ? 1 : 0;
                 if (activeTeams[teamAtBat].score < activeTeams[teamNotBatting].score)
                 {
                     GameOver();
                 }
             }
+            SwitchTeamAtBat();
             curInning.isBottom = true;
         }
-
-        SwitchTeamAtBat();
+        if(curInning.inningNumber == 3)
+        {
+            if (activeTeams[teamAtBat].score > activeTeams[teamNotBatting].score)
+            {
+                SwitchTeamAtBat();
+            }
+        }
+        //SwitchTeamAtBat();
         Field.ResetInning();
         outs = 0;
         AddBatterToField();

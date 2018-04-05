@@ -179,7 +179,7 @@ public class Ball : MonoBehaviour {
             shownHomeRunPopup = true;
             AudioControl.instance.PlayAudio("homerun");
             TextPopUps.instance.ShowPopUp("homerun");
-            Invoke("SetCameraParent", 0.6f);
+            Invoke("SetCameraParent", 2f);
         }
     }
 
