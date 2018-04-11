@@ -359,7 +359,6 @@ public class GameControl : MonoBehaviour {
                 SwitchTeamAtBat();
             }
         }
-        //SwitchTeamAtBat();
         Field.ResetInning();
         outs = 0;
         AddBatterToField();
