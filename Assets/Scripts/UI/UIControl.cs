@@ -18,8 +18,6 @@ public class UIControl : MonoBehaviour {
     void Start () {
         GameControl.instance.changeCountEvent += UpdateUI;
         UpdateUI();
-        //GameControl.instance.changeCountEvent += UpdateUI;
-        //UpdateUI();
     }
 	
 	void UpdateUI()

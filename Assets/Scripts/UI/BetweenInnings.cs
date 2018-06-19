@@ -11,6 +11,7 @@ public class BetweenInnings : MonoBehaviour {
     public List<string> randomGames = new List<string>();
     public Text hTeamInning1Score, hTeamInning2Score, hTeamInning3Score, aTeamInning1Score, aTeamInning2Score, aTeamInning3Score;
     public Text hTeamRuns, hTeamHits, hTeamPitches, aTeamRuns, aTeamHits, aTeamPitches;
+    public Text hTeamAbr, aTeamAbr;
     public Color textColor;
 
     private void Start()
@@ -40,7 +41,7 @@ public class BetweenInnings : MonoBehaviour {
         }
         if(GameControl.curInning.inningNumber != 3)
         {
-            int index = UnityEngine.Random.Range(0, randomGames.Count - 2);
+            int index = UnityEngine.Random.Range(0, randomGames.Count - 1);
             randomGameText.text = randomGames[index];
             randomGames.Remove(randomGames[index]);
         } else
@@ -66,7 +67,8 @@ public class BetweenInnings : MonoBehaviour {
             }
             betweenInningUI.SetActive(false);
             HandleInput.listenForHits = true;
-        } else if (Controls.GetButtonDown("hit1"))
+        } 
+        else if (Controls.GetButtonDown("hit1"))
         {
             Color col = suggestions[0].textComponent.color;
             col.a = col.a < 1 ? 1 : .4f;
@@ -112,17 +114,21 @@ public class BetweenInnings : MonoBehaviour {
 
     private void SetUpScoreboardText()
     {
-        hTeamInning1Score.text = GameControl.instance.activeTeams[0].scoreByInning[0].ToString();
-        hTeamInning2Score.text = GameControl.instance.activeTeams[0].scoreByInning[1].ToString();
-        hTeamInning3Score.text = GameControl.instance.activeTeams[0].scoreByInning[2].ToString();
-        aTeamInning1Score.text = GameControl.instance.activeTeams[1].scoreByInning[0].ToString();
-        aTeamInning2Score.text = GameControl.instance.activeTeams[1].scoreByInning[1].ToString();
-        aTeamInning3Score.text = GameControl.instance.activeTeams[1].scoreByInning[2].ToString();
-        hTeamHits.text = GameControl.instance.activeTeams[0].GetHits().ToString();
-        aTeamHits.text = GameControl.instance.activeTeams[1].GetHits().ToString();
-        hTeamRuns.text = GameControl.instance.activeTeams[0].score.ToString();
-        aTeamRuns.text = GameControl.instance.activeTeams[1].score.ToString();
-        aTeamPitches.text = GameControl.instance.activeTeams[0].GetPitches().ToString();
-        hTeamPitches.text = GameControl.instance.activeTeams[1].GetPitches().ToString();
+        ActiveTeam hTeam = GameControl.instance.activeTeams[0];
+        ActiveTeam aTeam = GameControl.instance.activeTeams[1];
+        hTeamInning1Score.text = hTeam.scoreByInning[0].ToString();
+        hTeamInning2Score.text = hTeam.scoreByInning[1].ToString();
+        hTeamInning3Score.text = hTeam.scoreByInning[2].ToString();
+        aTeamInning1Score.text = aTeam.scoreByInning[0].ToString();
+        aTeamInning2Score.text = aTeam.scoreByInning[1].ToString();
+        aTeamInning3Score.text = aTeam.scoreByInning[2].ToString();
+        hTeamHits.text = hTeam.GetHits().ToString();
+        aTeamHits.text = aTeam.GetHits().ToString();
+        hTeamRuns.text = hTeam.score.ToString();
+        aTeamRuns.text = aTeam.score.ToString();
+        aTeamPitches.text = aTeam.GetPitches().ToString();
+        hTeamPitches.text = hTeam.GetPitches().ToString();
+        aTeamAbr.text = aTeam.abbreviation;
+        hTeamAbr.text = hTeam.abbreviation;
     }
 }
