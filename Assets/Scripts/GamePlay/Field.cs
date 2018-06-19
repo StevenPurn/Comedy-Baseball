@@ -123,7 +123,7 @@ public static class Field {
 
         if (ball != null && ball.targetFielder != null)
         {
-            ball.targetFielder.movementTarget = ball.endPoint;
+            ball.targetFielder.movementTarget = ball.targetFielder.transform.position;
         }
     }
 
@@ -137,7 +137,8 @@ public static class Field {
         float lowestDist = float.MaxValue;
         foreach (var player in fielders)
         {
-            float distance = Vector2.Distance(player.transform.position, loc.position) + Vector2.Distance(player.transform.position, player.startPosition.position);
+            float distance = Vector2.Distance(player.transform.position, loc.position);
+            distance += accountForDistFromStartPos ? Vector2.Distance(player.transform.position, player.startPosition.position) : 0;
             if (distance < lowestDist)
             {
                 closestPlayer = player;
@@ -154,7 +155,8 @@ public static class Field {
         float lowestDist = float.MaxValue;
         foreach (var player in fielders)
         {
-            float distance = Vector2.Distance(player.transform.position, loc) + Vector2.Distance(player.transform.position, player.startPosition.position);
+            float distance = Vector2.Distance(player.transform.position, loc);
+            distance += accountForDistFromStartPos ? Vector2.Distance(player.transform.position, player.startPosition.position) : 0;
             if (distance < lowestDist)
             {
                 closestPlayer = player;
@@ -279,15 +281,20 @@ public static class Field {
         Fielder playerToThrowTo;
         if(GameControl.ballInPlay == false)
         {
+            Debug.Log("Ball is not in play, throwing to pitcher");
             playerToThrowTo = fielders.Find(x => x.position == Fielder.Position.pitcher && !x.inningOver);
         }else if (GetFurthestRunner() == null)
         {
+            Debug.Log("Couldn't find runner, throwing to pitcher");
             GameControl.ballInPlay = false;
             playerToThrowTo = fielders.Find(x => x.position == Fielder.Position.pitcher && !x.inningOver);
         }else
         {
+            Debug.Log("Throwing to player closest to the targetbase");
             playerToThrowTo = GetClosestFielderToTransform(GetFurthestRunner().targetBase[0].transform, false); ;
         }
+        Debug.Log(playerToThrowTo.transform.parent.name);
+        Debug.Log(playerToThrowTo.transform.position);
         return playerToThrowTo;
     }
 

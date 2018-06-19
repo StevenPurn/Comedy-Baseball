@@ -354,7 +354,7 @@ public class GameControl : MonoBehaviour {
         }
         if(curInning.inningNumber == 3)
         {
-            if (activeTeams[teamAtBat].score > activeTeams[teamNotBatting].score)
+            if (activeTeams[teamAtBat].score < activeTeams[teamNotBatting].score)
             {
                 SwitchTeamAtBat();
             }
