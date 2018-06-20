@@ -110,10 +110,10 @@
     <name>Team Komedio</name>
     <abbreviation>KMDO</abbreviation>
     <wins>0</wins>
-    <loses>0</loses>
+    <loses>1</loses>
     <ties>0</ties>
     <runs>0</runs>
-    <hits>0</hits>
+    <hits>1</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
     <colorr>0</colorr>
@@ -139,11 +139,11 @@
     <id>10</id>
     <name>18 Holes</name>
     <abbreviation>18HS</abbreviation>
-    <wins>0</wins>
+    <wins>1</wins>
     <loses>0</loses>
     <ties>0</ties>
-    <runs>0</runs>
-    <hits>0</hits>
+    <runs>18</runs>
+    <hits>22</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
     <colorr>255</colorr>

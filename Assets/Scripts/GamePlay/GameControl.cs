@@ -352,9 +352,9 @@ public class GameControl : MonoBehaviour {
             SwitchTeamAtBat();
             curInning.isBottom = true;
         }
-        if(curInning.inningNumber == 3)
+        if(curInning.inningNumber == numberOfInnings)
         {
-            if (activeTeams[teamAtBat].score > activeTeams[teamNotBatting].score)
+            if (activeTeams[teamAtBat].score < activeTeams[teamNotBatting].score)
             {
                 SwitchTeamAtBat();
             }
@@ -374,16 +374,10 @@ public class GameControl : MonoBehaviour {
         }
         else
         {
-            if(activeTeams[0].score > activeTeams[1].score)
-            {
-                activeTeams[0].wonGame = true;
-                activeTeams[1].lostGame = true;
-            }
-            else
-            {
-                activeTeams[1].wonGame = true;
-                activeTeams[0].lostGame = true;
-            }
+            int winner = activeTeams[0].score > activeTeams[1].score ? 0 : 1;
+            int loser = winner == 0 ? 1 : 0;
+            activeTeams[winner].wonGame = true;
+            activeTeams[loser].lostGame = true;
         }
 
         Save();

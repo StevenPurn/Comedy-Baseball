@@ -14,13 +14,13 @@
   </player>
   <player>
     <number>2</number>
-    <battingAvg>0</battingAvg>
+    <battingAvg>0.667</battingAvg>
     <rbi>0</rbi>
     <portraitPath>/Art/Portraits/alexandrialove.png</portraitPath>
     <team>Team Komedio</team>
     <name>Alexandria Love</name>
-    <atbats>0</atbats>
-    <hits>0</hits>
+    <atbats>3</atbats>
+    <hits>2</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
@@ -62,13 +62,13 @@
   </player>
   <player>
     <number>6</number>
-    <battingAvg>0</battingAvg>
-    <rbi>0</rbi>
+    <battingAvg>0.889</battingAvg>
+    <rbi>2</rbi>
     <portraitPath>/Art/Portraits/avivasiegel.png</portraitPath>
     <team>Goof Troop</team>
     <name>Aviva Siegel</name>
-    <atbats>0</atbats>
-    <hits>0</hits>
+    <atbats>9</atbats>
+    <hits>8</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
@@ -158,13 +158,13 @@
   </player>
   <player>
     <number>14</number>
-    <battingAvg>0</battingAvg>
-    <rbi>0</rbi>
+    <battingAvg>0.889</battingAvg>
+    <rbi>8</rbi>
     <portraitPath>/Art/Portraits/genevarustorta.png</portraitPath>
     <team>18 Holes</team>
     <name>Geneva Rust-Orta</name>
-    <atbats>0</atbats>
-    <hits>0</hits>
+    <atbats>9</atbats>
+    <hits>8</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
@@ -326,13 +326,13 @@
   </player>
   <player>
     <number>28</number>
-    <battingAvg>0</battingAvg>
+    <battingAvg>0.25</battingAvg>
     <rbi>0</rbi>
     <portraitPath>/Art/Portraits/stephenku.png</portraitPath>
     <team>Team Komedio</team>
     <name>Stephen Ku</name>
-    <atbats>0</atbats>
-    <hits>0</hits>
+    <atbats>4</atbats>
+    <hits>1</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
@@ -343,7 +343,7 @@
     <portraitPath>/Art/Portraits/tirumarijothi.png</portraitPath>
     <team>Team Komedio</team>
     <name>Tirumari Jothi</name>
-    <atbats>0</atbats>
+    <atbats>3</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
@@ -422,13 +422,13 @@
   </player>
   <player>
     <number>36</number>
-    <battingAvg>0</battingAvg>
-    <rbi>0</rbi>
+    <battingAvg>0.75</battingAvg>
+    <rbi>8</rbi>
     <portraitPath>/Art/Portraits/johngallagher.png</portraitPath>
     <team>18 Holes</team>
     <name>John Gallagher</name>
-    <atbats>0</atbats>
-    <hits>0</hits>
+    <atbats>8</atbats>
+    <hits>6</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>

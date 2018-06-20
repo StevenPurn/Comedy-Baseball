@@ -67,6 +67,10 @@ public class Fielder : MonoBehaviour {
 
     public void ThrowBall(Fielder target)
     {
+        if (target == this)
+        {
+            return;
+        }
         Field.ballHasBeenThrown = true;
         Field.ball.TemporarilyDisableCollision(0.3f);
         Field.ball.curSpeed = throwSpeed;

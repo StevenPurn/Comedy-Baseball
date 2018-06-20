@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public static class Field {
@@ -97,7 +96,6 @@ public static class Field {
                 {
                     GetClosestFielderToLocation(ballLandingSpot).movementTarget = ballLandingSpot;
                 }
-                fielderWithBall = fielders.Find(x => x.ballInHands);
                 if (fielderWithBall != null)
                 {
                     WhatDoIDoWithTheBall(fielderWithBall);
@@ -107,7 +105,6 @@ public static class Field {
 
         if (GameControl.ballInPlay == false)
         {
-            fielderWithBall = fielders.Find(x => x.ballInHands);
             if (fielderWithBall != null && fielderWithBall.position != Fielder.Position.pitcher)
             {
                 fielderWithBall.ThrowBall(GetPlayerToThrowBallTo());
@@ -190,7 +187,11 @@ public static class Field {
     {
         if (GetFurthestRunner() == null)
         {
-            player.ThrowBall(GetPlayerToThrowBallTo());
+            var targetPlayer = GetPlayerToThrowBallTo();
+            if (targetPlayer != player)
+            {
+                player.ThrowBall(targetPlayer);
+            }
             return;
         }
         Transform baseLocation = GetFurthestRunner().targetBase[0].transform;
@@ -199,13 +200,21 @@ public static class Field {
         {
             if(Utility.CheckEqual(player.transform.position, baseLocation.position, 0.1f) && !GameControl.ballInPlay)
             {
-                player.ThrowBall(GetPlayerToThrowBallTo());
+                var targetPlayer = GetPlayerToThrowBallTo();
+                if (targetPlayer != player)
+                {
+                    player.ThrowBall(targetPlayer);
+                }
             }
             return;
         }
         else
         {
-            player.ThrowBall(GetPlayerToThrowBallTo());
+            var targetPlayer = GetPlayerToThrowBallTo();
+            if (targetPlayer != player)
+            {
+                player.ThrowBall(targetPlayer);
+            }
         }
     }
 
