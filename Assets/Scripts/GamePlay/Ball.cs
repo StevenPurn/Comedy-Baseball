@@ -5,7 +5,7 @@ public class Ball : MonoBehaviour {
 
     public Rigidbody2D rb;
     public float curHeight = 1.5f;
-    public bool hasntHitGround = false;
+    public bool hasHitGround = false;
     public float maxHeight, curSpeed;
     public Vector2 endPoint, startPoint;
     private BoxCollider2D col;
@@ -36,15 +36,18 @@ public class Ball : MonoBehaviour {
         }
         if (Utility.CheckEqual(transform.position, endPoint, 0.07f) || curHeight < 0)
         {
-            hasntHitGround = false;
+            hasHitGround = true;
             curSpeed = curSpeed / 3f;
             maxHeight = maxHeight / 4f;
-            Vector2 dir = (endPoint - startPoint);
-            float rads = Mathf.Atan2(dir.y, dir.x);
-            float angle = Mathf.Rad2Deg * rads;
-            Vector2 newLandingPoint = new Vector2(Mathf.Abs(Mathf.Cos(angle)), Mathf.Abs(Mathf.Sin(angle)));
-            endPoint = endPoint + newLandingPoint;
-            startPoint = transform.position;
+            if(Field.ballHasBeenThrown == false)
+            {
+                Vector2 dir = (endPoint - startPoint);
+                float rads = Mathf.Atan2(dir.y, dir.x);
+                float angle = Mathf.Rad2Deg * rads;
+                Vector2 newLandingPoint = new Vector2(Mathf.Abs(Mathf.Cos(angle)), Mathf.Abs(Mathf.Sin(angle)));
+                endPoint = endPoint + newLandingPoint;
+                startPoint = transform.position;
+            }
         }
         if(endPoint != Vector2.zero)
         {
@@ -115,6 +118,7 @@ public class Ball : MonoBehaviour {
 
     private void ReturnToPitcher()
     {
+        GetComponent<SpriteRenderer>().enabled = true;
         GameControl.ballInPlay = false;
         anim.SetBool("Moving", false);
         Fielder pitcher = Field.fielders.Find(x => x.position == Fielder.Position.pitcher && x.inningOver == false);
@@ -144,7 +148,7 @@ public class Ball : MonoBehaviour {
                 {
                     if (curHeight < 4.0f)
                     {
-                        if (hasntHitGround)
+                        if (hasHitGround == false)
                         {
                             Field.mostRecentBatter.SetOut();
                             GameControl.instance.HandleOut();
@@ -152,7 +156,7 @@ public class Ball : MonoBehaviour {
                             AudioControl.instance.PlayAudio(aud);
                             TextPopUps.instance.ShowPopUp("out");
                         }
-                        hasntHitGround = false;
+                        hasHitGround = true;
                         if (collision.GetComponentInParent<Fielder>().ballInHands == false)
                         {
                             string aud = "catch";
@@ -179,8 +183,14 @@ public class Ball : MonoBehaviour {
             shownHomeRunPopup = true;
             AudioControl.instance.PlayAudio("homerun");
             TextPopUps.instance.ShowPopUp("homerun");
+            Invoke("HideBallSprite", Random.Range(0.2f, 0.6f));
             Invoke("SetCameraParent", 2f);
         }
+    }
+
+    private void HideBallSprite()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     private void SetCameraParent()

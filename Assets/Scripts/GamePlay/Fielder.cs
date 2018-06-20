@@ -79,7 +79,6 @@ public class Fielder : MonoBehaviour {
         Field.ball.startPoint = Field.ball.transform.position;
         Field.ball.targetFielder = target;
         Field.ball.curPitch.type = Pitcher.Pitches.hit;
-        Debug.Log(transform.parent.name + " throwing to " + target.transform.parent.name);
         ballInHands = false;
     }
 

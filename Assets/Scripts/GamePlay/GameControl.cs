@@ -110,17 +110,19 @@ public class GameControl : MonoBehaviour {
 
     public void AddBatterToField()
     {
-        //This needs to wait for the previous play to be over before being called
         if (fieldParent == null)
         {
             fieldParent = GameObject.Find("Players").transform;
         }
-        GameObject go = Instantiate(runnerPrefab, GetTeamAtBat().dugout.transform.position, Quaternion.identity, fieldParent);
-        go.GetComponentInChildren<Runner>().team = GetTeamAtBat();
-        go.GetComponentInChildren<Runner>().player = GetCurrentBattingPlayer();
+        Vector3 pos = GetTeamAtBat().dugout.transform.position;
+        GameObject go = Instantiate(runnerPrefab, pos, Quaternion.identity, fieldParent);
+        Runner runner = go.GetComponentInChildren<Runner>();
+        runner.team = GetTeamAtBat();
+        runner.player = GetCurrentBattingPlayer();
+        Field.currentBatter = runner;
         go.name = "Runner " + runnerNumber;
         runnerNumber += 1;
-        Field.runners.Add(go.GetComponentInChildren<Runner>());
+        Field.runners.Add(runner);
     }
 
     public void AddFielderToField(Fielder.Position pos, GameObject obj)
@@ -129,14 +131,16 @@ public class GameControl : MonoBehaviour {
         {
             fieldParent = GameObject.Find("Players").transform;
         }
-        GameObject go = Instantiate(fielderPrefab, GetTeamInField().dugout.transform.position, Quaternion.identity, fieldParent);
+        Vector3 loc = GetTeamInField().dugout.transform.position;
+        GameObject go = Instantiate(fielderPrefab, loc, Quaternion.identity, fieldParent);
         go.name = pos.ToString();
         if (pos == Fielder.Position.pitcher)
         {
             go.transform.GetChild(0).gameObject.AddComponent<Pitcher>();
         }
-        go.GetComponentInChildren<Fielder>().SetPosition(pos);
-        Field.fielders.Add(go.GetComponentInChildren<Fielder>());
+        Fielder fielder = go.GetComponentInChildren<Fielder>();
+        fielder.SetPosition(pos);
+        Field.fielders.Add(fielder);
     }
 
     public void SetCameraToFollowBall(bool followBall)
@@ -145,18 +149,16 @@ public class GameControl : MonoBehaviour {
         {
             fieldCam = FindObjectOfType<CameraControl>();
         }
-        if (followBall)
-        { 
-            fieldCam.followBall = true;
+        if(followBall)
+        {
             fieldCam.SetParent(Field.ball.transform);
-            fieldCam.ResetPosition();
         }
         else
         {
-            fieldCam.followBall = false;
             fieldCam.SetParent();
-            fieldCam.ResetPosition();
         }
+        fieldCam.followBall = followBall;
+        fieldCam.ResetPosition();
     }
 
     int GetCurrentBatter()
@@ -165,42 +167,42 @@ public class GameControl : MonoBehaviour {
         {
             return GetTeamAtBat().players.FindIndex(x => x.isAtBat == true);
         }
-        //By default return 0, should only occur with first batter of the game
         return 0;
     }
 
     public ActivePlayer GetCurrentBattingPlayer()
     {
-        if (activeTeams[teamAtBat].players.Find(x => x.isAtBat == true) == null)
+        ActivePlayer playerAtBat = GetTeamAtBat().players.Find(x => x.isAtBat);
+        if (playerAtBat == null)
         {
             return activeTeams[teamAtBat].players[0];
         }
         else
         {
-            return activeTeams[teamAtBat].players.Find(x => x.isAtBat == true);
+            return playerAtBat;
         }
     }
 
     int GetCurrentPitcher()
     {
-        if (GetTeamInField().players.Find(x => x.isPitching == true) != null)
+        int? ind = GetTeamInField().players.FindIndex(x => x.isPitching);
+        if (ind != null)
         {
-            return GetTeamInField().players.FindIndex(x => x.isPitching == true);
+            return (int)ind;
         }
-        //By default return 0, should only occur with first batter of the game
         return 0;
     }
 
     public ActivePlayer GetCurrentPitchingPlayer()
     {
-        int teamPitching = teamAtBat == 0 ? 1 : 0;
-        if (activeTeams[teamPitching].players.Find(x => x.isPitching == true) == null)
+        ActivePlayer pitcher = GetTeamInField().players.Find(x => x.isPitching);
+        if (pitcher == null)
         {
-            return activeTeams[teamPitching].players[0];
+            return GetTeamInField().players[0];
         }
         else
         {
-            return activeTeams[teamAtBat].players.Find(x => x.isPitching == true);
+            return pitcher;
         }
     }
 
@@ -219,16 +221,7 @@ public class GameControl : MonoBehaviour {
     {
         activeTeams[0].currentlyAtBat = !activeTeams[0].currentlyAtBat;
         activeTeams[1].currentlyAtBat = !activeTeams[1].currentlyAtBat;
-
         teamAtBat = activeTeams[0].currentlyAtBat ? 0 : 1;
-
-        if (activeTeams[0].currentlyAtBat && activeTeams[1].currentlyAtBat)
-        {
-            Debug.LogWarning("Both teams are batting");
-        }else if(!activeTeams[0].currentlyAtBat && !activeTeams[1].currentlyAtBat)
-        {
-            Debug.LogWarning("Neither team is batting");
-        }
         changeCountEvent();
         runnerNumber = 0;
     }
@@ -277,7 +270,7 @@ public class GameControl : MonoBehaviour {
         if (balls >= 4)
         {
             balls = 4;
-            //Walk batter
+            //Walk batter but we don't pitch any balls so...
         }
         changeCountEvent();
     }
@@ -323,7 +316,6 @@ public class GameControl : MonoBehaviour {
     {
         ballInPlay = false;
         waitingForNextBatter = false;
-        int teamNotBatting = teamAtBat == 0 ? 1 : 0;
         Field.ball.transform.SetParent(GameObject.Find("Field").transform);
         if (curInning.isBottom)
         {
@@ -344,7 +336,7 @@ public class GameControl : MonoBehaviour {
         {
             if (curInning.inningNumber >= numberOfInnings)
             {
-                if (activeTeams[teamAtBat].score < activeTeams[teamNotBatting].score)
+                if (GetTeamAtBat().score < GetTeamInField().score)
                 {
                     GameOver();
                 }
@@ -352,9 +344,9 @@ public class GameControl : MonoBehaviour {
             SwitchTeamAtBat();
             curInning.isBottom = true;
         }
-        if(curInning.inningNumber == numberOfInnings)
+        if(curInning.inningNumber == numberOfInnings && curInning.isBottom == false)
         {
-            if (activeTeams[teamAtBat].score < activeTeams[teamNotBatting].score)
+            if (GetTeamAtBat().score < GetTeamInField().score)
             {
                 SwitchTeamAtBat();
             }

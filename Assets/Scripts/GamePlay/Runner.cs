@@ -86,7 +86,7 @@ public class Runner : MonoBehaviour {
             ball.targetFielder = null;
             ball.startPoint = ball.transform.position;
             ball.endPoint = hitTarget;
-            ball.hasntHitGround = true;
+            ball.hasHitGround = false;
             string aud = "hit" + UnityEngine.Random.Range(1, 3);
             if(ball.curPitch.type == Pitcher.Pitches.homerun)
             {
