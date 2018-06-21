@@ -103,22 +103,25 @@ public class Runner : MonoBehaviour {
             isAdvancing = true;
             col.enabled = false;
             player.ChangeAtBats(1);
-            string pitch;
-            int num = ball.curPitch.inputNumber;
-            if(num != 10)
+            if (GameControl.playHitAudio)
             {
-                if(num > 1 && num < 4)
+                string pitch;
+                int num = ball.curPitch.inputNumber;
+                if(num != 10)
                 {
-                    pitch = "thatWasBad";
-                } else if(num < 7)
-                {
-                    pitch = "meh";
-                } else
-                {
-                    pitch = "nice";
+                    if(num > 1 && num < 4)
+                    {
+                        pitch = "thatWasBad";
+                    } else if(num < 7)
+                    {
+                        pitch = "meh";
+                    } else
+                    {
+                        pitch = "nice";
+                    }
+                    TextPopUps.instance.ShowPopUp(pitch);
+                    AudioControl.instance.PlayAudio(pitch);
                 }
-                TextPopUps.instance.ShowPopUp(pitch);
-                AudioControl.instance.PlayAudio(pitch);
             }
         }
 

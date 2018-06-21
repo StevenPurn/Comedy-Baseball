@@ -9,6 +9,7 @@ public class GameControl : MonoBehaviour {
     public static int numberOfInnings = 3;
     public static Inning curInning = new Inning();
     public static int strikes, balls, outs, outsThisPlay;
+    public static bool playHitAudio = false;
     public static bool ballInPlay = false;
     public static bool playIsActive = false;
     public static bool isHomeRun = false;

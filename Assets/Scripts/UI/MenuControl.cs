@@ -19,6 +19,8 @@ public class MenuControl : MonoBehaviour {
     public Text errorText;
     public string error;
 
+    [Header("Other")]
+    public Toggle ballHitToggle;
     public GameObject confirmationDialog;
 
     //Go to the next scene unless there are invalid selections
@@ -29,6 +31,7 @@ public class MenuControl : MonoBehaviour {
             return;
         }
         SetupTeams();
+        GameControl.playHitAudio = ballHitToggle.isOn;
         SceneManager.LoadScene(nextScene);
     }
 
