@@ -5,7 +5,7 @@ public class Ball : MonoBehaviour {
 
     public Rigidbody2D rb;
     public float curHeight = 1.5f;
-    public bool hasHitGround = false;
+    public bool hasHitGround = false, wasHit = false;
     public float maxHeight, curSpeed;
     public Vector2 endPoint, startPoint;
     private BoxCollider2D col;
@@ -43,8 +43,7 @@ public class Ball : MonoBehaviour {
             {
                 Vector2 dir = (endPoint - startPoint);
                 float rads = Mathf.Atan2(dir.y, dir.x);
-                float angle = Mathf.Rad2Deg * rads;
-                Vector2 newLandingPoint = new Vector2(Mathf.Abs(Mathf.Cos(angle)), Mathf.Abs(Mathf.Sin(angle)));
+                Vector2 newLandingPoint = new Vector2(Mathf.Cos(rads), Mathf.Sin(rads));
                 endPoint = endPoint + newLandingPoint;
                 startPoint = transform.position;
             }
@@ -124,6 +123,7 @@ public class Ball : MonoBehaviour {
         Fielder pitcher = Field.fielders.Find(x => x.position == Fielder.Position.pitcher && x.inningOver == false);
         endPoint = pitcher.glove.position;
         pitcher.ballInHands = true;
+        wasHit = false;
     }
 
     public void EnableCollision()
@@ -148,7 +148,7 @@ public class Ball : MonoBehaviour {
                 {
                     if (curHeight < 4.0f)
                     {
-                        if (hasHitGround == false)
+                        if (hasHitGround == false && wasHit)
                         {
                             Field.mostRecentBatter.SetOut();
                             GameControl.instance.HandleOut();

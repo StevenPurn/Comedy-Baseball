@@ -107,6 +107,7 @@ public static class Field {
                 GameControl.instance.SetCameraToFollowBall(false);
                 GameControl.playIsActive = false;
                 fieldersCanReact = false;
+                ball.wasHit = false;
             }
             MoveFieldersToStartPosition(false);
         }
