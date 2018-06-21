@@ -4,7 +4,7 @@ using UnityEngine;
 public class TextPopUps : MonoBehaviour {
 
     public static TextPopUps instance;
-    public Sprite strike, outImg, homeRun;
+    public Sprite strike, outImg, homeRun, meh, nice, thatWasBad;
     public GameObject popUpObj;
     public Image popUpImg;
 
@@ -20,11 +20,6 @@ public class TextPopUps : MonoBehaviour {
         popUpObj.SetActive(false);
         popUpImg = popUpObj.GetComponent<Image>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void ShowPopUp(string type)
     {
@@ -38,6 +33,15 @@ public class TextPopUps : MonoBehaviour {
                 break;
             case "homerun":
                 popUpImg.sprite = homeRun;
+                break;
+            case "meh":
+                popUpImg.sprite = meh;
+                break;
+            case "nice":
+                popUpImg.sprite = nice;
+                break;
+            case "thatWasBad":
+                popUpImg.sprite = thatWasBad;
                 break;
         }
         popUpObj.SetActive(true);

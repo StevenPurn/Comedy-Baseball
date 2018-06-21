@@ -103,6 +103,23 @@ public class Runner : MonoBehaviour {
             isAdvancing = true;
             col.enabled = false;
             player.ChangeAtBats(1);
+            string pitch;
+            int num = ball.curPitch.inputNumber;
+            if(num != 10)
+            {
+                if(num > 1 && num < 4)
+                {
+                    pitch = "thatWasBad";
+                } else if(num < 7)
+                {
+                    pitch = "meh";
+                } else
+                {
+                    pitch = "nice";
+                }
+                TextPopUps.instance.ShowPopUp(pitch);
+                AudioControl.instance.PlayAudio(pitch);
+            }
         }
 
         if(ball.curPitch.type == Pitcher.Pitches.homerun)

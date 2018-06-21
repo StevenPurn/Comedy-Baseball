@@ -102,7 +102,7 @@ public class GameControl : MonoBehaviour {
 
     public static void InitializeField()
     {
-        //AudioControl.instance.PlayAudio("playball");
+        PlayFanfare();
         instance.teamAtBat = instance.activeTeams[0].currentlyAtBat ? 0 : 1;
         instance.AddBatterToField();
         Field.SpawnFielders();
@@ -330,6 +330,7 @@ public class GameControl : MonoBehaviour {
             {
                 betweenInningControl = FindObjectOfType<BetweenInnings>();
             }
+            PlayFanfare();
             betweenInningControl.EnableBetweenInningsUI();
         }
         else
@@ -355,6 +356,12 @@ public class GameControl : MonoBehaviour {
         outs = 0;
         AddBatterToField();
         SetCameraToFollowBall(false);
+    }
+
+    static void PlayFanfare()
+    {
+        string aud = "fanfare" + Random.Range(1, 12);
+        AudioControl.instance.PlayAudio(aud);
     }
 
     void GameOver()

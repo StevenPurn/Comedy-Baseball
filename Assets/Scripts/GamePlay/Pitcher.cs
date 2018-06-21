@@ -37,7 +37,7 @@ public class Pitcher : MonoBehaviour {
         }
         else
         {
-            fielder.ThrowBall(fielder);
+            Field.fielders[1].ThrowBall(fielder);
         }
     }
 }

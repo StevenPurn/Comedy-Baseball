@@ -18,54 +18,54 @@ public class Pitches : MonoBehaviour {
     public static Pitch pitch1 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 1f, Pitcher.Pitches.strike },
         }, 
-        new List<HitLocation>(), 4f, 6.0f, 5.0f);
+        new List<HitLocation>(), 4f, 6.0f, 5.0f, 1);
 
     public static Pitch pitch2 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 0.8f, Pitcher.Pitches.hit },
             { 0.2f, Pitcher.Pitches.strike }
         },
-        new List<HitLocation>(), 2f, 4.0f, 10.0f);
+        new List<HitLocation>(), 2f, 4.0f, 10.0f, 2);
 
     public static Pitch pitch3 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 0.2f, Pitcher.Pitches.strike },
             { 0.8f, Pitcher.Pitches.hit }
         },
-        new List<HitLocation>(), 2f, 5.0f, 8.0f);
+        new List<HitLocation>(), 2f, 5.0f, 8.0f, 3);
 
     public static Pitch pitch4 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 1f, Pitcher.Pitches.hit }
         },
-        new List<HitLocation>(), 4f, 8f, 5.0f);
+        new List<HitLocation>(), 4f, 8f, 5.0f, 4);
 
     public static Pitch pitch5 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 1f, Pitcher.Pitches.hit }
         },
-        new List<HitLocation>(), 4f, 5.0f, 5.0f);
+        new List<HitLocation>(), 4f, 5.0f, 5.0f, 5);
 
     public static Pitch pitch6 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 1f, Pitcher.Pitches.hit }
         },
-        new List<HitLocation>(), 6f, 10f, 5.0f);
+        new List<HitLocation>(), 6f, 10f, 5.0f, 6);
 
     public static Pitch pitch7 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 1f, Pitcher.Pitches.hit }
         },
-        new List<HitLocation>(), 6f, 10f, 7.0f);
+        new List<HitLocation>(), 6f, 10f, 7.0f, 7);
 
     public static Pitch pitch8 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 1f, Pitcher.Pitches.hit }
         },
-        new List<HitLocation>(), 6f, 10f, 7.0f);
+        new List<HitLocation>(), 6f, 10f, 7.0f, 8);
 
     public static Pitch pitch9 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 1f, Pitcher.Pitches.hit }
         },
-        new List<HitLocation>(), 8f, 15f, 8.0f);
+        new List<HitLocation>(), 8f, 15f, 8.0f, 9);
 
     public static Pitch pitch10 = new Pitch(new Dictionary<float, Pitcher.Pitches>() {
             { 1f, Pitcher.Pitches.homerun },
         },
-        new List<HitLocation>(), 10f, 20f, 10.0f);
+        new List<HitLocation>(), 10f, 20f, 10.0f, 10);
 
     public static Dictionary<int, Pitch> pitches = new Dictionary<int, Pitch>()
     {
