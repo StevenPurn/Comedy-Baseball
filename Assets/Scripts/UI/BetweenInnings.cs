@@ -27,7 +27,7 @@ public class BetweenInnings : MonoBehaviour {
 
     public void EnableBetweenInningsUI()
     {
-        Invoke("ActivateUI", 2f);
+        Invoke("ActivateUI", 4f);
     }
 
     private void ActivateUI()
