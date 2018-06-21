@@ -67,6 +67,10 @@ public class Fielder : MonoBehaviour {
 
     public void ThrowBall(Fielder target)
     {
+        if (target == this)
+        {
+            return;
+        }
         Field.ballHasBeenThrown = true;
         Field.ball.TemporarilyDisableCollision(0.3f);
         Field.ball.curSpeed = throwSpeed;
@@ -75,7 +79,6 @@ public class Fielder : MonoBehaviour {
         Field.ball.startPoint = Field.ball.transform.position;
         Field.ball.targetFielder = target;
         Field.ball.curPitch.type = Pitcher.Pitches.hit;
-        Debug.Log(transform.parent.name + " throwing to " + target.transform.parent.name);
         ballInHands = false;
     }
 

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public static class Field {
@@ -10,7 +9,7 @@ public static class Field {
     public static Dictionary<Fielder.Position, GameObject> playPositions = new Dictionary<Fielder.Position, GameObject> { };
     public static List<Runner> runners = new List<Runner>();
     public static List<Fielder> fielders = new List<Fielder>();
-    public static Runner mostRecentBatter;
+    public static Runner mostRecentBatter, currentBatter;
     public static List<GameObject> runnerTargets = new List<GameObject>();
     public static Ball ball;
     public static Vector2 ballLandingSpot;
@@ -39,25 +38,18 @@ public static class Field {
 
     public static void BatterIsOut()
     {
-        foreach (var runner in runners)
+        string aud = "";
+        if(GameControl.outsThisPlay == 2)
         {
-            if(runner.team == GameControl.instance.GetTeamAtBat() && runner.atBat)
-            {
-                if(GameControl.outsThisPlay > 1)
-                {
-                    string aud = "doubleplay";
-                    AudioControl.instance.PlayAudio(aud);
-                }
-                else
-                {
-                    string aud = "out" + UnityEngine.Random.Range(1, 5);
-                    TextPopUps.instance.ShowPopUp("out");
-                    AudioControl.instance.PlayAudio(aud);
-                }
-                runner.SetOut();
-                return;
-            }
+            aud = "doubleplay";
         }
+        else
+        {
+            TextPopUps.instance.ShowPopUp("out");
+            aud = "out" + Random.Range(1, 5);
+        }
+        AudioControl.instance.PlayAudio(aud);
+        currentBatter.SetOut();
     }
 
     public static void FielderAI()
@@ -73,7 +65,7 @@ public static class Field {
         {
             ball.transform.parent = fielderWithBall.glove.gameObject.transform;
             ball.transform.localPosition = Vector3.zero;
-            ball.curHeight = 1.0f;
+            ball.curHeight = 1f;
             pitcherHasBall = fielderWithBall.position == Fielder.Position.pitcher;
         }
         else
@@ -89,15 +81,14 @@ public static class Field {
             if (GameControl.ballInPlay || pitcherHasBall == false)
             {
                 MoveFieldersToPlayPosition();
-                if (ball.hasntHitGround == false && ballHasBeenThrown == false)
+                if (ball.hasHitGround && ballHasBeenThrown == false)
                 {
-                    GetClosestFielderToTransform(ball.transform).movementTarget = ball.transform.position + ballOffset;
+                    GetClosestFielderToTransform(ball.transform, false).movementTarget = ball.transform.position + ballOffset;
                 }
                 else
                 {
                     GetClosestFielderToLocation(ballLandingSpot).movementTarget = ballLandingSpot;
                 }
-                fielderWithBall = fielders.Find(x => x.ballInHands);
                 if (fielderWithBall != null)
                 {
                     WhatDoIDoWithTheBall(fielderWithBall);
@@ -107,7 +98,6 @@ public static class Field {
 
         if (GameControl.ballInPlay == false)
         {
-            fielderWithBall = fielders.Find(x => x.ballInHands);
             if (fielderWithBall != null && fielderWithBall.position != Fielder.Position.pitcher)
             {
                 fielderWithBall.ThrowBall(GetPlayerToThrowBallTo());
@@ -117,6 +107,7 @@ public static class Field {
                 GameControl.instance.SetCameraToFollowBall(false);
                 GameControl.playIsActive = false;
                 fieldersCanReact = false;
+                ball.wasHit = false;
             }
             MoveFieldersToStartPosition(false);
         }
@@ -133,11 +124,12 @@ public static class Field {
         {
             return null;
         }
-        Fielder closestPlayer = fielders[0];
+        Fielder closestPlayer = null;
         float lowestDist = float.MaxValue;
-        foreach (var player in fielders)
+        foreach (Fielder player in fielders)
         {
-            float distance = Vector2.Distance(player.transform.position, loc.position) + Vector2.Distance(player.transform.position, player.startPosition.position);
+            float distance = Vector2.Distance(player.transform.position, loc.position);
+            distance += accountForDistFromStartPos ? Vector2.Distance(player.transform.position, player.startPosition.position) : 0f;
             if (distance < lowestDist)
             {
                 closestPlayer = player;
@@ -150,11 +142,12 @@ public static class Field {
 
     public static Fielder GetClosestFielderToLocation(Vector2 loc, bool accountForDistFromStartPos = true)
     {
-        Fielder closestPlayer = fielders[0];
+        Fielder closestPlayer = null;
         float lowestDist = float.MaxValue;
-        foreach (var player in fielders)
+        foreach (Fielder player in fielders)
         {
-            float distance = Vector2.Distance(player.transform.position, loc) + Vector2.Distance(player.transform.position, player.startPosition.position);
+            float distance = Vector2.Distance(player.transform.position, loc);
+            distance += accountForDistFromStartPos ? Vector2.Distance(player.transform.position, player.startPosition.position) : 0f;
             if (distance < lowestDist)
             {
                 closestPlayer = player;
@@ -167,69 +160,71 @@ public static class Field {
 
     public static void MoveFieldersToPlayPosition(bool ignorePlayerWithBall = true)
     {
-        if (ignorePlayerWithBall)
+        foreach(var player in fielders)
         {
-            foreach (var player in fielders)
+            if(ignorePlayerWithBall && player.ballInHands)
             {
-                if (!player.ballInHands)
-                {
-                    player.movementTarget = player.playPosition.position;
-                }
+                continue;
             }
-        }
-        else
-        {
-            foreach (var player in fielders)
-            {
-                player.movementTarget = player.playPosition.position;
-            }
+            player.movementTarget = player.playPosition.position;
         }
     }
 
+    //do all of these just lead to the ball being thrown to
+    //whoever the target player is?
+    //There should be a case where the player runs to the base with the ball
     public static void WhatDoIDoWithTheBall(Fielder player)
     {
-        if (GetFurthestRunner() == null)
+        Runner furthestRunner = GetFurthestRunner();
+        if (furthestRunner == null)
         {
-            player.ThrowBall(GetPlayerToThrowBallTo());
+            Fielder targetPlayer = GetPlayerToThrowBallTo();
+            if (targetPlayer != player)
+            {
+                player.ThrowBall(targetPlayer);
+            }
             return;
         }
-        Transform baseLocation = GetFurthestRunner().targetBase[0].transform;
+        Transform baseLocation = furthestRunner.targetBase[0].transform;
         GetClosestFielderToTransform(baseLocation, false).movementTarget = baseLocation.position;
         if (player == GetClosestFielderToTransform(baseLocation))
         {
             if(Utility.CheckEqual(player.transform.position, baseLocation.position, 0.1f) && !GameControl.ballInPlay)
             {
-                player.ThrowBall(GetPlayerToThrowBallTo());
+                var targetPlayer = GetPlayerToThrowBallTo();
+                if (targetPlayer != player)
+                {
+                    player.ThrowBall(targetPlayer);
+                }
             }
             return;
         }
         else
         {
-            player.ThrowBall(GetPlayerToThrowBallTo());
+            var targetPlayer = GetPlayerToThrowBallTo();
+            if (targetPlayer != player)
+            {
+                player.ThrowBall(targetPlayer);
+            }
         }
     }
 
     public static void MoveFieldersToStartPosition(bool ignorePlayerWithBall = true)
     {
-        if (ignorePlayerWithBall)
+        if(fielders.Count > 0)
         {
             foreach (var player in fielders)
             {
-                if (!player.ballInHands)
+                if (ignorePlayerWithBall && player.ballInHands)
                 {
-                    player.movementTarget = player.startPosition.position;
+                    continue;
                 }
-            }
-        }
-        else if(fielders.Count > 0)
-        {
-            foreach (var player in fielders)
-            {
                 player.movementTarget = player.startPosition.position;
             }
         }
     }
 
+    //Add public variable for UI Control Obj
     public static void UpdateBases()
     {
         for (var i = 0; i < bases.Length; i++)
@@ -257,7 +252,8 @@ public static class Field {
         else if (GameControl.isHomeRun && !runner.atBat)
         {
             return true;
-        }else if (runners.Find(x => x.isAdvancing && x.currentBase + 1 == runner.currentBase))
+        }
+        else if (runners.Find(x => x.isAdvancing && x.currentBase + 1 == runner.currentBase))
         {
             return true;
         }
@@ -297,18 +293,14 @@ public static class Field {
         int highestBase = int.MinValue;
         foreach (var runner in runners)
         {
-            if (runner.currentBase > highestBase && !runner.exitingField)
+            if(onlyConsiderAdvancingRunner && runner.isAdvancing == false)
             {
-                if (onlyConsiderAdvancingRunner && runner.isAdvancing)
-                {
-                    highestBase = runner.currentBase;
-                    run = runner;
-                }
-                else
-                {
-                    highestBase = runner.currentBase;
-                    run = runner;
-                }
+                continue;
+            }
+            else if (runner.currentBase > highestBase && !runner.exitingField)
+            {
+                highestBase = runner.currentBase;
+                run = runner;
             }
         }
         return run;
@@ -316,7 +308,6 @@ public static class Field {
 
     public static void ResetInning()
     {
-        //Set fielders to return to dugout
         foreach (var fielder in fielders)
         {
             fielder.inningOver = true;
@@ -344,6 +335,7 @@ public static class Field {
         {
             if(GetFurthestRunner() == null)
             {
+                Debug.LogWarning("This should never show up");
                 GameControl.ballInPlay = false;
             }
             string aud;
@@ -357,7 +349,7 @@ public static class Field {
             else
             {
                 TextPopUps.instance.ShowPopUp("out");
-                aud = "out" + UnityEngine.Random.Range(1, 5);
+                aud = "out" + Random.Range(1, 5);
             }
             AudioControl.instance.PlayAudio(aud);
             runner.SetOut();
