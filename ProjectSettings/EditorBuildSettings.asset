@@ -6,19 +6,22 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/PreShowSetup.unity
+    path: Assets/Scenes/ModeSelection.unity
+    guid: c7cd640d45d1f8644a52d5d0b5907b7f
+  - enabled: 1
+    path: Assets/Scenes/MainGame/PreShowSetup.unity
     guid: a173012a532a5a1448b893a64db452c4
   - enabled: 1
     path: Assets/Scenes/GameIntro.unity
     guid: 139a93192b1c71743882cb7e688a92d6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Field.unity
     guid: 1065865e0191b424ab488b6ca1986d52
   - enabled: 1
-    path: Assets/Scenes/SteveField.unity
+    path: Assets/Scenes/MainGame/SteveField.unity
     guid: 5aad9a7e278535a48b1d7280e0a18eba
   - enabled: 1
-    path: Assets/Scenes/GameOver.unity
+    path: Assets/Scenes/MainGame/GameOver.unity
     guid: 1e5ce9e841f8451498cdeeb8fd80fd6b
   - enabled: 1
     path: Assets/Scenes/SplashScreen.unity
@@ -29,3 +32,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WaitForSpaceBar.unity
     guid: f476c3b0c0027234d8a91e3abb51ccfd
+  - enabled: 1
+    path: Assets/Scenes/HRD/HRDSetup.unity
+    guid: 0a21541c63da60a49adb51aef3fe3648
+  - enabled: 1
+    path: Assets/Scenes/HRD/HRDIntro.unity
+    guid: b0200027bedd2c2429ef4356bfd26f47
+  - enabled: 1
+    path: Assets/Scenes/HRD/HRDGameOver.unity
+    guid: c0575090b62ef5b418a800d827730e85
+  - enabled: 1
+    path: Assets/Scenes/HRD/HRDSplashScreen.unity
+    guid: 2708e01d85bbedc43bc9c4271c5bbe9f
+  - enabled: 1
+    path: Assets/Scenes/HRD/HRDTitle.unity
+    guid: 808263dd0d2b62941be712f3373cfe1e
+  - enabled: 1
+    path: Assets/Scenes/HRD/HRDWaitForSpacebar.unity
+    guid: 7ef27d1e341c6a149a5a2b49aa90d91b
+  - enabled: 1
+    path: Assets/Scenes/HRD/HRDField.unity
+    guid: c3c9b9360f80bd0498c55ecb409551cb
+  m_configObjects: {}
