@@ -10,7 +10,13 @@ public class ScoreText : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GameControl.instance.changeCountEvent += UpdateBatterPanel;
+        if(GameControl.instance != null)
+        {
+            GameControl.instance.changeCountEvent += UpdateBatterPanel;
+        } else
+        {
+            HRDGameControl.instance.changeCountEvent += UpdateBatterPanel;
+        }
         UpdateBatterPanel();
     }
 	
@@ -24,6 +30,10 @@ public class ScoreText : MonoBehaviour {
     void UpdateBatterPhoto()
     {
         //Should update this for when the game is built so it can point anywhere
+        if(GameControl.instance == null)
+        {
+            return;
+        }
         string path = Application.dataPath + GameControl.instance.GetCurrentBattingPlayer().portraitPath;
         byte[] data = File.ReadAllBytes(path);
         Texture2D texture = new Texture2D(64, 64, TextureFormat.ARGB32, false);
@@ -33,9 +43,15 @@ public class ScoreText : MonoBehaviour {
 
     void UpdateBatterText()
     {
-        ActivePlayer curBatter = GameControl.instance.GetCurrentBattingPlayer();
-        string batAvg = ((float)Math.Round(((float)curBatter.totalHits / (float)curBatter.totalAtBats), 3) * 1000).ToString();
-        string batText = curBatter.number.ToString() + "\n" + curBatter.name + "\n." + batAvg;
-        batterInfo.text = batText;
+        if(GameControl.instance != null)
+        {
+            ActivePlayer curBatter = GameControl.instance.GetCurrentBattingPlayer();
+            string batAvg = ((float)Math.Round(((float)curBatter.totalHits / (float)curBatter.totalAtBats), 3) * 1000).ToString();
+            string batText = curBatter.number.ToString() + "\n" + curBatter.name + "\n." + batAvg;
+            batterInfo.text = batText;
+        } else
+        {
+            batterInfo.text = "This shit is working hopefully";
+        }
     }
 }

@@ -13,11 +13,11 @@ public class HRDGameControl : MonoBehaviour {
     public static bool isHomeRun = false;
     public static bool waitingForNextBatter = false;
     public static List<HRDPlayer> players = new List<HRDPlayer>();
-    public GameObject batterPrefab, pitcherPrefab;
+    public GameObject batterPrefab, fielderPrefab;
     public BetweenInnings betweenInningControl;
     public Transform battersBox, fieldParent;
     public CameraControl fieldCam;
-    public Material pitcherMat, batterMat;
+    public Material fielderMat, batterMat;
 
     public delegate void ChangeCount();
     public ChangeCount changeCountEvent;
@@ -67,11 +67,29 @@ public class HRDGameControl : MonoBehaviour {
         {
             fieldParent = GameObject.Find("Players").transform;
         }
-        Vector2 pos = Vector2.zero;
+        Vector2 pos = Field.dugouts[1].transform.position;
         GameObject go = Instantiate(batterPrefab, pos, Quaternion.identity, fieldParent);
-        Runner runner = go.GetComponentInChildren<Runner>();
-        Field.currentBatter = runner;
-        Field.runners.Add(runner);
+        HRDBatter runner = go.GetComponentInChildren<HRDBatter>();
+        Field.hrdCurrentBatter = runner;
+        Field.hrdRunners.Add(runner);
+    }
+
+    public void AddFielderToField(Fielder.Position pos, GameObject obj)
+    {
+        if (fieldParent == null)
+        {
+            fieldParent = GameObject.Find("Players").transform;
+        }
+        Vector3 loc = Field.dugouts[0].transform.position;
+        GameObject go = Instantiate(fielderPrefab, loc, Quaternion.identity, fieldParent);
+        go.name = pos.ToString();
+        if (pos == Fielder.Position.pitcher)
+        {
+            go.transform.GetChild(0).gameObject.AddComponent<Pitcher>();
+        }
+        Fielder fielder = go.GetComponentInChildren<Fielder>();
+        fielder.SetPosition(pos);
+        Field.fielders.Add(fielder);
     }
 
     public void SetCameraToFollowBall(bool followBall)

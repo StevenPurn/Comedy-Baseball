@@ -28,9 +28,8 @@ public class HRDBatter : MonoBehaviour
         ball = Field.ball.GetComponent<Ball>();
         GetComponent<SpriteRenderer>().material = HRDGameControl.instance.batterMat;
         atBat = true;
-        // add battersbox as target
-        // targetBase.Add();
-        targetBase.Add(team.dugout);
+        targetBase.Add(Field.runnerTargets[0]);
+        targetBase.Add(Field.dugouts[1]);
         col = GetComponent<Collider2D>();
     }
 
@@ -114,6 +113,7 @@ public class HRDBatter : MonoBehaviour
         {
             movementTarget = targetBase[0].transform.position;
         }
+        MovePlayer(movementTarget);
     }
 
     void MovePlayer(Vector3 target)

@@ -6,7 +6,9 @@ public class HandleInput : MonoBehaviour
 
     void Update ()
     {
-        if (!Field.runners.Find(x => x.isAdvancing) && listenForHits)
+        bool result = Field.AreRunnersAdvancing();
+        result = !result || listenForHits;
+        if (result)
         {
             if (Controls.GetButtonDown("hit1"))
             {

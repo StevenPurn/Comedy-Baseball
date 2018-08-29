@@ -24,13 +24,21 @@ public class HRDMenuControl : MonoBehaviour {
     private bool NamesValid()
     {
         List<string> names = new List<string>();
+        int count = 0;
         foreach (var item in playerNames)
         {
-            if(item.text == "" || names.Contains(item.text))
+            if (item.text == "")
             {
-                return false;
+                count += 1;
             }
-            names.Add(item.text);
+            else
+            {
+                if (names.Contains(item.text))
+                {
+                    return false;
+                }
+                names.Add(item.text);
+            }
         }
         return true;
     }

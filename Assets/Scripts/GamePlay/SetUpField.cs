@@ -27,13 +27,19 @@ public class SetUpField : MonoBehaviour {
         }
 
         Field.bases = bases;
-        Field.dugouts = dugouts;
-        Field.AssignDugouts();
         Field.SetUpHitLocations(hitLocationObjs);
         Field.fieldPositions = fieldPos;
+        Field.dugouts = dugouts;
+        Field.AssignDugouts();
         Field.playPositions = playPos;
         Field.runnerTargets = runnerTargets;
         Field.ball = GameObject.Find("Ball").GetComponent<Ball>();
-        GameControl.InitializeField();
+        if(GameControl.instance != null)
+        {
+            GameControl.InitializeField();
+        } else if(HRDGameControl.instance != null)
+        {
+            HRDGameControl.InitializeField();
+        }
     }
 }

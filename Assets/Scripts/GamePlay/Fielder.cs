@@ -21,7 +21,16 @@ public class Fielder : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        GetComponent<SpriteRenderer>().material = team == GameControl.instance.activeTeams[0] ? GameControl.instance.homeTeamMat : GameControl.instance.awayTeamMat;
+        Material mat;
+        if(GameControl.instance != null)
+        {
+            mat = team == GameControl.instance.activeTeams[0] ? GameControl.instance.homeTeamMat : GameControl.instance.awayTeamMat;
+        }
+        else
+        {
+            mat = HRDGameControl.instance.fielderMat;
+        }
+        GetComponent<SpriteRenderer>().material = mat;
         ballInHands = false;
         if(position == Position.catcher)
         {
@@ -39,7 +48,10 @@ public class Fielder : MonoBehaviour {
     {
         startPosition = Field.fieldPositions[position].transform;
         playPosition = Field.playPositions[position].transform;
-        team = GameControl.instance.GetTeamInField();
+        if(GameControl.instance != null)
+        {
+            team = GameControl.instance.GetTeamInField();
+        }
     }
 
     private void FixedUpdate()

@@ -3647,14 +3647,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   batterPrefab: {fileID: 1446193678772132, guid: 9999224e3ecf5e24b8aa1d5ccb9057f1,
     type: 2}
-  pitcherPrefab: {fileID: 1750577683345046, guid: 29733e568815d454ba0883b6be021562,
+  fielderPrefab: {fileID: 1750577683345046, guid: 52d91422b8b5bee4abaa2198f85f42d1,
     type: 2}
   betweenInningControl: {fileID: 0}
   battersBox: {fileID: 0}
   fieldParent: {fileID: 0}
   fieldCam: {fileID: 0}
-  pitcherMat: {fileID: 0}
-  batterMat: {fileID: 0}
+  fielderMat: {fileID: 2100000, guid: 4ec8427a4f4dcab47acedd46d9e2eff0, type: 2}
+  batterMat: {fileID: 2100000, guid: 41c497777411f4949b2650b3ab892bf8, type: 2}
 --- !u!114 &1989730088
 MonoBehaviour:
   m_ObjectHideFlags: 0

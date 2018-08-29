@@ -8,8 +8,10 @@ public static class Field {
     public static Dictionary<Fielder.Position, GameObject> fieldPositions = new Dictionary<Fielder.Position, GameObject> { };
     public static Dictionary<Fielder.Position, GameObject> playPositions = new Dictionary<Fielder.Position, GameObject> { };
     public static List<Runner> runners = new List<Runner>();
+    public static List<HRDBatter> hrdRunners = new List<HRDBatter>();
     public static List<Fielder> fielders = new List<Fielder>();
     public static Runner mostRecentBatter, currentBatter;
+    public static HRDBatter hrdCurrentBatter;
     public static List<GameObject> runnerTargets = new List<GameObject>();
     public static Ball ball;
     public static Vector2 ballLandingSpot;
@@ -20,9 +22,30 @@ public static class Field {
 
     public static void AssignDugouts()
     {
-        GameControl.instance.activeTeams[0].dugout = dugouts[0];
-        GameControl.instance.activeTeams[1].dugout = dugouts[1];
+        if(GameControl.instance != null)
+        {
+            GameControl.instance.activeTeams[0].dugout = dugouts[0];
+            GameControl.instance.activeTeams[1].dugout = dugouts[1];
+        }
         fieldParent = GameObject.Find("Field").transform;
+    }
+
+    public static bool AreRunnersAdvancing()
+    {
+        if(GameControl.instance != null)
+        {
+            if(runners.Find(x => x.isAdvancing) == null)
+            {
+                return false;
+            }
+        } else
+        {
+            if(hrdRunners.Find(x => x.isAdvancing) == null)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void SetUpHitLocations(List<GameObject> objs)
@@ -54,14 +77,21 @@ public static class Field {
 
     public static void FielderAI()
     {
-        if (runners.Find(x => x.isAdvancing) == null && ballHasBeenThrown)
+        if(GameControl.instance != null)
         {
-            GameControl.ballInPlay = false;
+            GameAI();
+        } else
+        {
+            HRDAI();
         }
+    }
+
+    private static void HRDAI()
+    {
         Fielder fielderWithBall = fielders.Find(x => x.ballInHands);
         bool pitcherHasBall = false;
 
-        if(fielderWithBall != null)
+        if (fielderWithBall != null)
         {
             ball.transform.parent = fielderWithBall.glove.gameObject.transform;
             ball.transform.localPosition = Vector3.zero;
@@ -70,7 +100,45 @@ public static class Field {
         }
         else
         {
-            if(ball != null)
+            if (ball != null)
+            {
+                ball.transform.parent = fieldParent;
+            }
+        }
+
+        if (fielderWithBall != null && fielderWithBall.position != Fielder.Position.pitcher)
+        {
+            fielderWithBall.ThrowBall(GetPlayerToThrowBallTo());
+        }
+        else if (fielderWithBall != null && fielderWithBall.position == Fielder.Position.pitcher)
+        {
+            GameControl.instance.SetCameraToFollowBall(false);
+            GameControl.playIsActive = false;
+            fieldersCanReact = false;
+            ball.wasHit = false;
+        }
+        MoveFieldersToStartPosition(false);
+    }
+
+    private static void GameAI()
+    {
+        if (runners.Find(x => x.isAdvancing) == null && ballHasBeenThrown)
+        {
+            GameControl.ballInPlay = false;
+        }
+        Fielder fielderWithBall = fielders.Find(x => x.ballInHands);
+        bool pitcherHasBall = false;
+
+        if (fielderWithBall != null)
+        {
+            ball.transform.parent = fielderWithBall.glove.gameObject.transform;
+            ball.transform.localPosition = Vector3.zero;
+            ball.curHeight = 1f;
+            pitcherHasBall = fielderWithBall.position == Fielder.Position.pitcher;
+        }
+        else
+        {
+            if (ball != null)
             {
                 ball.transform.parent = fieldParent;
             }
@@ -227,6 +295,10 @@ public static class Field {
     //Add public variable for UI Control Obj
     public static void UpdateBases()
     {
+        if(GameControl.instance == null)
+        {
+            return;
+        }
         for (var i = 0; i < bases.Length; i++)
         {
             bases[i].isOccupied = runners.Find(x => x.currentBase == i);
@@ -324,7 +396,13 @@ public static class Field {
     {
         foreach (var pos in fieldPositions)
         {
-            GameControl.instance.AddFielderToField(pos.Key, pos.Value);
+            if(GameControl.instance != null)
+            {
+                GameControl.instance.AddFielderToField(pos.Key, pos.Value);
+            } else
+            {
+                HRDGameControl.instance.AddFielderToField(pos.Key, pos.Value);
+            }
         }
     }
 
@@ -356,5 +434,4 @@ public static class Field {
             GameControl.instance.HandleOut();
         }
     }
-
 }

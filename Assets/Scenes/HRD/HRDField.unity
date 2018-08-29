@@ -186,7 +186,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &15944652
 GameObject:
@@ -256,7 +256,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &43588600
 MonoBehaviour:
@@ -277,13 +277,9 @@ MonoBehaviour:
   dugouts:
   - {fileID: 88058327}
   - {fileID: 1448955580}
-  positions: 000000000100000002000000030000000400000005000000060000000700000008000000
+  positions: 0000000001000000
   runnerTargets:
   - {fileID: 1733910089}
-  - {fileID: 1000370719}
-  - {fileID: 1300694208}
-  - {fileID: 283475343}
-  - {fileID: 1552439608}
   hitLocationObjs:
   - {fileID: 675022886}
   - {fileID: 760576206}
@@ -323,7 +319,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 43588597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c9f9d079091052409a31d95ae6eca86, type: 3}
+  m_Script: {fileID: 11500000, guid: 91c2e2ca8e3826243b22cc634f0579cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   suggestions:
@@ -334,30 +330,15 @@ MonoBehaviour:
   - {fileID: 1537174365}
   - {fileID: 1716121964}
   - {fileID: 1442852013}
-  betweenInningUI: {fileID: 1463594126}
+  hrdUI: {fileID: 1463594126}
   suggestionsText: {fileID: 1096599298}
-  randomGameText: {fileID: 866677350}
+  randomGameText: {fileID: 962927927}
+  leaderboardText: {fileID: 1739169150}
   randomGames:
   - Back In My Day
   - 185
-  - World's Worst
   - Action Hero
-  - I Like My Partner
-  hTeamInning1Score: {fileID: 0}
-  hTeamInning2Score: {fileID: 0}
-  hTeamInning3Score: {fileID: 0}
-  aTeamInning1Score: {fileID: 0}
-  aTeamInning2Score: {fileID: 0}
-  aTeamInning3Score: {fileID: 0}
-  hTeamRuns: {fileID: 0}
-  hTeamHits: {fileID: 0}
-  hTeamPitches: {fileID: 0}
-  aTeamRuns: {fileID: 0}
-  aTeamHits: {fileID: 0}
-  aTeamPitches: {fileID: 0}
-  hTeamAbr: {fileID: 0}
-  aTeamAbr: {fileID: 0}
-  textColor: {r: 1, g: 0.9215687, b: 0.0627451, a: 1}
+  textColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &67478899
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +608,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &156562629
 GameObject:
@@ -1011,7 +992,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 2.947484}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &236935466
 GameObject:
@@ -1336,7 +1317,7 @@ Transform:
   m_Children:
   - {fileID: 516793860}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &362378959
 GameObject:
@@ -3096,7 +3077,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &711370829
 GameObject:
@@ -3171,7 +3152,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &753585550
 GameObject:
@@ -3626,7 +3607,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &930309101
 GameObject:
@@ -3755,7 +3736,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &954706970
 GameObject:
@@ -4319,7 +4300,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1040743020
 GameObject:
@@ -4472,7 +4453,7 @@ Transform:
   m_Children:
   - {fileID: 994186712}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1088082186
 GameObject:
@@ -4507,7 +4488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 123, y: 70}
+  m_AnchoredPosition: {x: 112.4, y: 44}
   m_SizeDelta: {x: 209, y: 99.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1088082188
@@ -6208,7 +6189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0000038147}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -280, y: -91.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1463594128
@@ -8341,7 +8322,6 @@ GameObject:
   - component: {fileID: 1949762067}
   - component: {fileID: 1949762066}
   - component: {fileID: 1949762065}
-  - component: {fileID: 1949762069}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -8422,47 +8402,13 @@ RectTransform:
   - {fileID: 2105569621}
   - {fileID: 1906401637}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1949762069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1949762064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33619904751943b4ab6af0a974d8816f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inning: {fileID: 0}
-  batter: {fileID: 968211492}
-  homeScore: {fileID: 0}
-  awayScore: {fileID: 0}
-  count: {fileID: 0}
-  outs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  inningIndicators:
-  - {fileID: 0}
-  - {fileID: 0}
-  bases:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  activeOut: {fileID: 21300002, guid: ba3e1f7eaaf795f4eb1a5e6d6c570833, type: 3}
-  inactiveOut: {fileID: 21300004, guid: ba3e1f7eaaf795f4eb1a5e6d6c570833, type: 3}
-  occupiedBase: {fileID: 21300006, guid: ba3e1f7eaaf795f4eb1a5e6d6c570833, type: 3}
-  unoccupiedBase: {fileID: 21300008, guid: ba3e1f7eaaf795f4eb1a5e6d6c570833, type: 3}
-  activeInning: {fileID: 21300010, guid: ba3e1f7eaaf795f4eb1a5e6d6c570833, type: 3}
-  inactiveInning: {fileID: 21300014, guid: ba3e1f7eaaf795f4eb1a5e6d6c570833, type: 3}
-  batterPortrait: {fileID: 0}
 --- !u!1 &1962317415
 GameObject:
   m_ObjectHideFlags: 0
@@ -8677,7 +8623,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2069569482
 GameObject:
@@ -8780,7 +8726,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2105569618
 GameObject:
@@ -8883,74 +8829,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 1
---- !u!1001 &2106341405
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4452278118236566, guid: d78d13169ecc21148a29885ce83e1bf9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.8177159
-      objectReference: {fileID: 0}
-    - target: {fileID: 4452278118236566, guid: d78d13169ecc21148a29885ce83e1bf9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.1707674
-      objectReference: {fileID: 0}
-    - target: {fileID: 4452278118236566, guid: d78d13169ecc21148a29885ce83e1bf9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4452278118236566, guid: d78d13169ecc21148a29885ce83e1bf9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4452278118236566, guid: d78d13169ecc21148a29885ce83e1bf9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4452278118236566, guid: d78d13169ecc21148a29885ce83e1bf9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4452278118236566, guid: d78d13169ecc21148a29885ce83e1bf9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4452278118236566, guid: d78d13169ecc21148a29885ce83e1bf9, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114291111928252342, guid: d78d13169ecc21148a29885ce83e1bf9,
-        type: 2}
-      propertyPath: fieldParent
-      value: 
-      objectReference: {fileID: 1273472705}
-    - target: {fileID: 114291111928252342, guid: d78d13169ecc21148a29885ce83e1bf9,
-        type: 2}
-      propertyPath: battersBox
-      value: 
-      objectReference: {fileID: 1733910090}
-    - target: {fileID: 114291111928252342, guid: d78d13169ecc21148a29885ce83e1bf9,
-        type: 2}
-      propertyPath: runnerPrefab
-      value: 
-      objectReference: {fileID: 1446193678772132, guid: 1213fd946c1939049964bbf674983692,
-        type: 2}
-    - target: {fileID: 114291111928252342, guid: d78d13169ecc21148a29885ce83e1bf9,
-        type: 2}
-      propertyPath: homeTeamMat
-      value: 
-      objectReference: {fileID: 2100000, guid: b3093739a8919c940aa5114a74dababc, type: 2}
-    - target: {fileID: 114291111928252342, guid: d78d13169ecc21148a29885ce83e1bf9,
-        type: 2}
-      propertyPath: awayTeamMat
-      value: 
-      objectReference: {fileID: 2100000, guid: 2598d8cb6de8a2e4b9e550a23ee21123, type: 2}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d78d13169ecc21148a29885ce83e1bf9, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &2123514436
 GameObject:
   m_ObjectHideFlags: 0
