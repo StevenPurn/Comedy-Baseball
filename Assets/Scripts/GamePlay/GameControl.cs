@@ -6,10 +6,11 @@ public class GameControl : MonoBehaviour {
 
     //Singleton implementation
     public static GameControl instance;
-    public static int numberOfInnings = 3;
+    public static int numberOfInnings = 5;
     public static Inning curInning = new Inning();
     public static int strikes, balls, outs, outsThisPlay;
     public static bool playHitAudio = false;
+    public static bool isPlayoffGame = false;
     public static bool ballInPlay = false;
     public static bool playIsActive = false;
     public static bool isHomeRun = false;
@@ -47,6 +48,11 @@ public class GameControl : MonoBehaviour {
         SaveLoad.PopulateTeamList();
         SaveLoad.PopulatePlayerList();
         curInning.inningNumber = 1;
+    }
+
+    public static void SetUpGame()
+    {
+        numberOfInnings = isPlayoffGame ? 5 : 3;
     }
 
     private void Update()

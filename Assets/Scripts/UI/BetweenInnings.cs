@@ -9,7 +9,8 @@ public class BetweenInnings : MonoBehaviour {
     public GameObject betweenInningUI;
     public Text suggestionsText, randomGameText;
     public List<string> randomGames = new List<string>();
-    public Text hTeamInning1Score, hTeamInning2Score, hTeamInning3Score, aTeamInning1Score, aTeamInning2Score, aTeamInning3Score;
+    public Text hTeamInning1Score, hTeamInning2Score, hTeamInning3Score, hTeamInning4Score, hTeamInning5Score;
+    public Text aTeamInning1Score, aTeamInning2Score, aTeamInning3Score, aTeamInning4Score, aTeamInning5Score;
     public Text hTeamRuns, hTeamHits, hTeamPitches, aTeamRuns, aTeamHits, aTeamPitches;
     public Text hTeamAbr, aTeamAbr;
     public Color textColor;
@@ -44,14 +45,21 @@ public class BetweenInnings : MonoBehaviour {
             suggestion.text = "";
             suggestion.textComponent.color = textColor;
         }
-        if(GameControl.curInning.inningNumber != 3)
+        if (GameControl.isPlayoffGame)
         {
-            int index = UnityEngine.Random.Range(0, randomGames.Count - 1);
-            randomGameText.text = randomGames[index];
-            randomGames.Remove(randomGames[index]);
+            randomGameText.text = randomGames[GameControl.curInning.inningNumber - 1];
         } else
         {
-            randomGameText.text = randomGames[randomGames.Count - 1];
+            if (GameControl.curInning.inningNumber != GameControl.numberOfInnings)
+            {
+                int index = UnityEngine.Random.Range(0, randomGames.Count - 1);
+                randomGameText.text = randomGames[index];
+                randomGames.Remove(randomGames[index]);
+            }
+            else
+            {
+                randomGameText.text = randomGames[randomGames.Count - 1];
+            }
         }
         SetUpScoreboardText();
     }
@@ -124,9 +132,13 @@ public class BetweenInnings : MonoBehaviour {
         hTeamInning1Score.text = hTeam.scoreByInning[0].ToString();
         hTeamInning2Score.text = hTeam.scoreByInning[1].ToString();
         hTeamInning3Score.text = hTeam.scoreByInning[2].ToString();
+        hTeamInning4Score.text = hTeam.scoreByInning[3].ToString();
+        hTeamInning5Score.text = hTeam.scoreByInning[4].ToString();
         aTeamInning1Score.text = aTeam.scoreByInning[0].ToString();
         aTeamInning2Score.text = aTeam.scoreByInning[1].ToString();
         aTeamInning3Score.text = aTeam.scoreByInning[2].ToString();
+        aTeamInning4Score.text = aTeam.scoreByInning[3].ToString();
+        aTeamInning5Score.text = aTeam.scoreByInning[4].ToString();
         hTeamHits.text = hTeam.GetHits().ToString();
         aTeamHits.text = aTeam.GetHits().ToString();
         hTeamRuns.text = hTeam.score.ToString();

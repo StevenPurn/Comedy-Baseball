@@ -21,6 +21,7 @@ public class MenuControl : MonoBehaviour {
 
     [Header("Other")]
     public Toggle ballHitToggle;
+    public Toggle playoffToggle;
     public GameObject confirmationDialog;
 
     //Go to the next scene unless there are invalid selections
@@ -32,6 +33,8 @@ public class MenuControl : MonoBehaviour {
         }
         SetupTeams();
         GameControl.playHitAudio = ballHitToggle.isOn;
+        GameControl.isPlayoffGame = playoffToggle.isOn;
+        GameControl.SetUpGame();
         SceneManager.LoadScene(nextScene);
     }
 

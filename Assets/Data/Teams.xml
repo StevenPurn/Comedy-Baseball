@@ -4,11 +4,11 @@
     <id>1</id>
     <name>Boner Squad</name>
     <abbreviation>BNRS</abbreviation>
-    <wins>0</wins>
+    <wins>1</wins>
     <loses>0</loses>
     <ties>0</ties>
-    <runs>0</runs>
-    <hits>0</hits>
+    <runs>1</runs>
+    <hits>5</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
     <colorr>255</colorr>
@@ -20,11 +20,11 @@
     <name>Jon, Tony, and Deathsaber</name>
     <abbreviation>JTDS</abbreviation>
     <wins>0</wins>
-    <loses>0</loses>
-    <ties>0</ties>
+    <loses>2</loses>
+    <ties>2</ties>
     <runs>0</runs>
-    <hits>0</hits>
-    <atbatstrikeouts>0</atbatstrikeouts>
+    <hits>5</hits>
+    <atbatstrikeouts>1</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
     <colorr>0</colorr>
     <colorg>255</colorg>
@@ -51,9 +51,9 @@
     <abbreviation>CKNS</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
-    <ties>0</ties>
+    <ties>1</ties>
     <runs>0</runs>
-    <hits>0</hits>
+    <hits>1</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
     <colorr>255</colorr>
@@ -66,11 +66,11 @@
     <abbreviation>TLBK</abbreviation>
     <wins>0</wins>
     <loses>0</loses>
-    <ties>0</ties>
+    <ties>1</ties>
     <runs>0</runs>
-    <hits>0</hits>
+    <hits>2</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
-    <pitchedstrikeouts>0</pitchedstrikeouts>
+    <pitchedstrikeouts>1</pitchedstrikeouts>
     <colorr>0.823</colorr>
     <colorg>0.41</colorg>
     <colorb>0.127</colorb>
@@ -94,11 +94,11 @@
     <id>7</id>
     <name>Team Mutiny Radio</name>
     <abbreviation>MTYR</abbreviation>
-    <wins>0</wins>
+    <wins>1</wins>
     <loses>0</loses>
     <ties>0</ties>
-    <runs>0</runs>
-    <hits>0</hits>
+    <runs>2</runs>
+    <hits>4</hits>
     <atbatstrikeouts>0</atbatstrikeouts>
     <pitchedstrikeouts>0</pitchedstrikeouts>
     <colorr>255</colorr>
