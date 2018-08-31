@@ -109,6 +109,12 @@ public class Ball : MonoBehaviour {
         Invoke("ReturnToPitcher", timeDelay);
     }
 
+    public void HandleFoul(float timeDelay = 9.5f)
+    {
+        TemporarilyDisableCollision(timeDelay);
+        Invoke("ReturnToPitcher", timeDelay);
+    }
+
     public void TemporarilyDisableCollision(float timeDelay = 3.5f)
     {
         col.enabled = false;
