@@ -2,12 +2,12 @@
 <ArrayOfPlayer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <player>
     <number>1</number>
-    <battingAvg>0.182</battingAvg>
+    <battingAvg>0.125</battingAvg>
     <rbi>0</rbi>
     <portraitPath>/Art/Portraits/alejandroochoa.png</portraitPath>
     <team>Trill Buckner</team>
     <name>Dro Ochoa</name>
-    <atbats>11</atbats>
+    <atbats>16</atbats>
     <hits>2</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>1</strikeoutsPitched>
@@ -74,13 +74,13 @@
   </player>
   <player>
     <number>7</number>
-    <battingAvg>0.333</battingAvg>
+    <battingAvg>0.25</battingAvg>
     <rbi>0</rbi>
     <portraitPath>/Art/Portraits/benkolina.png</portraitPath>
     <team>Trill Buckner</team>
     <name>Ben Kolina</name>
-    <atbats>3</atbats>
-    <hits>1</hits>
+    <atbats>8</atbats>
+    <hits>2</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
   </player>
@@ -254,12 +254,12 @@
   </player>
   <player>
     <number>22</number>
-    <battingAvg>0.333</battingAvg>
+    <battingAvg>0.182</battingAvg>
     <rbi>0</rbi>
     <portraitPath>/Art/Portraits/mikespeigelman.png</portraitPath>
     <team>Team Mutiny Radio</team>
     <name>Mike Speigelman</name>
-    <atbats>6</atbats>
+    <atbats>11</atbats>
     <hits>2</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
@@ -290,12 +290,12 @@
   </player>
   <player>
     <number>25</number>
-    <battingAvg>0.167</battingAvg>
+    <battingAvg>0.091</battingAvg>
     <rbi>1</rbi>
     <portraitPath>/Art/Portraits/pambenjamin.png</portraitPath>
     <team>Team Mutiny Radio</team>
     <name>Pam Benjamin</name>
-    <atbats>6</atbats>
+    <atbats>11</atbats>
     <hits>1</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
@@ -367,7 +367,7 @@
     <portraitPath>/Art/Portraits/toriovangrol.png</portraitPath>
     <team>Trill Buckner</team>
     <name>Torio Van Grol</name>
-    <atbats>3</atbats>
+    <atbats>8</atbats>
     <hits>0</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>
@@ -398,12 +398,12 @@
   </player>
   <player>
     <number>34</number>
-    <battingAvg>0.167</battingAvg>
+    <battingAvg>0.091</battingAvg>
     <rbi>1</rbi>
     <portraitPath>/Art/Portraits/colinmahan.png</portraitPath>
     <team>Team Mutiny Radio</team>
     <name>Colin Mahan</name>
-    <atbats>6</atbats>
+    <atbats>11</atbats>
     <hits>1</hits>
     <strikeoutsAtBat>0</strikeoutsAtBat>
     <strikeoutsPitched>0</strikeoutsPitched>

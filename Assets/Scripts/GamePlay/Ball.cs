@@ -110,8 +110,10 @@ public class Ball : MonoBehaviour {
         Invoke("ReturnToPitcher", timeDelay);
     }
 
-    public void HandleFoul(float timeDelay = 3.5f)
+    public void HandleFoul()
     {
+        float timeDelay = Vector2.Distance(startPoint, endPoint)/curPitch.hitSpeed;
+        timeDelay += 0.3f;
         TemporarilyDisableCollision(timeDelay);
         Invoke("ReturnToPitcher", timeDelay);
     }

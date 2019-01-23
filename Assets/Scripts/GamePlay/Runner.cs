@@ -65,7 +65,7 @@ public class Runner : MonoBehaviour {
             }
             GameControl.instance.HandleStrike(true);
             anim.SetTrigger("isSwingingBat");
-            int index = UnityEngine.Random.Range(0, 2);
+            int index = UnityEngine.Random.Range(0, Pitches.pitch11.hitLoc.Count);
             Vector2 hitTarget = Pitches.pitch11.hitLoc[index].center.transform.position;
             ball.TemporarilyDisableCollision(0.3f);
             ball.curSpeed = ball.curPitch.hitSpeed;
