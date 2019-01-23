@@ -100,6 +100,7 @@ public class Ball : MonoBehaviour {
                 break;
             }
         }
+
         curPitch.hitSpeed = Random.Range(curPitch.minSpeed, curPitch.maxSpeed);
     }
 
@@ -109,7 +110,7 @@ public class Ball : MonoBehaviour {
         Invoke("ReturnToPitcher", timeDelay);
     }
 
-    public void HandleFoul(float timeDelay = 9.5f)
+    public void HandleFoul(float timeDelay = 3.5f)
     {
         TemporarilyDisableCollision(timeDelay);
         Invoke("ReturnToPitcher", timeDelay);

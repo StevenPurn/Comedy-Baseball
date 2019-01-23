@@ -3448,7 +3448,7 @@ GameObject:
   - component: {fileID: 554085942}
   - component: {fileID: 554085943}
   m_Layer: 0
-  m_Name: 10 - 2
+  m_Name: 11 - 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12123,6 +12123,7 @@ MonoBehaviour:
   meh: {fileID: 21300000, guid: 57adc0dca34d97c4ebd5475252f8abc3, type: 3}
   nice: {fileID: 21300000, guid: dd746de75d7018f458caf56ed1e2725e, type: 3}
   thatWasBad: {fileID: 21300000, guid: eed02c5ef7a2bd74ba2ba45355caae06, type: 3}
+  foul: {fileID: 21300006, guid: a2b6e90d13349cf479e6e29481defd23, type: 3}
   popUpObj: {fileID: 2105569618}
   popUpImg: {fileID: 0}
 --- !u!4 &2055609197
@@ -12223,7 +12224,7 @@ GameObject:
   - component: {fileID: 2066580343}
   - component: {fileID: 2066580344}
   m_Layer: 0
-  m_Name: 10 - 1
+  m_Name: 11 - 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

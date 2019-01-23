@@ -58,19 +58,21 @@ public class Runner : MonoBehaviour {
         }
         else if (ball.curPitch.type == Pitcher.Pitches.foul)
         {
-            Debug.Log("Foul Ball");
-            ball.curPitch = Pitches.pitch11;
+            if (GameControl.strikes != 2)
+            {
+                TextPopUps.instance.ShowPopUp("strike");
+                AudioControl.instance.PlayAudio("foul");
+            }
+            GameControl.instance.HandleStrike(true);
             anim.SetTrigger("isSwingingBat");
-            int pitchIndex = UnityEngine.Random.Range(0, ball.curPitch.hitLoc.Count);
-            Vector2 hitTarget = ball.curPitch.hitLoc[pitchIndex].center.transform.position;
-            hitTarget.x += UnityEngine.Random.Range(ball.curPitch.hitLoc[pitchIndex].minOffset.x, ball.curPitch.hitLoc[pitchIndex].maxOffset.x);
-            hitTarget.y += UnityEngine.Random.Range(ball.curPitch.hitLoc[pitchIndex].minOffset.y, ball.curPitch.hitLoc[pitchIndex].maxOffset.y);
+            int index = UnityEngine.Random.Range(0, 2);
+            Vector2 hitTarget = Pitches.pitch11.hitLoc[index].center.transform.position;
             ball.TemporarilyDisableCollision(0.3f);
             ball.curSpeed = ball.curPitch.hitSpeed;
             ball.maxHeight = ball.curPitch.maxHeight;
             ball.targetFielder = null;
             ball.startPoint = ball.transform.position;
-            ball.endPoint = hitTarget; //Set this better
+            ball.endPoint = hitTarget;
             ball.hasHitGround = false;
             ball.wasHit = true;
             string aud = "hit" + UnityEngine.Random.Range(1, 3);
@@ -79,25 +81,7 @@ public class Runner : MonoBehaviour {
             GameControl.instance.SetCameraToFollowBall(true);
             if (GameControl.playHitAudio)
             {
-                string pitch;
-                int num = ball.curPitch.inputNumber;
-                if (num != 10)
-                {
-                    if (num > 1 && num < 4)
-                    {
-                        pitch = "thatWasBad";
-                    }
-                    else if (num < 7)
-                    {
-                        pitch = "meh";
-                    }
-                    else
-                    {
-                        pitch = "nice";
-                    }
-                    TextPopUps.instance.ShowPopUp(pitch);
-                    AudioControl.instance.PlayAudio(pitch);
-                }
+                TextPopUps.instance.ShowPopUp("foul");
             }
         }
         else

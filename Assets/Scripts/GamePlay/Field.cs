@@ -34,6 +34,7 @@ public static class Field {
                 Pitches.pitches[i + 1].hitLoc.Add(hitLoc);
             }
         }
+        Debug.Log(Pitches.pitches[11]);
     }
 
     public static void BatterIsOut()
